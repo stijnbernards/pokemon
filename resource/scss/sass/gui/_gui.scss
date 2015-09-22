@@ -1,0 +1,67 @@
+.speech{
+  background-image: url(../images/gui/speech/corner_1.png),
+                    url(../images/gui/speech/corner_2.png),
+                    url(../images/gui/speech/corner_3.png),
+                    url(../images/gui/speech/corner_4.png);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: left top, right top, right bottom, left bottom;
+  position: absolute;
+  bottom: 15px;
+  z-index: 5;
+  font-family: pokemon;
+  padding: 30px 50px 30px 50px;
+  box-sizing: border-box;
+  font-size: 41px;
+  &:before{
+    background-image: url(../images/gui/speech/left_wall.png),
+                      url(../images/gui/speech/right_wall.png);
+    background-repeat: repeat-y;
+    background-position: left, right;
+    width: 100%;
+    height: calc(100% - 80px);
+    content: " ";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    z-index: -1;
+  }
+  &:after{
+    background-image: url(../images/gui/speech/top_wall.png),
+                      url(../images/gui/speech/bottom_wall.png);
+    background-repeat: repeat-x;
+    background-position: top, bottom;
+    width: calc(100% - 80px);
+    height: 100%;
+    content: " ";
+    position: absolute;
+    left: 40px;
+    top: 0px;
+    z-index: -1;
+    background-color: white;
+  }
+}
+
+.game-menu{
+  position: absolute;
+  top: 20px;
+  width: 280px;
+  height: 568px;
+  right: 5px;
+  background-image: url(../images/gui/menu.png);
+  font-family: pokemon;
+  z-index: 6;
+  padding-top: 80px;
+  box-sizing: border-box;
+  div{
+    padding-left: 60px;
+    box-sizing: border-box;
+    font-size: 50px;
+  }
+  div[data-func="char"]{
+    text-transform: uppercase;
+  }
+  div[data-selected="true"]{
+    background: url(../images/gui/battle/icons.png) no-repeat 30px 7px;
+  }
+}

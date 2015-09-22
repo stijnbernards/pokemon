@@ -1,0 +1,9 @@
+.exclamation-mark{
+  position: absolute;
+  top: -64px;
+  background: url(../images/gui/speech/exclamation_mark.png);
+  width: 64px;
+  height: 64px;
+  //TODO: generalize z-indexes
+  z-index: 3;
+}

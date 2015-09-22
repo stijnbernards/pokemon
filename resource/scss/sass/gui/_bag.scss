@@ -1,0 +1,9 @@
+.bag-gui{
+  position: absolute;
+  z-index: 6;
+  background-image: url(../images/gui/bag/gui.png), url(../images/gui/bag/background_boy.png);
+  background-position: 0 10px, 0 0;
+  background-repeat: no-repeat, repeat;
+  width: 100%;
+  height: 100%;
+}

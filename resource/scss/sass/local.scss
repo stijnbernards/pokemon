@@ -1,0 +1,23 @@
+/*************************
+*      Start Imports
+**************************/
+
+@import "var";
+@import "mixins";
+
+@import "gui/bag";
+@import "gui/gui";
+@import "gui/pokemart";
+
+@import "custom/main";
+@import "custom/battle/main";
+
+@import "animations/misc";
+@import "animations/littleroot";
+@import "animations/npc/npc-main";
+@import "animations/player/walking";
+@import "animations/battles/start-battle";
+
+/*************************
+*      End Imports
+**************************/

@@ -1,0 +1,115 @@
+.pokemart-gui{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: url(../images/gui/npc/pokemart.png);
+  z-index: 6;
+  *{
+    font-family: pokemon;
+  }
+  .items{
+    position: absolute;
+    right: 28px;
+    width: 480px;
+    height: auto;
+    height: 515px;
+    overflow: hidden;
+    top: 20px;
+    li{
+      height: 75px;
+      width: 420px;
+      display: inline-block;
+      padding-left: 60px;
+      &:first-of-type{
+        margin-top: -20px;
+      }
+      &[data-selected="true"]{
+        background: url(../images/gui/battle/icons.png) no-repeat 10px 26px;
+      }
+      *{
+        font-size: 40px;
+        position: relative;
+        top: 14px;
+      }
+      span.item-cost{
+        float: right;
+        right: 5px;
+        overflow: visible;
+        &:before{
+          content: " ";
+          width: 15px;
+          height: 15px;
+          background-image: url(../images/gui/npc/pokedollar.png);
+        }
+      }
+      span.item-name{
+        left: 5px;
+        text-transform: capitalize;
+      }
+      .wrapper{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    li:nth-of-type(even) .wrapper{
+      background-color: #d4b080;
+    }
+  }
+  .item-img{
+    position: absolute;
+    left: 20px;
+    width: 120px;
+    height: 104px;
+    top: 284px;
+    background: no-repeat center;
+  }
+  .item-desc{
+    position: absolute;
+    top: 416px;
+    left: 26px;
+    font-size: 50px;
+    max-width: 406px;
+  }
+  .money{
+    position: absolute;
+    top: 30px;
+    left: 255px;
+    font-size: 50px;
+  }
+  .in-bag{
+    position: absolute;
+    width: 440px;
+    height: 120px;
+    top: 318px;
+    left: 4px;
+    background-image: url(../images/gui/npc/pokemart_inbag.png);
+    padding: 29px 20px;
+    box-sizing: border-box;
+    span{
+      font-size: 50px;
+    }
+    span.items-bag{
+      position: relative;
+      float: right;
+      padding-right: 25px;
+    }
+  }
+  .amount{
+    position: absolute;
+    width: 376px;
+    height: 120px;
+    top: 318px;
+    right: 44px;
+    background-image: url(../images/gui/npc/pokemart_amount.png);
+    padding: 29px 25px 25px;
+    box-sizing: border-box;
+    span{
+      font-size: 50px;
+    }
+    .amount-price{
+      float: right;
+    }
+  }
+}

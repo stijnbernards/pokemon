@@ -1,0 +1,55 @@
+.parent.wrapper{
+  width: auto;
+  height: auto;
+  z-index: 0;
+  position: absolute;
+  margin-top: -32px;
+  left: 0;
+  top: 0;
+}
+
+.parent.wrapper[data-animate="true"]{
+  @include transition(all 280ms linear);
+  @include transition-property(top, left, right, down);
+}
+
+#game{
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  width: 960px;
+  height: 636px;
+  overflow: hidden;
+}
+
+#player{
+  width: 64px;
+  height: 87px;
+  background: black;
+  position: absolute;
+  margin-left: -32px;
+  margin-top: -52px;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  background: url(../images/player/player_1.png);
+  background-position: 0px 0px;
+}
+
+.bg{
+  z-index: 0;
+}
+
+.overlay{
+  z-index: 4;
+}
+
+.grid{
+  background: url('../images/misc/grid.png') transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}

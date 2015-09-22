@@ -1,0 +1,121 @@
+@include keyframes(anim-player-walk-up-right) {
+  0% {
+    background-position: -280px 0px;
+  }
+  100% {
+    background-position: -352px 0px;
+  }
+}
+
+@include keyframes(anim-player-walk-up-left) {
+  0% {
+    background-position: -352px 0px;
+  }
+  100% {
+    background-position: -418px 0px;
+  }
+}
+
+@include keyframes(anim-player-walk-left-right) {
+  0% {
+    background-position: -704px 0px;
+  }
+  100% {
+    background-position: -776px 0px;
+  }
+}
+
+@include keyframes(anim-player-walk-left-left) {
+  0% {
+    background-position: -776px 0px;
+  }
+  100% {
+    background-position: -848px 0px;
+  }
+}
+
+@include keyframes(anim-player-walk-down-left) {
+  0% {
+    background-position: -71px 0px;
+  }
+  100% {
+    background-position: -139px 0px;
+  }
+}
+
+@include keyframes(anim-player-walk-down-right) {
+  0% {
+    background-position: -139px 0px;
+  }
+  100% {
+    background-position: -208px 0px;
+  }
+}
+
+@include keyframes(anim-player-walk-right-left) {
+  0% {
+    background-position: -486px 0px;
+  }
+  100% {
+    background-position: -556px 0px;
+  }
+}
+
+@include keyframes(anim-player-walk-right-right) {
+  0% {
+    background-position: -556px 0px;
+  }
+  100% {
+    background-position: -624px 0px;
+  }
+}
+
+#player{
+  &[data-direction="up"]{
+    background-position: -208px 0px;
+  }
+  &[data-direction="right"]{
+    background-position: -420px 0px;
+  }
+  &[data-direction="left"]{
+    background-position: -632px 0px;
+  }
+
+  &[data-animate="true"]{
+    &[data-direction="down"]{
+      &[data-foot="left"] {
+        @include animation(anim-player-walk-down-left 150ms steps(1) 1);
+      }
+      &[data-foot="right"] {
+        @include animation(anim-player-walk-down-right 150ms steps(1) 1);
+      }
+    }
+
+    &[data-direction="right"]{
+      &[data-foot="left"]{
+        @include animation(anim-player-walk-right-left 150ms steps(1) 1);
+      }
+      &[data-foot="right"]{
+        @include animation(anim-player-walk-right-right 150ms steps(1) 1);
+      }
+    }
+
+    &[data-direction="up"]{
+      &[data-foot="left"]{
+        @include animation(anim-player-walk-up-left 150ms steps(1) 1);
+      }
+      &[data-foot="right"]{
+        @include animation(anim-player-walk-up-right 150ms steps(1) 1);
+      }
+    }
+
+    &[data-direction="left"]{
+      &[data-foot="left"]{
+        @include animation(anim-player-walk-left-left 150ms steps(1) 1);
+      }
+      &[data-foot="right"]{
+        @include animation(anim-player-walk-left-right 150ms steps(1) 1);
+      }
+    }
+  }
+}

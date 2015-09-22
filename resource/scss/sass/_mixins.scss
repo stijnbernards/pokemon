@@ -1,0 +1,60 @@
+@mixin transition($props){
+  -webkit-transition: $props;
+  -moz-transition: $props;
+  -ms-transition: $props;
+  -o-transition: $props;
+  transition: $props;
+}
+
+@mixin transform-style($style){
+  -webkit-transform-style: $style;
+  -moz-transform-style: $style;
+  -ms-transform-style: $style;
+  transform-style: $style;
+}
+
+@mixin perspective($val){
+  -webkit-perspective: $val;
+  -moz-perspective: $val;
+  -o-perspective: $val;
+  perspective: $val;
+}
+
+@mixin transform($val){
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -o-transform: $val;
+  transform: $val;
+}
+
+@mixin animation($val){
+  -webkit-animation: $val;
+  -moz-animation: $val;
+  -ms-animation: $val;
+  -o-animation: $val;
+  animation: $val;
+}
+
+@mixin transition-property($prop...){
+  -webkit-transition-property: $prop;
+  -moz-transition-property: $prop;
+  -ms-transition-property: $prop;
+  -o-transition-property: $prop;
+  transition-property: $prop;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}

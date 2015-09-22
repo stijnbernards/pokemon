@@ -1,0 +1,21 @@
+div.parent.wrapper.battle-engage{
+  //TODO: create the func lol
+}
+
+@include keyframes(anim-player-health) {
+  0% {
+    bottom: 198px;
+  }
+  100% {
+    bottom: 188px;
+  }
+}
+
+@include keyframes(anim-player-pokemon) {
+  0% {
+    bottom: 188px;
+  }
+  100% {
+    bottom: 178px;
+  }
+}

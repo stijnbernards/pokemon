@@ -1,0 +1,25 @@
+@include keyframes(anim-flower-1) {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 256px 0px;
+  }
+}
+
+.flower-1{
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background: url('../images/animations/flower_1.png') transparent 128px 0px;
+  z-index: 1;
+  @include animation(anim-flower-1 1.5s steps(4) infinite);
+}
+
+.npc{
+  width: 64px;
+  height: 64px;
+  background: white;
+  position: absolute;
+  z-index: 2;
+}

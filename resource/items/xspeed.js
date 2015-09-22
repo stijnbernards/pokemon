@@ -5,5 +5,5 @@ var item = {
     price: 350,
     desc: "Raises the stat SPEED during one battle.",
     sell: 175,
-    type: "items"
+    type: "ITEMS"
 }

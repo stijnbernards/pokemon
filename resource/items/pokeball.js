@@ -5,5 +5,5 @@ var item = {
     price: 200,
     desc: "A tool used for catching wild POK&eacute;MON.",
     sell: 100,
-    type: "pok&eactue; balls"
+    type: "POK&eactue; BALLS"
 }

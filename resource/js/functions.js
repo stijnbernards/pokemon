@@ -96,7 +96,14 @@ var pokemonCore = {
         walkInterval: null,
         lastKeyPress: null,
         initBag: function(){
-            $("#game").append('<div class="bag-gui"></div>')
+            var keys = {
+                ITEMS: null,
+                "POK&eacute; BALLS": null,
+                "TMs & HMs": null,
+                BERRIES: null,
+                "KEY ITEMS": null
+            };
+            $("#game").append('<div class="bag-gui"></div>');
         },
         openMenu: function(){
             var menuItems = {

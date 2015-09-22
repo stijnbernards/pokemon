@@ -5,5 +5,5 @@ var item = {
     price: 200,
     desc: "Heals a paralyzed POK&eacute;MON.",
     sell: 100,
-    type: "items"
+    type: "ITEMS"
 }

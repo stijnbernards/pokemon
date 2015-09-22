@@ -5,5 +5,5 @@ var item = {
     price: 500,
     desc: "Raises the stat ATTACK during one battle.",
     sell: 250,
-    type: "items"
+    type: "ITEMS"
 }

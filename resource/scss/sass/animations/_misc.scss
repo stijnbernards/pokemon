@@ -7,3 +7,54 @@
   //TODO: generalize z-indexes
   z-index: 3;
 }
+
+@include keyframes(anim-bag-left) {
+  0% {
+    left: 90px;
+  }
+  50% {
+    left: 80px;
+  }
+  100%{
+    left: 90px;
+  }
+}
+
+@include keyframes(anim-bag-right) {
+  0% {
+    left: 380px;
+  }
+  50% {
+    left: 390px;
+  }
+  100%{
+    left: 380px;
+  }
+}
+
+@include keyframes(anim-type-out){
+  0%{
+    margin-left: 0px;
+  }
+  100%{
+    margin-left: -90px;
+  }
+}
+
+@include keyframes(anim-pokeball-right){
+  0%{
+    @include transform(rotate(0deg));
+  }
+  100%{
+    @include transform(rotate(180deg));
+  }
+}
+
+@include keyframes(anim-pokeball-left){
+  0%{
+    @include transform(rotate(0deg));
+  }
+  100%{
+    @include transform(rotate(-180deg));
+  }
+}

@@ -15,6 +15,113 @@
   width: 100%;
   height: 100%;
 }
+/* line 9, ../scss/sass/gui/_bag.scss */
+.bag-gui .item-display {
+  position: absolute;
+  width: 120px;
+  height: 104px;
+  top: 275px;
+  left: 20px;
+}
+/* line 16, ../scss/sass/gui/_bag.scss */
+.bag-gui .item-desc {
+  position: absolute;
+  padding: 30px;
+  box-sizing: border-box;
+  width: 431px;
+  height: 219px;
+  top: 391px;
+}
+/* line 24, ../scss/sass/gui/_bag.scss */
+.bag-gui .type-name {
+  position: absolute;
+  top: 29px;
+  left: 120px;
+  width: 268px;
+  height: 56px;
+  font-family: pokemon;
+  font-size: 50px;
+  overflow: hidden;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+/* line 35, ../scss/sass/gui/_bag.scss */
+.bag-gui .type-name span {
+  clear: none;
+  display: inline-block;
+  width: 268px;
+  text-align: center;
+}
+/* line 41, ../scss/sass/gui/_bag.scss */
+.bag-gui .type-name span[data-animate="true"] {
+  -webkit-transition: margin-left 200ms linear;
+  -moz-transition: margin-left 200ms linear;
+  -ms-transition: margin-left 200ms linear;
+  -o-transition: margin-left 200ms linear;
+  transition: margin-left 200ms linear;
+}
+/* line 45, ../scss/sass/gui/_bag.scss */
+.bag-gui .pokeball-icon {
+  position: absolute;
+  background: url(../images/gui/bag/icons.png) -62px 5px;
+  left: 37px;
+  top: 33px;
+  height: 50px;
+  width: 50px;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -o-transform-origin: center center;
+  transform-origin: center center;
+}
+/* line 53, ../scss/sass/gui/_bag.scss */
+.bag-gui .pokeball-icon[data-animate="left"] {
+  -webkit-animation: anim-pokeball-left 200ms steps(4) 1;
+  -moz-animation: anim-pokeball-left 200ms steps(4) 1;
+  -ms-animation: anim-pokeball-left 200ms steps(4) 1;
+  -o-animation: anim-pokeball-left 200ms steps(4) 1;
+  animation: anim-pokeball-left 200ms steps(4) 1;
+}
+/* line 56, ../scss/sass/gui/_bag.scss */
+.bag-gui .pokeball-icon[data-animate="right"] {
+  -webkit-animation: anim-pokeball-right 200ms steps(4) 1;
+  -moz-animation: anim-pokeball-right 200ms steps(4) 1;
+  -ms-animation: anim-pokeball-right 200ms steps(4) 1;
+  -o-animation: anim-pokeball-right 200ms steps(4) 1;
+  animation: anim-pokeball-right 200ms steps(4) 1;
+}
+/* line 60, ../scss/sass/gui/_bag.scss */
+.bag-gui .arrow-left {
+  position: absolute;
+  top: 29px;
+  left: 100px;
+  width: 41px;
+  height: 57px;
+  background-position: -119px 1px;
+  -webkit-animation: anim-bag-left 500ms steps(3) infinite;
+  -moz-animation: anim-bag-left 500ms steps(3) infinite;
+  -ms-animation: anim-bag-left 500ms steps(3) infinite;
+  -o-animation: anim-bag-left 500ms steps(3) infinite;
+  animation: anim-bag-left 500ms steps(3) infinite;
+}
+/* line 69, ../scss/sass/gui/_bag.scss */
+.bag-gui .arrow-right {
+  position: absolute;
+  top: 29px;
+  left: 390px;
+  width: 41px;
+  height: 57px;
+  background-position: -165px 1px;
+  -webkit-animation: anim-bag-right 500ms steps(3) infinite;
+  -moz-animation: anim-bag-right 500ms steps(3) infinite;
+  -ms-animation: anim-bag-right 500ms steps(3) infinite;
+  -o-animation: anim-bag-right 500ms steps(3) infinite;
+  animation: anim-bag-right 500ms steps(3) infinite;
+}
+/* line 78, ../scss/sass/gui/_bag.scss */
+.bag-gui .arrow-left, .bag-gui .arrow-right {
+  background-image: url(../images/gui/bag/icons.png);
+}
 
 /* line 1, ../scss/sass/gui/_gui.scss */
 .speech {
@@ -510,6 +617,254 @@ div.battle-screen .ally-pokemon[data-selected="true"] {
   z-index: 3;
 }
 
+@-webkit-keyframes anim-bag-left {
+  0% {
+    left: 90px;
+  }
+  50% {
+    left: 80px;
+  }
+  100% {
+    left: 90px;
+  }
+}
+@-moz-keyframes anim-bag-left {
+  0% {
+    left: 90px;
+  }
+  50% {
+    left: 80px;
+  }
+  100% {
+    left: 90px;
+  }
+}
+@-o-keyframes anim-bag-left {
+  0% {
+    left: 90px;
+  }
+  50% {
+    left: 80px;
+  }
+  100% {
+    left: 90px;
+  }
+}
+@keyframes anim-bag-left {
+  0% {
+    left: 90px;
+  }
+  50% {
+    left: 80px;
+  }
+  100% {
+    left: 90px;
+  }
+}
+@-webkit-keyframes anim-bag-right {
+  0% {
+    left: 380px;
+  }
+  50% {
+    left: 390px;
+  }
+  100% {
+    left: 380px;
+  }
+}
+@-moz-keyframes anim-bag-right {
+  0% {
+    left: 380px;
+  }
+  50% {
+    left: 390px;
+  }
+  100% {
+    left: 380px;
+  }
+}
+@-o-keyframes anim-bag-right {
+  0% {
+    left: 380px;
+  }
+  50% {
+    left: 390px;
+  }
+  100% {
+    left: 380px;
+  }
+}
+@keyframes anim-bag-right {
+  0% {
+    left: 380px;
+  }
+  50% {
+    left: 390px;
+  }
+  100% {
+    left: 380px;
+  }
+}
+@-webkit-keyframes anim-type-out {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -90px;
+  }
+}
+@-moz-keyframes anim-type-out {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -90px;
+  }
+}
+@-o-keyframes anim-type-out {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -90px;
+  }
+}
+@keyframes anim-type-out {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -90px;
+  }
+}
+@-webkit-keyframes anim-pokeball-right {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+@-moz-keyframes anim-pokeball-right {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+@-o-keyframes anim-pokeball-right {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+@keyframes anim-pokeball-right {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes anim-pokeball-left {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
+}
+@-moz-keyframes anim-pokeball-left {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
+}
+@-o-keyframes anim-pokeball-left {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
+}
+@keyframes anim-pokeball-left {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
+}
 @-webkit-keyframes anim-flower-1 {
   0% {
     background-position: 0px 0px;

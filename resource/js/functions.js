@@ -96,6 +96,7 @@ var pokemonCore = {
         walkInterval: null,
         lastKeyPress: null,
         initBag: function(){
+            var curNr = 0;
             var keys = {
                 ITEMS: null,
                 "POK&eacute; BALLS": null,
@@ -103,7 +104,71 @@ var pokemonCore = {
                 BERRIES: null,
                 "KEY ITEMS": null
             };
-            $("#game").append('<div class="bag-gui"></div>');
+
+            $("#game").append('<div class="bag-gui"><div class="pokeball-icon"></div><div class="arrow-left"></div><div class="arrow-right"></div><div class="type-name"></div><div class="item-display"></div><div class="item-desc"></div></div>');
+            $(".bag-gui .type-name").append('<span style="margin-left: -268px">KEY ITEMS</span><span data-animate="true">ITEMS</span><span>POK&eacute; BALLS</span><span>TMs & HMs</span><span>BERRIES</span><span>KEY ITEMS</span><span>ITEMS</span>');
+            for(var item in pokemonCore.gameChar.bag) {
+                keys[pokemonCore.gameChar.bag[item].type] = pokemonCore.gameChar.bag[item];
+            }
+
+            $(document).bind("keydown", function(e){
+                switch(e.which){
+                    case 39:
+                        curNr++;
+                        removeArrow();
+                        if(curNr > 4){
+                            $(".bag-gui .type-name span:first-of-type").next().css("margin-left", "-" + (curNr * 268) + "px");
+                            setTimeout(function(){
+                                $(".bag-gui .type-name span:first-of-type").next().attr("data-animate", "false");
+                                $(".bag-gui .type-name span:first-of-type").next().css("margin-left", "0px");
+                                setTimeout(function(){
+                                    $(".bag-gui .type-name span:first-of-type").next().attr("data-animate", "true");
+                                }, 20);
+                            }, 200);
+                            curNr = 0;
+                        }else {
+                            $(".bag-gui .type-name span:first-of-type").next().css("margin-left", "-" + (curNr * 268) + "px");
+                        }
+                        $(".bag-gui .pokeball-icon").attr("data-animate", "none");
+                        setTimeout(function(){
+                            $(".bag-gui .pokeball-icon").attr("data-animate", "right);
+                        }, 20);
+                        break;
+                    case 37:
+                        curNr--;
+                        removeArrow();
+                        if(curNr == 0){
+                            $(".bag-gui .type-name span:first-of-type").next().css("margin-left", "-" + (curNr * 268) + "px");
+                            setTimeout(function(){
+                                $(".bag-gui .type-name span:first-of-type").next().attr("data-animate", "false");
+                                $(".bag-gui .type-name span:first-of-type").next().css("margin-left", "-" + (5 * 268) + "px");
+                                setTimeout(function(){
+                                    $(".bag-gui .type-name span:first-of-type").next().attr("data-animate", "true");
+                                }, 20);
+                            }, 200);
+                            curNr = 5;
+                        }else {
+                            $(".bag-gui .type-name span:first-of-type").next().css("margin-left", "-" + (curNr * 268) + "px");
+                        }
+                        $(".bag-gui .pokeball-icon").attr("data-animate", "none");
+                        setTimeout(function(){
+                            $(".bag-gui .pokeball-icon").attr("data-animate", "left");
+                        }, 20);
+                        break;
+                }
+
+                function removeArrow(){
+
+                    $(".arrow-left, .arrow-right").css("display", "none");
+                    setTimeout(function(){
+                        $(".arrow-left, .arrow-right").css("display",  "block");
+                    }, 200);
+                }
+
+                function DisplayKey(key){
+                    $(".bag-gui .type-name").append(key);
+                }
+            });
         },
         openMenu: function(){
             var menuItems = {

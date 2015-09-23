@@ -1,6 +1,6 @@
 var map = [
     [
-        [1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(9);}],[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(9);}],[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(9);}],[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(9);}],1,1,1,1,1,1,1,1,1,1,1,1],
         [1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1],
         [1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
         [1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
@@ -19,7 +19,7 @@ var map = [
         [1,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
         [1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1],
         [1,1,1,1,0,0,0,0,0,0,8,0,0,0,0,0,1,1,1,1,1,1,1,1],
-        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(6);}],[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(6);}],[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(6);}],[7, function() { pokemonCore.maps.mapLastCoord[7] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(6);}],1,1,1,1,1,1,1,1,1,1,1,1],
     ],
     "towns/oldale_town/main.png"
 ];

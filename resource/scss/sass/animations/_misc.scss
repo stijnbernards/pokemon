@@ -10,13 +10,13 @@
 
 @include keyframes(anim-bag-left) {
   0% {
-    left: 90px;
+    left: 97px;
   }
   50% {
-    left: 80px;
+    left: 84px;
   }
   100%{
-    left: 90px;
+    left: 97px;
   }
 }
 
@@ -56,5 +56,18 @@
   }
   100%{
     @include transform(rotate(-180deg));
+  }
+}
+
+@include keyframes(anim-bag){
+  0%{
+    top: 136px;
+  }
+  50%{
+    top: 116px;
+  }
+
+  100%{
+    top: 136px;
   }
 }

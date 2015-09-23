@@ -9,33 +9,34 @@
 .bag-gui {
   position: absolute;
   z-index: 6;
-  background-image: url(../images/gui/bag/gui.png), url(../images/gui/bag/background_boy.png);
-  background-position: 0 10px, 0 0;
-  background-repeat: no-repeat, repeat;
+  background-image: url(../images/gui/bag/gui.png);
   width: 100%;
   height: 100%;
 }
-/* line 9, ../scss/sass/gui/_bag.scss */
+/* line 7, ../scss/sass/gui/_bag.scss */
 .bag-gui .item-display {
   position: absolute;
   width: 120px;
   height: 104px;
-  top: 275px;
+  top: 284px;
   left: 20px;
+  background: no-repeat center;
 }
-/* line 16, ../scss/sass/gui/_bag.scss */
+/* line 15, ../scss/sass/gui/_bag.scss */
 .bag-gui .item-desc {
   position: absolute;
   padding: 30px;
   box-sizing: border-box;
   width: 431px;
   height: 219px;
-  top: 391px;
+  top: 400px;
+  font-size: 50px;
+  font-family: pokemon;
 }
-/* line 24, ../scss/sass/gui/_bag.scss */
+/* line 25, ../scss/sass/gui/_bag.scss */
 .bag-gui .type-name {
   position: absolute;
-  top: 29px;
+  top: 35px;
   left: 120px;
   width: 268px;
   height: 56px;
@@ -45,14 +46,14 @@
   word-break: keep-all;
   white-space: nowrap;
 }
-/* line 35, ../scss/sass/gui/_bag.scss */
+/* line 36, ../scss/sass/gui/_bag.scss */
 .bag-gui .type-name span {
   clear: none;
   display: inline-block;
   width: 268px;
   text-align: center;
 }
-/* line 41, ../scss/sass/gui/_bag.scss */
+/* line 42, ../scss/sass/gui/_bag.scss */
 .bag-gui .type-name span[data-animate="true"] {
   -webkit-transition: margin-left 200ms linear;
   -moz-transition: margin-left 200ms linear;
@@ -60,13 +61,13 @@
   -o-transition: margin-left 200ms linear;
   transition: margin-left 200ms linear;
 }
-/* line 45, ../scss/sass/gui/_bag.scss */
+/* line 46, ../scss/sass/gui/_bag.scss */
 .bag-gui .pokeball-icon {
   position: absolute;
-  background: url(../images/gui/bag/icons.png) -62px 5px;
-  left: 37px;
-  top: 33px;
-  height: 50px;
+  background: url(../images/gui/bag/icons.png);
+  left: 36px;
+  top: 32px;
+  height: 52px;
   width: 50px;
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
@@ -74,7 +75,7 @@
   -o-transform-origin: center center;
   transform-origin: center center;
 }
-/* line 53, ../scss/sass/gui/_bag.scss */
+/* line 54, ../scss/sass/gui/_bag.scss */
 .bag-gui .pokeball-icon[data-animate="left"] {
   -webkit-animation: anim-pokeball-left 200ms steps(4) 1;
   -moz-animation: anim-pokeball-left 200ms steps(4) 1;
@@ -82,7 +83,7 @@
   -o-animation: anim-pokeball-left 200ms steps(4) 1;
   animation: anim-pokeball-left 200ms steps(4) 1;
 }
-/* line 56, ../scss/sass/gui/_bag.scss */
+/* line 57, ../scss/sass/gui/_bag.scss */
 .bag-gui .pokeball-icon[data-animate="right"] {
   -webkit-animation: anim-pokeball-right 200ms steps(4) 1;
   -moz-animation: anim-pokeball-right 200ms steps(4) 1;
@@ -90,37 +91,106 @@
   -o-animation: anim-pokeball-right 200ms steps(4) 1;
   animation: anim-pokeball-right 200ms steps(4) 1;
 }
-/* line 60, ../scss/sass/gui/_bag.scss */
+/* line 61, ../scss/sass/gui/_bag.scss */
 .bag-gui .arrow-left {
   position: absolute;
-  top: 29px;
-  left: 100px;
+  top: 31px;
+  left: 97px;
   width: 41px;
-  height: 57px;
-  background-position: -119px 1px;
+  height: 62px;
+  background-position: -54px 1px;
   -webkit-animation: anim-bag-left 500ms steps(3) infinite;
   -moz-animation: anim-bag-left 500ms steps(3) infinite;
   -ms-animation: anim-bag-left 500ms steps(3) infinite;
   -o-animation: anim-bag-left 500ms steps(3) infinite;
   animation: anim-bag-left 500ms steps(3) infinite;
 }
-/* line 69, ../scss/sass/gui/_bag.scss */
+/* line 70, ../scss/sass/gui/_bag.scss */
 .bag-gui .arrow-right {
   position: absolute;
-  top: 29px;
+  top: 31px;
   left: 390px;
   width: 41px;
-  height: 57px;
-  background-position: -165px 1px;
+  height: 62px;
+  background-position: -100px 1px;
   -webkit-animation: anim-bag-right 500ms steps(3) infinite;
   -moz-animation: anim-bag-right 500ms steps(3) infinite;
   -ms-animation: anim-bag-right 500ms steps(3) infinite;
   -o-animation: anim-bag-right 500ms steps(3) infinite;
   animation: anim-bag-right 500ms steps(3) infinite;
 }
-/* line 78, ../scss/sass/gui/_bag.scss */
+/* line 79, ../scss/sass/gui/_bag.scss */
 .bag-gui .arrow-left, .bag-gui .arrow-right {
   background-image: url(../images/gui/bag/icons.png);
+}
+/* line 82, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag {
+  position: absolute;
+  top: 136px;
+  left: 146px;
+  background: url(../images/gui/bag/bag.png);
+  height: 256px;
+  width: 240px;
+}
+/* line 89, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag[data-animate="true"] {
+  -webkit-animation: anim-bag 200ms linear 1;
+  -moz-animation: anim-bag 200ms linear 1;
+  -ms-animation: anim-bag 200ms linear 1;
+  -o-animation: anim-bag 200ms linear 1;
+  animation: anim-bag 200ms linear 1;
+}
+/* line 92, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag[data-selected="-1"] {
+  background-position: 4px 0px;
+}
+/* line 95, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag[data-selected="0"] {
+  background-position: -260px 0px;
+}
+/* line 98, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag[data-selected="1"] {
+  background-position: -524px 0px;
+}
+/* line 101, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag[data-selected="2"] {
+  background-position: -788px 0px;
+}
+/* line 104, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag[data-selected="3"] {
+  background-position: -1052px 0px;
+}
+/* line 107, ../scss/sass/gui/_bag.scss */
+.bag-gui .bag[data-selected="4"] {
+  background-position: -1316px 0px;
+}
+/* line 112, ../scss/sass/gui/_bag.scss */
+.bag-gui .items {
+  background-color: #d8d4a8;
+  width: 480px;
+  position: absolute;
+  top: 60px;
+  right: 32px;
+  height: 520px;
+  font-family: pokemon;
+  font-size: 50px;
+}
+/* line 121, ../scss/sass/gui/_bag.scss */
+.bag-gui .items span.amount {
+  float: right;
+}
+/* line 124, ../scss/sass/gui/_bag.scss */
+.bag-gui .items span.item-name {
+  text-transform: capitalize;
+}
+/* line 127, ../scss/sass/gui/_bag.scss */
+.bag-gui .items .item {
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+/* line 130, ../scss/sass/gui/_bag.scss */
+.bag-gui .items .item[data-selected="true"] {
+  background: url(../images/gui/battle/icons.png) no-repeat 4px 10px;
 }
 
 /* line 1, ../scss/sass/gui/_gui.scss */
@@ -619,46 +689,46 @@ div.battle-screen .ally-pokemon[data-selected="true"] {
 
 @-webkit-keyframes anim-bag-left {
   0% {
-    left: 90px;
+    left: 97px;
   }
   50% {
-    left: 80px;
+    left: 84px;
   }
   100% {
-    left: 90px;
+    left: 97px;
   }
 }
 @-moz-keyframes anim-bag-left {
   0% {
-    left: 90px;
+    left: 97px;
   }
   50% {
-    left: 80px;
+    left: 84px;
   }
   100% {
-    left: 90px;
+    left: 97px;
   }
 }
 @-o-keyframes anim-bag-left {
   0% {
-    left: 90px;
+    left: 97px;
   }
   50% {
-    left: 80px;
+    left: 84px;
   }
   100% {
-    left: 90px;
+    left: 97px;
   }
 }
 @keyframes anim-bag-left {
   0% {
-    left: 90px;
+    left: 97px;
   }
   50% {
-    left: 80px;
+    left: 84px;
   }
   100% {
-    left: 90px;
+    left: 97px;
   }
 }
 @-webkit-keyframes anim-bag-right {
@@ -863,6 +933,50 @@ div.battle-screen .ally-pokemon[data-selected="true"] {
     -ms-transform: rotate(-180deg);
     -o-transform: rotate(-180deg);
     transform: rotate(-180deg);
+  }
+}
+@-webkit-keyframes anim-bag {
+  0% {
+    top: 136px;
+  }
+  50% {
+    top: 116px;
+  }
+  100% {
+    top: 136px;
+  }
+}
+@-moz-keyframes anim-bag {
+  0% {
+    top: 136px;
+  }
+  50% {
+    top: 116px;
+  }
+  100% {
+    top: 136px;
+  }
+}
+@-o-keyframes anim-bag {
+  0% {
+    top: 136px;
+  }
+  50% {
+    top: 116px;
+  }
+  100% {
+    top: 136px;
+  }
+}
+@keyframes anim-bag {
+  0% {
+    top: 136px;
+  }
+  50% {
+    top: 116px;
+  }
+  100% {
+    top: 136px;
   }
 }
 @-webkit-keyframes anim-flower-1 {

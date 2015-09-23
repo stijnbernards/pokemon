@@ -1,17 +1,16 @@
 .bag-gui{
   position: absolute;
   z-index: 6;
-  background-image: url(../images/gui/bag/gui.png), url(../images/gui/bag/background_boy.png);
-  background-position: 0 10px, 0 0;
-  background-repeat: no-repeat, repeat;
+  background-image: url(../images/gui/bag/gui.png);
   width: 100%;
   height: 100%;
   .item-display{
     position: absolute;
     width: 120px;
     height: 104px;
-    top: 275px;
+    top: 284px;
     left: 20px;
+    background: no-repeat center;
   }
   .item-desc{
     position: absolute;
@@ -19,11 +18,13 @@
     box-sizing: border-box;
     width: 431px;
     height: 219px;
-    top: 391px;
+    top: 400px;
+    font-size: 50px;
+    font-family: pokemon;
   }
   .type-name{
     position: absolute;
-    top: 29px;
+    top: 35px;
     left: 120px;
     width: 268px;
     height: 56px;
@@ -44,10 +45,10 @@
   }
   .pokeball-icon{
     position: absolute;
-    background: url(../images/gui/bag/icons.png) -62px 5px;
-    left: 37px;
-    top: 33px;
-    height: 50px;
+    background: url(../images/gui/bag/icons.png);
+    left: 36px;
+    top: 32px;
+    height: 52px;
     width: 50px;
     @include transform-origin(center center);
     &[data-animate="left"]{
@@ -59,23 +60,76 @@
   }
   .arrow-left{
     position: absolute;
-    top: 29px;
-    left: 100px;
+    top: 31px;
+    left: 97px;
     width: 41px;
-    height: 57px;
-    background-position: -119px 1px;
+    height: 62px;
+    background-position: -54px 1px;
     @include animation(anim-bag-left 500ms steps(3) infinite);
   }
   .arrow-right {
     position: absolute;
-    top: 29px;
+    top: 31px;
     left: 390px;
     width: 41px;
-    height: 57px;
-    background-position: -165px 1px;
+    height: 62px;
+    background-position: -100px 1px;
     @include animation(anim-bag-right 500ms steps(3) infinite);
   }
   .arrow-left, .arrow-right{
     background-image: url(../images/gui/bag/icons.png);
+  }
+  .bag{
+    position: absolute;
+    top: 136px;
+    left: 146px;
+    background: url(../images/gui/bag/bag.png);
+    height: 256px;
+    width: 240px;
+    &[data-animate="true"]{
+      @include animation(anim-bag 200ms linear 1);
+    }
+    &[data-selected="-1"]{
+      background-position: 4px 0px;
+    }
+    &[data-selected="0"]{
+      background-position: -260px 0px;
+    }
+    &[data-selected="1"]{
+      background-position: -524px 0px;
+    }
+    &[data-selected="2"]{
+      background-position: -788px 0px;
+    }
+    &[data-selected="3"]{
+      background-position: -1052px 0px;
+    }
+    &[data-selected="4"]{
+      background-position: -1316px 0px;
+    }
+  }
+
+  .items{
+    background-color: #d8d4a8;
+    width: 480px;
+    position: absolute;
+    top: 60px;
+    right: 32px;
+    height: 520px;
+    font-family: pokemon;
+    font-size: 50px;
+    span.amount{
+      float: right;
+    }
+    span.item-name{
+      text-transform: capitalize;
+    }
+    .item{
+      padding-left: 40px;
+      box-sizing: border-box;
+      &[data-selected="true"]{
+        background: url(../images/gui/battle/icons.png) no-repeat 4px 10px;
+      }
+    }
   }
 }

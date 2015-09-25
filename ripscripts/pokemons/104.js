@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 104,
+    name: "Cubone",
+    species: "Lonely Pokémon",
+    height: "1′4″ (0.41m)",
+    weight: "14.3 lbs (6.5 kg)",
+    abilities: [],
+    stats:{
+        HP: [50, 50],
+        ATT: [50, 0],
+        DEF: [95, 0],
+        SPATT: [40, 0],
+        SPDEF: [50, 0],
+        SPD: [35, 0],
+    },
+    entry: "Wears the skull of its deceased mother. Its cries echo inside the skull and come out as a sad melody.",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

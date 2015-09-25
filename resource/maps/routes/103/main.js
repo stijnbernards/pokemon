@@ -26,14 +26,19 @@ var map = [
 var npc = [];
 
 var pokemon = [
-    //{
-    //    pokemon: new pokemonCore.pokemon.instantiate(252),
-    //    rarity: 10,
-    //    level: [2, 3, 4]
-    //},
-    //{
-    //    pokemon: new pokemonCore.pokemon.instantiate(255),
-    //    rarity: 10,
-    //    level: [2, 3, 4, 20]
-    //}
+    {
+        pokemon: new pokemonCore.pokemon.instantiate(261),
+        rarity: 6.75,
+        level: [2, 3, 4]
+    },
+    {
+        pokemon: new pokemonCore.pokemon.instantiate(263),
+        rarity: 8.5,
+        level: [2, 3, 4]
+    },
+    {
+        pokemon: new pokemonCore.pokemon.instantiate(278),
+        rarity: 3.33,
+        level: [2, 3, 4]
+    }
 ];

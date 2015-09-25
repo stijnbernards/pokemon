@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 270,
+    name: "Lotad",
+    species: "Water Weed Pokémon",
+    height: "1′8″ (0.51m)",
+    weight: "5.7 lbs (2.6 kg)",
+    abilities: [],
+    stats:{
+        HP: [40, 40],
+        ATT: [30, 0],
+        DEF: [30, 0],
+        SPATT: [40, 0],
+        SPDEF: [50, 0],
+        SPD: [30, 0],
+    },
+    entry: "LOTAD is said to have dwelled on land before. However, this POKéMON is thought to have returned to water because the leaf on its head grew large and heavy. It now lives by floating atop the water.",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

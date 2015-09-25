@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 227,
+    name: "Skarmory",
+    species: "Armor Bird Pokémon",
+    height: "5′7″ (1.70m)",
+    weight: "111.3 lbs (50.5 kg)",
+    abilities: [],
+    stats:{
+        HP: [65, 65],
+        ATT: [80, 0],
+        DEF: [140, 0],
+        SPATT: [40, 0],
+        SPDEF: [70, 0],
+        SPD: [70, 0],
+    },
+    entry: "After nesting in bramble bushes, the wings of its chicks grow hard from scratches by thorns.",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

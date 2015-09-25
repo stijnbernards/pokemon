@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 335,
+    name: "Zangoose",
+    species: "Cat Ferret Pokémon",
+    height: "4′3″ (1.30m)",
+    weight: "88.8 lbs (40.3 kg)",
+    abilities: [],
+    stats:{
+        HP: [73, 73],
+        ATT: [115, 0],
+        DEF: [60, 0],
+        SPATT: [60, 0],
+        SPDEF: [60, 0],
+        SPD: [90, 0],
+    },
+    entry: "ZANGOOSE usually stays on all fours, but when angered, it gets up on its hind legs and extends its claws. This POKéMON shares a bitter rivalry with SEVIPER that dates back over generations.",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 464,
+    name: "Rhyperior",
+    species: "Drill Pokémon",
+    height: "7′10″ (2.39m)",
+    weight: "623.5 lbs (282.8 kg)",
+    abilities: [],
+    stats:{
+        HP: [115, 115],
+        ATT: [140, 0],
+        DEF: [130, 0],
+        SPATT: [55, 0],
+        SPDEF: [55, 0],
+        SPD: [40, 0],
+    },
+    entry: "½",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 463,
+    name: "Lickilicky",
+    species: "Licking Pokémon",
+    height: "5′7″ (1.70m)",
+    weight: "308.6 lbs (140.0 kg)",
+    abilities: [],
+    stats:{
+        HP: [110, 110],
+        ATT: [85, 0],
+        DEF: [95, 0],
+        SPATT: [80, 0],
+        SPDEF: [95, 0],
+        SPD: [50, 0],
+    },
+    entry: "The long tongue is always soggy with slobber. The saliva contains a solvent that causes numbness.",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

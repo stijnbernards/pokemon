@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 259,
+    name: "Marshtomp",
+    species: "Mud Fish Pokémon",
+    height: "2′4″ (0.71m)",
+    weight: "61.7 lbs (28.0 kg)",
+    abilities: [],
+    stats:{
+        HP: [70, 70],
+        ATT: [85, 0],
+        DEF: [70, 0],
+        SPATT: [60, 0],
+        SPDEF: [70, 0],
+        SPD: [50, 0],
+    },
+    entry: "MARSHTOMP is much faster at traveling through mud than it is at swimming. This POKéMON’s hindquarters exhibit obvious development, giving it the ability to walk on just its hind legs.",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

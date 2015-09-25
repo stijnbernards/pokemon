@@ -1,0 +1,25 @@
+var pokeInfo = {
+    nN: 638,
+    name: "Cobalion",
+    species: "Iron Will Pokémon",
+    height: "6′11″ (2.11m)",
+    weight: "551.2 lbs (250.0 kg)",
+    abilities: [],
+    stats:{
+        HP: [91, 91],
+        ATT: [90, 0],
+        DEF: [129, 0],
+        SPATT: [90, 0],
+        SPDEF: [72, 0],
+        SPD: [108, 0],
+    },
+    entry: "It has a body and heart of steel. Its glare is sufficient to make even an unruly Pokémon obey it.",
+    moves:[
+        ["Growl", 10, 10],
+        ["Scratch", 10, 10],
+        ["Ember", 10, 10],
+        ["Sand Attack", 10, 10],
+    ],
+    level: 0,
+    exp: 0
+    }

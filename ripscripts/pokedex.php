@@ -52,26 +52,32 @@ foreach($nodes as $node){
     height: "'. $tags3->item((4-1))->nodeValue .'",
     weight: "'. $tags3->item((5-1))->nodeValue .'",
     abilities: [],
+    base_stats:{
+        HP: ['. $tags3->item((18-1))->nodeValue .', 0, 0],
+        ATT: ['. $tags3->item((22-1))->nodeValue .', 0, 0],
+        DEF: ['. $tags3->item((26-1))->nodeValue .', 0, 0],
+        SPATT: ['. $tags3->item((30-1))->nodeValue .', 0, 0],
+        SPDEF: ['. $tags3->item((34-1))->nodeValue .', 0, 0],
+        SPD: ['. $tags3->item((38-1))->nodeValue .', 0, 0]
+    },
     stats:{
-        HP: ['. $tags3->item((18-1))->nodeValue .', '. $tags3->item((18-1))->nodeValue .'],
-        ATT: ['. $tags3->item((22-1))->nodeValue .', 0],
-        DEF: ['. $tags3->item((26-1))->nodeValue .', 0],
-        SPATT: ['. $tags3->item((30-1))->nodeValue .', 0],
-        SPDEF: ['. $tags3->item((34-1))->nodeValue .', 0],
-        SPD: ['. $tags3->item((38-1))->nodeValue .', 0],
+        HP: [],
+        ATT: [],
+        DEF: [],
+        SPATT: [],
+        SPDEF: [],
+        SPD: []
     },
     entry: "'. $tags3->item((61-1))->nodeValue .'",
     moves:[
-        ["Growl", 10, 10],
-        ["Scratch", 10, 10],
-        ["Ember", 10, 10],
-        ["Sand Attack", 10, 10],
+        10,
     ],
     level: 0,
-    exp: 0
+    exp: 0,
+    nature: 0
     }';
     file_put_contents('pokemons/'. $tags->item(($index-1))->nodeValue .'.js', $file);
 
-    sleep(1);
+    sleep(0.5);
     echo $tags->item(($index-1))->nodeValue;
 }

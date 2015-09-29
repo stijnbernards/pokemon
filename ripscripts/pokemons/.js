@@ -1,25 +1,31 @@
 var pokeInfo = {
     nN: ,
-    name: "An Error Was Encountered",
+    name: "Page not found",
     species: "",
     height: "",
     weight: "",
     abilities: [],
+    base_stats:{
+        HP: [, 0, 0],
+        ATT: [, 0, 0],
+        DEF: [, 0, 0],
+        SPATT: [, 0, 0],
+        SPDEF: [, 0, 0],
+        SPD: [, 0, 0]
+    },
     stats:{
-        HP: [, ],
-        ATT: [, 0],
-        DEF: [, 0],
-        SPATT: [, 0],
-        SPDEF: [, 0],
-        SPD: [, 0],
+        HP: [],
+        ATT: [],
+        DEF: [],
+        SPATT: [],
+        SPDEF: [],
+        SPD: []
     },
     entry: "",
     moves:[
-        ["Growl", 10, 10],
-        ["Scratch", 10, 10],
-        ["Ember", 10, 10],
-        ["Sand Attack", 10, 10],
+        10,
     ],
     level: 0,
-    exp: 0
+    exp: 0,
+    nature: 0
     }

@@ -1,25 +1,31 @@
 var pokeInfo = {
     nN: 263,
     name: "Zigzagoon",
-    species: "TinyRaccoon Pokémon",
-    height: "1'4\" (0.41m)",
-    weight: "38,6 lbs (17.5 kg)",
+    species: "TinyRaccoon PokÃ©mon",
+    height: "1â€²4â€³ (0.41m)",
+    weight: "38.6 lbs (17.5 kg)",
     abilities: [],
-    stats:{
-        HP: [38, 38],
-        ATT: [30, 0],
-        DEF: [41, 0],
-        SPATT: [30, 0],
-        SPDEF: [41, 0],
-        SPD: [60, 0],
+    base_stats:{
+        HP: [38, 0, 0],
+        ATT: [30, 0, 0],
+        DEF: [41, 0, 0],
+        SPATT: [30, 0, 0],
+        SPDEF: [41, 0, 0],
+        SPD: [60, 0, 0]
     },
-    entry: "The hair on ZIGZAGOON’s back is bristly. It rubs the hard back hair against trees to leave its territorial markings. This POKéMON may play dead to fool foes in battle.",
+    stats:{
+        HP: [],
+        ATT: [],
+        DEF: [],
+        SPATT: [],
+        SPDEF: [],
+        SPD: []
+    },
+    entry: "The hair on ZIGZAGOONâ€™s back is  bristly. It rubs the hard back hair against trees to leave its territorial markings. This POKÃ©MON may play dead to fool foes in battle.",
     moves:[
-        ["Growl", 10, 10],
-        ["Scratch", 10, 10],
-        ["Ember", 10, 10],
-        ["Sand Attack", 10, 10],
+        10,
     ],
     level: 0,
-    exp: 0
-}
+    exp: 0,
+    nature: 0
+    }

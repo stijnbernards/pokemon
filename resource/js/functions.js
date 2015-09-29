@@ -804,9 +804,12 @@ var pokemonCore = {
             for (var i = 0; i < pokemon.length; i++) {
                 totalrar += (pokemon[i].rarity / 187.5);
                 var level = Math.ceil(Math.random() * pokemon[i].level.length);
+                var curPokemon;
                 if (enc < totalrar) {
                     pokemon[i].pokemon.level = level;
-                    pokemonCore.battle.startBattleScreen(pokemon[i]);
+                    curPokemon = pokemonCore.pokemon.genIvEv(pokemon[i]);
+                    curPokemon = pokemonCore.pokemon.instantiateMoves(pokemon[i]);ZZZZZZZZZZZZZZZZZZZZZZZz
+                    pokemonCore.battle.startBattleScreen(curPokemon);
                     break;
                 }
             }
@@ -936,7 +939,6 @@ var pokemonCore = {
                 pokemonCore.battle.setBattleKeybinds(".moves");
             }
         },
-
         handleMove: function (move, enemy) {
             var move = move
             var moveNr = move;
@@ -946,15 +948,18 @@ var pokemonCore = {
             var encounter = pokemonCore.battle.encounter;
             var text;
             var damage;
-            if (enemy)
-                damage = pokemonCore.battle.encounter.pokemon.moves[move][2];
-            else
-                damage = pokemonCore.gameChar.pokemon.moves[moveNr][2];
+            if (enemy) {
+                var stats = ["ATT", "DEF"];
+                damage = ((2 * pokemonCore.battle.encounter.pokemon.level + 10) / 250) * (pokemonCore.battle.encounter.pokemon.stats[stats[0]] / pokemonCore.gameChar.pokemon.stats[stats[1]]) * pokemonCore.battle.encounter.pokemon.moves[move][6] + 2;
+            } else {
+                var stats = ["ATT", "DEF"];
+                damage = ((2 * pokemonCore.gameChar.pokemon.level + 10) / 250) * (pokemonCore.gameChar.pokemon.stats[stats[0]] / pokemonCore.battle.encounter.pokemon.stats[stats[1]]) * pokemonCore.gameChar.pokemon.moves[move][6] + 2;
+            }
 
-            if (enemy || ( !enemy && pokemon.moves[moveNr][1] > 0 )) {
+            if (enemy || ( !enemy && pokemon.moves[moveNr][5] > 0 )) {
                 $(document).unbind("keydown");
                 if (!enemy)
-                    pokemon.moves[moveNr][1]--;
+                    pokemon.moves[moveNr][5]--;
                 if (!enemy)
                     encounter.pokemon.stats.HP[1] -= damage;
                 else
@@ -1115,6 +1120,53 @@ var pokemonCore = {
                 dataType: "script"
             });
             return pokeInfo;
+        },
+        instantiateMoves: function (pokemon){
+            for(var i = 0; i < pokemon.pokemon.moves.length; i++){
+                var id = pokemon.pokemon.moves[i];
+                $.ajax({
+                    async: false,
+                    url: "resource/moves/" + id + ".js",
+                    dataType: "script"
+                });
+                pokemon.pokemon.moves[i] = move;
+            }
+            return pokemon;
+        },
+        genIvEv: function (pokemon){
+            var pokemonB = pokemon.pokemon;
+            pokemonB.base_stats.HP[1] = Math.floor((Math.random() * 31) + 1);
+            pokemonB.base_stats.ATT[1] = Math.floor((Math.random() * 31) + 1);
+            pokemonB.base_stats.DEF[1] = Math.floor((Math.random() * 31) + 1);
+            pokemonB.base_stats.SPATT[1] = Math.floor((Math.random() * 31) + 1);
+            pokemonB.base_stats.SPDEF[1] = Math.floor((Math.random() * 31) + 1);
+            pokemonB.base_stats.SPD[1] = Math.floor((Math.random() * 31) + 1);
+            pokemonB.nature = pokemonCore.natures[Math.floor(Math.random() * 25)];
+            pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "HP");
+            pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "ATT");
+            pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "DEF");
+            pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPATT");
+            pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF");
+            pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPD");
+            return pokemon;
+        },
+        statNormFormula: function (pokemon, stat){
+            if(stat !== "HP") {
+                var Nmod;
+                if (pokemon.nature.INC === stat) {
+                    Nmod = 1.1;
+                } else if (pokemon.nature.DEC === stat) {
+                    Nmod = 0.9;
+                } else {
+                    Nmod = 1;
+                }
+                pokemon.stats[stat][0] = Math.round(((pokemon.base_stats[stat][0] * 2 + pokemon.base_stats[stat][1] + (pokemon.base_stats[stat][2] / 4)) * pokemon.level / 100 + 5) * Nmod);
+                pokemon.stats[stat][1] = pokemon.stats[stat][0];
+            }else{
+                pokemon.stats[stat][0] = Math.round((pokemon.base_stats[stat][0] * 2 + pokemon.base_stats[stat][1] + (pokemon.base_stats[stat][2]/4)) * pokemon.level / 100 + 10 + pokemon.level);
+                pokemon.stats[stat][1] = pokemon.stats[stat][0];
+            }
+            return pokemon;
         }
     },
 
@@ -1268,7 +1320,134 @@ var pokemonCore = {
             });
             return new pokemonCore.item(item.name, item.use, item.price, item.desc, item.img, item.type);
         }
-    }
+    },
+    natures: [
+        {
+            name: "Hardy",
+            INC: "",
+            DEC: ""
+        },
+        {
+            name: "Lonely",
+            INC: "ATT",
+            DEC: "DEF"
+        },
+        {
+            name: "Brave",
+            INC: "ATT",
+            DEC: "SPD"
+        },
+        {
+            name: "Adamant",
+            INC: "ATT",
+            DEC: "SPATT"
+        },
+        {
+            name: "Naughty",
+            INC: "ATT",
+            DEC: "SPDEF"
+        },
+        {
+            name: "Bold",
+            INC: "DEF",
+            DEC: "ATT"
+        },
+        {
+            name: "Docile",
+            INC: "",
+            DEC: ""
+        },
+        {
+            name: "Relaxed",
+            INC: "DEF",
+            DEC: "SPD"
+        },
+        {
+            name: "Impish",
+            INC: "DEF",
+            DEC: "SPATT"
+        },
+        {
+            name: "Lax",
+            INC: "DEF",
+            DEC: "SPDEF"
+        },
+        {
+            name: "Timid",
+            INC: "SPD",
+            DEC: "ATT"
+        },
+        {
+            name: "Hasty",
+            INC: "SPD",
+            DEC: "DEF"
+        },
+        {
+            name: "Serious",
+            INC: "",
+            DEC: ""
+        },
+        {
+            name: "Jolly",
+            INC: "SPD",
+            DEC: "SPATT"
+        },
+        {
+            name: "Naive",
+            INC: "SPD",
+            DEC: "DEF"
+        },
+        {
+            name: "Modest",
+            INC: "SPATT",
+            DEC: "ATT"
+        },
+        {
+            name: "Mild",
+            INC: "SPATT",
+            DEC: "DEF"
+        },
+        {
+            name: "Quiet",
+            INC: "SPATT",
+            DEC: "SPD"
+        },
+        {
+            name: "Bashful",
+            INC: "",
+            DEC: ""
+        },
+        {
+            name: "Rash",
+            INC: "SPATT",
+            DEC: "SPDEF"
+        },
+        {
+            name: "Calm",
+            INC: "SPDEF",
+            DEC: "ATT"
+        },
+        {
+            name: "Gentle",
+            INC: "SPDEF",
+            DEC: "DEF"
+        },
+        {
+            name: "Sassy",
+            INC: "SPDEF",
+            DEC: "SPD"
+        },
+        {
+            name: "Careful",
+            INC: "SPDEF",
+            DEC: "SPATT"
+        },
+        {
+            name: "Quirky",
+            INC: "",
+            DEC: ""
+        }
+    ]
 }
 
 //Helper classes

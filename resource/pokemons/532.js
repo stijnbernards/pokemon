@@ -23,12 +23,13 @@ var pokeInfo = {
     },
     entry: "These Pokémon appear at building sites and help out with construction. They always carry squared logs.",
     moves:[
-        ["Growl", 10, 10],
-        ["Scratch", 10, 10],
-        ["Ember", 10, 10],
-        ["Sand Attack", 10, 10],
+        10,
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Medium Slow",
+    baseExp: "61",
+    evYield: "
+					1 Attack				"
     }

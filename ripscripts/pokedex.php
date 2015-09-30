@@ -74,10 +74,12 @@ foreach($nodes as $node){
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "'. $tags3->item((13-1))->nodeValue .'",
+    baseExp: "'. $tags3->item((12-1))->nodeValue .'",
+    evYield: "'. trim($tags3->item((9-1))->nodeValue) .'"
     }';
     file_put_contents('pokemons/'. $tags->item(($index-1))->nodeValue .'.js', $file);
-
-    sleep(0.5);
+    sleep(0.7);
     echo $tags->item(($index-1))->nodeValue;
 }

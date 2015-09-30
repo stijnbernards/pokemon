@@ -27,5 +27,8 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Fluctuating",
+    baseExp: "161",
+    evYield: "2 Attack"
     }

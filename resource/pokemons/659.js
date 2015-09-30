@@ -23,12 +23,13 @@ var pokeInfo = {
     },
     entry: "1",
     moves:[
-        ["Growl", 10, 10],
-        ["Scratch", 10, 10],
-        ["Ember", 10, 10],
-        ["Sand Attack", 10, 10],
+        10,
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "
+					Field				",
+    baseExp: "—",
+    evYield: "—"
     }

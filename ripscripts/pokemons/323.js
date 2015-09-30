@@ -27,5 +27,8 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Medium Fast",
+    baseExp: "175",
+    evYield: "1 Attack, 1 Special Attack"
     }

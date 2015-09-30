@@ -23,12 +23,12 @@ var pokeInfo = {
     },
     entry: "WHISMUR is very timid. If it starts to cry loudly, it becomes startled by its own crying and cries even harder. When it finally stops crying, the POKéMON goes to sleep, all tired out.",
     moves:[
-        ["Growl", 10, 10],
-        ["Scratch", 10, 10],
-        ["Ember", 10, 10],
-        ["Sand Attack", 10, 10],
+        10,
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Medium Slow",
+    baseExp: "68",
+    evYield: "1 HP"
     }

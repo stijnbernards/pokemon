@@ -27,5 +27,9 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "SturdySand Force (hidden ability)",
+    baseExp: "224.9 lbs (102.0 kg)",
+    evYield: "
+					Rock									"
     }

@@ -27,5 +27,9 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "IntimidateMoxieAnger Point (hidden ability)",
+    baseExp: "212.3 lbs (96.3 kg)",
+    evYield: "
+					Ground					Dark				"
     }

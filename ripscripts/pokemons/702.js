@@ -27,5 +27,9 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "
+					Fairy, Field				",
+    baseExp: "—",
+    evYield: "—"
     }

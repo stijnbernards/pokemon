@@ -28,5 +28,9 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "SteadfastJustified (hidden ability)",
+    baseExp: "114.6 lbs (52.0 kg)",
+    evYield: "
+					Psychic					Fighting				"
     }

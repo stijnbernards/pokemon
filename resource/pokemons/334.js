@@ -28,5 +28,8 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Erratic",
+    baseExp: "188",
+    evYield: "2 Special Defense"
     }

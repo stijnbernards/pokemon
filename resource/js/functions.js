@@ -316,6 +316,8 @@ var pokemonCore = {
         },
         createPlayerAt: function (x, y) {
             pokemonCore.gameChar = new character(new coords(x, y), "Peter");
+            pokemonCore.pokemon.genIvEv(pokemonCore.gameChar.pokemon);
+            //console.log(pokemonCore.gameChar.pokemon);
         },
         bindMovement: function () {
             $(document).keydown(function (e) {
@@ -709,6 +711,17 @@ var pokemonCore = {
     },
 
     utils: {
+        writer: function(i, callback, text){
+                setTimeout(function () {
+                if (i < text.length) {
+                    $(".action-menu").append(text[i]);
+                    i++;
+                    pokemonCore.utils.writer(i, callback, text);
+                }else if (typeof callback != 'undefined') {
+                    callback();
+                }
+            }, 50);
+        },
         createEmptyDialog: function (text) {
             var breakDialog = true;
             var brCount = 0;
@@ -808,7 +821,7 @@ var pokemonCore = {
                 if (enc < totalrar) {
                     pokemon[i].pokemon.level = level;
                     curPokemon = pokemonCore.pokemon.genIvEv(pokemon[i]);
-                    curPokemon = pokemonCore.pokemon.instantiateMoves(pokemon[i]);ZZZZZZZZZZZZZZZZZZZZZZZz
+                    curPokemon = pokemonCore.pokemon.instantiateMoves(pokemon[i]);
                     pokemonCore.battle.startBattleScreen(curPokemon);
                     break;
                 }
@@ -850,7 +863,7 @@ var pokemonCore = {
 
         initFight: function (pokemon) {
             $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
-            $(".battle-screen").append('<div class="enemy-health"><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span></div><div class="ally-health" data-active="true"><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span><span class="pokemon-health"><span class="cur-health"></span></span></div><div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
+            $(".battle-screen").append('<div class="enemy-health"><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span></div><div class="ally-health" data-active="true"><div class="exp-bar"></div><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span><span class="pokemon-health"><span class="cur-health"></span></span></div><div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
             $(".enemy-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemon.pokemon.nN + ".png)");
             $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ".png)");
             $(".enemy-health .pokemon-name").append(pokemon.pokemon.name);
@@ -862,6 +875,7 @@ var pokemonCore = {
             pokemonCore.battle.setBattleKeybinds(".action-box");
             pokemonCore.battle.encounter = pokemon;
             pokemonCore.battle.animateHealth();
+            $(".ally-health .exp-bar").css("width", (pokemonCore.pokemon.calcPercentage(pokemonCore.gameChar.pokemon) * 2.59) + "px");
         },
 
         stopBattle: function () {
@@ -950,10 +964,10 @@ var pokemonCore = {
             var damage;
             if (enemy) {
                 var stats = ["ATT", "DEF"];
-                damage = ((2 * pokemonCore.battle.encounter.pokemon.level + 10) / 250) * (pokemonCore.battle.encounter.pokemon.stats[stats[0]] / pokemonCore.gameChar.pokemon.stats[stats[1]]) * pokemonCore.battle.encounter.pokemon.moves[move][6] + 2;
+                damage = Math.round(((2 * pokemonCore.battle.encounter.pokemon.level + 10) / 250) * (pokemonCore.battle.encounter.pokemon.stats[stats[0]][1] / pokemonCore.gameChar.pokemon.stats[stats[1]][1]) * pokemonCore.battle.encounter.pokemon.moves[move][6] + 2);
             } else {
                 var stats = ["ATT", "DEF"];
-                damage = ((2 * pokemonCore.gameChar.pokemon.level + 10) / 250) * (pokemonCore.gameChar.pokemon.stats[stats[0]] / pokemonCore.battle.encounter.pokemon.stats[stats[1]]) * pokemonCore.gameChar.pokemon.moves[move][6] + 2;
+                damage = Math.round(((2 * pokemonCore.gameChar.pokemon.level + 10) / 250) * (pokemonCore.gameChar.pokemon.stats[stats[0]][1] / pokemonCore.battle.encounter.pokemon.stats[stats[1]][1]) * pokemonCore.gameChar.pokemon.moves[moveNr][6] + 2);
             }
 
             if (enemy || ( !enemy && pokemon.moves[moveNr][5] > 0 )) {
@@ -1003,22 +1017,24 @@ var pokemonCore = {
                                     pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.level = pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.level;
                                     $(".action-menu").text("");
                                     writer(0, false, function () {
-                                        text = pokemonCore.battle.trainerNpc.name + " send out " + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.name;
-                                        $(".action-menu").text("");
-                                        setTimeout(function () {
+                                        pokemonCore.battle.expGain(true, pokemonCore.gameChar.pokemon, pokemonCore.battle.encounter.pokemon, function(){
+                                            text = pokemonCore.battle.trainerNpc.name + " send out " + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.name;
                                             $(".action-menu").text("");
-                                            writer(0, false, function () {
-                                                text = "What wil " + pokemonCore.gameChar.pokemon.name + " do?";
-                                                setTimeout(function () {
-                                                    $(document).unbind("keydown");
-                                                    $(".battle-screen").children().remove();
-                                                    $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
-                                                    writer(0, false, function () {
-                                                        pokemonCore.battle.initFight(pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon);
-                                                    });
-                                                }, 1000);
-                                            });
-                                        }, 1000);
+                                            setTimeout(function () {
+                                                $(".action-menu").text("");
+                                                writer(0, false, function () {
+                                                    text = "What wil " + pokemonCore.gameChar.pokemon.name + " do?";
+                                                    setTimeout(function () {
+                                                        $(document).unbind("keydown");
+                                                        $(".battle-screen").children().remove();
+                                                        $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
+                                                        writer(0, false, function () {
+                                                            pokemonCore.battle.initFight(pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon);
+                                                        });
+                                                    }, 1000);
+                                                });
+                                            }, 1000);
+                                        });
                                     });
                                 } else {
                                     writer(0, false);
@@ -1050,15 +1066,17 @@ var pokemonCore = {
                             } else {
                                 $(".action-menu").text("");
                                 text = encounter.pokemon.name + " fainted!";
-                                writer(0, false);
-                                setTimeout(function () {
-                                    pokemonCore.battle.stopBattle();
-                                    $(document).unbind("keydown");
-                                    pokemonCore.player.bindMovement();
-                                    pokemonCore.battle.trainerNpc = null;
-                                    pokemonCore.battle.isTrainer = false;
-
-                                }, 2000);
+                                writer(0, false, function(){
+                                    pokemonCore.battle.expGain(false, pokemonCore.gameChar.pokemon, pokemonCore.battle.encounter.pokemon, function() {
+                                        setTimeout(function () {
+                                            pokemonCore.battle.stopBattle();
+                                            $(document).unbind("keydown");
+                                            pokemonCore.player.bindMovement();
+                                            pokemonCore.battle.trainerNpc = null;
+                                            pokemonCore.battle.isTrainer = false;
+                                        }, 2000);
+                                    });
+                                });
                             }
                         } else {
                             pokemonCore.battle.enemyMove();
@@ -1084,10 +1102,61 @@ var pokemonCore = {
             }
         },
 
+        expGain: function(isTrainer, pokemon, fainted, callback){
+            var percentage;
+            var a = isTrainer ? 1.5 : 1;
+            var b = fainted.baseExp;
+            var e = 1;//TODO: fix
+            var f = 1;//TODO: fix
+            var L = fainted.level;
+            var Lp = pokemon.level;
+            var p = 1;//TODO: fix
+            var s = 1;//TODO: fix
+            var t = 1;//TODO: fix
+            var v = 1;
+            var expGain = Math.round((a * t * b * e * L * p * f * v) / (7 * s));
+            expGain = 10000;
+            pokemon.exp += expGain;
+            percentage = pokemonCore.pokemon.calcPercentage(pokemon);
+            $(".action-menu").text("");
+            $(".ally-health .exp-bar").css("width", (percentage * 2.59) + "px");
+            pokemonCore.utils.writer(0, function(){
+                setTimeout(function(){
+                    if(pokemonCore.pokemon.expForLevel(pokemon.level + 1, pokemon.expGroup) <= pokemon.exp){
+                        pokemon.level++;
+                        pokemonCore.battle.levelUpHandler(pokemon, callback);
+                    }else {
+                        callback();
+                    }
+                }, 1000);
+            }, pokemon.name + " gained " + expGain + " EXP. Points!");
+
+        },
+
         //TODO: improve
         enemyMove: function () {
-            var randMove = Math.floor(Math.random() * 3);
+            var randMove = Math.floor(Math.random() * 1);
             pokemonCore.battle.handleMove(randMove, true);
+        },
+
+        levelUpHandler: function(pokemon, callback){
+            $(".action-menu").text("");
+            pokemonCore.utils.writer(0, function(){
+                var pokemonB = jQuery.extend(true, {}, pokemon);
+                var statsDiff = [
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "HP") - pokemonCore.pokemon.statNormFormula(pokemon, "HP"),
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "ATT") - pokemonCore.pokemon.statNormFormula(pokemon, "ATT"),
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "DEF") - pokemonCore.pokemon.statNormFormula(pokemon, "DEF"),
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPATT") - pokemonCore.pokemon.statNormFormula(pokemon, "SPATT"),
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF") - pokemonCore.pokemon.statNormFormula(pokemon, "SPDEF"),
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPD") - pokemonCore.pokemon.statNormFormula(pokemon, "SPD"),
+                ];
+
+                $(".battle-screen").append('<div class="level-up"></div>');
+                for(var i = 0; i < statsDiff.length; i++){
+                    
+                }
+            }, pokemon.name + " grew to LV." + pokemon.level + "!");
         },
 
         animateHealth: function (damage, enemy) {
@@ -1112,6 +1181,26 @@ var pokemonCore = {
     },
 
     pokemon: {
+        calcPercentage: function (pokemon){
+            var exp1, exp2, curExp, expNeed, percentage;
+            exp1 = pokemonCore.pokemon.expForLevel(pokemon.level, pokemon.expGroup);
+            exp2 = pokemonCore.pokemon.expForLevel(pokemon.level + 1, pokemon.expGroup);
+            exp1 = (exp1 < 0) ? 0 : exp1;
+            curExp = pokemon.exp - exp1;
+            expNeed = exp2 - exp1;
+            percentage = curExp / (expNeed/100);
+            if(percentage > 100)
+                percentage = 100;
+            return percentage;
+        },
+        expForLevel: function(level, group){
+            switch(group){
+                case "Medium Slow":
+                    var expForLevelUp = Math.round(6/5*Math.pow(level, 3) - 15*Math.pow(level, 2) + 100*level - 140);
+                    break;
+            }
+            return expForLevelUp;
+        },
         instantiate: function (id) {
             var id = id;
             $.ajax({
@@ -1134,7 +1223,13 @@ var pokemonCore = {
             return pokemon;
         },
         genIvEv: function (pokemon){
-            var pokemonB = pokemon.pokemon;
+            var pokemonB;
+            console.log(pokemon.pokemon);
+            if(typeof pokemon.pokemon != 'undefined')
+                pokemonB = pokemon.pokemon;
+            else
+                pokemonB = pokemon;
+
             pokemonB.base_stats.HP[1] = Math.floor((Math.random() * 31) + 1);
             pokemonB.base_stats.ATT[1] = Math.floor((Math.random() * 31) + 1);
             pokemonB.base_stats.DEF[1] = Math.floor((Math.random() * 31) + 1);
@@ -1175,11 +1270,11 @@ var pokemonCore = {
             var lastScroll = 0;
             $(document).unbind("keydown");
             $gameDiv.append('<div class="pokemart-gui"><ul class="items"></ul><div class="money"></div><div class="item-img"></div><div class="item-desc"></div></div>');
-            $(".pokemart-gui .money").append(pokemonCore.gameChar.getMoney());
+            $(".pokemart-gui .money").append('$' + pokemonCore.gameChar.getMoney());
             for (var i = 0; i < items.length; i++) {
                 $(".items").append('<li class="' + i + '"><div class="wrapper"><span class="item-name"></span><span class="item-cost"></span></div></li>');
                 $("li." + i + " .item-name").prepend(items[i].name);
-                $("li." + i + " .item-cost").prepend(items[i].price);
+                $("li." + i + " .item-cost").prepend('$' + items[i].price);
             }
 
             items.push(new pokemonCore.item("Cancel", "", "", "Quit shopping.", "quit"));
@@ -1229,7 +1324,7 @@ var pokemonCore = {
                                 $(document).unbind("keydown");
                                 $(".pokemart-gui").remove();
                                 pokemonCore.player.bindMovement();
-                                $(".pokemart-gui .money").append(pokemonCore.gameChar.getMoney());
+                                $(".pokemart-gui .money").append('$' + pokemonCore.gameChar.getMoney());
                                 items.pop();
                             } else {
                                 $(document).unbind("keydown");
@@ -1242,7 +1337,7 @@ var pokemonCore = {
                                         case 32:
                                             for (var i = 0; i < number + 1; i++) {
                                                 items[selectedItem().attr("class")].buy();
-                                                $(".pokemart-gui .money").text(pokemonCore.gameChar.getMoney());
+                                                $(".pokemart-gui .money").text('$' + pokemonCore.gameChar.getMoney());
                                             }
                                             $(".pokemart-gui .in-bag").remove();
                                             $(".pokemart-gui .amount").remove();
@@ -1273,7 +1368,7 @@ var pokemonCore = {
 
                                 function updatePrice(number, price) {
                                     $(".pokemart-gui .amount .amount-buy").text("x" + number);
-                                    $(".pokemart-gui .amount .amount-price").text((number * price));
+                                    $(".pokemart-gui .amount .amount-price").text('$' + (number * price));
                                 }
                             }
                             break;
@@ -1485,25 +1580,44 @@ function character(coords, nm) {
         nN: 255,
         name: "Torchic",
         species: "Chick Pokémon",
-        height: "1'4\" (0.41m)",
+        height: "1?4? (0.41m)",
         weight: "5.5 lbs (2.5 kg)",
         abilities: [],
-        stats: {
-            HP: [45, 45],
-            ATT: [60, 0],
-            DEF: [40, 0],
-            SPATT: [70, 0],
-            SPDEF: [50, 0],
-            SPD: [45, 0],
+        base_stats:{
+            HP: [45, 0, 0],
+            ATT: [60, 0, 0],
+            DEF: [40, 0, 0],
+            SPATT: [70, 0, 0],
+            SPDEF: [50, 0, 0],
+            SPD: [45, 0, 0]
         },
-        entry: "TORCHIC sticks with its TRAINER, following behind with unsteady steps. This POKéMON breathes fire of over 1,800 degrees F, including fireballs that leave the foe scorched black.",
-        moves: [
-            ["Growl", 10, 1000000000000000000000000000000000000000000000],
-            ["Scratch", 10, 10],
-            ["Ember", 10, 10],
-            ["Sand Attack", 10, 10],
+        stats:{
+            HP: [],
+            ATT: [],
+            DEF: [],
+            SPATT: [],
+            SPDEF: [],
+            SPD: []
+        },
+        entry: "TORCHIC has a place inside its body where it keeps its flame. Give it a hug - it will be glowing with warmth. This POKéMON is covered all over by a fluffy coat of down.",
+        moves:[
+            [
+                "Scratch",
+                "Normal",
+                "Physical",
+                "tough",
+                35,
+                35,
+                40,
+                100
+            ]
         ],
-        level: 20
+        level: 5,
+        exp: 0,
+        nature: 0,
+        expGroup: "Medium Slow",
+        baseExp: "65",
+        evYield: "1 Special Attack"
     }
 
     this.direction = null;

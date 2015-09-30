@@ -27,5 +27,9 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Levitate",
+    baseExp: "0.7 lbs (0.3 kg)",
+    evYield: "
+					Psychic									"
     }

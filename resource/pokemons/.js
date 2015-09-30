@@ -1,6 +1,6 @@
 var pokeInfo = {
     nN: ,
-    name: "An Error Was Encountered",
+    name: "Page not found",
     species: "",
     height: "",
     weight: "",
@@ -27,5 +27,8 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "",
+    baseExp: "",
+    evYield: ""
     }

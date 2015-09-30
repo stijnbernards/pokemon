@@ -200,7 +200,7 @@
   background-position: left top, right top, right bottom, left bottom;
   position: absolute;
   bottom: 15px;
-  z-index: 5;
+  z-index: 6;
   font-family: pokemon;
   padding: 30px 50px 30px 50px;
   box-sizing: border-box;
@@ -356,7 +356,7 @@
 .pokemart-gui .money {
   position: absolute;
   top: 30px;
-  left: 255px;
+  left: 237px;
   font-size: 50px;
 }
 /* line 81, ../scss/sass/gui/_pokemart.scss */
@@ -651,30 +651,53 @@ div.battle-screen .ally-health .pokemon-health {
   bottom: 15px;
   right: 40px;
 }
-/* line 147, ../scss/sass/custom/battle/_main.scss */
+/* line 146, ../scss/sass/custom/battle/_main.scss */
+div.battle-screen .ally-health .exp-bar {
+  top: 134px;
+  left: 126px;
+  height: 8px;
+  background-color: #50a0cc;
+  position: absolute;
+  -webkit-transition: width 1s linear;
+  -moz-transition: width 1s linear;
+  -ms-transition: width 1s linear;
+  -o-transition: width 1s linear;
+  transition: width 1s linear;
+}
+/* line 155, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen .enemy-pokemon, div.battle-screen .ally-pokemon {
   width: 256px;
   height: 256px;
   position: absolute;
 }
-/* line 152, ../scss/sass/custom/battle/_main.scss */
+/* line 160, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen .enemy-pokemon {
   right: 13%;
   top: 6%;
 }
-/* line 156, ../scss/sass/custom/battle/_main.scss */
+/* line 164, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen .ally-pokemon {
   background-position: 0 256px;
   bottom: 188px;
   left: 15%;
 }
-/* line 160, ../scss/sass/custom/battle/_main.scss */
+/* line 168, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen .ally-pokemon[data-selected="true"] {
   -webkit-animation: anim-player-pokemon 800ms steps(2) infinite;
   -moz-animation: anim-player-pokemon 800ms steps(2) infinite;
   -ms-animation: anim-player-pokemon 800ms steps(2) infinite;
   -o-animation: anim-player-pokemon 800ms steps(2) infinite;
   animation: anim-player-pokemon 800ms steps(2) infinite;
+}
+/* line 172, ../scss/sass/custom/battle/_main.scss */
+div.battle-screen .level-up {
+  position: absolute;
+  background-image: url(../images/gui/battle/level.png);
+  width: 376px;
+  height: 408px;
+  bottom: 4px;
+  right: 4px;
+  z-index: 6;
 }
 
 /* line 1, ../scss/sass/animations/_misc.scss */

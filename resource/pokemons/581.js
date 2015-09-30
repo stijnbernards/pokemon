@@ -27,5 +27,9 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "
+					Flying, Water 1				",
+    baseExp: "Medium Fast",
+    evYield: "45 (5.9% with PokéBall, full HP)"
     }

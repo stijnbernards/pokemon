@@ -143,6 +143,14 @@ div.battle-screen{
       bottom: 15px;
       right: 40px;
     }
+    .exp-bar{
+      top: 134px;
+      left: 126px;
+      height: 8px;
+      background-color: #50a0cc;
+      position: absolute;
+      @include transition(width 1s linear);
+    }
   }
   .enemy-pokemon,.ally-pokemon{
     width: 256px;
@@ -160,5 +168,14 @@ div.battle-screen{
     &[data-selected="true"]{
       @include animation(anim-player-pokemon 800ms steps(2) infinite);
     }
+  }
+  .level-up{
+    position: absolute;
+    background-image: url(../images/gui/battle/level.png);
+    width: 376px;
+    height: 408px;
+    bottom: 4px;
+    right: 4px;
+    z-index: 6;
   }
 }

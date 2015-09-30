@@ -27,5 +27,9 @@ var pokeInfo = {
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Download",
+    baseExp: "181.9 lbs (82.5 kg)",
+    evYield: "
+					Bug					Steel				"
     }

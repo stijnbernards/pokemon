@@ -23,12 +23,13 @@ var pokeInfo = {
     },
     entry: "These Pokémon arose from the spirits of people interred in graves in past ages. Each retains memories of its former life.",
     moves:[
-        ["Growl", 10, 10],
-        ["Scratch", 10, 10],
-        ["Ember", 10, 10],
-        ["Sand Attack", 10, 10],
+        10,
     ],
     level: 0,
     exp: 0,
-    nature: 0
+    nature: 0,
+    expGroup: "Medium Fast",
+    baseExp: "61",
+    evYield: "
+					1 Defense				"
     }

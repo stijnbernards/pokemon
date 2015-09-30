@@ -15,7 +15,8 @@ var maps = [
     "maps/routes/101/main.js",
     "maps/towns/oldale_town/main.js",
     "maps/towns/buildings/pokemart.js",
-    "maps/routes/103/main.js"
+    "maps/routes/103/main.js",
+    "maps/routes/102/main.js"
 ];
 
 $(document).ready(function () {

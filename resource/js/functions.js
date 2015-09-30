@@ -40,7 +40,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(8);
+        pokemonCore.maps.getMap(2);
         pokemonCore.player.bindMovement();
     },
 

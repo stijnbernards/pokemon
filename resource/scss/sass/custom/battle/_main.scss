@@ -177,5 +177,15 @@ div.battle-screen{
     bottom: 4px;
     right: 4px;
     z-index: 6;
+    div[class^="level-"]{
+      text-indent: 320px;
+      height: 60px;
+      width: 100%;
+      font-family: pokemon;
+      font-size: 50px;
+      &:first-of-type{
+        margin-top: 28px;
+      }
+    }
   }
 }

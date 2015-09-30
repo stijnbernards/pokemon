@@ -699,6 +699,18 @@ div.battle-screen .level-up {
   right: 4px;
   z-index: 6;
 }
+/* line 180, ../scss/sass/custom/battle/_main.scss */
+div.battle-screen .level-up div[class^="level-"] {
+  text-indent: 320px;
+  height: 60px;
+  width: 100%;
+  font-family: pokemon;
+  font-size: 50px;
+}
+/* line 186, ../scss/sass/custom/battle/_main.scss */
+div.battle-screen .level-up div[class^="level-"]:first-of-type {
+  margin-top: 28px;
+}
 
 /* line 1, ../scss/sass/animations/_misc.scss */
 .exclamation-mark {

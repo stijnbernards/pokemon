@@ -1139,24 +1139,30 @@ var pokemonCore = {
             pokemonCore.battle.handleMove(randMove, true);
         },
 
-        levelUpHandler: function(pokemon, callback){
+        levelUpHandler: function(pokemons, callback){
             $(".action-menu").text("");
             pokemonCore.utils.writer(0, function(){
-                var pokemonB = jQuery.extend(true, {}, pokemon);
+                var pokemonB = jQuery.extend(true, {}, pokemons);
+                var pokemon = jQuery.extend(true, {}, pokemons);
+                pokemon.level--;
+                console.log(pokemon);
                 var statsDiff = [
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "HP") - pokemonCore.pokemon.statNormFormula(pokemon, "HP"),
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "ATT") - pokemonCore.pokemon.statNormFormula(pokemon, "ATT"),
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "DEF") - pokemonCore.pokemon.statNormFormula(pokemon, "DEF"),
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPATT") - pokemonCore.pokemon.statNormFormula(pokemon, "SPATT"),
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF") - pokemonCore.pokemon.statNormFormula(pokemon, "SPDEF"),
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPD") - pokemonCore.pokemon.statNormFormula(pokemon, "SPD"),
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "HP").stats.HP[0] - pokemonCore.pokemon.statNormFormula(pokemon, "HP").stats.HP[0],
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "ATT").stats.ATT[0] - pokemonCore.pokemon.statNormFormula(pokemon, "ATT").stats.ATT[0],
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "DEF").stats.DEF[0] - pokemonCore.pokemon.statNormFormula(pokemon, "DEF").stats.DEF[0],
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPATT").stats.SPATT[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPATT").stats.SPATT[0],
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF").stats.SPDEF[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPDEF").stats.SPDEF[0],
+                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPD").stats.SPD[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPD").stats.SPD[0],
                 ];
 
                 $(".battle-screen").append('<div class="level-up"></div>');
                 for(var i = 0; i < statsDiff.length; i++){
-                    
+                    $(".level-up").append('<div class="level-'+ i +'">'+ statsDiff[i] +'</div>');
                 }
-            }, pokemon.name + " grew to LV." + pokemon.level + "!");
+                $(document).bind("keydown", function(){
+
+                });
+            }, pokemons.name + " grew to LV." + pokemons.level + "!");
         },
 
         animateHealth: function (damage, enemy) {

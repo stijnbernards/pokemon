@@ -178,11 +178,13 @@ div.battle-screen{
     right: 4px;
     z-index: 6;
     div[class^="level-"]{
-      text-indent: 320px;
+      clear: both;
       height: 60px;
-      width: 100%;
+      width: auto;
       font-family: pokemon;
       font-size: 50px;
+      float: right;
+      margin-right: 28px;
       &:first-of-type{
         margin-top: 28px;
       }

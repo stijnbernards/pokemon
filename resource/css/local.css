@@ -701,13 +701,15 @@ div.battle-screen .level-up {
 }
 /* line 180, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen .level-up div[class^="level-"] {
-  text-indent: 320px;
+  clear: both;
   height: 60px;
-  width: 100%;
+  width: auto;
   font-family: pokemon;
   font-size: 50px;
+  float: right;
+  margin-right: 28px;
 }
-/* line 186, ../scss/sass/custom/battle/_main.scss */
+/* line 188, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen .level-up div[class^="level-"]:first-of-type {
   margin-top: 28px;
 }

@@ -316,7 +316,7 @@ var pokemonCore = {
         },
         createPlayerAt: function (x, y) {
             pokemonCore.gameChar = new character(new coords(x, y), "Peter");
-            pokemonCore.pokemon.genIvEv(pokemonCore.gameChar.pokemon);
+            pokemonCore.pokemon.calcPokemonStats(pokemonCore.gameChar.pokemon);
             //console.log(pokemonCore.gameChar.pokemon);
         },
         bindMovement: function () {
@@ -1012,6 +1012,7 @@ var pokemonCore = {
                         if (pokemonCore.battle.encounter.pokemon.stats.HP[1] <= 0) {
                             if (pokemonCore.battle.trainerNpc !== "null" && pokemonCore.battle.trainerNpc !== null) {
                                 text = pokemonCore.battle.encounter.pokemon.name + " fainted!";
+                                pokemonCore.pokemon.awardEV(pokemonCore.battle.encounter.pokemon);
                                 var alivePokemon = pokemonCore.battle.trainerNpc.pokemonAlive();
                                 if (alivePokemon > 0) {
                                     pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.level = pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.level;
@@ -1066,6 +1067,7 @@ var pokemonCore = {
                             } else {
                                 $(".action-menu").text("");
                                 text = encounter.pokemon.name + " fainted!";
+                                pokemonCore.pokemon.awardEV(pokemonCore.battle.encounter.pokemon);
                                 writer(0, false, function(){
                                     pokemonCore.battle.expGain(false, pokemonCore.gameChar.pokemon, pokemonCore.battle.encounter.pokemon, function() {
                                         setTimeout(function () {
@@ -1074,7 +1076,7 @@ var pokemonCore = {
                                             pokemonCore.player.bindMovement();
                                             pokemonCore.battle.trainerNpc = null;
                                             pokemonCore.battle.isTrainer = false;
-                                        }, 2000);
+                                        }, 1000);
                                     });
                                 });
                             }
@@ -1115,7 +1117,6 @@ var pokemonCore = {
             var t = 1;//TODO: fix
             var v = 1;
             var expGain = Math.round((a * t * b * e * L * p * f * v) / (7 * s));
-            expGain = 10000;
             pokemon.exp += expGain;
             percentage = pokemonCore.pokemon.calcPercentage(pokemon);
             $(".action-menu").text("");
@@ -1140,29 +1141,45 @@ var pokemonCore = {
         },
 
         levelUpHandler: function(pokemons, callback){
+            pokemonCore.pokemon.calcPokemonStats(pokemonCore.gameChar.pokemon);
             $(".action-menu").text("");
-            pokemonCore.utils.writer(0, function(){
-                var pokemonB = jQuery.extend(true, {}, pokemons);
-                var pokemon = jQuery.extend(true, {}, pokemons);
-                pokemon.level--;
-                console.log(pokemon);
-                var statsDiff = [
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "HP").stats.HP[0] - pokemonCore.pokemon.statNormFormula(pokemon, "HP").stats.HP[0],
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "ATT").stats.ATT[0] - pokemonCore.pokemon.statNormFormula(pokemon, "ATT").stats.ATT[0],
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "DEF").stats.DEF[0] - pokemonCore.pokemon.statNormFormula(pokemon, "DEF").stats.DEF[0],
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPATT").stats.SPATT[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPATT").stats.SPATT[0],
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF").stats.SPDEF[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPDEF").stats.SPDEF[0],
-                    pokemonCore.pokemon.statNormFormula(pokemonB, "SPD").stats.SPD[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPD").stats.SPD[0],
-                ];
-
-                $(".battle-screen").append('<div class="level-up"></div>');
-                for(var i = 0; i < statsDiff.length; i++){
-                    $(".level-up").append('<div class="level-'+ i +'">'+ statsDiff[i] +'</div>');
-                }
-                $(document).bind("keydown", function(){
-
-                });
-            }, pokemons.name + " grew to LV." + pokemons.level + "!");
+            setTimeout(function(){
+                pokemonCore.utils.writer(0, function(){
+                    var pokemonB = jQuery.extend(true, {}, pokemons);
+                    var pokemon = jQuery.extend(true, {}, pokemons);
+                    var first = true;
+                    pokemon.level--;
+                    var statsDiff = [
+                        pokemonCore.pokemon.statNormFormula(pokemonB, "HP").stats.HP[0] - pokemonCore.pokemon.statNormFormula(pokemon, "HP").stats.HP[0],
+                        pokemonCore.pokemon.statNormFormula(pokemonB, "ATT").stats.ATT[0] - pokemonCore.pokemon.statNormFormula(pokemon, "ATT").stats.ATT[0],
+                        pokemonCore.pokemon.statNormFormula(pokemonB, "DEF").stats.DEF[0] - pokemonCore.pokemon.statNormFormula(pokemon, "DEF").stats.DEF[0],
+                        pokemonCore.pokemon.statNormFormula(pokemonB, "SPATT").stats.SPATT[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPATT").stats.SPATT[0],
+                        pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF").stats.SPDEF[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPDEF").stats.SPDEF[0],
+                        pokemonCore.pokemon.statNormFormula(pokemonB, "SPD").stats.SPD[0] - pokemonCore.pokemon.statNormFormula(pokemon, "SPD").stats.SPD[0],
+                    ];
+                    $(".battle-screen").append('<div class="level-up"></div>');
+                    for(var i = 0; i < statsDiff.length; i++){
+                        $(".level-up").append('<div class="level-'+ i +'">'+ statsDiff[i] +'</div>');
+                    }
+                    $(document).bind("keydown", function(e){
+                        if(e.which == 32){
+                            if(first) {
+                                $(".level-up").css("background-image", "url(resource/images/gui/battle/level_stats.png)");
+                                $(".level-up .level-0").text(pokemonCore.gameChar.pokemon.stats.HP[0]);
+                                $(".level-up .level-1").text(pokemonCore.gameChar.pokemon.stats.ATT[0]);
+                                $(".level-up .level-2").text(pokemonCore.gameChar.pokemon.stats.DEF[0]);
+                                $(".level-up .level-3").text(pokemonCore.gameChar.pokemon.stats.SPATT[0]);
+                                $(".level-up .level-4").text(pokemonCore.gameChar.pokemon.stats.SPDEF[0]);
+                                $(".level-up .level-5").text(pokemonCore.gameChar.pokemon.stats.SPD[0]);
+                                first = false;
+                            }else{
+                                callback();
+                                $(".level-up").remove();
+                            }
+                        }
+                    });
+                }, pokemons.name + " grew to LV." + pokemons.level + "!");
+            }, 200);
         },
 
         animateHealth: function (damage, enemy) {
@@ -1187,6 +1204,22 @@ var pokemonCore = {
     },
 
     pokemon: {
+        awardEV: function(killed){
+            var add, stat;
+            var stats = killed.evYield.replace("Special Attack", "SPATT");
+            stats = stats.replace("Special Defense", "SPDEF");
+            stats = stats.replace("Speed", "SPD");
+            stats = stats.replace("Attack", "ATT");
+            stats = stats.replace("Defense", "DEF");
+            stats = stats.split(" ");
+            for(var i = 0; i < stats.length; i += 2){
+                add = stats[i];
+                stat = stats[i+1];
+                console.log(add);
+                console.log(stat);
+                pokemonCore.gameChar.pokemon.base_stats[stat][2] += parseInt(add);
+            }
+        },
         calcPercentage: function (pokemon){
             var exp1, exp2, curExp, expNeed, percentage;
             exp1 = pokemonCore.pokemon.expForLevel(pokemon.level, pokemon.expGroup);
@@ -1230,7 +1263,6 @@ var pokemonCore = {
         },
         genIvEv: function (pokemon){
             var pokemonB;
-            console.log(pokemon.pokemon);
             if(typeof pokemon.pokemon != 'undefined')
                 pokemonB = pokemon.pokemon;
             else
@@ -1249,6 +1281,15 @@ var pokemonCore = {
             pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPATT");
             pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF");
             pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPD");
+            return pokemonB;
+        },
+        calcPokemonStats: function(pokemon){
+            pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "HP");
+            pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "ATT");
+            pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "DEF");
+            pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "SPATT");
+            pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "SPDEF");
+            pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "SPD");
             return pokemon;
         },
         statNormFormula: function (pokemon, stat){
@@ -1590,12 +1631,12 @@ function character(coords, nm) {
         weight: "5.5 lbs (2.5 kg)",
         abilities: [],
         base_stats:{
-            HP: [45, 0, 0],
-            ATT: [60, 0, 0],
-            DEF: [40, 0, 0],
-            SPATT: [70, 0, 0],
-            SPDEF: [50, 0, 0],
-            SPD: [45, 0, 0]
+            HP: [45, 31, 0],
+            ATT: [60, 31, 0],
+            DEF: [40, 31, 0],
+            SPATT: [70, 31, 0],
+            SPDEF: [50, 31, 0],
+            SPD: [45, 31, 0]
         },
         stats:{
             HP: [],
@@ -1618,8 +1659,8 @@ function character(coords, nm) {
                 100
             ]
         ],
-        level: 5,
-        exp: 0,
+        level: 2,
+        exp: 9,
         nature: 0,
         expGroup: "Medium Slow",
         baseExp: "65",

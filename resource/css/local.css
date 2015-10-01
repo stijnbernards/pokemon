@@ -196,8 +196,22 @@
 .bag-gui .use-item {
   position: absolute;
   background-image: url(../images/gui/bag/battle_use.png);
-  width: 216px;
+  width: 280px;
   height: 184px;
+  right: 4px;
+  bottom: 4px;
+  font-family: pokemon;
+  font-size: 50px;
+}
+/* line 144, ../scss/sass/gui/_bag.scss */
+.bag-gui .use-item div {
+  padding: 20px 0 0 70px;
+  width: 100%;
+  height: 30%;
+}
+/* line 148, ../scss/sass/gui/_bag.scss */
+.bag-gui .use-item div[data-selected="true"] {
+  background: url(../images/gui/battle/icons.png) no-repeat 30px 27px;
 }
 
 /* line 1, ../scss/sass/gui/_gui.scss */

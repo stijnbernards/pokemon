@@ -232,6 +232,31 @@ var pokemonCore = {
                     case 32:
                         if(duringFight){
                             $(".bag-gui").append('<div class="use-item"></div>');
+                            $(".bag-gui .use-item").append('<div data-selected="true" >Use</div><div>Cancel</div>');
+                            $(document).unbind("keydown");
+                            $(document).bind("keydown", function(e){
+                                var selected = $('.bag-gui .use-item div[data-selected="true"]');
+                                switch(e.which){
+                                    case 32:
+                                        break
+                                    case 38:
+                                        console.log($('.bag-gui .use-item div:last-of-type[data-selected="true"]').length);
+                                        if($('.bag-gui .use-item div:last-of-type[data-selected="true"]').length > -1)
+                                            $('.bag-gui .use-item div:first-of-type').attr("data-selected", "true");
+                                        else
+                                            selected.next().attr("data-selected", "true");
+                                        selected.attr("data-selected", "false");
+                                        break;
+                                    case 40:
+                                        console.log($('.bag-gui .use-item div:first-of-type[data-selected="true"]').length);
+                                        if($('.bag-gui .use-item div:first-of-type[data-selected="true"]').length > -1)
+                                            $('.bag-gui .use-item div:last-of-type').attr("data-selected", "true");
+                                        else
+                                            selected.prev().attr("data-selected", "true");
+                                        selected.attr("data-selected", "false");
+                                        break;
+                                }
+                            });
                         }else{
                             keys[key[curNr]][curItem].use();
                         }

@@ -16,7 +16,10 @@ var maps = [
     "maps/towns/oldale_town/main.js",
     "maps/towns/buildings/pokemart.js",
     "maps/routes/103/main.js",
-    "maps/routes/102/main.js"
+    "maps/routes/102/main.js",
+    "maps/towns/oldale_town/house_1.js",
+    "maps/towns/oldale_town/house_2.js",
+    "maps/towns/petalburg_city/main.js"
 ];
 
 $(document).ready(function () {
@@ -41,7 +44,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(8);
+        pokemonCore.maps.getMap(6);
         pokemonCore.player.bindMovement();
     },
 
@@ -97,7 +100,7 @@ var pokemonCore = {
     player: {
         walkInterval: null,
         lastKeyPress: null,
-        initBag: function () {
+        initBag: function (duringFight) {
             var curItem = 0;
             var curNr = 0;
             var keys = {
@@ -227,7 +230,11 @@ var pokemonCore = {
                         pokemonCore.player.openMenu();
                         break;
                     case 32:
-                        keys[key[curNr]][curItem].use();
+                        if(duringFight){
+
+                        }else{
+                            keys[key[curNr]][curItem].use();
+                        }
                         break;
                 }
 
@@ -238,6 +245,10 @@ var pokemonCore = {
                     setTimeout(function () {
                         $(".arrow-left, .arrow-right").css("display", "block");
                     }, 200);
+                }
+
+                function useBagItemMenu(){
+                    $(".bag-gui").append('<div class="use-menu"></div>')
                 }
             });
         },
@@ -928,7 +939,7 @@ var pokemonCore = {
             function select() {
                 switch (selected()) {
                     case "run":
-                        if (pokemonCore.battle.isTrainer == false || pokemonCore.battle.isTrainer === "false" || typeof pokemonCore.battle.isTrainer == 'undefined') {
+                        if (pokemonCore.battle.isTrainer == null) {
                             pokemonCore.battle.stopBattle();
                             $(document).unbind("keydown");
                             pokemonCore.player.bindMovement();
@@ -939,6 +950,10 @@ var pokemonCore = {
                         $(document).unbind("keydown");
                         fightMenu();
                         return;
+                        break;
+                    case "bag":
+                        pokemonCore.player.initBag();
+                        return
                         break;
                 }
                 if (selected().indexOf("move") >= -1) {

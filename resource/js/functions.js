@@ -231,7 +231,7 @@ var pokemonCore = {
                         break;
                     case 32:
                         if(duringFight){
-
+                            $(".bag-gui").append('<div class="use-item"></div>');
                         }else{
                             keys[key[curNr]][curItem].use();
                         }
@@ -952,7 +952,7 @@ var pokemonCore = {
                         return;
                         break;
                     case "bag":
-                        pokemonCore.player.initBag();
+                        pokemonCore.player.initBag(true);
                         return
                         break;
                 }

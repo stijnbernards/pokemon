@@ -192,6 +192,13 @@
 .bag-gui .items .item[data-selected="true"] {
   background: url(../images/gui/battle/icons.png) no-repeat 4px 10px;
 }
+/* line 135, ../scss/sass/gui/_bag.scss */
+.bag-gui .use-item {
+  position: absolute;
+  background-image: url(../images/gui/bag/battle_use.png);
+  width: 216px;
+  height: 184px;
+}
 
 /* line 1, ../scss/sass/gui/_gui.scss */
 .speech {

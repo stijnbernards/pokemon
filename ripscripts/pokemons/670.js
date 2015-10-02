@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Fairy				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

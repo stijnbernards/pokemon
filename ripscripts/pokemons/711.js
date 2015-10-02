@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Amorphous				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

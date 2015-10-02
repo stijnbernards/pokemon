@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Water 1, Water 2				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

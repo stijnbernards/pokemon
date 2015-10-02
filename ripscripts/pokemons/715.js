@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Flying				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

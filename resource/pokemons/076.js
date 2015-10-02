@@ -30,5 +30,6 @@ var pokeInfo = {
     nature: 0,
     expGroup: "Medium Slow",
     baseExp: "177",
-    evYield: "3 Defense"
-    }
+    evYield: "3 Defense",
+    catchRate: "45",
+}

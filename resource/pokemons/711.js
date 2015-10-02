@@ -28,8 +28,9 @@ var pokeInfo = {
     level: 0,
     exp: 0,
     nature: 0,
-    expGroup: "FriskPickupInsomnia (hidden ability)",
-    baseExp: "86 lbs (39.0 kg)",
-    evYield: "
-					Ghost					Grass				"
-    }
+    expGroup: "
+					Amorphous				",
+    baseExp: "—",
+    evYield: "—",
+    catchRate: "—",
+}

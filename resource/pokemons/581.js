@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Flying, Water 1				",
     baseExp: "Medium Fast",
-    evYield: "45 (5.9% with PokéBall, full HP)"
-    }
+    evYield: "45 (5.9% with PokéBall, full HP)",
+    catchRate: "70",
+}

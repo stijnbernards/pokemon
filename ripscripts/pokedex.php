@@ -77,8 +77,9 @@ foreach($nodes as $node){
     nature: 0,
     expGroup: "'. $tags3->item((13-1))->nodeValue .'",
     baseExp: "'. $tags3->item((12-1))->nodeValue .'",
-    evYield: "'. trim($tags3->item((9-1))->nodeValue) .'"
-    }';
+    evYield: "'. trim($tags3->item((9-1))->nodeValue) .'",
+    catchRate: "'. explode(" ", trim($tags3->item((10-1))->nodeValue))[0] .'",
+}';
     file_put_contents('pokemons/'. $tags->item(($index-1))->nodeValue .'.js', $file);
     sleep(0.7);
     echo $tags->item(($index-1))->nodeValue;

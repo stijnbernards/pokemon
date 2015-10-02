@@ -19,3 +19,34 @@ div.parent.wrapper.battle-engage{
     bottom: 178px;
   }
 }
+
+@include keyframes(ball-shake-right){
+  0%{
+    @include transform(rotate(0deg));
+    right: 228px;
+  }
+  50%{
+    @include transform(rotate(25deg));
+    right: 208px;
+  }
+  100%{
+    @include transform(rotate(0deg));
+    right: 228px;
+  }
+}
+
+@include keyframes(ball-shake-left){
+  0%{
+    @include transform(rotate(0deg));
+    right: 228px;
+  }
+  50%{
+    @include transform(rotate(-25deg));
+    right: 248px;
+  }
+  100%{
+    @include transform(rotate(0deg));
+    right: 228px;
+  }
+}
+

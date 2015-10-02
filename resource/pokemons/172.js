@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Undiscovered				",
     baseExp: "Medium Fast",
-    evYield: "190 (24.8% with PokéBall, full HP)"
-    }
+    evYield: "190 (24.8% with PokéBall, full HP)",
+    catchRate: "70",
+}

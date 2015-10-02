@@ -52,7 +52,7 @@ div.battle-screen{
     box-sizing: border-box;
     font-size: 41px;
     position: absolute;
-    bottom: 0;
+    bottom: 4px;
     width: 100%;
     height: 188px;
     z-index: 2;
@@ -160,6 +160,22 @@ div.battle-screen{
   .enemy-pokemon{
     right: 13%;
     top: 6%;
+    &[data-ball="true"]{
+      background-image: url(../images/gui/battle/pokeballs.png) !important;
+      width: 48px;
+      height: 48px;
+      right: 228px;
+      top: 204px;
+      &[data-image="1"]{
+          background-position: -136px -8px;
+      }
+      &[data-shake="right"]{
+        @include animation(ball-shake-right 400ms steps(3) 1);
+      }
+      &[data-shake="left"]{
+        @include animation(ball-shake-left 400ms steps(3) 1);
+      }
+    }
   }
   .ally-pokemon{
     background-position: 0 256px;

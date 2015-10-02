@@ -30,5 +30,6 @@ var pokeInfo = {
     nature: 0,
     expGroup: "Fluctuating",
     baseExp: "165",
-    evYield: "1 Attack, 1 Special Attack"
-    }
+    evYield: "1 Attack, 1 Special Attack",
+    catchRate: "90",
+}

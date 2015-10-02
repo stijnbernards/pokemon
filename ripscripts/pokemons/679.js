@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Mineral				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

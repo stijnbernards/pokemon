@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Human-Like				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

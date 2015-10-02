@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Monster				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

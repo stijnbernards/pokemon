@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Bug				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

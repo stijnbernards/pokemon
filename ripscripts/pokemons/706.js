@@ -31,5 +31,6 @@ var pokeInfo = {
     expGroup: "
 					Dragon				",
     baseExp: "—",
-    evYield: "—"
-    }
+    evYield: "—",
+    catchRate: "—",
+}

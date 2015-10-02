@@ -9,6 +9,7 @@ $(document).ready(function(){
             level: [2,3,4]
         };
     setTimeout(function(){
+        pokemonCore.items.instantiate("pokeball").buy();
         //pokemonCore.battle.startBattleScreen(pokemon);
     }, 500);
 });

@@ -19,7 +19,8 @@ var maps = [
     "maps/routes/102/main.js",
     "maps/towns/oldale_town/house_1.js",
     "maps/towns/oldale_town/house_2.js",
-    "maps/towns/petalburg_city/main.js"
+    "maps/towns/petalburg_city/main.js",
+    "maps/towns/oldale_town/pokecenter.js",
 ];
 
 $(document).ready(function () {
@@ -44,7 +45,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(6);
+        pokemonCore.maps.getMap(7);
         pokemonCore.player.bindMovement();
     },
 
@@ -100,6 +101,99 @@ var pokemonCore = {
     player: {
         walkInterval: null,
         lastKeyPress: null,
+        initPokemons: function (duringFight){
+            var selectedInt = 0;
+
+            $("#game").append('<div class="pokemons"><div class="info-box">Choose a POK&eacute;MON.</div></div>');
+            for(var i = 0; i < 6; i++){
+                $(".pokemons").append('<div class="pokemon-'+ i +'" data-selected="'+ ((i == 0) ? "true" : "false") +'"><div class="sprite"></div><div class="health-bar"></div><div class="name"></div><div class="level"></div><div class="health"></div></div>');
+            }
+            for(var i = 0; i < (pokemonCore.gameChar.bagPkmn.length + 1); i++){
+                var pokemon = (i == 0) ? pokemonCore.gameChar.pokemon : pokemonCore.gameChar.bagPkmn[i-1];
+                var pokemonDiv = $(".pokemons .pokemon-" + i);
+                pokemonDiv.attr("data-empty", "false");
+                pokemonDiv.find(".name").text(pokemon.name);
+                pokemonDiv.find(".level").text("Lv" + pokemon.level);
+                pokemonDiv.find(".health").text(pokemon.stats.HP[1] + "/ " + pokemon.stats.HP[0]);
+                pokemonDiv.find(".health-bar").css("width", (pokemon.stats.HP[1] / (pokemon.stats.HP[0] / 100) * 1.92) + "px");
+            }
+
+            $(document).unbind("keydown");
+            $(document).bind("keydown", function(e){
+                var selected = $('.pokemons div[data-selected="true"]');
+                var selectedPkmn = (selectedInt == 0) ? pokemonCore.gameChar.pokemon : pokemonCore.gameChar.bagPkmn[selectedInt-1];
+                switch(e.which){
+                    case 38:
+                        selectedInt = (selectedInt == 0) ? selectedInt = pokemonCore.gameChar.bagPkmn.length : selectedInt--;
+                        selected.attr("data-selected", "false");
+                        $(".pokemons .pokemon-" + selectedInt).attr("data-selected", "true");
+                        break;
+                    case 40:
+                        selectedInt = (selectedInt == pokemonCore.gameChar.bagPkmn.length) ? selectedInt = 0 : selectedInt++;
+                        selected.attr("data-selected", "false");
+                        $(".pokemons .pokemon-" + selectedInt).attr("data-selected", "true");
+                        break;
+                    case 32:
+                        var curItem = 1;
+                        $(".info-box").text("Do what with " + selectedPkmn.name + "?");
+                        $(".pokemons").append('<div class="menu-box"><span data-selected="true">Shift</span><span>Summary</span><span>Cancel</span></div>');
+                        $(document).unbind("keydown");
+                        $(document).bind("keydown", function(e){
+                            switch(e.which) {
+                                case 38:
+                                    curItem = (curItem == 1) ? curItem = 3 : curItem -= 1;
+                                    $('.menu-box span[data-selected="true"]').attr("data-selected", "false");
+                                    $('.menu-box span:nth-of-type('+ curItem +')').attr("data-selected", "true");
+                                    break;
+                                case 40:
+                                    curItem = (curItem == 3) ? curItem = 1 : curItem += 1;
+                                    $('.menu-box span[data-selected="true"]').attr("data-selected", "false");
+                                    $('.menu-box span:nth-of-type('+ curItem +')').attr("data-selected", "true");
+                                    break;
+                                case 32:
+                                    console.log($('.menu-box span[data-selected="true"]').text());
+                                    switch($('.menu-box span[data-selected="true"]').text()){
+                                        case "Shift":
+                                            if(selectedInt != 0){
+                                                var oldPkmn = pokemonCore.gameChar.pokemon;
+                                                pokemonCore.gameChar.bagPkmn.splice(pokemonCore.gameChar.bagPkmn.indexOf(selectedPkmn),1);
+                                                pokemonCore.gameChar.bagPkmn.push(oldPkmn);
+                                                pokemonCore.gameChar.pokemon = selectedPkmn;
+                                                $(document).unbind("keydown");
+                                                $(".pokemons").remove();
+                                                $(".action-menu").text("");
+                                                pokemonCore.utils.writer(0, function(){
+                                                    setTimeout(function(){
+                                                        $(".action-menu").text("");
+                                                        pokemonCore.utils.writer(0, function(){
+                                                            var allyBarWidth = 194 / pokemonCore.gameChar.pokemon.stats.HP[0] * pokemonCore.gameChar.pokemon.stats.HP[1];
+                                                            $(".ally-health .health-bar").css("width", allyBarWidth);
+                                                            $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
+                                                            pokemonCore.battle.setBattleKeybinds(".action-box");
+                                                            $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ".png)");
+                                                            $(".ally-health .pokemon-name").text(pokemonCore.gameChar.pokemon.name);
+                                                            $(".ally-health .pokemon-lvl").text("Lv:" + pokemonCore.gameChar.pokemon.level);
+                                                            $(".ally-health .pokemon-health").text("");
+                                                            $(".ally-health .pokemon-health").append(pokemonCore.gameChar.pokemon.stats.HP[0] + '/ <span class="cur-health"></span>');
+                                                            $(".ally-health .pokemon-health .cur-health").text(pokemonCore.gameChar.pokemon.stats.HP[1]);
+                                                        }, "Go " + pokemonCore.gameChar.pokemon.name + "!");
+                                                    }, 700);
+                                                }, "That's enough " + oldPkmn.name + " switch out!");
+                                            }else{
+                                                $(".pokemons .info-box").text(selectedPkmn.name + " is already in battle!");
+                                            }
+                                            break;
+                                        case "Summary":
+                                            break;
+                                        case "Cancel":
+                                            break;
+                                    }
+                            }
+                        });
+                        break;
+                }
+            });
+        },
         initBag: function (duringFight) {
             var curItem = 0;
             var curNr = 0;
@@ -248,6 +342,10 @@ var pokemonCore = {
                                                 switch (selected.text()) {
                                                     case "UseUse":
                                                         keys[key[curNr]][curItem].use();
+                                                        keys[key[curNr]][curItem].amount--;
+                                                        if(keys[key[curNr]][curItem].amount <= 0){
+                                                            keys[key[curNr]][curItem] = null;
+                                                        }
                                                         break;
                                                     case "CancelCancel":
                                                         $(".bag-gui .use-item").remove();
@@ -376,6 +474,9 @@ var pokemonCore = {
         createPlayerAt: function (x, y) {
             pokemonCore.gameChar = new character(new coords(x, y), "Peter");
             pokemonCore.pokemon.calcPokemonStats(pokemonCore.gameChar.pokemon);
+            for(var i = 0; i < pokemonCore.gameChar.bagPkmn; i++){
+                pokemonCore.pokemon.calcPokemonStats(pokemonCore.gameChar.bagPkmn[i]);
+            }
             //console.log(pokemonCore.gameChar.pokemon);
         },
         bindMovement: function () {
@@ -491,7 +592,9 @@ var pokemonCore = {
             coords.Y += y;
             if (pokemonCore.passable.indexOf(pokemonCore.maps.map[coords.Y - 1][coords.X - 1]) >= 0) {
                 if (pokemonCore.maps.map[coords.Y - 1][coords.X - 1] == '9') {
-                    pokemonCore.battle.grassTrigger();
+                    setTimeout(function(){
+                        pokemonCore.battle.grassTrigger();
+                    }, 150);
                     return true;
                 }
                 if (typeof npc != 'undefined' && npc != null) {
@@ -815,7 +918,7 @@ var pokemonCore = {
             })(0);
         },
 
-        createDialog: function (text, npc) {
+        createDialog: function (text, npc, callback) {
             var breakDialog = true;
             var brCount = 0;
             var pos;
@@ -851,17 +954,22 @@ var pokemonCore = {
                     case 32:
                         $(document).unbind("keydown");
                         breakDialog = false;
-                        npc.curDialog++;
-                        if (npc.battle === "false" || npc.battle == false)
-                            npc.interact();
-                        else if (npc.curDialog < npc.dialog.length)
-                            pokemonCore.utils.createDialog(npc.dialog[npc.curDialog], npc);
-                        else {
-                            npc.battle.pokemon[0].pokemon.pokemon.level = npc.battle.pokemon[0].pokemon.level;
-                            pokemonCore.battle.trainerNpc = npc;
-                            pokemonCore.battle.startBattleScreen(npc.battle.pokemon[0].pokemon);
-                            pokemonCore.battle.isTrainer = true;
-                            $(".speech").remove();
+                        if(npc != null) {
+                            npc.curDialog++;
+                            if (npc.battle === "false" || npc.battle == false)
+                                npc.interact();
+                            else if (npc.curDialog < npc.dialog.length)
+                                pokemonCore.utils.createDialog(npc.dialog[npc.curDialog], npc);
+                            else {
+                                npc.battle.pokemon[0].pokemon.pokemon.level = npc.battle.pokemon[0].pokemon.level;
+                                pokemonCore.battle.trainerNpc = npc;
+                                pokemonCore.battle.startBattleScreen(npc.battle.pokemon[0].pokemon);
+                                pokemonCore.battle.isTrainer = true;
+                                $(".speech").remove();
+                            }
+                        }else {
+                            if (isFunction(callback))
+                                callback();
                         }
                         break;
                 }
@@ -874,6 +982,7 @@ var pokemonCore = {
         isTrainer: null,
         encounter: null,
         timesEscaped: 0,
+        shouldStopDialog: true,
         grassTrigger: function () {
             var enc = Math.random();
             var totalrar = 0;
@@ -892,6 +1001,7 @@ var pokemonCore = {
         },
 
         startBattleScreen: function (pokemon) {
+            pokemonCore.battle.shouldStopDialog = true;
             var breakDialog = true;
             $(document).unbind("keydown");
             $gameDiv.append('<div class="battle-screen" data-bg="cyan"></div>');
@@ -904,23 +1014,25 @@ var pokemonCore = {
             }
 
             function writer(i, text, i2) {
-                setTimeout(function () {
-                    if (i < text[i2].length && breakDialog) {
-                        $(".action-menu").append(text[i2][i]);
-                        i++;
-                        writer(i, text, i2);
-                    } else {
-                        setTimeout(function () {
-                            i2++;
-                            if (i2 != text.length) {
-                                $(".action-menu").text("");
-                                writer(0, text, i2);
-                            } else {
-                                pokemonCore.battle.initFight(pokemon);
-                            }
-                        }, 1000);
-                    }
-                }, 50);
+                if(pokemonCore.battle.shouldStopDialog) {
+                    setTimeout(function () {
+                        if (i < text[i2].length && breakDialog) {
+                            $(".action-menu").append(text[i2][i]);
+                            i++;
+                            writer(i, text, i2);
+                        } else {
+                            setTimeout(function () {
+                                i2++;
+                                if (i2 != text.length) {
+                                    $(".action-menu").text("");
+                                    writer(0, text, i2);
+                                } else {
+                                    pokemonCore.battle.initFight(pokemon);
+                                }
+                            }, 1000);
+                        }
+                    }, 50);
+                }
             };
         },
 
@@ -939,6 +1051,7 @@ var pokemonCore = {
             pokemonCore.battle.encounter = pokemon;
             pokemonCore.battle.animateHealth();
             $(".ally-health .exp-bar").css("width", (pokemonCore.pokemon.calcPercentage(pokemonCore.gameChar.pokemon) * 2.59) + "px");
+            pokemonCore.gameChar.addSeen(pokemon.nN);
         },
 
         stopBattle: function () {
@@ -1031,6 +1144,9 @@ var pokemonCore = {
                         pokemonCore.player.initBag(true);
                         return
                         break;
+                    case "pokemon":
+                        pokemonCore.player.initPokemons(true);
+                        break;
                 }
                 if (selected().indexOf("move") >= -1) {
                     pokemonCore.battle.handleMove(selected(), false);
@@ -1056,6 +1172,7 @@ var pokemonCore = {
             var encounter = pokemonCore.battle.encounter;
             var text;
             var damage;
+            pokemonCore.battle.shouldStopDialog = false;
             if (enemy) {
                 var stats = ["ATT", "DEF"];
                 damage = Math.round(((2 * pokemonCore.battle.encounter.pokemon.level + 10) / 250) * (pokemonCore.battle.encounter.pokemon.stats[stats[0]][1] / pokemonCore.gameChar.pokemon.stats[stats[1]][1]) * pokemonCore.battle.encounter.pokemon.moves[move][6] + 2);
@@ -1075,7 +1192,6 @@ var pokemonCore = {
                 $(".action-menu").text("");
                 $(".fight-box").remove();
                 $(".action-box").remove();
-
                 if (!enemy) {
                     text = pokemon.name + " used " + pokemon.moves[moveNr][0] + "!";
                 } else {
@@ -1327,9 +1443,48 @@ var pokemonCore = {
             return percentage;
         },
         expForLevel: function (level, group) {
+            var expForLevelUp;
             switch (group) {
+                case "Erratic":
+                    expForLevelUp = Math.round(
+                        level <= 50 ?
+                            Math.pow(level, 3) * (100 - level) / 50
+                            :
+                            level <= 68 ?
+                                Math.pow(level, 3) * (150 - level) / 100
+                                :
+                                level <= 98 ?
+                                    Math.pow(level, 3) * Math.floor((1911 - (10 * level)) / 3) / 500
+                                    :
+                                    level <= 100 ?
+                                        Math.pow(level, 3) * (160 - level) / 100
+                                        : 0
+                    );
+                    break;
+                case "Fluctuating":
+                    expForLevelUp = Math.round(
+                        level <= 15 ?
+                            Math.pow(level, 3) * ((Math.floor((level + 1) / 3) + 24) / 50)
+                            :
+                            level <= 36 ?
+                                Math.pow(level, 3) * ((level + 14) / 50)
+                                :
+                                level <= 100 ?
+                                    Math.pow(level, 3) * ((Math.floor(level / 2) + 32) / 50)
+                                    : 0
+                    );
+                    break;
+                case "Slow":
+                        expForLevelUp = 5 * Math.pow(level, 3) / 4;
+                    break;
                 case "Medium Slow":
-                    var expForLevelUp = Math.round(6 / 5 * Math.pow(level, 3) - 15 * Math.pow(level, 2) + 100 * level - 140);
+                    expForLevelUp = Math.round(6 / 5 * Math.pow(level, 3) - 15 * Math.pow(level, 2) + 100 * level - 140);
+                    break;
+                case "Medium Fast":
+                    expForLevelUp = Math.round(Math.pow(level, 3));
+                    break;
+                case "Fast":
+                    expForLevelUp = Math.round(4 * Math.pow(level, 3) / 5);
                     break;
             }
             return expForLevelUp;
@@ -1407,6 +1562,11 @@ var pokemonCore = {
     },
 
     specialInteract: {
+        pc: function(){
+            pokemonCore.utils.createDialog([pokemonCore.gameChar.name + " booted up the PC."], null, function(){
+                alert("kek");
+            });
+        },
         pokemart: function (items) {
             var lastScroll = 0;
             $(document).unbind("keydown");
@@ -1520,6 +1680,17 @@ var pokemonCore = {
             function selectedItem() {
                 return $('li[data-selected="true"]');
             }
+        },
+
+        pokecenter: function(){
+            var char = pokemonCore.gameChar;
+
+            function healPkmn(){
+                char.pokemon.stats.HP[1] = char.pokemon.stats.HP[0];
+                for(var i = 0; i < char.bagPkmn.length; i++){
+                    char.bagPkmn[i].stats.HP[1] = char.bagPkmn[i].stats.HP[0];
+                }
+            }
         }
     },
 
@@ -1542,6 +1713,7 @@ var pokemonCore = {
                     pokemonCore.gameChar.getItemByName(this.name).amount += 1;
                 } else {
                     pokemonCore.gameChar.bag.push(this);
+                    pokemonCore.gameChar.getItemByName(this.name).amount += 1;
                 }
             }
         }
@@ -1795,6 +1967,8 @@ function character(coords, nm) {
     var $character;
     var name = nm;
     var money = 1000;
+    var seen = [];
+    var caught = [];
 
     this.pokemon = {
         nN: 255,
@@ -1832,8 +2006,8 @@ function character(coords, nm) {
                 100
             ]
         ],
-        level: 2,
-        exp: 9,
+        level: 5,
+        exp: 135,
         nature: 0,
         expGroup: "Medium Slow",
         baseExp: "65",
@@ -1891,6 +2065,12 @@ function character(coords, nm) {
             return 0;
         }
         return amount;
+    }
+
+    this.addSeen = function(id){
+        if(seen.indexOf(id) > -1){
+            seen.push(id);
+        }
     }
 }
 

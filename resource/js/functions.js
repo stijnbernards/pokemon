@@ -99,6 +99,9 @@ var pokemonCore = {
                         npc[i].createNpc();
                     }
                 }
+                if(typeof music != 'undefined'){
+                    pokemonCore.audioHandler.startAmbientAudio(music.ambient);
+                }
             });
         }
     },
@@ -957,6 +960,54 @@ var pokemonCore = {
         }
     },
 
+    audioHandler: {
+        ambient: null,
+        battle: null,
+        startAmbientAudio: function(file){
+            if(pokemonCore.audioHandler.ambient) {
+                pokemonCore.audioHandler.ambient.pause();
+                pokemonCore.audioHandler.ambient.currentTime = 0;
+            }
+            pokemonCore.audioHandler.ambient = new Audio('resource/audio/ambient/' + file);
+            pokemonCore.audioHandler.ambient.addEventListener('ended', function(){
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            pokemonCore.audioHandler.ambient.play();
+        },
+        startBattleMusic: function(file){
+            if(pokemonCore.audioHandler.ambient) {
+                pokemonCore.audioHandler.ambient.pause();
+                pokemonCore.audioHandler.ambient.currentTime = 0;
+            }
+            pokemonCore.audioHandler.battle = new Audio('resource/audio/battle/' + file);
+            pokemonCore.audioHandler.battle.addEventListener('ended', function(){
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            pokemonCore.audioHandler.battle.play();
+        },
+        resumeAmbient: function(){
+            if(pokemonCore.audioHandler.battle) {
+                pokemonCore.audioHandler.battle.pause();
+                pokemonCore.audioHandler.battle.currentTime = 0;
+            }
+            if(pokemonCore.audioHandler.ambient){
+                pokemonCore.audioHandler.ambient.play();
+            }
+        },
+        stop: function(){
+            if(pokemonCore.audioHandler.ambient) {
+                pokemonCore.audioHandler.ambient.pause();
+                pokemonCore.audioHandler.ambient.currentTime = 0;
+            }
+            if(pokemonCore.audioHandler.battle) {
+                pokemonCore.audioHandler.battle.pause();
+                pokemonCore.audioHandler.battle.currentTime = 0;
+            }
+        }
+    },
+
     utils: {
         pokeInfo: function(){
 
@@ -1049,9 +1100,11 @@ var pokemonCore = {
                                 npc.battle.pokemon[0].pokemon.pokemon.level = npc.battle.pokemon[0].pokemon.level;
                                 pokemonCore.battle.trainerNpc = npc;
                                 npc.battle.pokemon[0].pokemon.pokemon = pokemonCore.pokemon.calcPokemonStats(npc.battle.pokemon[0].pokemon.pokemon);
-                                console.log(npc.battle.pokemon[0].pokemon.pokemon);
                                 npc.battle.pokemon[0].pokemon = pokemonCore.pokemon.instantiateMoves(npc.battle.pokemon[0].pokemon);
-                                pokemonCore.battle.startBattleScreen(npc.battle.pokemon[0].pokemon);
+                                pokemonCore.audioHandler.startBattleMusic("trainer.mp3");
+                                setTimeout(function(){
+                                    pokemonCore.battle.startBattleScreen(npc.battle.pokemon[0].pokemon);
+                                }, 800);
                                 pokemonCore.battle.isTrainer = true;
                                 $(".speech").remove();
                             }
@@ -1082,7 +1135,11 @@ var pokemonCore = {
                     pokemon[i].pokemon.level = level;
                     curPokemon = pokemonCore.pokemon.genIvEv(pokemon[i]);
                     curPokemon = pokemonCore.pokemon.instantiateMoves(pokemon[i]);
-                    pokemonCore.battle.startBattleScreen(curPokemon);
+                    $(document).unbind("keydown");
+                    pokemonCore.audioHandler.startBattleMusic("wildbattle.mp3");
+                    setTimeout(function(){
+                        pokemonCore.battle.startBattleScreen(curPokemon);
+                    }, 800)
                     return;
                     break;
                 }
@@ -1151,6 +1208,7 @@ var pokemonCore = {
             pokemonCore.battle.encounter = null;
             pokemonCore.battle.isTrainer = null;
             pokemonCore.battle.trainerNpc = null;
+            pokemonCore.audioHandler.resumeAmbient();
         },
 
         setBattleKeybinds: function (itemclass) {

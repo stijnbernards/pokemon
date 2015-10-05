@@ -33,9 +33,13 @@ var npc = [
         null,
         null,
         null,
-        [4, 8],
+        [11, 7],
         false,
         false
     ),
 ];
+
+var music = {
+    ambient: "pokecenter.mp3"
+}
 

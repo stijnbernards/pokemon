@@ -58,4 +58,8 @@ var npc = [
         false,
         false
     ),
-]
+];
+
+var music = {
+    ambient: "oldaletown.mp3"
+}

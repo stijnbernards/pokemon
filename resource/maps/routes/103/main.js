@@ -42,3 +42,7 @@ var pokemon = [
         level: [2, 3, 4]
     }
 ];
+
+var music = {
+    ambient: "route101.mp3"
+}

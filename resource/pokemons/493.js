@@ -6,12 +6,12 @@ var pokeInfo = {
     weight: "705.5 lbs (320.0 kg)",
     abilities: [],
     base_stats:{
-        HP: [120, 0, 0],
-        ATT: [120, 0, 0],
-        DEF: [120, 0, 0],
-        SPATT: [120, 0, 0],
-        SPDEF: [120, 0, 0],
-        SPD: [120, 0, 0]
+        HP: [120, 255, 255],
+        ATT: [120, 255, 255],
+        DEF: [120, 255, 255],
+        SPATT: [120, 255, 255],
+        SPDEF: [120, 255, 255],
+        SPD: [120, 255, 255]
     },
     stats:{
         HP: [],
@@ -23,7 +23,7 @@ var pokeInfo = {
     },
     entry: "It is told in mythology that this Pokémon was born before the universe even existed.",
     moves:[
-        10,
+        1
     ],
     level: 0,
     exp: 0,

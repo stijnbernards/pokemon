@@ -15,5 +15,15 @@ var map = [
 ];
 
 var npc = [
-
+    new pokemonCore.npc(
+        null,
+        "w",
+        ["When a POK&eacute;MON battle starts, the one at the left of the list goes out first.", "So, when you get more POK&eacuteMON in your party, try switching aroun the order", "of your POK&eacuteMON."],
+        null,
+        null,
+        null,
+        [7, 5],
+        false,
+        false
+    ),
 ]

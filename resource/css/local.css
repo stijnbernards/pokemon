@@ -343,6 +343,107 @@
   width: 875px;
 }
 
+/* line 52, ../scss/sass/gui/_pokedex.scss */
+.pokedex {
+  position: absolute;
+  z-index: 9;
+  background-image: url(../images/gui/pokedex/pokedex.png);
+  width: 960px;
+  height: 640px;
+}
+/* line 58, ../scss/sass/gui/_pokedex.scss */
+.pokedex .seen-txt {
+  font-family: pokemon;
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  width: 216px;
+  text-align: right;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+/* line 69, ../scss/sass/gui/_pokedex.scss */
+.pokedex .seen-txt .seen {
+  border-top: 4px solid white;
+  width: 216px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+/* line 76, ../scss/sass/gui/_pokedex.scss */
+.pokedex .pokeball {
+  position: absolute;
+  background-image: url(../images/gui/pokedex/ball.png);
+  width: 440px;
+  height: 440px;
+  left: -220px;
+  top: 100px;
+  -webkit-transition: transform 200ms linear;
+  -moz-transition: transform 200ms linear;
+  -ms-transition: transform 200ms linear;
+  -o-transition: transform 200ms linear;
+  transition: transform 200ms linear;
+}
+/* line 85, ../scss/sass/gui/_pokedex.scss */
+.pokedex .pokemon-images {
+  position: absolute;
+  width: 256px;
+  height: 448px;
+  left: 256px;
+  top: 96px;
+  overflow: hidden;
+}
+/* line 92, ../scss/sass/gui/_pokedex.scss */
+.pokedex .pokemon-images div {
+  margin-bottom: 78px;
+  margin-left: 44px;
+  width: 160px;
+  height: 160px;
+  clear: both;
+  background: url(../images/gui/pokedex/icons.png);
+  background-size: 200%;
+  -webkit-transition: margin 200ms linear;
+  -moz-transition: margin 200ms linear;
+  -ms-transition: margin 200ms linear;
+  -o-transition: margin 200ms linear;
+  transition: margin 200ms linear;
+}
+/* line 101, ../scss/sass/gui/_pokedex.scss */
+.pokedex .pokemon-images div[data-seen="false"] {
+  background-size: auto;
+  background-position: -160px 0px;
+}
+/* line 107, ../scss/sass/gui/_pokedex.scss */
+.pokedex .pokemon-names {
+  position: absolute;
+  right: 60px;
+  height: 504px;
+  width: 356px;
+  top: 68px;
+  overflow: hidden;
+}
+/* line 114, ../scss/sass/gui/_pokedex.scss */
+.pokedex .pokemon-names > span {
+  display: block;
+  width: 100%;
+  height: 70px;
+  font-family: pokemon;
+  font-size: 50px;
+  padding-left: 36px;
+  box-sizing: border-box;
+  padding-top: 3px;
+  -webkit-transition: margin 200ms linear;
+  -moz-transition: margin 200ms linear;
+  -ms-transition: margin 200ms linear;
+  -o-transition: margin 200ms linear;
+  transition: margin 200ms linear;
+}
+/* line 124, ../scss/sass/gui/_pokedex.scss */
+.pokedex .pokemon-names > span span {
+  font-size: 40px;
+}
+
 /* line 1, ../scss/sass/gui/_pokemart.scss */
 .pokemart-gui {
   position: absolute;
@@ -478,6 +579,145 @@
 /* line 111, ../scss/sass/gui/_pokemart.scss */
 .pokemart-gui .amount .amount-price {
   float: right;
+}
+
+/* line 1, ../scss/sass/gui/_pokemons.scss */
+.pokemons {
+  position: absolute;
+  z-index: 9;
+  width: 960px;
+  height: 640px;
+  background-image: url(../images/gui/pokemon/bg.png);
+  font-family: pokemon;
+  font-size: 30px;
+  color: white;
+}
+/* line 10, ../scss/sass/gui/_pokemons.scss */
+.pokemons .menu-box {
+  background-image: url(../images/gui/pokemon/menu_box.png);
+  position: absolute;
+  width: 312px;
+  height: 248px;
+  padding-top: 18px;
+  box-sizing: border-box;
+  right: 4px;
+  bottom: 4px;
+}
+/* line 19, ../scss/sass/gui/_pokemons.scss */
+.pokemons .menu-box span {
+  padding-top: 8px;
+  width: 100%;
+  font-size: 50px;
+  padding-left: 68px;
+  display: block;
+  color: black;
+}
+/* line 26, ../scss/sass/gui/_pokemons.scss */
+.pokemons .menu-box span[data-selected="true"] {
+  background: url(../images/gui/battle/icons.png) no-repeat 32px 14px;
+}
+/* line 31, ../scss/sass/gui/_pokemons.scss */
+.pokemons .info-box {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  color: black;
+  padding: 32px;
+  font-size: 50px;
+  box-sizing: border-box;
+  width: 632px;
+  height: 120px;
+  background-image: url(../images/gui/pokemon/info_box.png);
+}
+/* line 43, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0) {
+  width: 568px;
+  height: 88px;
+  float: right;
+  position: relative;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+/* line 50, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0) .name {
+  position: absolute;
+  top: 18px;
+  left: 104px;
+}
+/* line 55, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0) .level {
+  position: absolute;
+  top: 56px;
+  left: 144px;
+}
+/* line 60, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0) .health {
+  position: absolute;
+  right: 24px;
+  top: 56px;
+}
+/* line 65, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0) .health-bar {
+  height: 12px;
+  position: absolute;
+  background-image: url(../images/gui/pokemon/health_bar.png);
+  left: 352px;
+  top: 32px;
+}
+/* line 72, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0):not([data-empty="false"]) {
+  background-image: url(../images/gui/pokemon/placeholder.png);
+}
+/* line 75, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0)[data-empty="false"] {
+  background-image: url(../images/gui/pokemon/pkmn_small.png);
+}
+/* line 77, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0)[data-empty="false"][data-selected="true"] {
+  background-position: 0px -96px;
+}
+/* line 81, ../scss/sass/gui/_pokemons.scss */
+.pokemons div[class^="pokemon-"]:not(.pokemon-0).pokemon-1 {
+  margin-top: 40px;
+}
+/* line 85, ../scss/sass/gui/_pokemons.scss */
+.pokemons div.pokemon-0 {
+  position: absolute;
+  width: 312px;
+  height: 196px;
+  background-image: url(../images/gui/pokemon/mainpkmn.png);
+  top: 96px;
+  left: 28px;
+}
+/* line 92, ../scss/sass/gui/_pokemons.scss */
+.pokemons div.pokemon-0[data-selected="true"] {
+  background-position: 312px 0px;
+}
+/* line 95, ../scss/sass/gui/_pokemons.scss */
+.pokemons div.pokemon-0 .level {
+  position: absolute;
+  top: 88px;
+  left: 124px;
+}
+/* line 100, ../scss/sass/gui/_pokemons.scss */
+.pokemons div.pokemon-0 .name {
+  position: absolute;
+  top: 58px;
+  left: 92px;
+}
+/* line 105, ../scss/sass/gui/_pokemons.scss */
+.pokemons div.pokemon-0 .health-bar {
+  height: 12px;
+  position: absolute;
+  top: 132px;
+  left: 96px;
+  background-image: url(../images/gui/pokemon/health_bar.png);
+}
+/* line 112, ../scss/sass/gui/_pokemons.scss */
+.pokemons div.pokemon-0 .health {
+  position: absolute;
+  top: 154px;
+  right: 22px;
 }
 
 /* line 1, ../scss/sass/custom/_main.scss */

@@ -24,7 +24,29 @@ var map = [
     "routes/102/main.png"
 ];
 var npc = [
-
+    new pokemonCore.npc(
+        null,
+        "YOUNGSTER-CALVIN",
+        ["If you have POKeMON with you, then you're an official POKeMON TRAINER!", "You can't say no to my challenge!"],
+        null,
+        null,
+        null,
+        [34,14],
+        {
+            pokemon:[
+                {
+                    pokemon: {
+                        pokemon: new pokemonCore.pokemon.instantiate(261),
+                        level: 5,
+                    }
+                },
+            ]
+        },
+        false,
+        ["YOUNGSTER CALVIN would like to battle!"],
+        ["Arrgh, I lost... I should have trained mine more..."],
+        "down"
+    ),
 ];
 
 var pokemon = [
@@ -44,3 +66,7 @@ var pokemon = [
         level: [2,3]
     }
 ];
+
+var music = {
+    ambient: "route101.mp3"
+}

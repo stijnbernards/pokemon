@@ -39,3 +39,7 @@ var items = [
     pokemonCore.items.instantiate("xattack"),
     pokemonCore.items.instantiate("xdefend")
 ];
+
+var music = {
+    ambient: "pokemart.mp3"
+}

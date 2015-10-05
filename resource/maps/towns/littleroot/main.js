@@ -71,4 +71,8 @@ var npc = [
         false,
         false
     )
-]
+];
+
+var music = {
+    ambient: "littleroot.mp3"
+}

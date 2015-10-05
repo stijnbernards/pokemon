@@ -100,3 +100,6 @@ var pokemon = [
 //    ["Ik guj ou slopen"],
 //    ["Kak"]
 //),
+var music = {
+    ambient: "route101.mp3"
+}

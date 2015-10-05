@@ -1,0 +1,118 @@
+.pokemons{
+  position: absolute;
+  z-index: 9;
+  width: 960px;
+  height: 640px;
+  background-image: url(../images/gui/pokemon/bg.png);
+  font-family: pokemon;
+  font-size: 30px;
+  color: white;
+  .menu-box{
+    background-image: url(../images/gui/pokemon/menu_box.png);
+    position: absolute;
+    width: 312px;
+    height: 248px;
+    padding-top: 18px;
+    box-sizing: border-box;
+    right: 4px;
+    bottom: 4px;
+    span{
+      padding-top: 8px;
+      width: 100%;
+      font-size: 50px;
+      padding-left: 68px;
+      display: block;
+      color: black;
+      &[data-selected="true"]{
+        background: url(../images/gui/battle/icons.png) no-repeat 32px 14px;
+      }
+    }
+  }
+  .info-box{
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    color: black;
+    padding: 32px;
+    font-size: 50px;
+    box-sizing: border-box;
+    width: 632px;
+    height: 120px;
+    background-image: url(../images/gui/pokemon/info_box.png);
+  }
+  div[class^="pokemon-"]:not(.pokemon-0){
+    width: 568px;
+    height: 88px;
+    float: right;
+    position: relative;
+    margin-right: 8px;
+    margin-top: 8px;
+    .name{
+      position: absolute;
+      top: 18px;
+      left: 104px;
+    }
+    .level{
+      position: absolute;
+      top: 56px;
+      left: 144px;
+    }
+    .health{
+      position: absolute;
+      right: 24px;
+      top: 56px;
+    }
+    .health-bar{
+      height: 12px;
+      position: absolute;
+      background-image: url(../images/gui/pokemon/health_bar.png);
+      left: 352px;
+      top: 32px;
+    }
+    &:not([data-empty="false"]){
+      background-image: url(../images/gui/pokemon/placeholder.png);
+    }
+    &[data-empty="false"]{
+      background-image: url(../images/gui/pokemon/pkmn_small.png);
+      &[data-selected="true"]{
+        background-position: 0px -96px;
+      }
+    }
+    &.pokemon-1{
+      margin-top: 40px;
+    }
+  }
+  div.pokemon-0{
+    position: absolute;
+    width: 312px;
+    height: 196px;
+    background-image: url(../images/gui/pokemon/mainpkmn.png);
+    top: 96px;
+    left: 28px;
+    &[data-selected="true"]{
+      background-position: 312px 0px;
+    }
+    .level{
+      position: absolute;
+      top: 88px;
+      left: 124px;
+    }
+    .name{
+      position: absolute;
+      top: 58px;
+      left: 92px;
+    }
+    .health-bar{
+      height: 12px;
+      position: absolute;
+      top: 132px;
+      left: 96px;
+      background-image: url(../images/gui/pokemon/health_bar.png);
+    }
+    .health{
+      position: absolute;
+      top: 154px;
+      right: 22px;
+    }
+  }
+}

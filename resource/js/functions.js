@@ -6,21 +6,23 @@ var $gameDiv;
 var $gameWrapper;
 
 var maps = [
-    "maps/towns/littleroot/main.js",
-    "maps/towns/littleroot/player_home_f1.js",
-    "maps/towns/littleroot/player_home_f2.js",
-    "maps/towns/littleroot/rival_home_f1.js",
-    "maps/towns/littleroot/rival_home_f2.js",
-    "maps/towns/littleroot/laboratory.js",
-    "maps/routes/101/main.js",
-    "maps/towns/oldale_town/main.js",
-    "maps/towns/buildings/pokemart.js",
-    "maps/routes/103/main.js",
-    "maps/routes/102/main.js",
-    "maps/towns/oldale_town/house_1.js",
-    "maps/towns/oldale_town/house_2.js",
-    "maps/towns/petalburg_city/main.js",
-    "maps/towns/oldale_town/pokecenter.js",
+    "maps/towns/littleroot/main.js",            //0
+    "maps/towns/littleroot/player_home_f1.js",  //1
+    "maps/towns/littleroot/player_home_f2.js",  //2
+    "maps/towns/littleroot/rival_home_f1.js",   //3
+    "maps/towns/littleroot/rival_home_f2.js",   //4
+    "maps/towns/littleroot/laboratory.js",      //5
+    "maps/routes/101/main.js",                  //6
+    "maps/towns/oldale_town/main.js",           //7
+    "maps/towns/oldale_town/pokemart.js",       //8
+    "maps/routes/103/main.js",                  //9
+    "maps/routes/102/main.js",                  //10
+    "maps/towns/oldale_town/house_1.js",        //11
+    "maps/towns/oldale_town/house_2.js",        //12
+    "maps/towns/petalburg_city/main.js",        //13
+    "maps/towns/oldale_town/pokecenter.js",     //14
+    "maps/storyspecial/truck.js",               //14
+    "maps/storyspecial/intro.js",               //15
 ];
 
 $(document).ready(function () {
@@ -101,6 +103,9 @@ var pokemonCore = {
                 }
                 if(typeof music != 'undefined'){
                     pokemonCore.audioHandler.startAmbientAudio(music.ambient);
+                }
+                if(typeof onEnterFunc != 'undefined'){
+                    onEnterFunc();
                 }
             });
         }

@@ -1,0 +1,9 @@
+var move = [
+      "Aura Sphere",
+      "Fighting",
+      "Special",
+      "Beautiful",
+      "20",
+      "80*",
+      "—",
+    ]

@@ -6,7 +6,7 @@
  * Time: 11:24 AM
  */
 ini_set('max_execution_time', 3000000000);
-error_reporting(0);
+//error_reporting(0);
 
 $url = 'http://pokemondb.net/pokedex/national';
 
@@ -27,6 +27,7 @@ $classname="ent-name";
 $nodes = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]");
 
 foreach($nodes as $node){
+    $moves;
     $url = 'http://pokemondb.net/pokedex/' . strtolower($node->nodeValue);
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -44,9 +45,23 @@ foreach($nodes as $node){
     $tags = $dom->getElementsByTagName('strong');
     $tags2 = $dom->getElementsByTagName('h1');
     $tags3 = $dom->getElementsByTagName('td');
+    $table = $dom->getElementsByTagName('table')->item(7);
+    $first = false;
+    try {
+        if($table != null) {
+            foreach ($table->getElementsByTagName('tr') as $tr) {
+                if ($first) {
+                    $tds = $tr->getElementsByTagName('td');
+                    $moves .= '["' . trim($tds->item(0)->nodeValue) . '","' . trim($tds->item(1)->nodeValue) . '"],';
+                } else {
+                    $first = true;
+                }
+            }
+        }
+    }catch(Exception $e){}
 
     $file = 'var pokeInfo = {
-    nN: '. $tags->item(($index-1))->nodeValue .',
+    nN: '. trim($tags->item(($index-1))->nodeValue) .',
     name: "'.$tags2->item((1-1))->nodeValue .'",
     species: "'. $tags3->item((3-1))->nodeValue .'",
     height: "'. $tags3->item((4-1))->nodeValue .'",
@@ -68,19 +83,21 @@ foreach($nodes as $node){
         SPDEF: [],
         SPD: []
     },
-    entry: "'. $tags3->item((61-1))->nodeValue .'",
+    entry: "'. trim($tags3->item((61-1))->nodeValue) .'",
     moves:[
-        10,
+        "scratch",
+    ],
+    movesLearn:[
+    '. $moves .'
     ],
     level: 0,
     exp: 0,
     nature: 0,
-    expGroup: "'. $tags3->item((13-1))->nodeValue .'",
-    baseExp: "'. $tags3->item((12-1))->nodeValue .'",
+    expGroup: "'. trim($tags3->item((13-1))->nodeValue) .'",
+    baseExp: "'. trim($tags3->item((12-1))->nodeValue) .'",
     evYield: "'. trim($tags3->item((9-1))->nodeValue) .'",
     catchRate: "'. explode(" ", trim($tags3->item((10-1))->nodeValue))[0] .'",
 }';
     file_put_contents('pokemons/'. $tags->item(($index-1))->nodeValue .'.js', $file);
     sleep(0.7);
-    echo $tags->item(($index-1))->nodeValue;
 }

@@ -75,4 +75,6 @@ var npc = [
 
 var music = {
     ambient: "littleroot.mp3"
-}
+};
+
+var onEnterFunc = null;

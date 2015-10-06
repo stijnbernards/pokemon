@@ -6,23 +6,25 @@ var $gameDiv;
 var $gameWrapper;
 
 var maps = [
-    "maps/towns/littleroot/main.js",            //0
-    "maps/towns/littleroot/player_home_f1.js",  //1
-    "maps/towns/littleroot/player_home_f2.js",  //2
-    "maps/towns/littleroot/rival_home_f1.js",   //3
-    "maps/towns/littleroot/rival_home_f2.js",   //4
-    "maps/towns/littleroot/laboratory.js",      //5
-    "maps/routes/101/main.js",                  //6
-    "maps/towns/oldale_town/main.js",           //7
-    "maps/towns/oldale_town/pokemart.js",       //8
-    "maps/routes/103/main.js",                  //9
-    "maps/routes/102/main.js",                  //10
-    "maps/towns/oldale_town/house_1.js",        //11
-    "maps/towns/oldale_town/house_2.js",        //12
-    "maps/towns/petalburg_city/main.js",        //13
-    "maps/towns/oldale_town/pokecenter.js",     //14
-    "maps/storyspecial/truck.js",               //15
-    "maps/storyspecial/intro.js",               //16
+    "maps/towns/littleroot/main.js",                //0
+    "maps/towns/littleroot/player_home_f1.js",      //1
+    "maps/towns/littleroot/player_home_f2.js",      //2
+    "maps/towns/littleroot/rival_home_f1.js",       //3
+    "maps/towns/littleroot/rival_home_f2.js",       //4
+    "maps/towns/littleroot/laboratory.js",          //5
+    "maps/routes/101/main.js",                      //6
+    "maps/towns/oldale_town/main.js",               //7
+    "maps/towns/oldale_town/pokemart.js",           //8
+    "maps/routes/103/main.js",                      //9
+    "maps/routes/102/main.js",                      //10
+    "maps/towns/oldale_town/house_1.js",            //11
+    "maps/towns/oldale_town/house_2.js",            //12
+    "maps/towns/petalburg_city/main.js",            //13
+    "maps/towns/oldale_town/pokecenter.js",         //14
+    "maps/storyspecial/truck.js",                   //15
+    "maps/storyspecial/intro.js",                   //16
+    "maps/towns/littleroot/truck.js",               //17
+    "maps/towns/littleroot/player_home_f1_first.js" //18
 ];
 
 $(document).ready(function () {
@@ -48,7 +50,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(16);
+        pokemonCore.maps.getMap(3);
         pokemonCore.player.bindMovement();
     },
 
@@ -548,7 +550,7 @@ var pokemonCore = {
         createPlayerAt: function (x, y) {
             if(pokemonCore.gameCharBackUp == null) {
                 pokemonCore.gameChar = new character(new coords(x, y), "Peter");
-                pokemonCore.gameChar.pokemon = new pokemonCore.pokemon.instantiate(493);
+                pokemonCore.gameChar.pokemon = new pokemonCore.pokemon.instantiate(003);
                 pokemonCore.gameChar.pokemon.moves[0] = [
                     "Fissure",
                     "Normal",
@@ -841,6 +843,22 @@ var pokemonCore = {
         }
 
         function moveNpc(x, y) {
+            coords[0] += x;
+            coords[1] += y;
+            $(".npc-" + nm).css({"top": ((coords[1] - 1) * 64) + "px", "left": ((coords[0] - 1) * 64) + "px"});
+            if (x == 1)
+                direction = "right";
+            else if (x == -1)
+                direction = "left";
+            else if (y == 1)
+                direction = "down";
+            else if (y == -1)
+                direction = "up";
+
+            $(".npc-" + nm).attr("data-direction", direction);
+        }
+
+        this.moveNpc = function(x, y) {
             coords[0] += x;
             coords[1] += y;
             $(".npc-" + nm).css({"top": ((coords[1] - 1) * 64) + "px", "left": ((coords[0] - 1) * 64) + "px"});

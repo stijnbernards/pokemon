@@ -14,3 +14,7 @@ var map = [
     "towns/littleroot/rival_home_f1.png"
 ];
 var npc = null;
+
+var onEnterFunc = function(){
+
+}

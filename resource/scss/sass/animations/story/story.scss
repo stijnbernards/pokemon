@@ -1,0 +1,19 @@
+@include keyframes(birch-animation){
+  0%{
+    background-position: 0px 0px;
+  }
+  100%{
+    background-position: -19024px 0px;
+  }
+}
+
+.birch-animate{
+  @include animation(birch-animation steps(41) 2s 1);
+  width: 448px;
+  height: 448px;
+  background: url(../images/storyspecial/birchstory.png) -18560px 0px;;
+  z-index: 9;
+  position: absolute;
+  top: -16px;
+  left: 188px;
+}

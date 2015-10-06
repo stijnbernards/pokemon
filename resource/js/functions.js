@@ -21,8 +21,8 @@ var maps = [
     "maps/towns/oldale_town/house_2.js",        //12
     "maps/towns/petalburg_city/main.js",        //13
     "maps/towns/oldale_town/pokecenter.js",     //14
-    "maps/storyspecial/truck.js",               //14
-    "maps/storyspecial/intro.js",               //15
+    "maps/storyspecial/truck.js",               //15
+    "maps/storyspecial/intro.js",               //16
 ];
 
 $(document).ready(function () {
@@ -48,7 +48,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(7);
+        pokemonCore.maps.getMap(16);
         pokemonCore.player.bindMovement();
     },
 
@@ -58,7 +58,7 @@ var pokemonCore = {
         map: null,
         getMap: function (mapId) {
             setTimeout(function(){
-                pokemonCore.items.instantiate("pokeball").buy();
+                //pokemonCore.items.instantiate("pokeball").buy();
                 //pokemonCore.battle.startBattleScreen(pokemon);
             }, 500);
             for (var i = 0; i < pokemonCore.timeouts.length; i++) {

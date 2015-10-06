@@ -1419,6 +1419,54 @@ div.battle-screen .level-up div[class^="level-"]:first-of-type {
   z-index: 2;
 }
 
+@-webkit-keyframes birch-animation {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -19024px 0px;
+  }
+}
+@-moz-keyframes birch-animation {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -19024px 0px;
+  }
+}
+@-o-keyframes birch-animation {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -19024px 0px;
+  }
+}
+@keyframes birch-animation {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -19024px 0px;
+  }
+}
+/* line 10, ../scss/sass/animations/story/story.scss */
+.birch-animate {
+  -webkit-animation: birch-animation steps(41) 2s 1;
+  -moz-animation: birch-animation steps(41) 2s 1;
+  -ms-animation: birch-animation steps(41) 2s 1;
+  -o-animation: birch-animation steps(41) 2s 1;
+  animation: birch-animation steps(41) 2s 1;
+  width: 448px;
+  height: 448px;
+  background: url(../images/storyspecial/birchstory.png) -18560px 0px;
+  z-index: 9;
+  position: absolute;
+  top: -16px;
+  left: 188px;
+}
+
 /* line 1, ../scss/sass/animations/npc/_npc-main.scss */
 .npc {
   -webkit-transition: all 300ms linear;

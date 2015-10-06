@@ -1,6 +1,6 @@
 //Core file
 $(document).ready(function(){
-    pokemonCore.displayGrid = true;
+    //pokemonCore.displayGrid = true;
     pokemonCore.init();
     var pokemon =
         {
@@ -9,7 +9,7 @@ $(document).ready(function(){
             level: [2,3,4]
         };
     setTimeout(function(){
-        pokemonCore.items.instantiate("pokeball").buy();
+        //pokemonCore.items.instantiate("pokeball").buy();
         //pokemonCore.battle.startBattleScreen(pokemon);
     }, 500);
 });

@@ -27,7 +27,7 @@ $classname="ent-name";
 $nodes = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]");
 
 foreach($nodes as $node){
-    $moves;
+    $moves = null;
     $url = 'http://pokemondb.net/pokedex/' . strtolower($node->nodeValue);
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);

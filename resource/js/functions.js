@@ -50,7 +50,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(3);
+        pokemonCore.maps.getMap(6);
         pokemonCore.player.bindMovement();
     },
 
@@ -550,20 +550,21 @@ var pokemonCore = {
         createPlayerAt: function (x, y) {
             if(pokemonCore.gameCharBackUp == null) {
                 pokemonCore.gameChar = new character(new coords(x, y), "Peter");
-                pokemonCore.gameChar.pokemon = new pokemonCore.pokemon.instantiate(003);
+                pokemonCore.gameChar.pokemon = new pokemonCore.pokemon.instantiate(255);
                 pokemonCore.gameChar.pokemon.moves[0] = [
-                    "Fissure",
+                    "Scratch",
                     "Normal",
                     "Physical",
                     "tough",
                     35,
                     35,
-                    1000000,
-                    1000000
+                    10,
+                    10
                 ];
-                pokemonCore.gameChar.pokemon.level = 100;
+                pokemonCore.gameChar.pokemon.level = 3;
                 pokemonCore.gameChar.seen.push(252);
                 pokemonCore.gameChar.seen.push(274);
+                console.log(pokemonCore.gameChar.pokemon);
             } else {
                 pokemonCore.gameChar = pokemonCore.gameCharBackUp;
                 pokemonCore.gameChar.setCoords(new coords(x, y));
@@ -1019,6 +1020,10 @@ var pokemonCore = {
                 pokemonCore.audioHandler.ambient.play();
             }
         },
+        soundEffect: function(file){
+            var effect = new Audio('resource/audio/' + file);
+            effect.play();
+        },
         stop: function(){
             if(pokemonCore.audioHandler.ambient) {
                 pokemonCore.audioHandler.ambient.pause();
@@ -1028,7 +1033,7 @@ var pokemonCore = {
                 pokemonCore.audioHandler.battle.pause();
                 pokemonCore.audioHandler.battle.currentTime = 0;
             }
-        }
+        },
     },
 
     utils: {
@@ -1123,7 +1128,7 @@ var pokemonCore = {
                                 npc.battle.pokemon[0].pokemon.pokemon.level = npc.battle.pokemon[0].pokemon.level;
                                 pokemonCore.battle.trainerNpc = npc;
                                 npc.battle.pokemon[0].pokemon.pokemon = pokemonCore.pokemon.calcPokemonStats(npc.battle.pokemon[0].pokemon.pokemon);
-                                npc.battle.pokemon[0].pokemon = pokemonCore.pokemon.instantiateMoves(npc.battle.pokemon[0].pokemon);
+                                npc.battle.pokemon[0].pokemon = pokemonCore.pokemon.getEncounterMoves(npc.battle.pokemon[0].pokemon);
                                 pokemonCore.audioHandler.startBattleMusic("trainer.mp3");
                                 setTimeout(function(){
                                     pokemonCore.battle.startBattleScreen(npc.battle.pokemon[0].pokemon);
@@ -1157,7 +1162,7 @@ var pokemonCore = {
                 if (enc < totalrar) {
                     pokemon[i].pokemon.level = level;
                     curPokemon = pokemonCore.pokemon.genIvEv(pokemon[i]);
-                    curPokemon = pokemonCore.pokemon.instantiateMoves(pokemon[i]);
+                    curPokemon = pokemonCore.pokemon.getEncounterMoves(pokemon[i]);
                     $(document).unbind("keydown");
                     pokemonCore.audioHandler.startBattleMusic("wildbattle.mp3");
                     setTimeout(function(){
@@ -1177,6 +1182,7 @@ var pokemonCore = {
             $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
 
             if (pokemonCore.battle.trainerNpc == null) {
+                pokemonCore.audioHandler.soundEffect('cries/' + pokemon.pokemon.nN + '.ogg');
                 writer(0, ["Wild " + pokemon.pokemon.name + " appeared!", "Go " + pokemonCore.gameChar.pokemon.name + "!", "What will " + pokemonCore.gameChar.pokemon.name + " do?"], 0);
             } else {
                 writer(0, [pokemonCore.battle.trainerNpc.beforeFight[0], pokemonCore.battle.trainerNpc.name + " sent out " + pokemon.pokemon.name + "!", "Go " + pokemonCore.gameChar.pokemon.name + "!", "What will " + pokemonCore.gameChar.pokemon.name + " do?"], 0);
@@ -1210,7 +1216,7 @@ var pokemonCore = {
             $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
             $(".battle-screen").append('<div class="enemy-health"><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span></div><div class="ally-health" data-active="true"><div class="exp-bar"></div><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span><span class="pokemon-health"><span class="cur-health"></span></span></div><div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
             $(".enemy-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemon.pokemon.nN + ".png)");
-            $(".ally-pokemon").css("background", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ") no-repeat");
+            $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ")");
             $(".enemy-health .pokemon-name").append(pokemon.pokemon.name);
             $(".ally-health .pokemon-name").append(pokemonCore.gameChar.pokemon.name);
             $(".enemy-health .pokemon-lvl").append("Lv:" + pokemon.pokemon.level);
@@ -1222,7 +1228,6 @@ var pokemonCore = {
             pokemonCore.battle.animateHealth();
             $(".ally-health .exp-bar").css("width", (pokemonCore.pokemon.calcPercentage(pokemonCore.gameChar.pokemon) * 2.59) + "px");
             pokemonCore.gameChar.addSeen(pokemon.pokemon.nN);
-            console.log(pokemonCore.gameChar);
         },
 
         stopBattle: function () {
@@ -1347,6 +1352,7 @@ var pokemonCore = {
             pokemonCore.battle.shouldStopDialog = false;
             if (enemy) {
                 var stats = ["ATT", "DEF"];
+                console.log(move);
                 damage = Math.round(((2 * pokemonCore.battle.encounter.pokemon.level + 10) / 250) * (pokemonCore.battle.encounter.pokemon.stats[stats[0]][1] / pokemonCore.gameChar.pokemon.stats[stats[1]][1]) * pokemonCore.battle.encounter.pokemon.moves[move][6] + 2);
             } else {
                 var stats = ["ATT", "DEF"];
@@ -1518,7 +1524,8 @@ var pokemonCore = {
 
         //TODO: improve
         enemyMove: function () {
-            var randMove = Math.floor(Math.random() * 1);
+            var randMove = Math.floor(Math.random() * pokemonCore.battle.encounter.pokemon.moves.length - 1);
+            randMove = (randMove == -1) ? 0 : randMove;
             pokemonCore.battle.handleMove(randMove, true);
         },
 
@@ -1586,6 +1593,17 @@ var pokemonCore = {
     },
 
     pokemon: {
+        getEncounterMoves: function(pokemon){
+            var amount = 0;
+            for(var i = pokemon.pokemon.movesLearn.length - 1; i >= 0; i--){
+                if(pokemon.pokemon.movesLearn[i][0] <= pokemon.pokemon.level && amount < 4){
+                    pokemon.pokemon.moves[amount] = pokemon.pokemon.movesLearn[i][1];
+                    amount++;
+                }
+            }
+
+            return pokemonCore.pokemon.instantiateMoves(pokemon);
+        },
         awardEV: function (killed) {
             var add, stat;
             var stats = killed.evYield.replace("Special Attack", "SPATT");

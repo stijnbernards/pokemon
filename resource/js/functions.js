@@ -50,7 +50,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(6);
+        pokemonCore.maps.getMap(10);
         pokemonCore.player.bindMovement();
     },
 
@@ -1175,14 +1175,23 @@ var pokemonCore = {
         },
 
         startBattleScreen: function (pokemon) {
+            var ext = (pokemonCore.gameChar.pokemon.nN == 493) ? ".gif" : ".png";
             pokemonCore.battle.shouldStopDialog = true;
             var breakDialog = true;
             $(document).unbind("keydown");
             $gameDiv.append('<div class="battle-screen" data-bg="cyan"></div>');
             $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
+            $(".battle-screen").append('<div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
+            setTimeout(function(){
+                pokemonCore.audioHandler.soundEffect('cries/' + pokemon.pokemon.nN + '.ogg');
+                $(".enemy-pokemon").css("background", "url(resource/images/animations/pokemon/" + pokemon.pokemon.nN + ".gif) 0px 0px");
+                setTimeout(function(){
+                    pokemonCore.audioHandler.soundEffect('cries/' + pokemonCore.gameChar.pokemon.nN + '.ogg');
+                    $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ")");
+                }, 2000);
+            }, 800);
 
             if (pokemonCore.battle.trainerNpc == null) {
-                pokemonCore.audioHandler.soundEffect('cries/' + pokemon.pokemon.nN + '.ogg');
                 writer(0, ["Wild " + pokemon.pokemon.name + " appeared!", "Go " + pokemonCore.gameChar.pokemon.name + "!", "What will " + pokemonCore.gameChar.pokemon.name + " do?"], 0);
             } else {
                 writer(0, [pokemonCore.battle.trainerNpc.beforeFight[0], pokemonCore.battle.trainerNpc.name + " sent out " + pokemon.pokemon.name + "!", "Go " + pokemonCore.gameChar.pokemon.name + "!", "What will " + pokemonCore.gameChar.pokemon.name + " do?"], 0);
@@ -1212,11 +1221,8 @@ var pokemonCore = {
         },
 
         initFight: function (pokemon) {
-            var ext = (pokemonCore.gameChar.pokemon.nN == 493) ? ".gif" : ".png";
             $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
-            $(".battle-screen").append('<div class="enemy-health"><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span></div><div class="ally-health" data-active="true"><div class="exp-bar"></div><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span><span class="pokemon-health"><span class="cur-health"></span></span></div><div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
-            $(".enemy-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemon.pokemon.nN + ".png)");
-            $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ")");
+            $(".battle-screen").append('<div class="enemy-health"><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span></div><div class="ally-health" data-active="true"><div class="exp-bar"></div><div class="health-bar"></div><span class="pokemon-name"></span><span class="pokemon-lvl"></span><span class="pokemon-health"><span class="cur-health"></span></span></div>');
             $(".enemy-health .pokemon-name").append(pokemon.pokemon.name);
             $(".ally-health .pokemon-name").append(pokemonCore.gameChar.pokemon.name);
             $(".enemy-health .pokemon-lvl").append("Lv:" + pokemon.pokemon.level);

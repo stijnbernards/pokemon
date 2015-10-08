@@ -136,19 +136,30 @@ var npc = [
 var pokemon = [
     {
         pokemon: new pokemonCore.pokemon.instantiate(261),
+        rarity: 3.33,
+        level: [3,4]
+    },
+    {
+        pokemon: new pokemonCore.pokemon.instantiate(263),
+        rarity: 6.75,
+        level: [3,5]
+    },
+    {
+        pokemon: new pokemonCore.pokemon.instantiate(265),
         rarity: 6.75,
         level: [2,3]
     },
     {
-        pokemon: new pokemonCore.pokemon.instantiate(263),
-        rarity: 8.5,
+        pokemon: new pokemonCore.pokemon.instantiate(270),
+        rarity: 3.33,
         level: [2,3]
     },
     {
-        pokemon: new pokemonCore.pokemon.instantiate(265),
-        rarity: 8.5,
-        level: [2,3]
-    }
+        pokemon: new pokemonCore.pokemon.instantiate(283),
+        rarity: 1.25,
+        level: [3]
+    },
+
 ];
 
 var music = {

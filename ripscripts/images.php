@@ -653,7 +653,7 @@ class PokemonData{
             die("No id");
         }
 
-        $types = array("normal", "shiny");
+        $types = array("normal");
         foreach($types as $type){
             $fp = fopen("animations/" . ($type == "shiny" ? "shiny_" : "") . $this->nN . ".gif", "wb+");
             fwrite($fp, file_get_contents("http://veekun.com/dex/media/pokemon/main-sprites/emerald/animated" . ($type == "shiny" ? "/shiny/" : "/") . $this->id . ".gif"));
@@ -697,7 +697,7 @@ $nodes = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '),
 $iter = 1;
 foreach ($nodes as $node) {
     $p = new PokemonData(strtolower($node->nodeValue), false, $iter);
-    $p->saveFootprint();
+    //$p->saveFootprint();
     $p->saveAnimation();
     $iter++;
     sleep(0.7);

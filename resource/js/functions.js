@@ -24,7 +24,8 @@ var maps = [
     "maps/storyspecial/truck.js",                   //15
     "maps/storyspecial/intro.js",                   //16
     "maps/towns/littleroot/truck.js",               //17
-    "maps/towns/littleroot/player_home_f1_first.js" //18
+    "maps/towns/littleroot/player_home_f1_first.js",//18
+    "maps/routes/104/main.js",                      //19
 ];
 
 $(document).ready(function () {
@@ -50,7 +51,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(6);
+        pokemonCore.maps.getMap(19);
         pokemonCore.player.bindMovement();
     },
 
@@ -1208,7 +1209,6 @@ var pokemonCore = {
             }
 
             function writer(i, text, i2) {
-                if(pokemonCore.battle.shouldStopDialog) {
                     setTimeout(function () {
                         if (i < text[i2].length && breakDialog) {
                             $(".action-menu").append(text[i2][i]);
@@ -1226,7 +1226,6 @@ var pokemonCore = {
                             }, 1000);
                         }
                     }, 50);
-                }
             };
         },
 
@@ -1393,21 +1392,17 @@ var pokemonCore = {
                 }
 
                 function writer(i, noAfter, callback) {
-                    if(pokemonCore.battle.shouldStopDialog) {
-                        setTimeout(function () {
-                            if (i < text.length) {
-                                $(".action-menu").append(text[i]);
-                                i++;
-                                writer(i, noAfter, callback);
-                            } else if (noAfter) {
-                                afterWrite(damage);
-                            } else if (typeof callback != 'undefined') {
-                                callback();
-                            }
-                        }, 50);
-                    }else{
-                        pokemonCore.battle.shouldStopDialog = true;
-                    }
+                    setTimeout(function () {
+                        if (i < text.length) {
+                            $(".action-menu").append(text[i]);
+                            i++;
+                            writer(i, noAfter, callback);
+                        } else if (noAfter) {
+                            afterWrite(damage);
+                        } else if (typeof callback != 'undefined') {
+                            callback();
+                        }
+                    }, 50);
                 }
 
                 writer(0, true)

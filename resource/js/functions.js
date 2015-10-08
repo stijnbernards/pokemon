@@ -562,6 +562,7 @@ var pokemonCore = {
                     10
                 ];
                 pokemonCore.gameChar.pokemon.level = 3;
+                pokemonCore.gameChar.pokemon.exp = 57;
                 pokemonCore.gameChar.seen.push(252);
                 pokemonCore.gameChar.seen.push(274);
                 console.log(pokemonCore.gameChar.pokemon);
@@ -1178,18 +1179,25 @@ var pokemonCore = {
             var ext = (pokemonCore.gameChar.pokemon.nN == 493) ? ".gif" : ".png";
             pokemonCore.battle.shouldStopDialog = true;
             var breakDialog = true;
+            var cd = (pokemonCore.battle.trainerNpc != null) ? 2000 : 10;
             $(document).unbind("keydown");
             $gameDiv.append('<div class="battle-screen" data-bg="cyan"></div>');
             $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
             $(".battle-screen").append('<div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
-            setTimeout(function(){
-                pokemonCore.audioHandler.soundEffect('cries/' + pokemon.pokemon.nN + '.ogg');
-                $(".enemy-pokemon").css("background", "url(resource/images/animations/pokemon/" + pokemon.pokemon.nN + ".gif) 0px 0px");
-                setTimeout(function(){
-                    pokemonCore.audioHandler.soundEffect('cries/' + pokemonCore.gameChar.pokemon.nN + '.ogg');
-                    $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ")");
-                }, 2000);
-            }, 800);
+            setTimeout(function() {
+                setTimeout(function () {
+                    pokemonCore.audioHandler.soundEffect('cries/' + pokemon.pokemon.nN + '.ogg');
+                    $(".enemy-pokemon").css("background", "url(resource/images/animations/pokemon/" + pokemon.pokemon.nN + ".gif) 0px 0px");
+                    $(".enemy-pokemon").css("background-size", "100% 100%");
+                    setTimeout(function () {
+                        $(".enemy-pokemon").css("background", "url(resource/images/pokemon/" + pokemon.pokemon.nN + ".png)");
+                    }, 1000);
+                    setTimeout(function () {
+                        pokemonCore.audioHandler.soundEffect('cries/' + pokemonCore.gameChar.pokemon.nN + '.ogg');
+                        $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ")");
+                    }, 2000);
+                }, 800);
+            }, cd);
 
             if (pokemonCore.battle.trainerNpc == null) {
                 writer(0, ["Wild " + pokemon.pokemon.name + " appeared!", "Go " + pokemonCore.gameChar.pokemon.name + "!", "What will " + pokemonCore.gameChar.pokemon.name + " do?"], 0);
@@ -1510,7 +1518,7 @@ var pokemonCore = {
             var s = 1;//TODO: fix
             var t = 1;//TODO: fix
             var v = 1;
-            var expGain = Math.round((a * t * b * e * L * p * f * v) / (7 * s));
+            var expGain = Math.round(((a*b*L) / (5*s) * (Math.pow(2*L + 10, 2.5) / Math.pow(L + Lp + 10, 2.5)) + 1) * t * e * p);
             pokemon.exp += expGain;
             percentage = pokemonCore.pokemon.calcPercentage(pokemon);
             $(".action-menu").text("");

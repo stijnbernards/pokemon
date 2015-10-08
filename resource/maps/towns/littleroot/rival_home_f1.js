@@ -16,5 +16,7 @@ var map = [
 var npc = null;
 
 var onEnterFunc = function(){
+    if(typeof pokemonCore.gameChar.hasEntered.rivalf1 == 'undefined'){
 
+    }
 }

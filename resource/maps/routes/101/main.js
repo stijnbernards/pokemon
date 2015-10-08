@@ -69,6 +69,15 @@ var pokemon = [
     }
 ];
 
+var onEnterFunc = function(){
+    if(typeof pokemonCore.gameChar.hasEntered.r101 == 'undefined'){
+        npc = null;
+        $('div[class*="npc-"]').remove();
+
+        pokemonCore.gameChar.hasEntered.r101 = true;
+    }
+}
+
 //new pokemonCore.npc(
 //    [
 //        [19,18],

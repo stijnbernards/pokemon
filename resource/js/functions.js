@@ -50,7 +50,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(10);
+        pokemonCore.maps.getMap(6);
         pokemonCore.player.bindMovement();
     },
 
@@ -59,6 +59,8 @@ var pokemonCore = {
         mapLastCoord: new Array(),
         map: null,
         getMap: function (mapId) {
+            onEnterFunc = null;
+            music = null;
             setTimeout(function(){
                 //pokemonCore.items.instantiate("pokeball").buy();
                 //pokemonCore.battle.startBattleScreen(pokemon);
@@ -103,7 +105,7 @@ var pokemonCore = {
                         npc[i].createNpc();
                     }
                 }
-                if(typeof music != 'undefined'){
+                if(typeof music != 'undefined' && music != null){
                     pokemonCore.audioHandler.startAmbientAudio(music.ambient);
                 }
                 if(typeof onEnterFunc != 'undefined'){
@@ -1391,17 +1393,21 @@ var pokemonCore = {
                 }
 
                 function writer(i, noAfter, callback) {
-                    setTimeout(function () {
-                        if (i < text.length) {
-                            $(".action-menu").append(text[i]);
-                            i++;
-                            writer(i, noAfter, callback);
-                        } else if (noAfter) {
-                            afterWrite(damage);
-                        } else if (typeof callback != 'undefined') {
-                            callback();
-                        }
-                    }, 50);
+                    if(pokemonCore.battle.shouldStopDialog) {
+                        setTimeout(function () {
+                            if (i < text.length) {
+                                $(".action-menu").append(text[i]);
+                                i++;
+                                writer(i, noAfter, callback);
+                            } else if (noAfter) {
+                                afterWrite(damage);
+                            } else if (typeof callback != 'undefined') {
+                                callback();
+                            }
+                        }, 50);
+                    }else{
+                        pokemonCore.battle.shouldStopDialog = true;
+                    }
                 }
 
                 writer(0, true)
@@ -2176,6 +2182,7 @@ function character(coords, nm) {
     this.caught = [];
     this.seen = [];
     this.pokedex = [];
+    this.hasEntered = {};
 
     this.pokemon = {}
 

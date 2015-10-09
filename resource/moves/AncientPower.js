@@ -3,7 +3,8 @@ var move = [
       "Rock",
       "Special",
       "Tough",
-      "5",
-      "60",
+      5,
+      5,
+      60,
       "100%",
     ]

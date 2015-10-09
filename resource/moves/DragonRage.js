@@ -3,7 +3,8 @@ var move = [
       "Dragon",
       "Special",
       "Cool",
-      "10",
-      "*",
+      10,
+      10,
+      0,
       "100%",
     ]

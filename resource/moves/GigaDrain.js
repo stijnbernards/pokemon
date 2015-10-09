@@ -3,7 +3,8 @@ var move = [
       "Grass",
       "Special",
       "Clever",
-      "10*",
-      "75*",
+      10,
+      10,
+      75,
       "100%",
     ]

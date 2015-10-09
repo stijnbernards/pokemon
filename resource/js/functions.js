@@ -26,6 +26,7 @@ var maps = [
     "maps/towns/littleroot/truck.js",               //17
     "maps/towns/littleroot/player_home_f1_first.js",//18
     "maps/routes/104/main.js",                      //19
+    "maps/routes/petalburgwoods/main.js",           //20
 ];
 
 $(document).ready(function () {
@@ -59,10 +60,46 @@ var pokemonCore = {
     maps: {
         mapLastCoord: new Array(),
         map: null,
-        getMap: function (mapId) {
+        collision: true,
+        dumpMap: function () {
+            console.log(JSON.stringify(pokemonCore.maps.map));
+        },
+        startMapEdit: function () {
+            var addNumber = 1;
+            $(document).bind("keydown", function (e) {
+                switch (e.which) {
+                    case 32:
+                        var coords = pokemonCore.gameChar.getCoords();
+                        pokemonCore.maps.map[coords.Y - 1][coords.X - 1] = addNumber;
+                        break;
+                    case 48:
+                        addNumber = 0;
+                        pokemonCore.maps.collision = false;
+                        break;
+                    case 49:
+                        addNumber = 1;
+                        break;
+                    case 50:
+                        addNumber = 2;
+                        break;
+                    case 57:
+                        addNumber = 9;
+                        break;
+                }
+            });
+        },
+        drawNumbers: function () {
+            $(".numbers").remove();
+            for (var Y = 0; Y < pokemonCore.maps.map.length; Y++) {
+                for (var X = 0; X < pokemonCore.maps.map[Y].length; X++) {
+                    $(".parent.wrapper").append('<div class="numbers" style="position: absolute; top: ' + (Y * 64) + 'px; left: ' + (X * 64) + 'px">'+ pokemonCore.maps.map[Y][X] +'<div>')
+                }
+            }
+        },
+        getMap: function (mapId, x, y) {
             onEnterFunc = null;
             music = null;
-            setTimeout(function(){
+            setTimeout(function () {
                 //pokemonCore.items.instantiate("pokeball").buy();
                 //pokemonCore.battle.startBattleScreen(pokemon);
             }, 500);
@@ -92,8 +129,9 @@ var pokemonCore = {
                         }
                     }
                 }
-
-                if (pokemonCore.maps.mapLastCoord[mapId] != null) {
+                if(typeof x != 'undefined' && typeof y != 'undefined'){
+                    pokemonCore.player.createPlayerAt(x, y);
+                }else if (pokemonCore.maps.mapLastCoord[mapId] != null) {
                     pokemonCore.player.createPlayerAt(pokemonCore.maps.mapLastCoord[mapId].X, pokemonCore.maps.mapLastCoord[mapId].Y);
                     pokemonCore.maps.mapLastCoord[mapId] = null;
                 }
@@ -106,10 +144,10 @@ var pokemonCore = {
                         npc[i].createNpc();
                     }
                 }
-                if(typeof music != 'undefined' && music != null){
+                if (typeof music != 'undefined' && music != null) {
                     pokemonCore.audioHandler.startAmbientAudio(music.ambient);
                 }
-                if(typeof onEnterFunc != 'undefined'){
+                if (typeof onEnterFunc != 'undefined') {
                     onEnterFunc();
                 }
             });
@@ -120,7 +158,7 @@ var pokemonCore = {
     player: {
         walkInterval: null,
         lastKeyPress: null,
-        initPokeDex: function(){
+        initPokeDex: function () {
             var seen = pokemonCore.gameChar.seen.sort();
             var first, first2, top, top2, selected, rotate;
             top = 222;
@@ -128,12 +166,12 @@ var pokemonCore = {
             rotate = 0;
             $(document).unbind("keydown");
             $("#game").append('<div class="pokedex"><div class="pokeball"></div><div class="pokemon-images"></div><div class="pokemon-names"></div><div class="scroller"></div><div class="seen-txt">Seen<div class="seen"></div></div><div class="own-txt"><div class="own"></div></div></div>');
-            for(var i = seen[0]; i <= seen[seen.length-1]; i++){
+            for (var i = seen[0]; i <= seen[seen.length - 1]; i++) {
                 var pokemon = pokemonCore.pokemon.instantiate(i);
-                if(seen.indexOf(pokemon.nN) > -1) {
+                if (seen.indexOf(pokemon.nN) > -1) {
                     $(".pokemon-names").append('<span><span>No' + pokemon.nN + "</span> " + pokemon.name + '</span>');
-                    $(".pokemon-images").append('<div style="background-image: url(resource/images/pokemon/'+ pokemon.nN +'.png);"></div>');
-                }else {
+                    $(".pokemon-images").append('<div style="background-image: url(resource/images/pokemon/' + pokemon.nN + '.png);"></div>');
+                } else {
                     $(".pokemon-names").append('<span>-------------</span>');
                     $(".pokemon-images").append('<div data-seen="false"></div>');
                 }
@@ -147,9 +185,9 @@ var pokemonCore = {
             first2 = $(".pokemon-images > div:first-of-type");
             first2.css("margin-top", top2 + "px");
 
-            $(document).bind("keydown", function(e){
+            $(document).bind("keydown", function (e) {
                 selected = $('.pokemon-names span[data-selected="true"]');
-                switch(e.which){
+                switch (e.which) {
                     case 38:
                         top += 70;
                         top2 += 238;
@@ -158,7 +196,7 @@ var pokemonCore = {
                         first2.css("margin-top", top2 + "px");
                         selected.attr("data-selected", "false");
                         selected.prev().attr("data-selected", "true");
-                        $(".pokedex .pokeball").attr("style", "-webkit-transform: rotate("+rotate+"deg); -moz-transform: rotate("+rotate+"deg); -ms-transform: rotate("+rotate+"deg); -o-transform: rotate("+rotate+"deg); transform: rotate("+rotate+"deg);")
+                        $(".pokedex .pokeball").attr("style", "-webkit-transform: rotate(" + rotate + "deg); -moz-transform: rotate(" + rotate + "deg); -ms-transform: rotate(" + rotate + "deg); -o-transform: rotate(" + rotate + "deg); transform: rotate(" + rotate + "deg);")
                         break;
                     case 40:
                         top -= 70;
@@ -168,7 +206,7 @@ var pokemonCore = {
                         first2.css("margin-top", top2 + "px");
                         selected.attr("data-selected", "false");
                         selected.next().attr("data-selected", "true");
-                        $(".pokedex .pokeball").attr("style", "-webkit-transform: rotate("+rotate+"deg); -moz-transform: rotate("+rotate+"deg); -ms-transform: rotate("+rotate+"deg); -o-transform: rotate("+rotate+"deg); transform: rotate("+rotate+"deg);")
+                        $(".pokedex .pokeball").attr("style", "-webkit-transform: rotate(" + rotate + "deg); -moz-transform: rotate(" + rotate + "deg); -ms-transform: rotate(" + rotate + "deg); -o-transform: rotate(" + rotate + "deg); transform: rotate(" + rotate + "deg);")
                         break;
                     case 17:
                         $(".pokedex").remove();
@@ -178,15 +216,15 @@ var pokemonCore = {
                 }
             });
         },
-        initPokemons: function (duringFight){
+        initPokemons: function (duringFight) {
             var selectedInt = 0;
 
             $("#game").append('<div class="pokemons"><div class="info-box">Choose a POK&eacute;MON.</div></div>');
-            for(var i = 0; i < 6; i++){
-                $(".pokemons").append('<div class="pokemon-'+ i +'" data-selected="'+ ((i == 0) ? "true" : "false") +'"><div class="sprite"></div><div class="health-bar"></div><div class="name"></div><div class="level"></div><div class="health"></div></div>');
+            for (var i = 0; i < 6; i++) {
+                $(".pokemons").append('<div class="pokemon-' + i + '" data-selected="' + ((i == 0) ? "true" : "false") + '"><div class="sprite"></div><div class="health-bar"></div><div class="name"></div><div class="level"></div><div class="health"></div></div>');
             }
-            for(var i = 0; i < (pokemonCore.gameChar.bagPkmn.length + 1); i++){
-                var pokemon = (i == 0) ? pokemonCore.gameChar.pokemon : pokemonCore.gameChar.bagPkmn[i-1];
+            for (var i = 0; i < (pokemonCore.gameChar.bagPkmn.length + 1); i++) {
+                var pokemon = (i == 0) ? pokemonCore.gameChar.pokemon : pokemonCore.gameChar.bagPkmn[i - 1];
                 var pokemonDiv = $(".pokemons .pokemon-" + i);
                 pokemonDiv.attr("data-empty", "false");
                 pokemonDiv.find(".name").text(pokemon.name);
@@ -196,10 +234,10 @@ var pokemonCore = {
             }
 
             $(document).unbind("keydown");
-            $(document).bind("keydown", function(e){
+            $(document).bind("keydown", function (e) {
                 var selected = $('.pokemons div[data-selected="true"]');
-                var selectedPkmn = (selectedInt == 0) ? pokemonCore.gameChar.pokemon : pokemonCore.gameChar.bagPkmn[selectedInt-1];
-                switch(e.which){
+                var selectedPkmn = (selectedInt == 0) ? pokemonCore.gameChar.pokemon : pokemonCore.gameChar.bagPkmn[selectedInt - 1];
+                switch (e.which) {
                     case 38:
                         selectedInt = (selectedInt == 0) ? selectedInt = pokemonCore.gameChar.bagPkmn.length : selectedInt--;
                         selected.attr("data-selected", "false");
@@ -215,35 +253,34 @@ var pokemonCore = {
                         $(".info-box").text("Do what with " + selectedPkmn.name + "?");
                         $(".pokemons").append('<div class="menu-box"><span data-selected="true">Shift</span><span>Summary</span><span>Cancel</span></div>');
                         $(document).unbind("keydown");
-                        $(document).bind("keydown", function(e){
-                            switch(e.which) {
+                        $(document).bind("keydown", function (e) {
+                            switch (e.which) {
                                 case 38:
                                     curItem = (curItem == 1) ? curItem = 3 : curItem -= 1;
                                     $('.menu-box span[data-selected="true"]').attr("data-selected", "false");
-                                    $('.menu-box span:nth-of-type('+ curItem +')').attr("data-selected", "true");
+                                    $('.menu-box span:nth-of-type(' + curItem + ')').attr("data-selected", "true");
                                     break;
                                 case 40:
                                     curItem = (curItem == 3) ? curItem = 1 : curItem += 1;
                                     $('.menu-box span[data-selected="true"]').attr("data-selected", "false");
-                                    $('.menu-box span:nth-of-type('+ curItem +')').attr("data-selected", "true");
+                                    $('.menu-box span:nth-of-type(' + curItem + ')').attr("data-selected", "true");
                                     break;
                                 case 32:
-                                    console.log($('.menu-box span[data-selected="true"]').text());
-                                    switch($('.menu-box span[data-selected="true"]').text()){
+                                    switch ($('.menu-box span[data-selected="true"]').text()) {
                                         case "Shift":
-                                            if(selectedInt != 0){
+                                            if (selectedInt != 0) {
                                                 var ext = (pokemonCore.gameChar.pokemon.nN == 493) ? ".gif" : ".png";
                                                 var oldPkmn = pokemonCore.gameChar.pokemon;
-                                                pokemonCore.gameChar.bagPkmn.splice(pokemonCore.gameChar.bagPkmn.indexOf(selectedPkmn),1);
+                                                pokemonCore.gameChar.bagPkmn.splice(pokemonCore.gameChar.bagPkmn.indexOf(selectedPkmn), 1);
                                                 pokemonCore.gameChar.bagPkmn.push(oldPkmn);
                                                 pokemonCore.gameChar.pokemon = selectedPkmn;
                                                 $(document).unbind("keydown");
                                                 $(".pokemons").remove();
                                                 $(".action-menu").text("");
-                                                pokemonCore.utils.writer(0, function(){
-                                                    setTimeout(function(){
+                                                pokemonCore.utils.writer(0, function () {
+                                                    setTimeout(function () {
                                                         $(".action-menu").text("");
-                                                        pokemonCore.utils.writer(0, function(){
+                                                        pokemonCore.utils.writer(0, function () {
                                                             var allyBarWidth = 194 / pokemonCore.gameChar.pokemon.stats.HP[0] * pokemonCore.gameChar.pokemon.stats.HP[1];
                                                             $(".ally-health .health-bar").css("width", allyBarWidth);
                                                             $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
@@ -257,7 +294,7 @@ var pokemonCore = {
                                                         }, "Go " + pokemonCore.gameChar.pokemon.name + "!");
                                                     }, 700);
                                                 }, "That's enough " + oldPkmn.name + " switch out!");
-                                            }else{
+                                            } else {
                                                 $(".pokemons .info-box").text(selectedPkmn.name + " is already in battle!");
                                             }
                                             break;
@@ -407,7 +444,6 @@ var pokemonCore = {
                                 $(".bag-gui").append('<div class="use-item"></div>');
                                 $(".bag-gui .use-item").append('<div data-selected="true" >Use</div><div>Cancel</div>');
                                 $(document).unbind("keydown");
-                                console.log(keys[key[curNr]][curItem].name);
                                 if (keys[key[curNr]][curItem].name === "Close bag") {
                                     $(".bag-gui").remove();
                                     pokemonCore.battle.setBattleKeybinds(".action-box");
@@ -420,7 +456,7 @@ var pokemonCore = {
                                                     case "UseUse":
                                                         keys[key[curNr]][curItem].use();
                                                         keys[key[curNr]][curItem].amount--;
-                                                        if(keys[key[curNr]][curItem].amount <= 0){
+                                                        if (keys[key[curNr]][curItem].amount <= 0) {
                                                             keys[key[curNr]][curItem] = null;
                                                         }
                                                         break;
@@ -431,7 +467,6 @@ var pokemonCore = {
                                                 }
                                                 break
                                             case 38:
-                                                console.log($('.bag-gui .use-item div:last-of-type[data-selected="true"]').length);
                                                 if ($('.bag-gui .use-item div:last-of-type[data-selected="true"]').length > -1)
                                                     $('.bag-gui .use-item div:first-of-type').attr("data-selected", "true");
                                                 else
@@ -439,7 +474,6 @@ var pokemonCore = {
                                                 selected.attr("data-selected", "false");
                                                 break;
                                             case 40:
-                                                console.log($('.bag-gui .use-item div:first-of-type[data-selected="true"]').length);
                                                 if ($('.bag-gui .use-item div:first-of-type[data-selected="true"]').length > -1)
                                                     $('.bag-gui .use-item div:last-of-type').attr("data-selected", "true");
                                                 else
@@ -551,7 +585,7 @@ var pokemonCore = {
             });
         },
         createPlayerAt: function (x, y) {
-            if(pokemonCore.gameCharBackUp == null) {
+            if (pokemonCore.gameCharBackUp == null) {
                 pokemonCore.gameChar = new character(new coords(x, y), "Peter");
                 pokemonCore.gameChar.pokemon = new pokemonCore.pokemon.instantiate(255);
                 pokemonCore.gameChar.pokemon.moves[0] = [
@@ -561,21 +595,20 @@ var pokemonCore = {
                     "tough",
                     35,
                     35,
-                    10,
-                    10
+                    35,
+                    35
                 ];
-                pokemonCore.gameChar.pokemon.level = 3;
-                pokemonCore.gameChar.pokemon.exp = 57;
+                pokemonCore.gameChar.pokemon.level = 4;
+                pokemonCore.gameChar.pokemon.exp = 135;
                 pokemonCore.gameChar.seen.push(252);
                 pokemonCore.gameChar.seen.push(274);
-                console.log(pokemonCore.gameChar.pokemon);
             } else {
                 pokemonCore.gameChar = pokemonCore.gameCharBackUp;
                 pokemonCore.gameChar.setCoords(new coords(x, y));
                 pokemonCore.gameChar.createPlayerDiv();
             }
             pokemonCore.pokemon.calcPokemonStats(pokemonCore.gameChar.pokemon);
-            for(var i = 0; i < pokemonCore.gameChar.bagPkmn; i++){
+            for (var i = 0; i < pokemonCore.gameChar.bagPkmn; i++) {
                 pokemonCore.pokemon.calcPokemonStats(pokemonCore.gameChar.bagPkmn[i]);
             }
         },
@@ -690,9 +723,11 @@ var pokemonCore = {
             var coords = pokemonCore.gameChar.getCoords();
             coords.X += x;
             coords.Y += y;
+            if (!pokemonCore.maps.collision)
+                return true;
             if (pokemonCore.passable.indexOf(pokemonCore.maps.map[coords.Y - 1][coords.X - 1]) >= 0) {
                 if (pokemonCore.maps.map[coords.Y - 1][coords.X - 1] == '9') {
-                    setTimeout(function(){
+                    setTimeout(function () {
                         pokemonCore.battle.grassTrigger();
                     }, 150);
                     return true;
@@ -799,6 +834,7 @@ var pokemonCore = {
         this.shouldTurn = shouldTurn;
         this.beforeFight = beforeFight;
         this.afterFight = afterFight;
+        console.log(battle);
 
         this.getCoords = function () {
             return jQuery.extend(true, {}, coords);
@@ -834,7 +870,7 @@ var pokemonCore = {
         }
 
         this.createNpc = function () {
-            $gameWrapper.append('<div class="npc npc-' + nm + '" style="top: ' + ((startPoint[1] - 1) * 64) + 'px; left: ' + ((startPoint[0] - 1) * 64) + 'px; background-image: url(' + this.name + '.png)" data-direction="'+ dir +'"></div>');
+            $gameWrapper.append('<div class="npc npc-' + nm + '" style="top: ' + ((startPoint[1] - 1) * 64) + 'px; left: ' + ((startPoint[0] - 1) * 64) + 'px; background-image: url(' + this.name + '.png)" data-direction="' + dir + '"></div>');
             direction = dir;
         }
 
@@ -863,7 +899,7 @@ var pokemonCore = {
             $(".npc-" + nm).attr("data-direction", direction);
         }
 
-        this.moveNpc = function(x, y) {
+        this.moveNpc = function (x, y) {
             coords[0] += x;
             coords[1] += y;
             $(".npc-" + nm).css({"top": ((coords[1] - 1) * 64) + "px", "left": ((coords[0] - 1) * 64) + "px"});
@@ -991,49 +1027,49 @@ var pokemonCore = {
     audioHandler: {
         ambient: null,
         battle: null,
-        startAmbientAudio: function(file){
-            if(pokemonCore.audioHandler.ambient) {
+        startAmbientAudio: function (file) {
+            if (pokemonCore.audioHandler.ambient) {
                 pokemonCore.audioHandler.ambient.pause();
                 pokemonCore.audioHandler.ambient.currentTime = 0;
             }
             pokemonCore.audioHandler.ambient = new Audio('resource/audio/ambient/' + file);
-            pokemonCore.audioHandler.ambient.addEventListener('ended', function(){
+            pokemonCore.audioHandler.ambient.addEventListener('ended', function () {
                 this.currentTime = 0;
                 this.play();
             }, false);
             pokemonCore.audioHandler.ambient.play();
         },
-        startBattleMusic: function(file){
-            if(pokemonCore.audioHandler.ambient) {
+        startBattleMusic: function (file) {
+            if (pokemonCore.audioHandler.ambient) {
                 pokemonCore.audioHandler.ambient.pause();
                 pokemonCore.audioHandler.ambient.currentTime = 0;
             }
             pokemonCore.audioHandler.battle = new Audio('resource/audio/battle/' + file);
-            pokemonCore.audioHandler.battle.addEventListener('ended', function(){
+            pokemonCore.audioHandler.battle.addEventListener('ended', function () {
                 this.currentTime = 0;
                 this.play();
             }, false);
             pokemonCore.audioHandler.battle.play();
         },
-        resumeAmbient: function(){
-            if(pokemonCore.audioHandler.battle) {
+        resumeAmbient: function () {
+            if (pokemonCore.audioHandler.battle) {
                 pokemonCore.audioHandler.battle.pause();
                 pokemonCore.audioHandler.battle.currentTime = 0;
             }
-            if(pokemonCore.audioHandler.ambient){
+            if (pokemonCore.audioHandler.ambient) {
                 pokemonCore.audioHandler.ambient.play();
             }
         },
-        soundEffect: function(file){
+        soundEffect: function (file) {
             var effect = new Audio('resource/audio/' + file);
             effect.play();
         },
-        stop: function(){
-            if(pokemonCore.audioHandler.ambient) {
+        stop: function () {
+            if (pokemonCore.audioHandler.ambient) {
                 pokemonCore.audioHandler.ambient.pause();
                 pokemonCore.audioHandler.ambient.currentTime = 0;
             }
-            if(pokemonCore.audioHandler.battle) {
+            if (pokemonCore.audioHandler.battle) {
                 pokemonCore.audioHandler.battle.pause();
                 pokemonCore.audioHandler.battle.currentTime = 0;
             }
@@ -1041,7 +1077,7 @@ var pokemonCore = {
     },
 
     utils: {
-        pokeInfo: function(){
+        pokeInfo: function () {
 
         },
         writer: function (i, callback, text) {
@@ -1122,25 +1158,27 @@ var pokemonCore = {
                     case 32:
                         $(document).unbind("keydown");
                         breakDialog = false;
-                        if(npc != null) {
+                        if (npc != null) {
                             npc.curDialog++;
                             if (npc.battle === "false" || npc.battle == false)
                                 npc.interact();
                             else if (npc.curDialog < npc.dialog.length)
                                 pokemonCore.utils.createDialog(npc.dialog[npc.curDialog], npc);
                             else {
-                                npc.battle.pokemon[0].pokemon.pokemon.level = npc.battle.pokemon[0].pokemon.level;
+                                for(var i = 0; i < npc.battle.pokemon.length; i++){
+                                    npc.battle.pokemon[i].pokemon.pokemon.level = npc.battle.pokemon[i].pokemon.level;
+                                    npc.battle.pokemon[i].pokemon.pokemon = pokemonCore.pokemon.calcPokemonStats(npc.battle.pokemon[i].pokemon.pokemon);
+                                    npc.battle.pokemon[i].pokemon = pokemonCore.pokemon.getEncounterMoves(npc.battle.pokemon[i].pokemon);
+                                }
                                 pokemonCore.battle.trainerNpc = npc;
-                                npc.battle.pokemon[0].pokemon.pokemon = pokemonCore.pokemon.calcPokemonStats(npc.battle.pokemon[0].pokemon.pokemon);
-                                npc.battle.pokemon[0].pokemon = pokemonCore.pokemon.getEncounterMoves(npc.battle.pokemon[0].pokemon);
                                 pokemonCore.audioHandler.startBattleMusic("trainer.mp3");
-                                setTimeout(function(){
+                                setTimeout(function () {
                                     pokemonCore.battle.startBattleScreen(npc.battle.pokemon[0].pokemon);
                                 }, 800);
                                 pokemonCore.battle.isTrainer = true;
                                 $(".speech").remove();
                             }
-                        }else {
+                        } else {
                             if (isFunction(callback))
                                 callback();
                         }
@@ -1169,7 +1207,7 @@ var pokemonCore = {
                     curPokemon = pokemonCore.pokemon.getEncounterMoves(pokemon[i]);
                     $(document).unbind("keydown");
                     pokemonCore.audioHandler.startBattleMusic("wildbattle.mp3");
-                    setTimeout(function(){
+                    setTimeout(function () {
                         pokemonCore.battle.startBattleScreen(curPokemon);
                     }, 800)
                     return;
@@ -1187,7 +1225,7 @@ var pokemonCore = {
             $gameDiv.append('<div class="battle-screen" data-bg="cyan"></div>');
             $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
             $(".battle-screen").append('<div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
-            setTimeout(function() {
+            setTimeout(function () {
                 setTimeout(function () {
                     pokemonCore.audioHandler.soundEffect('cries/' + pokemon.pokemon.nN + '.ogg');
                     $(".enemy-pokemon").css("background", "url(resource/images/animations/pokemon/" + pokemon.pokemon.nN + ".gif) 0px 0px");
@@ -1209,23 +1247,23 @@ var pokemonCore = {
             }
 
             function writer(i, text, i2) {
-                    setTimeout(function () {
-                        if (i < text[i2].length && breakDialog) {
-                            $(".action-menu").append(text[i2][i]);
-                            i++;
-                            writer(i, text, i2);
-                        } else {
-                            setTimeout(function () {
-                                i2++;
-                                if (i2 != text.length) {
-                                    $(".action-menu").text("");
-                                    writer(0, text, i2);
-                                } else {
-                                    pokemonCore.battle.initFight(pokemon);
-                                }
-                            }, 1000);
-                        }
-                    }, 50);
+                setTimeout(function () {
+                    if (i < text[i2].length && breakDialog) {
+                        $(".action-menu").append(text[i2][i]);
+                        i++;
+                        writer(i, text, i2);
+                    } else {
+                        setTimeout(function () {
+                            i2++;
+                            if (i2 != text.length) {
+                                $(".action-menu").text("");
+                                writer(0, text, i2);
+                            } else {
+                                pokemonCore.battle.initFight(pokemon);
+                            }
+                        }, 1000);
+                    }
+                }, 50);
             };
         },
 
@@ -1308,22 +1346,21 @@ var pokemonCore = {
                             $(".action-menu").text("");
                             $(".action-box").remove();
                             pokemonCore.battle.timesEscaped++;
-                            if(F > rand) {
-                                pokemonCore.utils.writer(0, function(){
-                                    setTimeout(function(){
+                            if (F > rand) {
+                                pokemonCore.utils.writer(0, function () {
+                                    setTimeout(function () {
                                         pokemonCore.battle.stopBattle();
                                         $(document).unbind("keydown");
                                         pokemonCore.player.bindMovement();
                                     }, 900)
                                 }, "Got away safely!");
                             } else {
-                                pokemonCore.utils.writer(0, function(){
-                                    setTimeout(function(){
+                                pokemonCore.utils.writer(0, function () {
+                                    setTimeout(function () {
                                         pokemonCore.battle.enemyMove();
                                     }, 900)
                                 }, "Couldn't get away!");
                             }
-                            console.log(C);
                             return;
                         }
                         break;
@@ -1367,7 +1404,6 @@ var pokemonCore = {
             pokemonCore.battle.shouldStopDialog = false;
             if (enemy) {
                 var stats = ["ATT", "DEF"];
-                console.log(move);
                 damage = Math.round(((2 * pokemonCore.battle.encounter.pokemon.level + 10) / 250) * (pokemonCore.battle.encounter.pokemon.stats[stats[0]][1] / pokemonCore.gameChar.pokemon.stats[stats[1]][1]) * pokemonCore.battle.encounter.pokemon.moves[move][6] + 2);
             } else {
                 var stats = ["ATT", "DEF"];
@@ -1519,7 +1555,7 @@ var pokemonCore = {
             var s = 1;//TODO: fix
             var t = 1;//TODO: fix
             var v = 1;
-            var expGain = Math.round(((a*b*L) / (5*s) * (Math.pow(2*L + 10, 2.5) / Math.pow(L + Lp + 10, 2.5)) + 1) * t * e * p);
+            var expGain = Math.round(((a * b * L) / (5 * s) * (Math.pow(2 * L + 10, 2.5) / Math.pow(L + Lp + 10, 2.5)) + 1) * t * e * p);
             pokemon.exp += expGain;
             percentage = pokemonCore.pokemon.calcPercentage(pokemon);
             $(".action-menu").text("");
@@ -1577,6 +1613,7 @@ var pokemonCore = {
                                 $(".level-up .level-5").text(pokemonCore.gameChar.pokemon.stats.SPD[0]);
                                 first = false;
                             } else {
+                                pokemonCore.battle.learnNewMove();
                                 callback();
                                 $(".level-up").remove();
                             }
@@ -1584,6 +1621,31 @@ var pokemonCore = {
                     });
                 }, pokemons.name + " grew to LV." + pokemons.level + "!");
             }, 200);
+        },
+
+        learnNewMove: function(callback){
+            for(var i = 0; i < pokemonCore.gameChar.pokemon.movesLearn.length; i++){
+                if(pokemonCore.gameChar.pokemon.movesLearn[i][0] == pokemonCore.gameChar.pokemon.level){
+                    if(pokemonCore.gameChar.pokemon.moves.length < 5){
+                        $(".action-menu").text("");
+                        pokemonCore.utils.writer(0, callback, pokemonCore.gameChar.pokemon.name + " learned " + pokemonCore.gameChar.pokemon.movesLearn[i][1]);
+                        pokemonCore.gameChar.pokemon.moves.push(pokemonCore.gameChar.pokemon.movesLearn[i][1]);
+                        pokemonCore.gameChar.pokemon = pokemonCore.pokemon.instantiateMoves({ pokemon: pokemonCore.gameChar.pokemon}).pokemon;
+                    }else{
+                        pokemonCore.utils.writer(0, function(){
+                            setTimeout(function(){
+                                pokemonCore.utils.writer(0, function(){
+                                    setTimeout(function(){
+                                        pokemonCore.utils.writer(0, function(){
+
+                                        }, "Delete a move to learn " + pokemonCore.gameChar.pokemon.movesLearn[i][1] + "?");
+                                    }, 500);
+                                }, "But " + pokemonCore.gameChar.pokemon.name + " already knows 4 moves.");
+                            }, 500);
+                        }, pokemonCore.gameChar.pokemon.name + "is trying to learn " + pokemonCore.gameChar.pokemon.movesLearn[i][1]);
+                    }
+                }
+            }
         },
 
         animateHealth: function (damage, enemy) {
@@ -1608,10 +1670,10 @@ var pokemonCore = {
     },
 
     pokemon: {
-        getEncounterMoves: function(pokemon){
+        getEncounterMoves: function (pokemon) {
             var amount = 0;
-            for(var i = pokemon.pokemon.movesLearn.length - 1; i >= 0; i--){
-                if(pokemon.pokemon.movesLearn[i][0] <= pokemon.pokemon.level && amount < 4){
+            for (var i = pokemon.pokemon.movesLearn.length - 1; i >= 0; i--) {
+                if (pokemon.pokemon.movesLearn[i][0] <= pokemon.pokemon.level && amount < 4) {
                     pokemon.pokemon.moves[amount] = pokemon.pokemon.movesLearn[i][1];
                     amount++;
                 }
@@ -1630,8 +1692,6 @@ var pokemonCore = {
             for (var i = 0; i < stats.length; i += 2) {
                 add = stats[i];
                 stat = stats[i + 1];
-                console.log(add);
-                console.log(stat);
                 pokemonCore.gameChar.pokemon.base_stats[stat][2] += parseInt(add);
             }
         },
@@ -1653,34 +1713,34 @@ var pokemonCore = {
                 case "Erratic":
                     expForLevelUp = Math.round(
                         level <= 50 ?
-                            Math.pow(level, 3) * (100 - level) / 50
+                        Math.pow(level, 3) * (100 - level) / 50
                             :
                             level <= 68 ?
-                                Math.pow(level, 3) * (150 - level) / 100
+                            Math.pow(level, 3) * (150 - level) / 100
                                 :
                                 level <= 98 ?
-                                    Math.pow(level, 3) * Math.floor((1911 - (10 * level)) / 3) / 500
+                                Math.pow(level, 3) * Math.floor((1911 - (10 * level)) / 3) / 500
                                     :
                                     level <= 100 ?
-                                        Math.pow(level, 3) * (160 - level) / 100
+                                    Math.pow(level, 3) * (160 - level) / 100
                                         : 0
                     );
                     break;
                 case "Fluctuating":
                     expForLevelUp = Math.round(
                         level <= 15 ?
-                            Math.pow(level, 3) * ((Math.floor((level + 1) / 3) + 24) / 50)
+                        Math.pow(level, 3) * ((Math.floor((level + 1) / 3) + 24) / 50)
                             :
                             level <= 36 ?
-                                Math.pow(level, 3) * ((level + 14) / 50)
+                            Math.pow(level, 3) * ((level + 14) / 50)
                                 :
                                 level <= 100 ?
-                                    Math.pow(level, 3) * ((Math.floor(level / 2) + 32) / 50)
+                                Math.pow(level, 3) * ((Math.floor(level / 2) + 32) / 50)
                                     : 0
                     );
                     break;
                 case "Slow":
-                        expForLevelUp = 5 * Math.pow(level, 3) / 4;
+                    expForLevelUp = 5 * Math.pow(level, 3) / 4;
                     break;
                 case "Medium Slow":
                     expForLevelUp = Math.round(6 / 5 * Math.pow(level, 3) - 15 * Math.pow(level, 2) + 100 * level - 140);
@@ -1767,8 +1827,8 @@ var pokemonCore = {
     },
 
     specialInteract: {
-        pc: function(){
-            pokemonCore.utils.createDialog([pokemonCore.gameChar.name + " booted up the PC."], null, function(){
+        pc: function () {
+            pokemonCore.utils.createDialog([pokemonCore.gameChar.name + " booted up the PC."], null, function () {
 
             });
         },
@@ -1887,12 +1947,12 @@ var pokemonCore = {
             }
         },
 
-        pokecenter: function(){
+        pokecenter: function () {
             var char = pokemonCore.gameChar;
             healPkmn();
-            function healPkmn(){
+            function healPkmn() {
                 char.pokemon.stats.HP[1] = char.pokemon.stats.HP[0];
-                for(var i = 0; i < char.bagPkmn.length; i++){
+                for (var i = 0; i < char.bagPkmn.length; i++) {
                     char.bagPkmn[i].stats.HP[1] = char.bagPkmn[i].stats.HP[0];
                 }
             }
@@ -1934,7 +1994,7 @@ var pokemonCore = {
             return new pokemonCore.item(item.name, item.use, item.price, item.desc, item.img, item.type);
         },
         complicatedItemUses: {
-            pokeball: function(rate){
+            pokeball: function (rate) {
                 var HPmax = pokemonCore.battle.encounter.pokemon.stats.HP[0];
                 var HPcur = pokemonCore.battle.encounter.pokemon.stats.HP[1];
                 var catchRate = pokemonCore.battle.encounter.pokemon.catchRate;
@@ -1948,38 +2008,38 @@ var pokemonCore = {
                 $(".bag-gui").remove();
                 $(".battle-screen .enemy-pokemon").attr("data-ball", "true");
                 $(".battle-screen .enemy-pokemon").attr("data-image", "1");
-                (function shakeCheck(){
-                    setTimeout(function(){
+                (function shakeCheck() {
+                    setTimeout(function () {
                         var rand = Math.floor(Math.random() * 65535);
-                        b = Math.round(1048560 / Math.sqrt(Math.sqrt(16711680/a)));
-                        if(rand >= b){
+                        b = Math.round(1048560 / Math.sqrt(Math.sqrt(16711680 / a)));
+                        if (rand >= b) {
                             $(".battle-screen .enemy-pokemon").attr("data-ball", "false");
                             $(".battle-screen .enemy-pokemon").attr("data-image", "-");
                             $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
                             pokemonCore.battle.setBattleKeybinds(".action-menu");
-                        }else{
+                        } else {
                             shakes++;
-                            if(last == "right"){
+                            if (last == "right") {
                                 $(".enemy-pokemon").attr("data-shake", "left");
                                 last = "left";
-                            }else{
+                            } else {
                                 $(".enemy-pokemon").attr("data-shake", "right");
                                 last = "right";
                             }
-                            setTimeout(function(){
+                            setTimeout(function () {
                                 $(".enemy-pokemon").attr("data-shake", "-");
                             }, 800);
-                            if(shakes > 3){
-                                if(pokemonCore.gameChar.bagPkmn.length < 6){
+                            if (shakes > 3) {
+                                if (pokemonCore.gameChar.bagPkmn.length < 6) {
                                     pokemonCore.gameChar.bagPkmn.push(pokemonCore.battle.encounter.pokemon);
-                                }else{
+                                } else {
                                     pokemonCore.gameChar.pcPkmn.push(pokemonCore.battle.encounter.pokemon);
                                 }
                                 $(".action-menu").text("");
-                                pokemonCore.utils.writer(0, function(){
-                                    setTimeout(function(){
+                                pokemonCore.utils.writer(0, function () {
+                                    setTimeout(function () {
                                         $(".action-menu").text("");
-                                        if(pokemonCore.gameChar.seen.indexOf(pokemonCore.battle.encounter.pokemon.nN) > -1) {
+                                        if (pokemonCore.gameChar.seen.indexOf(pokemonCore.battle.encounter.pokemon.nN) > -1) {
                                             pokemonCore.utils.writer(0, function () {
                                                 setTimeout(function () {
                                                     var pkmn = pokemonCore.battle.encounter.pokemon;
@@ -2004,7 +2064,7 @@ var pokemonCore = {
                                         }
                                     }, 500)
                                 }, "Gotcha! " + pokemonCore.battle.encounter.pokemon.name + " was Caught!");
-                            }else{
+                            } else {
                                 shakeCheck();
                             }
                         }
@@ -2186,7 +2246,7 @@ function character(coords, nm) {
     $gameDiv.append('<div id="player"></div>');
     $character = $gameWrapper.find("#player");
 
-    this.createPlayerDiv = function(){
+    this.createPlayerDiv = function () {
         $gameDiv.append('<div id="player"></div>');
         $character = $gameWrapper.find("#player");
     }
@@ -2219,7 +2279,7 @@ function character(coords, nm) {
         money += money1;
     }
 
-    this.setCoords = function(setCoords){
+    this.setCoords = function (setCoords) {
         coords = setCoords;
     }
 
@@ -2242,8 +2302,8 @@ function character(coords, nm) {
         return amount;
     }
 
-    this.addSeen = function(id){
-        if(this.seen.indexOf(id) <= -1){
+    this.addSeen = function (id) {
+        if (this.seen.indexOf(id) <= -1) {
             this.seen.push(id);
         }
     }

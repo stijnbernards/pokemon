@@ -3,7 +3,8 @@ var move = [
       "Electric",
       "Special",
       "Cool",
-      "10",
-      "—",
+      10,
+      10,
+      0,
       "100%",
     ]

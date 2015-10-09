@@ -30,12 +30,13 @@ foreach($node->getElementsByTagName('tr') as $tr){
     $tds = $tr->getElementsByTagName('td');
     $file = 'var move = [
       "'. trim(str_replace("*", "", $tds->item(1)->nodeValue)) .'",
-      "'. trim($tds->item(2)->nodeValue) .'",
-      "'. trim($tds->item(3)->nodeValue) .'",
-      "'. trim($tds->item(4)->nodeValue) .'",
-      "'. trim($tds->item(5)->nodeValue) .'",
-      "'. trim($tds->item(6)->nodeValue) .'",
-      "'. trim($tds->item(7)->nodeValue) .'",
+      "'. str_replace("*", "", trim($tds->item(2)->nodeValue)) .'",
+      "'. str_replace("*", "", trim($tds->item(3)->nodeValue)) .'",
+      "'. str_replace("*", "", trim($tds->item(4)->nodeValue)) .'",
+      '. intval(str_replace("*", "", trim($tds->item(5)->nodeValue))) .',
+      '. intval(str_replace("*", "", trim($tds->item(5)->nodeValue))) .',
+      '. intval(str_replace("*", "", trim($tds->item(6)->nodeValue))) .',
+      "'. str_replace("*", "", trim($tds->item(7)->nodeValue)) .'",
     ]';
 
     //echo $file;

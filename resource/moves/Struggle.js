@@ -3,7 +3,8 @@ var move = [
       "Normal",
       "Physical",
       "Tough",
-      "1*",
-      "50",
-      "—*",
+      1,
+      1,
+      50,
+      "—",
     ]

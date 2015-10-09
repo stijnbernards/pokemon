@@ -3,7 +3,8 @@ var move = [
       "Ghost",
       "Physical",
       "Clever",
-      "20",
-      "60",
+      20,
+      20,
+      60,
       "—",
     ]

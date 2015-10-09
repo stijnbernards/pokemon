@@ -1,9 +1,0 @@
-var move = [
-      "Scratch",
-      "Normal",
-      "Physical",
-      "Tough",
-      "35",
-      "40",
-      "100%",
-    ]

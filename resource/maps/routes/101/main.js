@@ -23,33 +23,33 @@ var map = [
     ],
     "routes/101/main.png"
 ];
-var npc = [
-    new pokemonCore.npc(
-        [
-            [6, 14],
-            [5, 14]
-        ],
-        "1",
-        ["Wild POK&eacute;MON will jump out at you in tall grass.", "If you want to catch POK&eacute;MON, you have to go into the tall grass and search."],
-        null,
-        null,
-        null,
-        [6, 14],
-        false,
-        false
-    ),
-    new pokemonCore.npc(
-        null,
-        "2",
-        ["If pokemon get tired, take them to a POK&eacute;MON CENTER.", "There's a POK&eacute;MON CENTER in OLDALE TOWN right close by."],
-        null,
-        null,
-        null,
-        [19, 9],
-        false,
-        true
-    )
-];
+//var npc = [
+//    new pokemonCore.npc(
+//        [
+//            [6, 14],
+//            [5, 14]
+//        ],
+//        "1",
+//        ["Wild POK&eacute;MON will jump out at you in tall grass.", "If you want to catch POK&eacute;MON, you have to go into the tall grass and search."],
+//        null,
+//        null,
+//        null,
+//        [6, 14],
+//        false,
+//        false
+//    ),
+//    new pokemonCore.npc(
+//        null,
+//        "2",
+//        ["If pokemon get tired, take them to a POK&eacute;MON CENTER.", "There's a POK&eacute;MON CENTER in OLDALE TOWN right close by."],
+//        null,
+//        null,
+//        null,
+//        [19, 9],
+//        false,
+//        true
+//    )
+//];
 
 var pokemon = [
     {
@@ -78,37 +78,38 @@ var onEnterFunc = function(){
     }
 }
 
-//new pokemonCore.npc(
-//    [
-//        [19,18],
-//        [16,14]
-//    ],
-//    "nigger",
-//    ["Kapot met ou"],
-//    null,
-//    null,
-//    null,
-//    [17,14],
-//    {
-//        pokemon:[
-//            {
-//                pokemon: {
-//                    pokemon: new pokemonCore.pokemon.instantiate(252),
-//                    level: 3,
-//                }
-//            },
-//            {
-//                pokemon: {
-//                    pokemon: new pokemonCore.pokemon.instantiate(252),
-//                    level: 4,
-//                }
-//            }
-//        ]
-//    },
-//    false,
-//    ["Ik guj ou slopen"],
-//    ["Kak"]
-//),
+new pokemonCore.npc(
+    [
+        [19,18],
+        [16,14]
+    ],
+    "nigger",
+    ["Kapot met ou"],
+    null,
+    null,
+    null,
+    [17,14],
+    {
+        pokemon:[
+            {
+                pokemon: {
+                    pokemon: new pokemonCore.pokemon.instantiate(252),
+                    level: 3,
+                }
+            },
+            {
+                pokemon: {
+                    pokemon: new pokemonCore.pokemon.instantiate(252),
+                    level: 4,
+                }
+            }
+        ]
+    },
+    false,
+    ["Ik guj ou slopen"],
+    ["Kak"]
+);
+
 var music = {
     ambient: "route101.mp3"
 }

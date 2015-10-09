@@ -3,7 +3,8 @@ var move = [
       "Ground",
       "Physical",
       "Tough",
-      "10",
-      "100",
+      10,
+      10,
+      100,
       "100%",
     ]

@@ -3,7 +3,8 @@ var move = [
       "Water",
       "Physical",
       "Beautiful",
-      "10",
-      "80",
+      10,
+      10,
+      80,
       "100%",
     ]

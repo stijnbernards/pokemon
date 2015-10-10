@@ -112,4 +112,4 @@ new pokemonCore.npc(
 
 var music = {
     ambient: "route101.mp3"
-}
+};

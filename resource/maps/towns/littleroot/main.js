@@ -78,3 +78,7 @@ var music = {
 };
 
 var onEnterFunc = null;
+
+var connections = [
+    [6, "top", "left: 192px;"],
+]

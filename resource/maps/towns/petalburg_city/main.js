@@ -42,4 +42,4 @@ var npc = [
 
 var music = {
     ambient: "petalburg.mp3"
-}
+};

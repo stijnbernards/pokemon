@@ -41,6 +41,10 @@
   position: relative;
   margin: 0 !important;
   padding: 0 !important;
+  vertical-align: top;
+  &:first-of-type{
+    //margin-top: -32px !important;
+  }
 }
 
 .overlay{

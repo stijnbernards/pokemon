@@ -776,14 +776,15 @@
   position: relative;
   margin: 0 !important;
   padding: 0 !important;
+  vertical-align: top;
 }
 
-/* line 46, ../scss/sass/custom/_main.scss */
+/* line 50, ../scss/sass/custom/_main.scss */
 .overlay {
   z-index: 4;
 }
 
-/* line 50, ../scss/sass/custom/_main.scss */
+/* line 54, ../scss/sass/custom/_main.scss */
 .grid {
   background: url("../images/misc/grid.png") transparent;
   position: absolute;

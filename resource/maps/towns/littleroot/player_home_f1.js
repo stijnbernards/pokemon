@@ -19,7 +19,7 @@ var npc = [
         [[3,7]],
         "mom",
         [
-          "How are you doing, " + pokemonCore.gameChar.getName() + "?<br>You look a little tired.",
+          //"How are you doing, " + pokemonCore.gameChar.getName() + "?<br>You look a little tired.",
           "I think you should rest a bit."
         ],
         null,

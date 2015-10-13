@@ -80,5 +80,5 @@ var music = {
 var onEnterFunc = null;
 
 var connections = [
-    [6, "top", "left: 192px;"],
+    [6, "top", "left: 256px;"],
 ]

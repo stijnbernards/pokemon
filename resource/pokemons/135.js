@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 135,
+    nN: "135",
     name: "Jolteon",
     species: "Lightning Pokémon",
     height: "2′7″ (0.79m)",

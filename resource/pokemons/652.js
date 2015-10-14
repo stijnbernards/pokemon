@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 652,
+    nN: "652",
     name: "Chesnaught",
     species: "Spiny Armor Pokémon",
     height: "5′3″ (1.60m)",

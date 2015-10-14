@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 371,
+    nN: "371",
     name: "Bagon",
     species: "Rock Head Pokémon",
     height: "2′0″ (0.61m)",

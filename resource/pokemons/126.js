@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 126,
+    nN: "126",
     name: "Magmar",
     species: "Spitfire Pokémon",
     height: "4′3″ (1.30m)",

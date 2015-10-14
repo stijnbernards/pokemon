@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 632,
+    nN: "632",
     name: "Durant",
     species: "Iron Ant Pokémon",
     height: "1′0″ (0.30m)",

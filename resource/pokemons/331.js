@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 331,
+    nN: "331",
     name: "Cacnea",
     species: "Cactus Pokémon",
     height: "1′4″ (0.41m)",

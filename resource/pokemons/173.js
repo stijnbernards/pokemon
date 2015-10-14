@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 173,
+    nN: "173",
     name: "Cleffa",
     species: "Star Shape Pokémon",
     height: "1′0″ (0.30m)",

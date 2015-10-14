@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 385,
+    nN: "385",
     name: "Jirachi",
     species: "Wish Pokémon",
     height: "1′0″ (0.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 309,
+    nN: "309",
     name: "Electrike",
     species: "Lightning Pokémon",
     height: "2′0″ (0.61m)",

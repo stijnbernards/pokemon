@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 605,
+    nN: "605",
     name: "Elgyem",
     species: "Cerebral Pokémon",
     height: "1′8″ (0.51m)",

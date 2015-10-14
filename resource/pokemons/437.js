@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 437,
+    nN: "437",
     name: "Bronzong",
     species: "Bronze Bell Pokémon",
     height: "4′3″ (1.30m)",

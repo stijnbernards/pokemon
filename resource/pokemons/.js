@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: ,
+    nN: "",
     name: "An Error Was Encountered",
     species: "",
     height: "",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 585,
+    nN: "585",
     name: "Deerling",
     species: "Season Pokémon",
     height: "2′0″ (0.61m)",

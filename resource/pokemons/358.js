@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 358,
+    nN: "358",
     name: "Chimecho",
     species: "Wind Chime Pokémon",
     height: "2′0″ (0.61m)",

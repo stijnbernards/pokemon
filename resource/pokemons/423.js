@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 423,
+    nN: "423",
     name: "Gastrodon",
     species: "Sea Slug Pokémon",
     height: "2′11″ (0.89m)",

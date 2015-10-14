@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 078,
+    nN: "078",
     name: "Rapidash",
     species: "Fire Horse Pokémon",
     height: "5′7″ (1.70m)",

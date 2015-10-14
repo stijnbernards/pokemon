@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 496,
+    nN: "496",
     name: "Servine",
     species: "Grass Snake Pokémon",
     height: "2′7″ (0.79m)",

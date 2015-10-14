@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 654,
+    nN: "654",
     name: "Braixen",
     species: "Fox Pokémon",
     height: "3′3″ (0.99m)",

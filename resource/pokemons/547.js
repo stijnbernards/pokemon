@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 547,
+    nN: "547",
     name: "Whimsicott",
     species: "Windveiled Pokémon",
     height: "2′4″ (0.71m)",

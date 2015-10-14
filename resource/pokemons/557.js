@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 557,
+    nN: "557",
     name: "Dwebble",
     species: "Rock Inn Pokémon",
     height: "1′0″ (0.30m)",

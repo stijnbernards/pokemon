@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 193,
+    nN: "193",
     name: "Yanma",
     species: "Clear Wing Pokémon",
     height: "3′11″ (1.19m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 617,
+    nN: "617",
     name: "Accelgor",
     species: "Shell Out Pokémon",
     height: "2′7″ (0.79m)",

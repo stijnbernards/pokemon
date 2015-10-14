@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 536,
+    nN: "536",
     name: "Palpitoad",
     species: "Vibration Pokémon",
     height: "2′7″ (0.79m)",

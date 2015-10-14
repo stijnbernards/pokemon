@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 409,
+    nN: "409",
     name: "Rampardos",
     species: "Head Butt Pokémon",
     height: "5′3″ (1.60m)",

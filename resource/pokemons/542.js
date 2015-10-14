@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 542,
+    nN: "542",
     name: "Leavanny",
     species: "Nurturing Pokémon",
     height: "3′11″ (1.19m)",

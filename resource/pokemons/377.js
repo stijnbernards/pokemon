@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 377,
+    nN: "377",
     name: "Regirock",
     species: "Rock Peak Pokémon",
     height: "5′7″ (1.70m)",

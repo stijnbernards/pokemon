@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 552,
+    nN: "552",
     name: "Krokorok",
     species: "Desert Croc Pokémon",
     height: "3′3″ (0.99m)",

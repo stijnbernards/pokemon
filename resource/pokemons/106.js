@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 106,
+    nN: "106",
     name: "Hitmonlee",
     species: "Kicking Pokémon",
     height: "4′11″ (1.50m)",

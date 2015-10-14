@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 155,
+    nN: "155",
     name: "Cyndaquil",
     species: "Fire Mouse Pokémon",
     height: "1′8″ (0.51m)",

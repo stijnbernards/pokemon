@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 303,
+    nN: "303",
     name: "Mawile",
     species: "Deceiver Pokémon",
     height: "2′0″ (0.61m)",

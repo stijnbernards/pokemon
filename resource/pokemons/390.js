@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 390,
+    nN: "390",
     name: "Chimchar",
     species: "Chimp Pokémon",
     height: "1′8″ (0.51m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 517,
+    nN: "517",
     name: "Munna",
     species: "Dream Eater Pokémon",
     height: "2′0″ (0.61m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 017,
+    nN: "017",
     name: "Pidgeotto",
     species: "Bird Pokémon",
     height: "3′7″ (1.09m)",

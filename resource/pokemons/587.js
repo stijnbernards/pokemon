@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 587,
+    nN: "587",
     name: "Emolga",
     species: "Sky Squirrel Pokémon",
     height: "1′4″ (0.41m)",

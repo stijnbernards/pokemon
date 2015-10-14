@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 640,
+    nN: "640",
     name: "Virizion",
     species: "Grassland Pokémon",
     height: "6′7″ (2.01m)",

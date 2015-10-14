@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 549,
+    nN: "549",
     name: "Lilligant",
     species: "Flowering Pokémon",
     height: "3′7″ (1.09m)",

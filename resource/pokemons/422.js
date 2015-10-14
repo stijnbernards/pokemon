@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 422,
+    nN: "422",
     name: "Shellos",
     species: "Sea Slug Pokémon",
     height: "1′0″ (0.30m)",

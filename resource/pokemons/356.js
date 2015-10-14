@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 356,
+    nN: "356",
     name: "Dusclops",
     species: "Beckon Pokémon",
     height: "5′3″ (1.60m)",

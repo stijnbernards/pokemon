@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 421,
+    nN: "421",
     name: "Cherrim",
     species: "Blossom Pokémon",
     height: "1′8″ (0.51m)",

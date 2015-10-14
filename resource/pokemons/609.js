@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 609,
+    nN: "609",
     name: "Chandelure",
     species: "Luring Pokémon",
     height: "3′3″ (0.99m)",

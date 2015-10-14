@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 426,
+    nN: "426",
     name: "Drifblim",
     species: "Blimp Pokémon",
     height: "3′11″ (1.19m)",

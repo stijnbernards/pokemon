@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 352,
+    nN: "352",
     name: "Kecleon",
     species: "Color Swap Pokémon",
     height: "3′3″ (0.99m)",

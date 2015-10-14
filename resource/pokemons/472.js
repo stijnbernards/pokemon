@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 472,
+    nN: "472",
     name: "Gliscor",
     species: "Fang Scorp Pokémon",
     height: "6′7″ (2.01m)",

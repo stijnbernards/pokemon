@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 485,
+    nN: "485",
     name: "Heatran",
     species: "Lava Dome Pokémon",
     height: "5′7″ (1.70m)",

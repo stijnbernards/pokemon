@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 430,
+    nN: "430",
     name: "Honchkrow",
     species: "Big Boss Pokémon",
     height: "2′11″ (0.89m)",

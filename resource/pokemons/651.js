@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 651,
+    nN: "651",
     name: "Quilladin",
     species: "Spiny Armor Pokémon",
     height: "2′4″ (0.71m)",

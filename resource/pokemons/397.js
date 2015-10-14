@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 397,
+    nN: "397",
     name: "Staravia",
     species: "Starling Pokémon",
     height: "2′0″ (0.61m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 541,
+    nN: "541",
     name: "Swadloon",
     species: "Leaf-Wrapped Pokémon",
     height: "1′8″ (0.51m)",

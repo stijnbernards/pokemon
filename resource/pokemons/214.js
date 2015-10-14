@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 214,
+    nN: "214",
     name: "Heracross",
     species: "Single Horn Pokémon",
     height: "4′11″ (1.50m)",

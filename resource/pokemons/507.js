@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 507,
+    nN: "507",
     name: "Herdier",
     species: "Loyal Dog Pokémon",
     height: "2′11″ (0.89m)",

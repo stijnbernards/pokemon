@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 579,
+    nN: "579",
     name: "Reuniclus",
     species: "Multiplying Pokémon",
     height: "3′3″ (0.99m)",

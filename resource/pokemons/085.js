@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 085,
+    nN: "085",
     name: "Dodrio",
     species: "Triple Bird Pokémon",
     height: "5′11″ (1.80m)",

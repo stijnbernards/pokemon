@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 203,
+    nN: "203",
     name: "Girafarig",
     species: "Long Neck Pokémon",
     height: "4′11″ (1.50m)",

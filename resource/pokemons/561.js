@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 561,
+    nN: "561",
     name: "Sigilyph",
     species: "Avianoid Pokémon",
     height: "4′7″ (1.40m)",

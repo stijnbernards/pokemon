@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 218,
+    nN: "218",
     name: "Slugma",
     species: "Lava Pokémon",
     height: "2′4″ (0.71m)",

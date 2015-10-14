@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 556,
+    nN: "556",
     name: "Maractus",
     species: "Cactus Pokémon",
     height: "3′3″ (0.99m)",

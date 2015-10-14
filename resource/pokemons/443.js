@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 443,
+    nN: "443",
     name: "Gible",
     species: "Land Shark Pokémon",
     height: "2′4″ (0.71m)",

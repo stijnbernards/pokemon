@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 250,
+    nN: "250",
     name: "Ho-oh",
     species: "Rainbow Pokémon",
     height: "12′6″ (3.81m)",

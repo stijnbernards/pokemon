@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 294,
+    nN: "294",
     name: "Loudred",
     species: "Big Voice Pokémon",
     height: "3′3″ (0.99m)",

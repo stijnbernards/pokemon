@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 666,
+    nN: "666",
     name: "Vivillon",
     species: "Scale Pokémon",
     height: "3′11″ (1.19m)",

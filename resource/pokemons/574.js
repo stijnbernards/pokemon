@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 574,
+    nN: "574",
     name: "Gothita",
     species: "Fixation Pokémon",
     height: "1′4″ (0.41m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 554,
+    nN: "554",
     name: "Darumaka",
     species: "Zen Charm Pokémon",
     height: "2′0″ (0.61m)",

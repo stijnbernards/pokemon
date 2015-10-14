@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 100,
+    nN: "100",
     name: "Voltorb",
     species: "Ball Pokémon",
     height: "1′8″ (0.51m)",

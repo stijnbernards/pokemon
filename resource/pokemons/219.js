@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 219,
+    nN: "219",
     name: "Magcargo",
     species: "Lava Pokémon",
     height: "2′7″ (0.79m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 603,
+    nN: "603",
     name: "Eelektrik",
     species: "EleFish Pokémon",
     height: "3′11″ (1.19m)",

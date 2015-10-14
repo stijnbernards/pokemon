@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 180,
+    nN: "180",
     name: "Flaaffy",
     species: "Wool Pokémon",
     height: "2′7″ (0.79m)",

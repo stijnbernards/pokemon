@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 595,
+    nN: "595",
     name: "Joltik",
     species: "Attaching Pokémon",
     height: "0′4″ (0.10m)",

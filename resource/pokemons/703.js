@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 703,
+    nN: "703",
     name: "Carbink",
     species: "Jewel Pokémon",
     height: "1′0″ (0.30m)",

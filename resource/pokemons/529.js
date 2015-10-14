@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 529,
+    nN: "529",
     name: "Drilbur",
     species: "Mole Pokémon",
     height: "1′0″ (0.30m)",

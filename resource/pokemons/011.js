@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 011,
+    nN: "011",
     name: "Metapod",
     species: "Cocoon Pokémon",
     height: "2′4″ (0.71m)",

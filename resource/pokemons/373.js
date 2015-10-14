@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 373,
+    nN: "373",
     name: "Salamence",
     species: "Dragon Pokémon",
     height: "4′11″ (1.50m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 289,
+    nN: "289",
     name: "Slaking",
     species: "Lazy Pokémon",
     height: "6′7″ (2.01m)",

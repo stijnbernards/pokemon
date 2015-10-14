@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 526,
+    nN: "526",
     name: "Gigalith",
     species: "Compressed Pokémon",
     height: "5′7″ (1.70m)",

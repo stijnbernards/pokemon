@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 235,
+    nN: "235",
     name: "Smeargle",
     species: "Painter Pokémon",
     height: "3′11″ (1.19m)",

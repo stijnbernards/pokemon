@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 236,
+    nN: "236",
     name: "Tyrogue",
     species: "Scuffle Pokémon",
     height: "2′4″ (0.71m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 487,
+    nN: "487",
     name: "Giratina",
     species: "Renegade Pokémon",
     height: "14′9″ (4.50m)",

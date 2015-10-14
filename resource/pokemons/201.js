@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 201,
+    nN: "201",
     name: "Unown",
     species: "Symbol Pokémon",
     height: "1′8″ (0.51m)",

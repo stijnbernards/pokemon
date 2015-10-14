@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 222,
+    nN: "222",
     name: "Corsola",
     species: "Coral Pokémon",
     height: "2′0″ (0.61m)",

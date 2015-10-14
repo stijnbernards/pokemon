@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 481,
+    nN: "481",
     name: "Mesprit",
     species: "Emotion Pokémon",
     height: "1′0″ (0.30m)",

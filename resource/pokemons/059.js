@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 059,
+    nN: "059",
     name: "Arcanine",
     species: "Legendary Pokémon",
     height: "6′3″ (1.91m)",

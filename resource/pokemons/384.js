@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 384,
+    nN: "384",
     name: "Rayquaza",
     species: "Sky High Pokémon",
     height: "23′0″ (7.01m)",

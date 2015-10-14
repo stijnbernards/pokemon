@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 675,
+    nN: "675",
     name: "Pangoro",
     species: "Daunting Pokémon",
     height: "6′11″ (2.11m)",

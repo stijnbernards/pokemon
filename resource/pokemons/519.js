@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 519,
+    nN: "519",
     name: "Pidove",
     species: "Tiny Pigeon Pokémon",
     height: "1′0″ (0.30m)",

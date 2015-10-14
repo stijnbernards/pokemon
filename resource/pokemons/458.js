@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 458,
+    nN: "458",
     name: "Mantyke",
     species: "Kite Pokémon",
     height: "3′3″ (0.99m)",

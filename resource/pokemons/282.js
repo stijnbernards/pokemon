@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 282,
+    nN: "282",
     name: "Gardevoir",
     species: "Embrace Pokémon",
     height: "5′3″ (1.60m)",

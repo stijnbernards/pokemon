@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 001,
+    nN: "001",
     name: "Bulbasaur",
     species: "Seed Pokémon",
     height: "2′4″ (0.71m)",

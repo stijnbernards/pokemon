@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 117,
+    nN: "117",
     name: "Seadra",
     species: "Dragon Pokémon",
     height: "3′11″ (1.19m)",

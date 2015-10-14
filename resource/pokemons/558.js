@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 558,
+    nN: "558",
     name: "Crustle",
     species: "Stone Home Pokémon",
     height: "4′7″ (1.40m)",

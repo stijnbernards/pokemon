@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 670,
+    nN: "670",
     name: "Floette",
     species: "Single Bloom Pokémon",
     height: "0′8″ (0.20m)",

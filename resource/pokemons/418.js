@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 418,
+    nN: "418",
     name: "Buizel",
     species: "Sea Weasel Pokémon",
     height: "2′4″ (0.71m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 310,
+    nN: "310",
     name: "Manectric",
     species: "Discharge Pokémon",
     height: "4′11″ (1.50m)",

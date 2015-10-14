@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 406,
+    nN: "406",
     name: "Budew",
     species: "Bud Pokémon",
     height: "0′8″ (0.20m)",

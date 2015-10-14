@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 672,
+    nN: "672",
     name: "Skiddo",
     species: "Mount Pokémon",
     height: "2′11″ (0.89m)",

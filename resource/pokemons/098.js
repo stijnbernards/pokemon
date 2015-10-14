@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 098,
+    nN: "098",
     name: "Krabby",
     species: "River Crab Pokémon",
     height: "1′4″ (0.41m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 532,
+    nN: "532",
     name: "Timburr",
     species: "Muscular Pokémon",
     height: "2′0″ (0.61m)",

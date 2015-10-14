@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 141,
+    nN: "141",
     name: "Kabutops",
     species: "Shellfish Pokémon",
     height: "4′3″ (1.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 051,
+    nN: "051",
     name: "Dugtrio",
     species: "Mole Pokémon",
     height: "2′4″ (0.71m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 477,
+    nN: "477",
     name: "Dusknoir",
     species: "Gripper Pokémon",
     height: "7′3″ (2.21m)",

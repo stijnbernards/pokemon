@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 410,
+    nN: "410",
     name: "Shieldon",
     species: "Shield Pokémon",
     height: "1′8″ (0.51m)",

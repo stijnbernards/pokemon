@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 560,
+    nN: "560",
     name: "Scrafty",
     species: "Hoodlum Pokémon",
     height: "3′7″ (1.09m)",

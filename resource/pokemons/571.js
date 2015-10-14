@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 571,
+    nN: "571",
     name: "Zoroark",
     species: "Illusion Fox Pokémon",
     height: "5′3″ (1.60m)",

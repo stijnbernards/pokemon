@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 663,
+    nN: "663",
     name: "Talonflame",
     species: "Scorching Pokémon",
     height: "3′11″ (1.19m)",

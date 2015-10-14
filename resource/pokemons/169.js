@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 169,
+    nN: "169",
     name: "Crobat",
     species: "Bat Pokémon",
     height: "5′11″ (1.80m)",

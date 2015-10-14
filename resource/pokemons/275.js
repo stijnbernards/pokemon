@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 275,
+    nN: "275",
     name: "Shiftry",
     species: "Wicked Pokémon",
     height: "4′3″ (1.30m)",

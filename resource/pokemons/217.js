@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 217,
+    nN: "217",
     name: "Ursaring",
     species: "Hibernator Pokémon",
     height: "5′11″ (1.80m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 662,
+    nN: "662",
     name: "Fletchinder",
     species: "Ember Pokémon",
     height: "2′4″ (0.71m)",

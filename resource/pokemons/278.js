@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 278,
+    nN: "278",
     name: "Wingull",
     species: "Seagull Pokémon",
     height: "2′0″ (0.61m)",

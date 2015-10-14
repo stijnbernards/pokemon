@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 484,
+    nN: "484",
     name: "Palkia",
     species: "Spatial Pokémon",
     height: "13′9″ (4.19m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 288,
+    nN: "288",
     name: "Vigoroth",
     species: "Wild Monkey Pokémon",
     height: "4′7″ (1.40m)",

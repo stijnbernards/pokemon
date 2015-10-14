@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 550,
+    nN: "550",
     name: "Basculin",
     species: "Hostile Pokémon",
     height: "3′3″ (0.99m)",

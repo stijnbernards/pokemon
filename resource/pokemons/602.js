@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 602,
+    nN: "602",
     name: "Tynamo",
     species: "EleFish Pokémon",
     height: "0′8″ (0.20m)",

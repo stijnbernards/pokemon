@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 130,
+    nN: "130",
     name: "Gyarados",
     species: "Atrocious Pokémon",
     height: "21′4″ (6.50m)",

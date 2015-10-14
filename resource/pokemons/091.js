@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 091,
+    nN: "091",
     name: "Cloyster",
     species: "Bivalve Pokémon",
     height: "4′11″ (1.50m)",

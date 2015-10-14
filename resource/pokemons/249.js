@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 249,
+    nN: "249",
     name: "Lugia",
     species: "Diving Pokémon",
     height: "17′1″ (5.21m)",

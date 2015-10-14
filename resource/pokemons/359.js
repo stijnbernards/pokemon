@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 359,
+    nN: "359",
     name: "Absol",
     species: "Disaster Pokémon",
     height: "3′11″ (1.19m)",

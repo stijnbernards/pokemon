@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 076,
+    nN: "076",
     name: "Golem",
     species: "Megaton Pokémon",
     height: "4′7″ (1.40m)",

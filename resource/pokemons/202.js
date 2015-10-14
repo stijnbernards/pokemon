@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 202,
+    nN: "202",
     name: "Wobbuffet",
     species: "Patient Pokémon",
     height: "4′3″ (1.30m)",

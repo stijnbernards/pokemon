@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 642,
+    nN: "642",
     name: "Thundurus",
     species: "Bolt Strike Pokémon",
     height: "4′11″ (1.50m)",

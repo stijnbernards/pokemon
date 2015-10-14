@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 048,
+    nN: "048",
     name: "Venonat",
     species: "Insect Pokémon",
     height: "3′3″ (0.99m)",

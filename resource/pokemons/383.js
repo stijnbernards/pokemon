@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 383,
+    nN: "383",
     name: "Groudon",
     species: "Continent Pokémon",
     height: "11′6″ (3.51m)",

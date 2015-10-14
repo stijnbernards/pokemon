@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 212,
+    nN: "212",
     name: "Scizor",
     species: "Pincer Pokémon",
     height: "5′11″ (1.80m)",

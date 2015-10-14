@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 653,
+    nN: "653",
     name: "Fennekin",
     species: "Fox Pokémon",
     height: "1′4″ (0.41m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 512,
+    nN: "512",
     name: "Simisage",
     species: "Thorn Monkey Pokémon",
     height: "3′7″ (1.09m)",

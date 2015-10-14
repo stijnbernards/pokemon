@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 174,
+    nN: "174",
     name: "Igglybuff",
     species: "Balloon Pokémon",
     height: "1′0″ (0.30m)",

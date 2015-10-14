@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 408,
+    nN: "408",
     name: "Cranidos",
     species: "Head Butt Pokémon",
     height: "2′11″ (0.89m)",

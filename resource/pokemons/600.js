@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 600,
+    nN: "600",
     name: "Klang",
     species: "Gear Pokémon",
     height: "2′0″ (0.61m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 478,
+    nN: "478",
     name: "Froslass",
     species: "Snow Land Pokémon",
     height: "4′3″ (1.30m)",

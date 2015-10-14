@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 077,
+    nN: "077",
     name: "Ponyta",
     species: "Fire Horse Pokémon",
     height: "3′3″ (0.99m)",

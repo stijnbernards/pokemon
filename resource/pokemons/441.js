@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 441,
+    nN: "441",
     name: "Chatot",
     species: "Music Note Pokémon",
     height: "1′8″ (0.51m)",

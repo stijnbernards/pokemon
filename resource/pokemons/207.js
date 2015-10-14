@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 207,
+    nN: "207",
     name: "Gligar",
     species: "FlyScorpion Pokémon",
     height: "3′7″ (1.09m)",

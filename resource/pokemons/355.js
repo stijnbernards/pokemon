@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 355,
+    nN: "355",
     name: "Duskull",
     species: "Requiem Pokémon",
     height: "2′7″ (0.79m)",

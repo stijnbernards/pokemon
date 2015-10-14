@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 142,
+    nN: "142",
     name: "Aerodactyl",
     species: "Fossil Pokémon",
     height: "5′11″ (1.80m)",

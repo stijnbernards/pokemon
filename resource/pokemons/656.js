@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 656,
+    nN: "656",
     name: "Froakie",
     species: "Bubble Frog Pokémon",
     height: "1′0″ (0.30m)",

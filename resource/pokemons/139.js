@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 139,
+    nN: "139",
     name: "Omastar",
     species: "Spiral Pokémon",
     height: "3′3″ (0.99m)",

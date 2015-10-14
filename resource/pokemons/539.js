@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 539,
+    nN: "539",
     name: "Sawk",
     species: "Karate Pokémon",
     height: "4′7″ (1.40m)",

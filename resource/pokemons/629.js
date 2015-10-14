@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 629,
+    nN: "629",
     name: "Vullaby",
     species: "Diapered Pokémon",
     height: "1′8″ (0.51m)",

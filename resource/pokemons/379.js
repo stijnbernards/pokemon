@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 379,
+    nN: "379",
     name: "Registeel",
     species: "Iron Pokémon",
     height: "6′3″ (1.91m)",

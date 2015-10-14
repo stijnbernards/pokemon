@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 080,
+    nN: "080",
     name: "Slowbro",
     species: "Hermit Crab Pokémon",
     height: "5′3″ (1.60m)",

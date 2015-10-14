@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 253,
+    nN: "253",
     name: "Grovyle",
     species: "Wood Gecko Pokémon",
     height: "2′11″ (0.89m)",

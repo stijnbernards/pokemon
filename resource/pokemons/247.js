@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 247,
+    nN: "247",
     name: "Pupitar",
     species: "Hard Shell Pokémon",
     height: "3′11″ (1.19m)",

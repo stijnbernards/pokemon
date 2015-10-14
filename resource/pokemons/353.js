@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 353,
+    nN: "353",
     name: "Shuppet",
     species: "Puppet Pokémon",
     height: "2′0″ (0.61m)",

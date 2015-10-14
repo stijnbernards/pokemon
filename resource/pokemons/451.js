@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 451,
+    nN: "451",
     name: "Skorupi",
     species: "Scorpion Pokémon",
     height: "2′7″ (0.79m)",

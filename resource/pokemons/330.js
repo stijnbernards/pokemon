@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 330,
+    nN: "330",
     name: "Flygon",
     species: "Mystic Pokémon",
     height: "6′7″ (2.01m)",

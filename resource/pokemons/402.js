@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 402,
+    nN: "402",
     name: "Kricketune",
     species: "Cricket Pokémon",
     height: "3′3″ (0.99m)",

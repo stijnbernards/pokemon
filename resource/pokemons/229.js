@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 229,
+    nN: "229",
     name: "Houndoom",
     species: "Dark Pokémon",
     height: "4′7″ (1.40m)",

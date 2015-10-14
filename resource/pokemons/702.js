@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 702,
+    nN: "702",
     name: "Dedenne",
     species: "Antenna Pokémon",
     height: "0′8″ (0.20m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 272,
+    nN: "272",
     name: "Ludicolo",
     species: "Carefree Pokémon",
     height: "4′11″ (1.50m)",

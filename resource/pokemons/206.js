@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 206,
+    nN: "206",
     name: "Dunsparce",
     species: "Land Snake Pokémon",
     height: "4′11″ (1.50m)",

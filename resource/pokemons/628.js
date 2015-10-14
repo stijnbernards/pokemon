@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 628,
+    nN: "628",
     name: "Braviary",
     species: "Valiant Pokémon",
     height: "4′11″ (1.50m)",

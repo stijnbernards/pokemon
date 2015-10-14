@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 156,
+    nN: "156",
     name: "Quilava",
     species: "Volcano Pokémon",
     height: "2′11″ (0.89m)",

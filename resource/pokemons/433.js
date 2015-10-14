@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 433,
+    nN: "433",
     name: "Chingling",
     species: "Bell Pokémon",
     height: "0′8″ (0.20m)",

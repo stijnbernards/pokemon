@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 491,
+    nN: "491",
     name: "Darkrai",
     species: "Pitch-Black Pokémon",
     height: "4′11″ (1.50m)",

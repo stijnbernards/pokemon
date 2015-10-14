@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 412,
+    nN: "412",
     name: "Burmy",
     species: "Bagworm Pokémon",
     height: "0′8″ (0.20m)",

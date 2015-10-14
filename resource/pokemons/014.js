@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 014,
+    nN: "014",
     name: "Kakuna",
     species: "Cocoon Pokémon",
     height: "2′0″ (0.61m)",

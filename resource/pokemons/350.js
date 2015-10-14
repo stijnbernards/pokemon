@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 350,
+    nN: "350",
     name: "Milotic",
     species: "Tender Pokémon",
     height: "20′4″ (6.20m)",

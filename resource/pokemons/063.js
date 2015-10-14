@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 063,
+    nN: "063",
     name: "Abra",
     species: "Psi Pokémon",
     height: "2′11″ (0.89m)",

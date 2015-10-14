@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 049,
+    nN: "049",
     name: "Venomoth",
     species: "Poison Moth Pokémon",
     height: "4′11″ (1.50m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 027,
+    nN: "027",
     name: "Sandshrew",
     species: "Mouse Pokémon",
     height: "2′0″ (0.61m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 719,
+    nN: "719",
     name: "Diancie",
     species: "Jewel Pokémon",
     height: "2′4″ (0.71m)",

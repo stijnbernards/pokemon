@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 311,
+    nN: "311",
     name: "Plusle",
     species: "Cheering Pokémon",
     height: "1′4″ (0.41m)",

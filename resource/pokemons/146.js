@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 146,
+    nN: "146",
     name: "Moltres",
     species: "Flame Pokémon",
     height: "6′7″ (2.01m)",

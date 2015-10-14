@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 111,
+    nN: "111",
     name: "Rhyhorn",
     species: "Spikes Pokémon",
     height: "3′3″ (0.99m)",

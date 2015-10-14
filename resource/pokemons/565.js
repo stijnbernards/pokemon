@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 565,
+    nN: "565",
     name: "Carracosta",
     species: "Prototurtle Pokémon",
     height: "3′11″ (1.19m)",

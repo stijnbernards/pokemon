@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 280,
+    nN: "280",
     name: "Ralts",
     species: "Feeling Pokémon",
     height: "1′4″ (0.41m)",

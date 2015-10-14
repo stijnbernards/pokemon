@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 225,
+    nN: "225",
     name: "Delibird",
     species: "Delivery Pokémon",
     height: "2′11″ (0.89m)",

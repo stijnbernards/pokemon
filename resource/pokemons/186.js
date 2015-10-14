@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 186,
+    nN: "186",
     name: "Politoed",
     species: "Frog Pokémon",
     height: "3′7″ (1.09m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 544,
+    nN: "544",
     name: "Whirlipede",
     species: "Curlipede Pokémon",
     height: "3′11″ (1.19m)",

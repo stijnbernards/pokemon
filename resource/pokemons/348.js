@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 348,
+    nN: "348",
     name: "Armaldo",
     species: "Plate Pokémon",
     height: "4′11″ (1.50m)",

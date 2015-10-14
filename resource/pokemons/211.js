@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 211,
+    nN: "211",
     name: "Qwilfish",
     species: "Balloon Pokémon",
     height: "1′8″ (0.51m)",

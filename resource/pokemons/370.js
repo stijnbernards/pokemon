@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 370,
+    nN: "370",
     name: "Luvdisc",
     species: "Rendezvous Pokémon",
     height: "2′0″ (0.61m)",

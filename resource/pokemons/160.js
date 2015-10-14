@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 160,
+    nN: "160",
     name: "Feraligatr",
     species: "Big Jaw Pokémon",
     height: "7′7″ (2.31m)",

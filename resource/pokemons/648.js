@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 648,
+    nN: "648",
     name: "Meloetta",
     species: "Melody Pokémon",
     height: "2′0″ (0.61m)",

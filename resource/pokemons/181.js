@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 181,
+    nN: "181",
     name: "Ampharos",
     species: "Light Pokémon",
     height: "4′7″ (1.40m)",

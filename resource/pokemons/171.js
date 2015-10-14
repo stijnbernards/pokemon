@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 171,
+    nN: "171",
     name: "Lanturn",
     species: "Light Pokémon",
     height: "3′11″ (1.19m)",

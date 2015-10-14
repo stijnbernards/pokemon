@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 469,
+    nN: "469",
     name: "Yanmega",
     species: "Ogre Darner Pokémon",
     height: "6′3″ (1.91m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 269,
+    nN: "269",
     name: "Dustox",
     species: "Poison Moth Pokémon",
     height: "3′11″ (1.19m)",

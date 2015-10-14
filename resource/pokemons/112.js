@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 112,
+    nN: "112",
     name: "Rhydon",
     species: "Drill Pokémon",
     height: "6′3″ (1.91m)",

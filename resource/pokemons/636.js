@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 636,
+    nN: "636",
     name: "Larvesta",
     species: "Torch Pokémon",
     height: "3′7″ (1.09m)",

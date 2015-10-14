@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 521,
+    nN: "521",
     name: "Unfezant",
     species: "Proud Pokémon",
     height: "3′11″ (1.19m)",

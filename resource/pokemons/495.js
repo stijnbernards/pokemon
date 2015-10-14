@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 495,
+    nN: "495",
     name: "Snivy",
     species: "Grass Snake Pokémon",
     height: "2′0″ (0.61m)",

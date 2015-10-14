@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 092,
+    nN: "092",
     name: "Gastly",
     species: "Gas Pokémon",
     height: "4′3″ (1.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 136,
+    nN: "136",
     name: "Flareon",
     species: "Flame Pokémon",
     height: "2′11″ (0.89m)",

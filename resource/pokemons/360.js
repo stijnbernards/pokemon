@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 360,
+    nN: "360",
     name: "Wynaut",
     species: "Bright Pokémon",
     height: "2′0″ (0.61m)",

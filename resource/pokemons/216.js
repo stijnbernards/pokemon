@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 216,
+    nN: "216",
     name: "Teddiursa",
     species: "Little Bear Pokémon",
     height: "2′0″ (0.61m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 710,
+    nN: "710",
     name: "Pumpkaboo",
     species: "Pumpkin Pokémon",
     height: "1′4″ (0.41m)",

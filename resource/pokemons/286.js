@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 286,
+    nN: "286",
     name: "Breloom",
     species: "Mushroom Pokémon",
     height: "3′11″ (1.19m)",

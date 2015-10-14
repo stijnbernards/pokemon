@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 277,
+    nN: "277",
     name: "Swellow",
     species: "Swallow Pokémon",
     height: "2′4″ (0.71m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 079,
+    nN: "079",
     name: "Slowpoke",
     species: "Dopey Pokémon",
     height: "3′11″ (1.19m)",

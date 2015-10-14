@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 285,
+    nN: "285",
     name: "Shroomish",
     species: "Mushroom Pokémon",
     height: "1′4″ (0.41m)",

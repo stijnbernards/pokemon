@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 714,
+    nN: "714",
     name: "Noibat",
     species: "Sound Wave Pokémon",
     height: "1′8″ (0.51m)",

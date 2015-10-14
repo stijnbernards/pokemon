@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 677,
+    nN: "677",
     name: "Espurr",
     species: "Restraint Pokémon",
     height: "1′0″ (0.30m)",

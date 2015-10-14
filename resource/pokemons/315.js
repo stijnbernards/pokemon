@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 315,
+    nN: "315",
     name: "Roselia",
     species: "Thorn Pokémon",
     height: "1′0″ (0.30m)",

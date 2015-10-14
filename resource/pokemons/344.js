@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 344,
+    nN: "344",
     name: "Claydol",
     species: "Clay Doll Pokémon",
     height: "4′11″ (1.50m)",

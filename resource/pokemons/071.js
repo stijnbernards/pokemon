@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 071,
+    nN: "071",
     name: "Victreebel",
     species: "Flycatcher Pokémon",
     height: "5′7″ (1.70m)",

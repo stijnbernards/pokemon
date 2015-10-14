@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 090,
+    nN: "090",
     name: "Shellder",
     species: "Bivalve Pokémon",
     height: "1′0″ (0.30m)",

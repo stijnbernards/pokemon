@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 192,
+    nN: "192",
     name: "Sunflora",
     species: "Sun Pokémon",
     height: "2′7″ (0.79m)",

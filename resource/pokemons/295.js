@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 295,
+    nN: "295",
     name: "Exploud",
     species: "Loud Noise Pokémon",
     height: "4′11″ (1.50m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 104,
+    nN: "104",
     name: "Cubone",
     species: "Lonely Pokémon",
     height: "1′4″ (0.41m)",

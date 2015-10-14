@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 452,
+    nN: "452",
     name: "Drapion",
     species: "Ogre Scorp Pokémon",
     height: "4′3″ (1.30m)",

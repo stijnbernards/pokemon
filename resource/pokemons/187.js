@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 187,
+    nN: "187",
     name: "Hoppip",
     species: "Cottonweed Pokémon",
     height: "1′4″ (0.41m)",

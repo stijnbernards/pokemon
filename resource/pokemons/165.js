@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 165,
+    nN: "165",
     name: "Ledyba",
     species: "Five Star Pokémon",
     height: "3′3″ (0.99m)",

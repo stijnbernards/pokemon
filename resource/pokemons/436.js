@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 436,
+    nN: "436",
     name: "Bronzor",
     species: "Bronze Pokémon",
     height: "1′8″ (0.51m)",

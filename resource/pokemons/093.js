@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 093,
+    nN: "093",
     name: "Haunter",
     species: "Gas Pokémon",
     height: "5′3″ (1.60m)",

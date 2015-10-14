@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 148,
+    nN: "148",
     name: "Dragonair",
     species: "Dragon Pokémon",
     height: "13′1″ (3.99m)",

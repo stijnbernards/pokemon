@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 244,
+    nN: "244",
     name: "Entei",
     species: "Volcano Pokémon",
     height: "6′11″ (2.11m)",

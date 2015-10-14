@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 683,
+    nN: "683",
     name: "Aromatisse",
     species: "Fragrance Pokémon",
     height: "2′7″ (0.79m)",

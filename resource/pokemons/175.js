@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 175,
+    nN: "175",
     name: "Togepi",
     species: "Spike Ball Pokémon",
     height: "1′0″ (0.30m)",

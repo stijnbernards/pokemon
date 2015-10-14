@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 296,
+    nN: "296",
     name: "Makuhita",
     species: "Guts Pokémon",
     height: "3′3″ (0.99m)",

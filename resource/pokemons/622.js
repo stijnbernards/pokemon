@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 622,
+    nN: "622",
     name: "Golett",
     species: "Automaton Pokémon",
     height: "3′3″ (0.99m)",

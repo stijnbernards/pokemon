@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 260,
+    nN: "260",
     name: "Swampert",
     species: "Mud Fish Pokémon",
     height: "4′11″ (1.50m)",

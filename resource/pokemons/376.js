@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 376,
+    nN: "376",
     name: "Metagross",
     species: "Iron Leg Pokémon",
     height: "5′3″ (1.60m)",

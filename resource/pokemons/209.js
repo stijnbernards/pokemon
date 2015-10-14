@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 209,
+    nN: "209",
     name: "Snubbull",
     species: "Fairy Pokémon",
     height: "2′0″ (0.61m)",

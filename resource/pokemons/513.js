@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 513,
+    nN: "513",
     name: "Pansear",
     species: "High Temp Pokémon",
     height: "2′0″ (0.61m)",

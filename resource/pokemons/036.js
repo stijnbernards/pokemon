@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 036,
+    nN: "036",
     name: "Clefable",
     species: "Fairy Pokémon",
     height: "4′3″ (1.30m)",

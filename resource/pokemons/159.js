@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 159,
+    nN: "159",
     name: "Croconaw",
     species: "Big Jaw Pokémon",
     height: "3′7″ (1.09m)",

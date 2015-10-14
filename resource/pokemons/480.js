@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 480,
+    nN: "480",
     name: "Uxie",
     species: "Knowledge Pokémon",
     height: "1′0″ (0.30m)",

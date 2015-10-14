@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 069,
+    nN: "069",
     name: "Bellsprout",
     species: "Flower Pokémon",
     height: "2′4″ (0.71m)",

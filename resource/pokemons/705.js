@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 705,
+    nN: "705",
     name: "Sliggoo",
     species: "Soft Tissue Pokémon",
     height: "2′7″ (0.79m)",

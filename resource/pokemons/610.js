@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 610,
+    nN: "610",
     name: "Axew",
     species: "Tusk Pokémon",
     height: "2′0″ (0.61m)",

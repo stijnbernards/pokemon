@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 453,
+    nN: "453",
     name: "Croagunk",
     species: "Toxic Mouth Pokémon",
     height: "2′4″ (0.71m)",

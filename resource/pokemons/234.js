@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 234,
+    nN: "234",
     name: "Stantler",
     species: "Big Horn Pokémon",
     height: "4′7″ (1.40m)",

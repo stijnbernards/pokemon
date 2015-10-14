@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 694,
+    nN: "694",
     name: "Helioptile",
     species: "Generator Pokémon",
     height: "1′8″ (0.51m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 638,
+    nN: "638",
     name: "Cobalion",
     species: "Iron Will Pokémon",
     height: "6′11″ (2.11m)",

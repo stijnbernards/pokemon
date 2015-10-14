@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 323,
+    nN: "323",
     name: "Camerupt",
     species: "Eruption Pokémon",
     height: "6′3″ (1.91m)",

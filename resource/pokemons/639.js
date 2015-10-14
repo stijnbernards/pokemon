@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 639,
+    nN: "639",
     name: "Terrakion",
     species: "Cavern Pokémon",
     height: "6′3″ (1.91m)",

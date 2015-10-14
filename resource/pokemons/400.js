@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 400,
+    nN: "400",
     name: "Bibarel",
     species: "Beaver Pokémon",
     height: "3′3″ (0.99m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 569,
+    nN: "569",
     name: "Garbodor",
     species: "Trash Heap Pokémon",
     height: "6′3″ (1.91m)",

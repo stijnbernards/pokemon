@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 013,
+    nN: "013",
     name: "Weedle",
     species: "Hairy Bug Pokémon",
     height: "1′0″ (0.30m)",

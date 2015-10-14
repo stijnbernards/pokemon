@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 473,
+    nN: "473",
     name: "Mamoswine",
     species: "Twin Tusk Pokémon",
     height: "8′2″ (2.49m)",

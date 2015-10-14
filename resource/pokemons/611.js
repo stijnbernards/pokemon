@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 611,
+    nN: "611",
     name: "Fraxure",
     species: "Axe Jaw Pokémon",
     height: "3′3″ (0.99m)",

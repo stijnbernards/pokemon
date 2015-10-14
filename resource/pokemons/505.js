@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 505,
+    nN: "505",
     name: "Watchog",
     species: "Lookout Pokémon",
     height: "3′7″ (1.09m)",

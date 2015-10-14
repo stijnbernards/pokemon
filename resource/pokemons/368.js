@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 368,
+    nN: "368",
     name: "Gorebyss",
     species: "South Sea Pokémon",
     height: "5′11″ (1.80m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 150,
+    nN: "150",
     name: "Mewtwo",
     species: "Genetic Pokémon",
     height: "6′7″ (2.01m)",

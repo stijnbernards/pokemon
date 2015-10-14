@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 345,
+    nN: "345",
     name: "Lileep",
     species: "Sea Lily Pokémon",
     height: "3′3″ (0.99m)",

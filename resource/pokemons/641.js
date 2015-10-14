@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 641,
+    nN: "641",
     name: "Tornadus",
     species: "Cyclone Pokémon",
     height: "4′11″ (1.50m)",

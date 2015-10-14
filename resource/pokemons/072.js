@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 072,
+    nN: "072",
     name: "Tentacool",
     species: "Jellyfish Pokémon",
     height: "2′11″ (0.89m)",

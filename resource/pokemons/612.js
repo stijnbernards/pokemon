@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 612,
+    nN: "612",
     name: "Haxorus",
     species: "Axe Jaw Pokémon",
     height: "5′11″ (1.80m)",

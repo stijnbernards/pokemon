@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 299,
+    nN: "299",
     name: "Nosepass",
     species: "Compass Pokémon",
     height: "3′3″ (0.99m)",

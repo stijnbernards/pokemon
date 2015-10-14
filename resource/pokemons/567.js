@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 567,
+    nN: "567",
     name: "Archeops",
     species: "First Bird Pokémon",
     height: "4′7″ (1.40m)",

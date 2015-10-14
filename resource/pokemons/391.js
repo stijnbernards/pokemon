@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 391,
+    nN: "391",
     name: "Monferno",
     species: "Playful Pokémon",
     height: "2′11″ (0.89m)",

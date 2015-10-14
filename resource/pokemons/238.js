@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 238,
+    nN: "238",
     name: "Smoochum",
     species: "Kiss Pokémon",
     height: "1′4″ (0.41m)",

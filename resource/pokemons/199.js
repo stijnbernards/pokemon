@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 199,
+    nN: "199",
     name: "Slowking",
     species: "Royal Pokémon",
     height: "6′7″ (2.01m)",

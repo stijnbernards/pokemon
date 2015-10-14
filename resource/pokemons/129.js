@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 129,
+    nN: "129",
     name: "Magikarp",
     species: "Fish Pokémon",
     height: "2′11″ (0.89m)",

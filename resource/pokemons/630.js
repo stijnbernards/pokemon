@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 630,
+    nN: "630",
     name: "Mandibuzz",
     species: "Bone Vulture Pokémon",
     height: "3′11″ (1.19m)",

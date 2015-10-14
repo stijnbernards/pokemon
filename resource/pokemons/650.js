@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 650,
+    nN: "650",
     name: "Chespin",
     species: "Spiny Nut Pokémon",
     height: "1′4″ (0.41m)",

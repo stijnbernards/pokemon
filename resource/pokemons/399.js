@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 399,
+    nN: "399",
     name: "Bidoof",
     species: "Plump Mouse Pokémon",
     height: "1′8″ (0.51m)",

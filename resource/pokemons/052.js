@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 052,
+    nN: "052",
     name: "Meowth",
     species: "Scratch Cat Pokémon",
     height: "1′4″ (0.41m)",

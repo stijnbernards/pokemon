@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 706,
+    nN: "706",
     name: "Goodra",
     species: "Dragon Pokémon",
     height: "6′7″ (2.01m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 060,
+    nN: "060",
     name: "Poliwag",
     species: "Tadpole Pokémon",
     height: "2′0″ (0.61m)",

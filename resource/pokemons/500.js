@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 500,
+    nN: "500",
     name: "Emboar",
     species: "Mega Fire Pig Pokémon",
     height: "5′3″ (1.60m)",

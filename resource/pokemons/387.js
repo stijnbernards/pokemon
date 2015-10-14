@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 387,
+    nN: "387",
     name: "Turtwig",
     species: "Tiny Leaf Pokémon",
     height: "1′4″ (0.41m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 621,
+    nN: "621",
     name: "Druddigon",
     species: "Cave Pokémon",
     height: "5′3″ (1.60m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 351,
+    nN: "351",
     name: "Castform",
     species: "Weather Pokémon",
     height: "1′0″ (0.30m)",

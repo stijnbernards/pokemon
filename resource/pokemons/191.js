@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 191,
+    nN: "191",
     name: "Sunkern",
     species: "Seed Pokémon",
     height: "1′0″ (0.30m)",

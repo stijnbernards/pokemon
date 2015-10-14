@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 109,
+    nN: "109",
     name: "Koffing",
     species: "Poison Gas Pokémon",
     height: "2′0″ (0.61m)",

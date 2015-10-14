@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 486,
+    nN: "486",
     name: "Regigigas",
     species: "Colossal Pokémon",
     height: "12′2″ (3.71m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 540,
+    nN: "540",
     name: "Sewaddle",
     species: "Sewing Pokémon",
     height: "1′0″ (0.30m)",

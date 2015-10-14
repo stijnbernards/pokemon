@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 389,
+    nN: "389",
     name: "Torterra",
     species: "Continent Pokémon",
     height: "7′3″ (2.21m)",

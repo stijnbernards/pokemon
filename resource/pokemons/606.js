@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 606,
+    nN: "606",
     name: "Beheeyem",
     species: "Cerebral Pokémon",
     height: "3′3″ (0.99m)",

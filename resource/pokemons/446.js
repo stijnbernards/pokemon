@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 446,
+    nN: "446",
     name: "Munchlax",
     species: "Big Eater Pokémon",
     height: "2′0″ (0.61m)",

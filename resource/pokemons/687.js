@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 687,
+    nN: "687",
     name: "Malamar",
     species: "Overturning Pokémon",
     height: "4′11″ (1.50m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 450,
+    nN: "450",
     name: "Hippowdon",
     species: "Heavyweight Pokémon",
     height: "6′7″ (2.01m)",

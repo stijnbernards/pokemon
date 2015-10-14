@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 008,
+    nN: "008",
     name: "Wartortle",
     species: "Turtle Pokémon",
     height: "3′3″ (0.99m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 320,
+    nN: "320",
     name: "Wailmer",
     species: "Ball Whale Pokémon",
     height: "6′7″ (2.01m)",

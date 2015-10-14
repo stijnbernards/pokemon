@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 580,
+    nN: "580",
     name: "Ducklett",
     species: "Water Bird Pokémon",
     height: "1′8″ (0.51m)",

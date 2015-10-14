@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 115,
+    nN: "115",
     name: "Kangaskhan",
     species: "Parent Pokémon",
     height: "7′3″ (2.21m)",

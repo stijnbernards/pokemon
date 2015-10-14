@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 346,
+    nN: "346",
     name: "Cradily",
     species: "Barnacle Pokémon",
     height: "4′11″ (1.50m)",

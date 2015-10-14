@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 161,
+    nN: "161",
     name: "Sentret",
     species: "Scout Pokémon",
     height: "2′7″ (0.79m)",

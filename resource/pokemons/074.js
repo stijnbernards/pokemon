@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 074,
+    nN: "074",
     name: "Geodude",
     species: "Rock Pokémon",
     height: "1′4″ (0.41m)",

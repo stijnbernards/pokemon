@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 474,
+    nN: "474",
     name: "Porygon-Z",
     species: "Virtual Pokémon",
     height: "2′11″ (0.89m)",

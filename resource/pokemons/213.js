@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 213,
+    nN: "213",
     name: "Shuckle",
     species: "Mold Pokémon",
     height: "2′0″ (0.61m)",

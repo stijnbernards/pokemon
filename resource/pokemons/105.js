@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 105,
+    nN: "105",
     name: "Marowak",
     species: "Bone Keeper Pokémon",
     height: "3′3″ (0.99m)",

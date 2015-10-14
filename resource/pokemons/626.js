@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 626,
+    nN: "626",
     name: "Bouffalant",
     species: "Bash Buffalo Pokémon",
     height: "5′3″ (1.60m)",

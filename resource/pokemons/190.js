@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 190,
+    nN: "190",
     name: "Aipom",
     species: "Long Tail Pokémon",
     height: "2′7″ (0.79m)",

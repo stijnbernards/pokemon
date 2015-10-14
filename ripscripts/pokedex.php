@@ -61,7 +61,7 @@ foreach($nodes as $node){
     }catch(Exception $e){}
 
     $file = 'var pokeInfo = {
-    nN: '. trim($tags->item(($index-1))->nodeValue) .',
+    nN: "'. trim($tags->item(($index-1))->nodeValue) .'",
     name: "'.$tags2->item((1-1))->nodeValue .'",
     species: "'. $tags3->item((3-1))->nodeValue .'",
     height: "'. $tags3->item((4-1))->nodeValue .'",

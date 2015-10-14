@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 444,
+    nN: "444",
     name: "Gabite",
     species: "Cave Pokémon",
     height: "4′7″ (1.40m)",

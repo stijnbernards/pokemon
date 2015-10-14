@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 168,
+    nN: "168",
     name: "Ariados",
     species: "Long Leg Pokémon",
     height: "3′7″ (1.09m)",

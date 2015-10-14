@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 563,
+    nN: "563",
     name: "Cofagrigus",
     species: "Coffin Pokémon",
     height: "5′7″ (1.70m)",

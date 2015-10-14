@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 520,
+    nN: "520",
     name: "Tranquill",
     species: "Wild Pigeon Pokémon",
     height: "2′0″ (0.61m)",

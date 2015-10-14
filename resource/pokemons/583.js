@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 583,
+    nN: "583",
     name: "Vanillish",
     species: "Icy Snow Pokémon",
     height: "3′7″ (1.09m)",

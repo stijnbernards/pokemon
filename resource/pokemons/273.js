@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 273,
+    nN: "273",
     name: "Seedot",
     species: "Acorn Pokémon",
     height: "1′8″ (0.51m)",

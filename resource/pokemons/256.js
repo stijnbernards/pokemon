@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 256,
+    nN: "256",
     name: "Combusken",
     species: "Young Fowl Pokémon",
     height: "2′11″ (0.89m)",

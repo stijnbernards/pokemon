@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 530,
+    nN: "530",
     name: "Excadrill",
     species: "Subterrene Pokémon",
     height: "2′4″ (0.71m)",

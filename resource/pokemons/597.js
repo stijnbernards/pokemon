@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 597,
+    nN: "597",
     name: "Ferroseed",
     species: "Thorn Seed Pokémon",
     height: "2′0″ (0.61m)",

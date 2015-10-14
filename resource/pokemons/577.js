@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 577,
+    nN: "577",
     name: "Solosis",
     species: "Cell Pokémon",
     height: "1′0″ (0.30m)",

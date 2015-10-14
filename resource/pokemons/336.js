@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 336,
+    nN: "336",
     name: "Seviper",
     species: "Fang Snake Pokémon",
     height: "8′10″ (2.69m)",

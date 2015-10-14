@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 208,
+    nN: "208",
     name: "Steelix",
     species: "Iron Snake Pokémon",
     height: "30′2″ (9.19m)",

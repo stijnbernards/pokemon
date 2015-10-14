@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 067,
+    nN: "067",
     name: "Machoke",
     species: "Superpower Pokémon",
     height: "4′11″ (1.50m)",

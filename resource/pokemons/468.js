@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 468,
+    nN: "468",
     name: "Togekiss",
     species: "Jubilee Pokémon",
     height: "4′11″ (1.50m)",

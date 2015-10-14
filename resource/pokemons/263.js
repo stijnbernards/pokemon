@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 263,
+    nN: "263",
     name: "Zigzagoon",
     species: "TinyRaccoon Pokémon",
     height: "1′4″ (0.41m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 118,
+    nN: "118",
     name: "Goldeen",
     species: "Goldfish Pokémon",
     height: "2′0″ (0.61m)",

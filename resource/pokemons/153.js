@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 153,
+    nN: "153",
     name: "Bayleef",
     species: "Leaf Pokémon",
     height: "3′11″ (1.19m)",

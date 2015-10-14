@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 114,
+    nN: "114",
     name: "Tangela",
     species: "Vine Pokémon",
     height: "3′3″ (0.99m)",

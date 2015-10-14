@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 321,
+    nN: "321",
     name: "Wailord",
     species: "Float Whale Pokémon",
     height: "47′7″ (14.50m)",

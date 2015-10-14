@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 525,
+    nN: "525",
     name: "Boldore",
     species: "Ore Pokémon",
     height: "2′11″ (0.89m)",

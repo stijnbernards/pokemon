@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 503,
+    nN: "503",
     name: "Samurott",
     species: "Formidable Pokémon",
     height: "4′11″ (1.50m)",

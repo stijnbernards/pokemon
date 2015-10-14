@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 582,
+    nN: "582",
     name: "Vanillite",
     species: "Fresh Snow Pokémon",
     height: "1′4″ (0.41m)",

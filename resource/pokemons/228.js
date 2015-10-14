@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 228,
+    nN: "228",
     name: "Houndour",
     species: "Dark Pokémon",
     height: "2′0″ (0.61m)",

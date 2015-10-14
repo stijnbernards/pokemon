@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 314,
+    nN: "314",
     name: "Illumise",
     species: "Firefly Pokémon",
     height: "2′0″ (0.61m)",

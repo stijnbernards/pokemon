@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 504,
+    nN: "504",
     name: "Patrat",
     species: "Scout Pokémon",
     height: "1′8″ (0.51m)",

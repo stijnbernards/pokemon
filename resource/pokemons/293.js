@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 293,
+    nN: "293",
     name: "Whismur",
     species: "Whisper Pokémon",
     height: "2′0″ (0.61m)",

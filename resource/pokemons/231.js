@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 231,
+    nN: "231",
     name: "Phanpy",
     species: "Long Nose Pokémon",
     height: "1′8″ (0.51m)",

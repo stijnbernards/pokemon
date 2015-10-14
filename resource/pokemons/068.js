@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 068,
+    nN: "068",
     name: "Machamp",
     species: "Superpower Pokémon",
     height: "5′3″ (1.60m)",

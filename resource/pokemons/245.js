@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 245,
+    nN: "245",
     name: "Suicune",
     species: "Aurora Pokémon",
     height: "6′7″ (2.01m)",

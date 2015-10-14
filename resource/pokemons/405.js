@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 405,
+    nN: "405",
     name: "Luxray",
     species: "Gleam Eyes Pokémon",
     height: "4′7″ (1.40m)",

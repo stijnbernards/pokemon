@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 497,
+    nN: "497",
     name: "Serperior",
     species: "Regal Pokémon",
     height: "10′10″ (3.30m)",

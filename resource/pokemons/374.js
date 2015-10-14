@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 374,
+    nN: "374",
     name: "Beldum",
     species: "Iron Ball Pokémon",
     height: "2′0″ (0.61m)",

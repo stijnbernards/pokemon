@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 649,
+    nN: "649",
     name: "Genesect",
     species: "Paleozoic Pokémon",
     height: "4′11″ (1.50m)",

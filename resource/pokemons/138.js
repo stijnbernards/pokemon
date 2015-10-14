@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 138,
+    nN: "138",
     name: "Omanyte",
     species: "Spiral Pokémon",
     height: "1′4″ (0.41m)",

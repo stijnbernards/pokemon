@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 434,
+    nN: "434",
     name: "Stunky",
     species: "Skunk Pokémon",
     height: "1′4″ (0.41m)",

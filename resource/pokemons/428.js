@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 428,
+    nN: "428",
     name: "Lopunny",
     species: "Rabbit Pokémon",
     height: "3′11″ (1.19m)",

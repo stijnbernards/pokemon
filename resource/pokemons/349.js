@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 349,
+    nN: "349",
     name: "Feebas",
     species: "Fish Pokémon",
     height: "2′0″ (0.61m)",

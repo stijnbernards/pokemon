@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 528,
+    nN: "528",
     name: "Swoobat",
     species: "Courting Pokémon",
     height: "2′11″ (0.89m)",

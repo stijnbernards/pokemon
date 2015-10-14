@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 281,
+    nN: "281",
     name: "Kirlia",
     species: "Emotion Pokémon",
     height: "2′7″ (0.79m)",

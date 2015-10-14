@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 476,
+    nN: "476",
     name: "Probopass",
     species: "Compass Pokémon",
     height: "4′7″ (1.40m)",

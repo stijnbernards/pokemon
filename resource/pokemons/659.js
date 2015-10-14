@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 659,
+    nN: "659",
     name: "Bunnelby",
     species: "Digging Pokémon",
     height: "1′4″ (0.41m)",

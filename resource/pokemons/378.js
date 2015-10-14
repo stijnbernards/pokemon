@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 378,
+    nN: "378",
     name: "Regice",
     species: "Iceberg Pokémon",
     height: "5′11″ (1.80m)",

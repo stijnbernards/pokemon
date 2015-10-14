@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 158,
+    nN: "158",
     name: "Totodile",
     species: "Big Jaw Pokémon",
     height: "2′0″ (0.61m)",

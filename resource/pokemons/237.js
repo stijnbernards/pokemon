@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 237,
+    nN: "237",
     name: "Hitmontop",
     species: "Handstand Pokémon",
     height: "4′7″ (1.40m)",

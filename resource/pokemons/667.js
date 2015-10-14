@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 667,
+    nN: "667",
     name: "Litleo",
     species: "Lion Cub Pokémon",
     height: "2′0″ (0.61m)",

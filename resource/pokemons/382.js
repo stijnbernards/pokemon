@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 382,
+    nN: "382",
     name: "Kyogre",
     species: "Sea Basin Pokémon",
     height: "14′9″ (4.50m)",

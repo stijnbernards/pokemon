@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 023,
+    nN: "023",
     name: "Ekans",
     species: "Snake Pokémon",
     height: "6′7″ (2.01m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 440,
+    nN: "440",
     name: "Happiny",
     species: "Playhouse Pokémon",
     height: "2′0″ (0.61m)",

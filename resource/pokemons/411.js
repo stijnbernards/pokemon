@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 411,
+    nN: "411",
     name: "Bastiodon",
     species: "Shield Pokémon",
     height: "4′3″ (1.30m)",

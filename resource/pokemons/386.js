@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 386,
+    nN: "386",
     name: "Deoxys",
     species: "DNA Pokémon",
     height: "5′7″ (1.70m)",

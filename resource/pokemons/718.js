@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 718,
+    nN: "718",
     name: "Zygarde",
     species: "Order Pokémon",
     height: "16′5″ (5.00m)",

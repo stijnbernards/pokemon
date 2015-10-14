@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 365,
+    nN: "365",
     name: "Walrein",
     species: "Ice Break Pokémon",
     height: "4′7″ (1.40m)",

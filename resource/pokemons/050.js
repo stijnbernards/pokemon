@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 050,
+    nN: "050",
     name: "Diglett",
     species: "Mole Pokémon",
     height: "0′8″ (0.20m)",

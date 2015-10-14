@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 266,
+    nN: "266",
     name: "Silcoon",
     species: "Cocoon Pokémon",
     height: "2′0″ (0.61m)",

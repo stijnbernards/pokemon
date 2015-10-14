@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 039,
+    nN: "039",
     name: "Jigglypuff",
     species: "Balloon Pokémon",
     height: "1′8″ (0.51m)",

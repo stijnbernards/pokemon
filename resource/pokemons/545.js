@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 545,
+    nN: "545",
     name: "Scolipede",
     species: "Megapede Pokémon",
     height: "8′2″ (2.49m)",

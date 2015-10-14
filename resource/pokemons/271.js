@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 271,
+    nN: "271",
     name: "Lombre",
     species: "Jolly Pokémon",
     height: "3′11″ (1.19m)",

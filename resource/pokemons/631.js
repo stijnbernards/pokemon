@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 631,
+    nN: "631",
     name: "Heatmor",
     species: "Anteater Pokémon",
     height: "4′7″ (1.40m)",

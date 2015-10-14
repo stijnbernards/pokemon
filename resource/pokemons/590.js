@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 590,
+    nN: "590",
     name: "Foongus",
     species: "Mushroom Pokémon",
     height: "0′8″ (0.20m)",

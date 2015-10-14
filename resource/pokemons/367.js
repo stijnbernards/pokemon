@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 367,
+    nN: "367",
     name: "Huntail",
     species: "Deep Sea Pokémon",
     height: "5′7″ (1.70m)",

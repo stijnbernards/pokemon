@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 537,
+    nN: "537",
     name: "Seismitoad",
     species: "Vibration Pokémon",
     height: "4′11″ (1.50m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 501,
+    nN: "501",
     name: "Oshawott",
     species: "Sea Otter Pokémon",
     height: "1′8″ (0.51m)",

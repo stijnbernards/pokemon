@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 223,
+    nN: "223",
     name: "Remoraid",
     species: "Jet Pokémon",
     height: "2′0″ (0.61m)",

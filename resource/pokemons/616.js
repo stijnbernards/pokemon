@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 616,
+    nN: "616",
     name: "Shelmet",
     species: "Snail Pokémon",
     height: "1′4″ (0.41m)",

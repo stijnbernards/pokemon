@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 062,
+    nN: "062",
     name: "Poliwrath",
     species: "Tadpole Pokémon",
     height: "4′3″ (1.30m)",

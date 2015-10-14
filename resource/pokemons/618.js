@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 618,
+    nN: "618",
     name: "Stunfisk",
     species: "Trap Pokémon",
     height: "2′4″ (0.71m)",

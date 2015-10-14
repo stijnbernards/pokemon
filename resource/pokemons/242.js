@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 242,
+    nN: "242",
     name: "Blissey",
     species: "Happiness Pokémon",
     height: "4′11″ (1.50m)",

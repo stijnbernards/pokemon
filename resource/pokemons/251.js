@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 251,
+    nN: "251",
     name: "Celebi",
     species: "Time Travel Pokémon",
     height: "2′0″ (0.61m)",

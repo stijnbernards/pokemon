@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 026,
+    nN: "026",
     name: "Raichu",
     species: "Mouse Pokémon",
     height: "2′7″ (0.79m)",

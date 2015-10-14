@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 363,
+    nN: "363",
     name: "Spheal",
     species: "Clap Pokémon",
     height: "2′7″ (0.79m)",

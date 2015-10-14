@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 699,
+    nN: "699",
     name: "Aurorus",
     species: "Tundra Pokémon",
     height: "8′10″ (2.69m)",

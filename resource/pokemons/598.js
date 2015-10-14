@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 598,
+    nN: "598",
     name: "Ferrothorn",
     species: "Thorn Pod Pokémon",
     height: "3′3″ (0.99m)",

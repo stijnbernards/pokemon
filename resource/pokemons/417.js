@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 417,
+    nN: "417",
     name: "Pachirisu",
     species: "EleSquirrel Pokémon",
     height: "1′4″ (0.41m)",

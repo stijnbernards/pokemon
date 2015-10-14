@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 166,
+    nN: "166",
     name: "Ledian",
     species: "Five Star Pokémon",
     height: "4′7″ (1.40m)",

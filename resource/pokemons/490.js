@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 490,
+    nN: "490",
     name: "Manaphy",
     species: "Seafaring Pokémon",
     height: "1′0″ (0.30m)",

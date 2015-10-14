@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 246,
+    nN: "246",
     name: "Larvitar",
     species: "Rock Skin Pokémon",
     height: "2′0″ (0.61m)",

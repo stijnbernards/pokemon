@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 691,
+    nN: "691",
     name: "Dragalge",
     species: "Mock Kelp Pokémon",
     height: "5′11″ (1.80m)",

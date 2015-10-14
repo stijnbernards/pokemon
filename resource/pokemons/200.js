@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 200,
+    nN: "200",
     name: "Misdreavus",
     species: "Screech Pokémon",
     height: "2′4″ (0.71m)",

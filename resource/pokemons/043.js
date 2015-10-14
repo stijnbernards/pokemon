@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 043,
+    nN: "043",
     name: "Oddish",
     species: "Weed Pokémon",
     height: "1′8″ (0.51m)",

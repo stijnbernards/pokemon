@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 445,
+    nN: "445",
     name: "Garchomp",
     species: "Mach Pokémon",
     height: "6′3″ (1.91m)",

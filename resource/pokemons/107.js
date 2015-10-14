@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 107,
+    nN: "107",
     name: "Hitmonchan",
     species: "Punching Pokémon",
     height: "4′7″ (1.40m)",

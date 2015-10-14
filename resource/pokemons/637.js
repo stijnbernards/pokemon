@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 637,
+    nN: "637",
     name: "Volcarona",
     species: "Sun Pokémon",
     height: "5′3″ (1.60m)",

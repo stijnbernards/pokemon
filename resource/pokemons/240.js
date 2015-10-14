@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 240,
+    nN: "240",
     name: "Magby",
     species: "Live Coal Pokémon",
     height: "2′4″ (0.71m)",

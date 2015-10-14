@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 431,
+    nN: "431",
     name: "Glameow",
     species: "Catty Pokémon",
     height: "1′8″ (0.51m)",

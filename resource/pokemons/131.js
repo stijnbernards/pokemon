@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 131,
+    nN: "131",
     name: "Lapras",
     species: "Transport Pokémon",
     height: "8′2″ (2.49m)",

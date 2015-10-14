@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 392,
+    nN: "392",
     name: "Infernape",
     species: "Flame Pokémon",
     height: "3′11″ (1.19m)",

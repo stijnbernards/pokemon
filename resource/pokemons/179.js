@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 179,
+    nN: "179",
     name: "Mareep",
     species: "Wool Pokémon",
     height: "2′0″ (0.61m)",

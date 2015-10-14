@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 456,
+    nN: "456",
     name: "Finneon",
     species: "Wing Fish Pokémon",
     height: "1′4″ (0.41m)",

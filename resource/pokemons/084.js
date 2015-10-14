@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 084,
+    nN: "084",
     name: "Doduo",
     species: "Twin Bird Pokémon",
     height: "4′7″ (1.40m)",

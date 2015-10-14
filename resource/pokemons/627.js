@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 627,
+    nN: "627",
     name: "Rufflet",
     species: "Eaglet Pokémon",
     height: "1′8″ (0.51m)",

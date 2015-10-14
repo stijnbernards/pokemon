@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 058,
+    nN: "058",
     name: "Growlithe",
     species: "Puppy Pokémon",
     height: "2′4″ (0.71m)",

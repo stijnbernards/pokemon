@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 227,
+    nN: "227",
     name: "Skarmory",
     species: "Armor Bird Pokémon",
     height: "5′7″ (1.70m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 592,
+    nN: "592",
     name: "Frillish",
     species: "Floating Pokémon",
     height: "3′11″ (1.19m)",

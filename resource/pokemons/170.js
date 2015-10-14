@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 170,
+    nN: "170",
     name: "Chinchou",
     species: "Angler Pokémon",
     height: "1′8″ (0.51m)",

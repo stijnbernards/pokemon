@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 647,
+    nN: "647",
     name: "Keldeo",
     species: "Colt Pokémon",
     height: "4′7″ (1.40m)",

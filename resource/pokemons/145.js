@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 145,
+    nN: "145",
     name: "Zapdos",
     species: "Electric Pokémon",
     height: "5′3″ (1.60m)",

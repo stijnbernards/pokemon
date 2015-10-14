@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 182,
+    nN: "182",
     name: "Bellossom",
     species: "Flower Pokémon",
     height: "1′4″ (0.41m)",

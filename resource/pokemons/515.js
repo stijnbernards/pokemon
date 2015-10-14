@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 515,
+    nN: "515",
     name: "Panpour",
     species: "Spray Pokémon",
     height: "2′0″ (0.61m)",

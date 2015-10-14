@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 644,
+    nN: "644",
     name: "Zekrom",
     species: "Deep Black Pokémon",
     height: "9′6″ (2.90m)",

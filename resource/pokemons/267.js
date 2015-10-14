@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 267,
+    nN: "267",
     name: "Beautifly",
     species: "Butterfly Pokémon",
     height: "3′3″ (0.99m)",

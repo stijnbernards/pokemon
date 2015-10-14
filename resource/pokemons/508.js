@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 508,
+    nN: "508",
     name: "Stoutland",
     species: "Big-Hearted Pokémon",
     height: "3′11″ (1.19m)",

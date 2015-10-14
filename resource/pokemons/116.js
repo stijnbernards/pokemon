@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 116,
+    nN: "116",
     name: "Horsea",
     species: "Dragon Pokémon",
     height: "1′4″ (0.41m)",

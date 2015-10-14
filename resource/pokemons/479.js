@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 479,
+    nN: "479",
     name: "Rotom",
     species: "Plasma Pokémon",
     height: "1′0″ (0.30m)",

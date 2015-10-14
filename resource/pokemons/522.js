@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 522,
+    nN: "522",
     name: "Blitzle",
     species: "Electrified Pokémon",
     height: "2′7″ (0.79m)",

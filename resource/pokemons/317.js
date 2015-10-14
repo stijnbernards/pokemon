@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 317,
+    nN: "317",
     name: "Swalot",
     species: "Poison Bag Pokémon",
     height: "5′7″ (1.70m)",

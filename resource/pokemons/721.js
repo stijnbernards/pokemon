@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 721,
+    nN: "721",
     name: "Volcanion",
     species: "Steam Pokémon",
     height: "5′7″ (1.70m)",

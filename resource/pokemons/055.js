@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 055,
+    nN: "055",
     name: "Golduck",
     species: "Duck Pokémon",
     height: "5′7″ (1.70m)",

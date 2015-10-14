@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 566,
+    nN: "566",
     name: "Archen",
     species: "First Bird Pokémon",
     height: "1′8″ (0.51m)",

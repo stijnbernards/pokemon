@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 613,
+    nN: "613",
     name: "Cubchoo",
     species: "Chill Pokémon",
     height: "1′8″ (0.51m)",

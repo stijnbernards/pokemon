@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 177,
+    nN: "177",
     name: "Natu",
     species: "Tiny Bird Pokémon",
     height: "0′8″ (0.20m)",

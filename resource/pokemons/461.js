@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 461,
+    nN: "461",
     name: "Weavile",
     species: "Sharp Claw Pokémon",
     height: "3′7″ (1.09m)",

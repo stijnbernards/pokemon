@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 243,
+    nN: "243",
     name: "Raikou",
     species: "Thunder Pokémon",
     height: "6′3″ (1.91m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 538,
+    nN: "538",
     name: "Throh",
     species: "Judo Pokémon",
     height: "4′3″ (1.30m)",

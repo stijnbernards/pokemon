@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 304,
+    nN: "304",
     name: "Aron",
     species: "Iron Armor Pokémon",
     height: "1′4″ (0.41m)",

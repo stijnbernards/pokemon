@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 467,
+    nN: "467",
     name: "Magmortar",
     species: "Blast Pokémon",
     height: "5′3″ (1.60m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 671,
+    nN: "671",
     name: "Florges",
     species: "Garden Pokémon",
     height: "3′7″ (1.09m)",

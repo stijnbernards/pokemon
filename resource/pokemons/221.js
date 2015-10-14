@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 221,
+    nN: "221",
     name: "Piloswine",
     species: "Swine Pokémon",
     height: "3′7″ (1.09m)",

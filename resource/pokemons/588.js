@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 588,
+    nN: "588",
     name: "Karrablast",
     species: "Clamping Pokémon",
     height: "1′8″ (0.51m)",

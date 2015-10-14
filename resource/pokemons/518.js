@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 518,
+    nN: "518",
     name: "Musharna",
     species: "Drowsing Pokémon",
     height: "3′7″ (1.09m)",

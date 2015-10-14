@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 697,
+    nN: "697",
     name: "Tyrantrum",
     species: "Despot Pokémon",
     height: "8′2″ (2.49m)",

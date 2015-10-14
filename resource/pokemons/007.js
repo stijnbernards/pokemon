@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 007,
+    nN: "007",
     name: "Squirtle",
     species: "Tiny Turtle Pokémon",
     height: "1′8″ (0.51m)",

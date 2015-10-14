@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 327,
+    nN: "327",
     name: "Spinda",
     species: "Spot Panda Pokémon",
     height: "3′7″ (1.09m)",

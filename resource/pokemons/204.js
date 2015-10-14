@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 204,
+    nN: "204",
     name: "Pineco",
     species: "Bagworm Pokémon",
     height: "2′0″ (0.61m)",

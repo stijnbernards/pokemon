@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 151,
+    nN: "151",
     name: "Mew",
     species: "New Species Pokémon",
     height: "1′4″ (0.41m)",

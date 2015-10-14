@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 420,
+    nN: "420",
     name: "Cherubi",
     species: "Cherry Pokémon",
     height: "1′4″ (0.41m)",

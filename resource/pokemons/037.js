@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 037,
+    nN: "037",
     name: "Vulpix",
     species: "Fox Pokémon",
     height: "2′0″ (0.61m)",

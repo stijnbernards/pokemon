@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 125,
+    nN: "125",
     name: "Electabuzz",
     species: "Electric Pokémon",
     height: "3′7″ (1.09m)",

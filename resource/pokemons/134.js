@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 134,
+    nN: "134",
     name: "Vaporeon",
     species: "Bubble Jet Pokémon",
     height: "3′3″ (0.99m)",

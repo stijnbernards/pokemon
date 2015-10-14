@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 689,
+    nN: "689",
     name: "Barbaracle",
     species: "Collective Pokémon",
     height: "4′3″ (1.30m)",

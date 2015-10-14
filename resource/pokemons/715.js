@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 715,
+    nN: "715",
     name: "Noivern",
     species: "Sound Wave Pokémon",
     height: "4′11″ (1.50m)",

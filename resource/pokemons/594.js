@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 594,
+    nN: "594",
     name: "Alomomola",
     species: "Caring Pokémon",
     height: "3′11″ (1.19m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 395,
+    nN: "395",
     name: "Empoleon",
     species: "Emperor Pokémon",
     height: "5′7″ (1.70m)",

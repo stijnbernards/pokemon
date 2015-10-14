@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 333,
+    nN: "333",
     name: "Swablu",
     species: "Cotton Bird Pokémon",
     height: "1′4″ (0.41m)",

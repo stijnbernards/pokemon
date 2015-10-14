@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 024,
+    nN: "024",
     name: "Arbok",
     species: "Cobra Pokémon",
     height: "11′6″ (3.51m)",

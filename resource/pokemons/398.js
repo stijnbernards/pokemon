@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 398,
+    nN: "398",
     name: "Staraptor",
     species: "Predator Pokémon",
     height: "3′11″ (1.19m)",

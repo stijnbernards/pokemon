@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 454,
+    nN: "454",
     name: "Toxicroak",
     species: "Toxic Mouth Pokémon",
     height: "4′3″ (1.30m)",

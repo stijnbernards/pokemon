@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 720,
+    nN: "720",
     name: "Hoopa",
     species: "Mischief Pokémon",
     height: "1′8″ (0.51m)",

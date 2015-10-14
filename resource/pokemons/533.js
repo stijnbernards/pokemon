@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 533,
+    nN: "533",
     name: "Gurdurr",
     species: "Muscular Pokémon",
     height: "3′11″ (1.19m)",

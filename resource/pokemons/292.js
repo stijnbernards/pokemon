@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 292,
+    nN: "292",
     name: "Shedinja",
     species: "Shed Pokémon",
     height: "2′7″ (0.79m)",

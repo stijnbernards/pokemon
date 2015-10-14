@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 132,
+    nN: "132",
     name: "Ditto",
     species: "Transform Pokémon",
     height: "1′0″ (0.30m)",

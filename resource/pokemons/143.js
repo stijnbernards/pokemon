@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 143,
+    nN: "143",
     name: "Snorlax",
     species: "Sleeping Pokémon",
     height: "6′11″ (2.11m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 224,
+    nN: "224",
     name: "Octillery",
     species: "Jet Pokémon",
     height: "2′11″ (0.89m)",

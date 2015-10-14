@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 334,
+    nN: "334",
     name: "Altaria",
     species: "Humming Pokémon",
     height: "3′7″ (1.09m)",

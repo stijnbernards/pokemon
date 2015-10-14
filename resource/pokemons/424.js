@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 424,
+    nN: "424",
     name: "Ambipom",
     species: "Long Tail Pokémon",
     height: "3′11″ (1.19m)",

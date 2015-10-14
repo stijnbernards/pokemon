@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 176,
+    nN: "176",
     name: "Togetic",
     species: "Happiness Pokémon",
     height: "2′0″ (0.61m)",

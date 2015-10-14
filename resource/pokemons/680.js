@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 680,
+    nN: "680",
     name: "Doublade",
     species: "Sword Pokémon",
     height: "2′9″ (0.84m)",

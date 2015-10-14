@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 004,
+    nN: "004",
     name: "Charmander",
     species: "Lizard Pokémon",
     height: "2′0″ (0.61m)",

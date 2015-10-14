@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 342,
+    nN: "342",
     name: "Crawdaunt",
     species: "Rogue Pokémon",
     height: "3′7″ (1.09m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 287,
+    nN: "287",
     name: "Slakoth",
     species: "Slacker Pokémon",
     height: "2′7″ (0.79m)",

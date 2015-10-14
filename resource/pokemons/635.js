@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 635,
+    nN: "635",
     name: "Hydreigon",
     species: "Brutal Pokémon",
     height: "5′11″ (1.80m)",

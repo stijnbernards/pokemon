@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 673,
+    nN: "673",
     name: "Gogoat",
     species: "Mount Pokémon",
     height: "5′7″ (1.70m)",

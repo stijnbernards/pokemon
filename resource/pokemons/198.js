@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 198,
+    nN: "198",
     name: "Murkrow",
     species: "Darkness Pokémon",
     height: "1′8″ (0.51m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 462,
+    nN: "462",
     name: "Magnezone",
     species: "Magnet Area Pokémon",
     height: "3′11″ (1.19m)",

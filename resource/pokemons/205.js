@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 205,
+    nN: "205",
     name: "Forretress",
     species: "Bagworm Pokémon",
     height: "3′11″ (1.19m)",

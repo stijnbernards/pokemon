@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 318,
+    nN: "318",
     name: "Carvanha",
     species: "Savage Pokémon",
     height: "2′7″ (0.79m)",

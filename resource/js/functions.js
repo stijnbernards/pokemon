@@ -28,6 +28,10 @@ var maps = [
     "maps/routes/104/main.js",                      //19
     "maps/routes/petalburgwoods/main.js",           //20
     "maps/routes/104/second.js",                    //21
+    "maps/towns/rustboro_city/main.js",             //22
+    "maps/towns/rustboro_city/pokemart.js",         //23
+    "maps/towns/rustboro_city/pokecenter.js",       //24
+    "maps/towns/rustboro_city/gym.js",              //25
 ];
 
 $(document).ready(function () {
@@ -53,7 +57,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(7);
+        pokemonCore.maps.getMap(25);
         pokemonCore.player.bindMovement();
     },
 
@@ -77,8 +81,13 @@ var pokemonCore = {
                         pokemonCore.maps.map[coords.Y - 1][coords.X - 1] = pokemonCore.maps.addNumber;
                         break;
                     case 48:
-                        pokemonCore.maps.addNumber = 0;
-                        pokemonCore.maps.collision = false;
+                        if (pokemonCore.maps.collision) {
+                            pokemonCore.maps.addNumber = 0;
+                            pokemonCore.maps.collision = false;
+                        } else {
+                            pokemonCore.maps.collision = true;
+                            pokemonCore.maps.addNumber = 1;
+                        }
                         break;
                     case 49:
                         pokemonCore.maps.addNumber = 1;
@@ -90,7 +99,7 @@ var pokemonCore = {
                         pokemonCore.maps.addNumber = 9;
                         break;
                     case 112:
-                        if(pokemonCore.maps.walk)
+                        if (pokemonCore.maps.walk)
                             pokemonCore.maps.walk = false;
                         else {
                             pokemonCore.maps.walk = true;
@@ -103,31 +112,31 @@ var pokemonCore = {
             $(".numbers").remove();
             for (var Y = 0; Y < pokemonCore.maps.map.length; Y++) {
                 for (var X = 0; X < pokemonCore.maps.map[Y].length; X++) {
-                    $(".parent.wrapper").append('<div class="numbers" style="position: absolute; top: ' + (Y * 64) + 'px; left: ' + (X * 64) + 'px">'+ pokemonCore.maps.map[Y][X] +'<div>')
+                    $(".parent.wrapper").append('<div class="numbers" style="position: absolute; top: ' + (Y * 64) + 'px; left: ' + (X * 64) + 'px">' + pokemonCore.maps.map[Y][X] + '<div>')
                 }
             }
         },
-        addMapImage: function(mapId, direction, style){
+        addMapImage: function (mapId, direction, style) {
             $.getScript("resource/" + maps[mapId], function () {
-                switch(direction){
+                switch (direction) {
                     case "top":
-                        $gameWrapper.prepend('<img border="0" class="bg" data-id="'+ mapId +'"/>');
-                        $gameWrapper.find('.bg[data-id="'+ mapId +'"]').attr("src", resFolder + map[1]);
-                        $gameWrapper.find('.bg[data-id="'+ mapId +'"]').attr("style", style);
-                        setTimeout(function(){
-                            var height = (direction == "top") ? $gameWrapper.find('.bg[data-id="'+ mapId +'"]').height() : 0;
-                            var width = (direction == "width") ?  $gameWrapper.find('.bg[data-id="'+ mapId +'"]').width() : 0;
+                        $gameWrapper.prepend('<img border="0" class="bg" data-id="' + mapId + '"/>');
+                        $gameWrapper.find('.bg[data-id="' + mapId + '"]').attr("src", resFolder + map[1]);
+                        $gameWrapper.find('.bg[data-id="' + mapId + '"]').attr("style", style);
+                        setTimeout(function () {
+                            var height = (direction == "top") ? $gameWrapper.find('.bg[data-id="' + mapId + '"]').height() : 0;
+                            var width = (direction == "width") ? $gameWrapper.find('.bg[data-id="' + mapId + '"]').width() : 0;
                             pokemonCore.maps.ignore[0] += height;
                             pokemonCore.maps.ignore[1] += width;
                         }, 30);
                         break;
                     case "bottom":
-                        $gameWrapper.append('<img border="0" class="bg" data-id="'+ mapId +'"/>');
-                        $gameWrapper.find('.bg[data-id="'+ mapId +'"]').attr("src", resFolder + map[1]);
-                        $gameWrapper.find('.bg[data-id="'+ mapId +'"]').attr("style", style);
-                        setTimeout(function(){
-                            var height = (direction == "top") ? $gameWrapper.find('.bg[data-id="'+ mapId +'"]').height() : 0;
-                            var width = (direction == "width") ?  $gameWrapper.find('.bg[data-id="'+ mapId +'"]').width() : 0;
+                        $gameWrapper.append('<img border="0" class="bg" data-id="' + mapId + '"/>');
+                        $gameWrapper.find('.bg[data-id="' + mapId + '"]').attr("src", resFolder + map[1]);
+                        $gameWrapper.find('.bg[data-id="' + mapId + '"]').attr("style", style);
+                        setTimeout(function () {
+                            var height = (direction == "top") ? $gameWrapper.find('.bg[data-id="' + mapId + '"]').height() : 0;
+                            var width = (direction == "width") ? $gameWrapper.find('.bg[data-id="' + mapId + '"]').width() : 0;
                             pokemonCore.maps.ignore[0] += height;
                             pokemonCore.maps.ignore[1] += width;
                         }, 30);
@@ -168,44 +177,44 @@ var pokemonCore = {
                 //    }
                 //}
                 //setTimeout(function(){
-                    //connections = null;
-                    //onEnterFunc = null;
-                    //music = null;
-                    //npc = null;
-                    //$.getScript("resource/" + maps[mapId], function () {
-                        for (var X = 0; X < pokemonCore.maps.map.length; X++) {
-                            for (var Y = 0; Y < pokemonCore.maps.map[X].length; Y++) {
-                                var selectedTile = pokemonCore.maps.map[X][Y];
-                                if (isFunction(pokemonCore.specialRender[selectedTile])) {
-                                    pokemonCore.specialRender[selectedTile](X, Y);
-                                } else if (selectedTile == 8 && pokemonCore.maps.mapLastCoord[mapId] == null) {
-                                    pokemonCore.player.createPlayerAt(Y + 1, X + 1);
-                                }
-                            }
+                //connections = null;
+                //onEnterFunc = null;
+                //music = null;
+                //npc = null;
+                //$.getScript("resource/" + maps[mapId], function () {
+                for (var X = 0; X < pokemonCore.maps.map.length; X++) {
+                    for (var Y = 0; Y < pokemonCore.maps.map[X].length; Y++) {
+                        var selectedTile = pokemonCore.maps.map[X][Y];
+                        if (isFunction(pokemonCore.specialRender[selectedTile])) {
+                            pokemonCore.specialRender[selectedTile](X, Y);
+                        } else if (selectedTile == 8 && pokemonCore.maps.mapLastCoord[mapId] == null) {
+                            pokemonCore.player.createPlayerAt(Y + 1, X + 1);
                         }
-                        if (typeof x != 'undefined' && typeof y != 'undefined') {
-                            pokemonCore.player.createPlayerAt(x, y);
-                        } else if (pokemonCore.maps.mapLastCoord[mapId] != null) {
-                            pokemonCore.player.createPlayerAt(pokemonCore.maps.mapLastCoord[mapId].X, pokemonCore.maps.mapLastCoord[mapId].Y);
-                            pokemonCore.maps.mapLastCoord[mapId] = null;
-                        }
+                    }
+                }
+                if (typeof x != 'undefined' && typeof y != 'undefined') {
+                    pokemonCore.player.createPlayerAt(x, y);
+                } else if (pokemonCore.maps.mapLastCoord[mapId] != null) {
+                    pokemonCore.player.createPlayerAt(pokemonCore.maps.mapLastCoord[mapId].X, pokemonCore.maps.mapLastCoord[mapId].Y);
+                    pokemonCore.maps.mapLastCoord[mapId] = null;
+                }
 
-                        if (pokemonCore.displayGrid)
-                            $gameWrapper.append('<div class="grid"></div>');
+                if (pokemonCore.displayGrid)
+                    $gameWrapper.append('<div class="grid"></div>');
 
-                        if (typeof npc != 'undefined' && npc != null) {
-                            for (var i = 0; i < npc.length; i++) {
-                                npc[i].createNpc();
-                            }
-                        }
-                        if (typeof music != 'undefined' && music != null) {
-                            pokemonCore.audioHandler.startAmbientAudio(music.ambient);
-                        }
-                        if (typeof onEnterFunc != 'undefined' && onEnterFunc !== null) {
-                            onEnterFunc();
-                        }
-                   // });
-               // }, 100);
+                if (typeof npc != 'undefined' && npc != null) {
+                    for (var i = 0; i < npc.length; i++) {
+                        npc[i].createNpc();
+                    }
+                }
+                if (typeof music != 'undefined' && music != null) {
+                    pokemonCore.audioHandler.startAmbientAudio(music.ambient);
+                }
+                if (typeof onEnterFunc != 'undefined' && onEnterFunc !== null) {
+                    onEnterFunc();
+                }
+                // });
+                // }, 100);
             });
         }
     },
@@ -712,7 +721,7 @@ var pokemonCore = {
                                 pokemonCore.gameChar.setX(-1);
                                 $("#player").attr("data-animate", "true");
                                 pokemonCore.canKeyPress = false;
-                                if(pokemonCore.maps.walk) {
+                                if (pokemonCore.maps.walk) {
                                     coords = pokemonCore.gameChar.getCoords();
                                     pokemonCore.maps.map[coords.Y - 1][coords.X - 1] = pokemonCore.maps.addNumber;
                                 }
@@ -726,7 +735,7 @@ var pokemonCore = {
                                 pokemonCore.gameChar.setY(-1);
                                 $("#player").attr("data-animate", "true");
                                 pokemonCore.canKeyPress = false;
-                                if(pokemonCore.maps.walk) {
+                                if (pokemonCore.maps.walk) {
                                     coords = pokemonCore.gameChar.getCoords();
                                     pokemonCore.maps.map[coords.Y - 1][coords.X - 1] = pokemonCore.maps.addNumber;
                                 }
@@ -740,7 +749,7 @@ var pokemonCore = {
                                 pokemonCore.gameChar.setX(1);
                                 $("#player").attr("data-animate", "true");
                                 pokemonCore.canKeyPress = false;
-                                if(pokemonCore.maps.walk) {
+                                if (pokemonCore.maps.walk) {
                                     coords = pokemonCore.gameChar.getCoords();
                                     pokemonCore.maps.map[coords.Y - 1][coords.X - 1] = pokemonCore.maps.addNumber;
                                 }
@@ -754,7 +763,7 @@ var pokemonCore = {
                                 pokemonCore.gameChar.setY(1);
                                 $("#player").attr("data-animate", "true");
                                 pokemonCore.canKeyPress = false;
-                                if(pokemonCore.maps.walk) {
+                                if (pokemonCore.maps.walk) {
                                     coords = pokemonCore.gameChar.getCoords();
                                     pokemonCore.maps.map[coords.Y - 1][coords.X - 1] = pokemonCore.maps.addNumber;
                                 }
@@ -944,6 +953,7 @@ var pokemonCore = {
             $gameWrapper.append('<div class="npc npc-' + nm + '" style="top: ' + ((startPoint[1] - 1) * 64 + pokemonCore.maps.ignore[0]) + 'px; left: ' + ((startPoint[0] - 1) * 64 + pokemonCore.maps.ignore[1]) + 'px; background-image: url(' + this.name + '.png)" data-direction="' + dir + '"></div>');
             direction = dir;
             update();
+            battleCheck();
         }
 
         this.pokemonAlive = function () {
@@ -958,7 +968,10 @@ var pokemonCore = {
         function moveNpc(x, y) {
             coords[0] += x;
             coords[1] += y;
-            $(".npc-" + nm).css({"top": ((coords[1] - 1) * 64 + pokemonCore.maps.ignore[0]) + "px", "left": ((coords[0] - 1) * 64 + pokemonCore.maps.ignore[1]) + "px"});
+            $(".npc-" + nm).css({
+                "top": ((coords[1] - 1) * 64 + pokemonCore.maps.ignore[0]) + "px",
+                "left": ((coords[0] - 1) * 64 + pokemonCore.maps.ignore[1]) + "px"
+            });
             if (x == 1)
                 direction = "right";
             else if (x == -1)
@@ -974,7 +987,10 @@ var pokemonCore = {
         this.moveNpc = function (x, y) {
             coords[0] += x;
             coords[1] += y;
-            $(".npc-" + nm).css({"top": ((coords[1] - 1) * 64 - pokemonCore.maps.ignore[1]) + "px", "left": ((coords[0] - 1) * 64 - pokemonCore.maps.ignore[0]) + "px"});
+            $(".npc-" + nm).css({
+                "top": ((coords[1] - 1) * 64 - pokemonCore.maps.ignore[1]) + "px",
+                "left": ((coords[0] - 1) * 64 - pokemonCore.maps.ignore[0]) + "px"
+            });
             if (x == 1)
                 direction = "right";
             else if (x == -1)
@@ -1017,9 +1033,10 @@ var pokemonCore = {
                             var directions = ["up", "down", "left", "right"];
                             var x, y;
 
-                            direction = directions[rand];
-                            if (shouldTurn)
+                            if (typeof dir === 'undefined') {
                                 $(".npc-" + nm).attr("data-direction", directions[rand]);
+                                direction = directions[rand];
+                            }
                             switch (direction) {
                                 case "left":
                                     x = -1;
@@ -1042,13 +1059,44 @@ var pokemonCore = {
                                     y = 0;
                                     break;
                             }
-                            if (_this.battle !== "false" && _this.battle != false) {
-                                checkPlayer(x, y);
-                            }
                         }
                         timeOut();
                     }, 500));
                 })();
+            }
+        }
+
+        function battleCheck() {
+            if (canUpdate) {
+                setTimeout(function () {
+                    var x, y;
+                    switch (direction) {
+                        case "left":
+                            x = -1;
+                            y = 0;
+                            break;
+                        case "right":
+                            x = 1;
+                            y = 0;
+                            break;
+                        case "down":
+                            x = 0;
+                            y = 1;
+                            break;
+                        case "up":
+                            x = 0;
+                            y = -1;
+                            break;
+                        default:
+                            x = 0;
+                            y = 0;
+                            break;
+                    }
+                    if (_this.battle !== "false" && _this.battle != false) {
+                        checkPlayer(x, y);
+                    }
+                    battleCheck();
+                }, 10);
             }
         }
 
@@ -1081,10 +1129,12 @@ var pokemonCore = {
 
             function equalsArr() {
                 for (var i = 0; i < collisions.length; i++) {
+                    if(pokemonCore.maps.map[collisions[i][1]][collisions[i][0]] == 1)
+                        break;
+
                     for (var i2 = 0; i2 < collisions[i].length; i2++) {
                         if (collisions[i][i2] != player[i2])
                             break;
-
                         if (i2 == 1) {
                             arrCol = collisions[i];
                             return true;
@@ -1099,42 +1149,51 @@ var pokemonCore = {
     audioHandler: {
         ambient: null,
         battle: null,
+        playAudio: false,
         startAmbientAudio: function (file) {
-            if (pokemonCore.audioHandler.ambient) {
-                pokemonCore.audioHandler.ambient.pause();
-                pokemonCore.audioHandler.ambient.currentTime = 0;
-            }
-            pokemonCore.audioHandler.ambient = new Audio('resource/audio/ambient/' + file);
-            pokemonCore.audioHandler.ambient.addEventListener('ended', function () {
-                this.currentTime = 0;
-                this.play();
-            }, false);
-            pokemonCore.audioHandler.ambient.play();
-        },
-        startBattleMusic: function (file) {
-            if (pokemonCore.audioHandler.ambient) {
-                pokemonCore.audioHandler.ambient.pause();
-                pokemonCore.audioHandler.ambient.currentTime = 0;
-            }
-            pokemonCore.audioHandler.battle = new Audio('resource/audio/battle/' + file);
-            pokemonCore.audioHandler.battle.addEventListener('ended', function () {
-                this.currentTime = 0;
-                this.play();
-            }, false);
-            pokemonCore.audioHandler.battle.play();
-        },
-        resumeAmbient: function () {
-            if (pokemonCore.audioHandler.battle) {
-                pokemonCore.audioHandler.battle.pause();
-                pokemonCore.audioHandler.battle.currentTime = 0;
-            }
-            if (pokemonCore.audioHandler.ambient) {
+            if (pokemonCore.audioHandler.playAudio) {
+                if (pokemonCore.audioHandler.ambient) {
+                    pokemonCore.audioHandler.ambient.pause();
+                    pokemonCore.audioHandler.ambient.currentTime = 0;
+                }
+                pokemonCore.audioHandler.ambient = new Audio('resource/audio/ambient/' + file);
+                pokemonCore.audioHandler.ambient.addEventListener('ended', function () {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
                 pokemonCore.audioHandler.ambient.play();
             }
         },
+        startBattleMusic: function (file) {
+            if (pokemonCore.audioHandler.playAudio) {
+                if (pokemonCore.audioHandler.ambient) {
+                    pokemonCore.audioHandler.ambient.pause();
+                    pokemonCore.audioHandler.ambient.currentTime = 0;
+                }
+                pokemonCore.audioHandler.battle = new Audio('resource/audio/battle/' + file);
+                pokemonCore.audioHandler.battle.addEventListener('ended', function () {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+                pokemonCore.audioHandler.battle.play();
+            }
+        },
+        resumeAmbient: function () {
+            if (pokemonCore.audioHandler.playAudio) {
+                if (pokemonCore.audioHandler.battle) {
+                    pokemonCore.audioHandler.battle.pause();
+                    pokemonCore.audioHandler.battle.currentTime = 0;
+                }
+                if (pokemonCore.audioHandler.ambient) {
+                    pokemonCore.audioHandler.ambient.play();
+                }
+            }
+        },
         soundEffect: function (file) {
-            var effect = new Audio('resource/audio/' + file);
-            effect.play();
+            if (pokemonCore.audioHandler.playAudio) {
+                var effect = new Audio('resource/audio/' + file);
+                effect.play();
+            }
         },
         stop: function () {
             if (pokemonCore.audioHandler.ambient) {
@@ -1151,7 +1210,8 @@ var pokemonCore = {
     utils: {
         pokeInfo: function () {
 
-        },
+        }
+        ,
         writer: function (i, callback, text) {
             setTimeout(function () {
                 if (i < text.length) {
@@ -1162,7 +1222,8 @@ var pokemonCore = {
                     callback();
                 }
             }, 50);
-        },
+        }
+        ,
         createEmptyDialog: function (text) {
             var breakDialog = true;
             var brCount = 0;
@@ -1192,7 +1253,8 @@ var pokemonCore = {
                     }
                 }, 50);
             })(0);
-        },
+        }
+        ,
 
         createDialog: function (text, npc, callback) {
             var breakDialog = true;
@@ -1237,7 +1299,7 @@ var pokemonCore = {
                             else if (npc.curDialog < npc.dialog.length)
                                 pokemonCore.utils.createDialog(npc.dialog[npc.curDialog], npc);
                             else {
-                                for(var i = 0; i < npc.battle.pokemon.length; i++){
+                                for (var i = 0; i < npc.battle.pokemon.length; i++) {
                                     npc.battle.pokemon[i].pokemon.pokemon.level = npc.battle.pokemon[i].pokemon.level;
                                     npc.battle.pokemon[i].pokemon.pokemon = pokemonCore.pokemon.calcPokemonStats(npc.battle.pokemon[i].pokemon.pokemon);
                                     npc.battle.pokemon[i].pokemon = pokemonCore.pokemon.getEncounterMoves(npc.battle.pokemon[i].pokemon);
@@ -1258,7 +1320,8 @@ var pokemonCore = {
                 }
             });
         }
-    },
+    }
+    ,
 
     battle: {
         trainerNpc: null,
@@ -1286,7 +1349,9 @@ var pokemonCore = {
                     break;
                 }
             }
-        },
+        }
+
+        ,
 
         startBattleScreen: function (pokemon) {
             var ext = (pokemonCore.gameChar.pokemon.nN == 493) ? ".gif" : ".png";
@@ -1337,7 +1402,8 @@ var pokemonCore = {
                     }
                 }, 50);
             };
-        },
+        }
+        ,
 
         initFight: function (pokemon) {
             $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
@@ -1353,7 +1419,8 @@ var pokemonCore = {
             pokemonCore.battle.animateHealth();
             $(".ally-health .exp-bar").css("width", (pokemonCore.pokemon.calcPercentage(pokemonCore.gameChar.pokemon) * 2.59) + "px");
             pokemonCore.gameChar.addSeen(pokemon.pokemon.nN);
-        },
+        }
+        ,
 
         stopBattle: function () {
             $(".battle-screen").remove();
@@ -1362,7 +1429,8 @@ var pokemonCore = {
             pokemonCore.battle.isTrainer = null;
             pokemonCore.battle.trainerNpc = null;
             pokemonCore.audioHandler.resumeAmbient();
-        },
+        }
+        ,
 
         setBattleKeybinds: function (itemclass) {
             $(document).keydown(function (e) {
@@ -1461,7 +1529,8 @@ var pokemonCore = {
                 }
                 pokemonCore.battle.setBattleKeybinds(".moves");
             }
-        },
+        }
+        ,
         handleMove: function (move, enemy) {
             var move = move
             var moveNr = move;
@@ -1613,7 +1682,8 @@ var pokemonCore = {
                     }, 1000);
                 }
             }
-        },
+        }
+        ,
 
         expGain: function (isTrainer, pokemon, fainted, callback) {
             var percentage;
@@ -1643,14 +1713,16 @@ var pokemonCore = {
                 }, 1000);
             }, pokemon.name + " gained " + expGain + " EXP. Points!");
 
-        },
+        }
+        ,
 
         //TODO: improve
         enemyMove: function () {
             var randMove = Math.floor(Math.random() * pokemonCore.battle.encounter.pokemon.moves.length - 1);
             randMove = (randMove == -1) ? 0 : randMove;
             pokemonCore.battle.handleMove(randMove, true);
-        },
+        }
+        ,
 
         levelUpHandler: function (pokemons, callback) {
             pokemonCore.pokemon.calcPokemonStats(pokemonCore.gameChar.pokemon);
@@ -1693,22 +1765,23 @@ var pokemonCore = {
                     });
                 }, pokemons.name + " grew to LV." + pokemons.level + "!");
             }, 200);
-        },
+        }
+        ,
 
-        learnNewMove: function(callback){
-            for(var i = 0; i < pokemonCore.gameChar.pokemon.movesLearn.length; i++){
-                if(pokemonCore.gameChar.pokemon.movesLearn[i][0] == pokemonCore.gameChar.pokemon.level){
-                    if(pokemonCore.gameChar.pokemon.moves.length < 5){
+        learnNewMove: function (callback) {
+            for (var i = 0; i < pokemonCore.gameChar.pokemon.movesLearn.length; i++) {
+                if (pokemonCore.gameChar.pokemon.movesLearn[i][0] == pokemonCore.gameChar.pokemon.level) {
+                    if (pokemonCore.gameChar.pokemon.moves.length < 5) {
                         $(".action-menu").text("");
                         pokemonCore.utils.writer(0, callback, pokemonCore.gameChar.pokemon.name + " learned " + pokemonCore.gameChar.pokemon.movesLearn[i][1]);
                         pokemonCore.gameChar.pokemon.moves.push(pokemonCore.gameChar.pokemon.movesLearn[i][1]);
-                        pokemonCore.gameChar.pokemon = pokemonCore.pokemon.instantiateMoves({ pokemon: pokemonCore.gameChar.pokemon}).pokemon;
-                    }else{
-                        pokemonCore.utils.writer(0, function(){
-                            setTimeout(function(){
-                                pokemonCore.utils.writer(0, function(){
-                                    setTimeout(function(){
-                                        pokemonCore.utils.writer(0, function(){
+                        pokemonCore.gameChar.pokemon = pokemonCore.pokemon.instantiateMoves({pokemon: pokemonCore.gameChar.pokemon}).pokemon;
+                    } else {
+                        pokemonCore.utils.writer(0, function () {
+                            setTimeout(function () {
+                                pokemonCore.utils.writer(0, function () {
+                                    setTimeout(function () {
+                                        pokemonCore.utils.writer(0, function () {
 
                                         }, "Forget a move to learn " + pokemonCore.gameChar.pokemon.movesLearn[i][1] + "?");
                                     }, 500);
@@ -1718,7 +1791,8 @@ var pokemonCore = {
                     }
                 }
             }
-        },
+        }
+        ,
 
         animateHealth: function (damage, enemy) {
             var allyBar = $(".ally-health .health-bar");
@@ -1739,7 +1813,8 @@ var pokemonCore = {
             $(allyBar).css("width", allyBarWidth + "px");
             $(enemyBar).css("width", enemyBarWidth + "px");
         }
-    },
+    }
+    ,
 
     pokemon: {
         getEncounterMoves: function (pokemon) {
@@ -1752,7 +1827,8 @@ var pokemonCore = {
             }
 
             return pokemonCore.pokemon.instantiateMoves(pokemon);
-        },
+        }
+        ,
         awardEV: function (killed) {
             var add, stat;
             var stats = killed.evYield.replace("Special Attack", "SPATT");
@@ -1766,7 +1842,8 @@ var pokemonCore = {
                 stat = stats[i + 1];
                 pokemonCore.gameChar.pokemon.base_stats[stat][2] += parseInt(add);
             }
-        },
+        }
+        ,
         calcPercentage: function (pokemon) {
             var exp1, exp2, curExp, expNeed, percentage;
             exp1 = pokemonCore.pokemon.expForLevel(pokemon.level, pokemon.expGroup);
@@ -1778,7 +1855,8 @@ var pokemonCore = {
             if (percentage > 100)
                 percentage = 100;
             return percentage;
-        },
+        }
+        ,
         expForLevel: function (level, group) {
             var expForLevelUp;
             switch (group) {
@@ -1825,7 +1903,8 @@ var pokemonCore = {
                     break;
             }
             return expForLevelUp;
-        },
+        }
+        ,
         instantiate: function (id) {
             var id = id;
             $.ajax({
@@ -1834,19 +1913,23 @@ var pokemonCore = {
                 dataType: "script"
             });
             return pokeInfo;
-        },
+        }
+        ,
         instantiateMoves: function (pokemon) {
             for (var i = 0; i < pokemon.pokemon.moves.length; i++) {
                 var id = pokemon.pokemon.moves[i];
-                $.ajax({
-                    async: false,
-                    url: "resource/moves/" + id + ".js",
-                    dataType: "script"
-                });
-                pokemon.pokemon.moves[i] = move;
+                if (id.constructor !== Array) {
+                    $.ajax({
+                        async: false,
+                        url: "resource/moves/" + id.replace(" ", "") + ".js",
+                        dataType: "script"
+                    });
+                    pokemon.pokemon.moves[i] = move;
+                }
             }
             return pokemon;
-        },
+        }
+        ,
         genIvEv: function (pokemon) {
             var pokemonB;
             if (typeof pokemon.pokemon != 'undefined')
@@ -1868,7 +1951,8 @@ var pokemonCore = {
             pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPDEF");
             pokemonB = pokemonCore.pokemon.statNormFormula(pokemonB, "SPD");
             return pokemonB;
-        },
+        }
+        ,
         calcPokemonStats: function (pokemon) {
             pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "HP");
             pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "ATT");
@@ -1877,7 +1961,8 @@ var pokemonCore = {
             pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "SPDEF");
             pokemon = pokemonCore.pokemon.statNormFormula(pokemon, "SPD");
             return pokemon;
-        },
+        }
+        ,
         statNormFormula: function (pokemon, stat) {
             var Nmod;
             if (stat !== "HP") {
@@ -1896,14 +1981,16 @@ var pokemonCore = {
             }
             return pokemon;
         }
-    },
+    }
+    ,
 
     specialInteract: {
         pc: function () {
             pokemonCore.utils.createDialog([pokemonCore.gameChar.name + " booted up the PC."], null, function () {
 
             });
-        },
+        }
+        ,
         pokemart: function (items) {
             var lastScroll = 0;
             $(document).unbind("keydown");
@@ -2017,7 +2104,8 @@ var pokemonCore = {
             function selectedItem() {
                 return $('li[data-selected="true"]');
             }
-        },
+        }
+        ,
 
         pokecenter: function () {
             var char = pokemonCore.gameChar;
@@ -2029,7 +2117,8 @@ var pokemonCore = {
                 }
             }
         }
-    },
+    }
+    ,
 
     item: function (name, use, price, desc, img, type) {
         this.name = name;
@@ -2054,7 +2143,8 @@ var pokemonCore = {
                 }
             }
         }
-    },
+    }
+    ,
 
     items: {
         instantiate: function (name) {
@@ -2064,7 +2154,8 @@ var pokemonCore = {
                 dataType: "script"
             });
             return new pokemonCore.item(item.name, item.use, item.price, item.desc, item.img, item.type);
-        },
+        }
+        ,
         complicatedItemUses: {
             pokeball: function (rate) {
                 var HPmax = pokemonCore.battle.encounter.pokemon.stats.HP[0];
@@ -2144,7 +2235,8 @@ var pokemonCore = {
                 })();
             }
         }
-    },
+    }
+    ,
     natures: [
         {
             name: "Hardy",

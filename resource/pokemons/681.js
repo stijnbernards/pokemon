@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 681,
+    nN: "681",
     name: "Aegislash",
     species: "Royal Sword Pokémon",
     height: "5′7″ (1.70m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 020,
+    nN: "020",
     name: "Raticate",
     species: "Mouse Pokémon",
     height: "2′4″ (0.71m)",

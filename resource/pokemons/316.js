@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 316,
+    nN: "316",
     name: "Gulpin",
     species: "Stomach Pokémon",
     height: "1′4″ (0.41m)",

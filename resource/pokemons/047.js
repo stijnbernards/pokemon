@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 047,
+    nN: "047",
     name: "Parasect",
     species: "Mushroom Pokémon",
     height: "3′3″ (0.99m)",

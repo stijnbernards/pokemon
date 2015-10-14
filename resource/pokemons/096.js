@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 096,
+    nN: "096",
     name: "Drowzee",
     species: "Hypnosis Pokémon",
     height: "3′3″ (0.99m)",

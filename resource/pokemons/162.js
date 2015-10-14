@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 162,
+    nN: "162",
     name: "Furret",
     species: "Long Body Pokémon",
     height: "5′11″ (1.80m)",

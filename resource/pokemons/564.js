@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 564,
+    nN: "564",
     name: "Tirtouga",
     species: "Prototurtle Pokémon",
     height: "2′4″ (0.71m)",

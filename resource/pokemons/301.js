@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 301,
+    nN: "301",
     name: "Delcatty",
     species: "Prim Pokémon",
     height: "3′7″ (1.09m)",

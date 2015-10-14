@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 183,
+    nN: "183",
     name: "Marill",
     species: "Aqua Mouse Pokémon",
     height: "1′4″ (0.41m)",

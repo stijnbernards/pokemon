@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 578,
+    nN: "578",
     name: "Duosion",
     species: "Mitosis Pokémon",
     height: "2′0″ (0.61m)",

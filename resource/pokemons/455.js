@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 455,
+    nN: "455",
     name: "Carnivine",
     species: "Bug Catcher Pokémon",
     height: "4′7″ (1.40m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 088,
+    nN: "088",
     name: "Grimer",
     species: "Sludge Pokémon",
     height: "2′11″ (0.89m)",

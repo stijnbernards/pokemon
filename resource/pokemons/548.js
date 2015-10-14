@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 548,
+    nN: "548",
     name: "Petilil",
     species: "Bulb Pokémon",
     height: "1′8″ (0.51m)",

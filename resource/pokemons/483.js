@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 483,
+    nN: "483",
     name: "Dialga",
     species: "Temporal Pokémon",
     height: "17′9″ (5.41m)",

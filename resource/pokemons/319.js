@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 319,
+    nN: "319",
     name: "Sharpedo",
     species: "Brutal Pokémon",
     height: "5′11″ (1.80m)",

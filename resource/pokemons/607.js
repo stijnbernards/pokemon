@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 607,
+    nN: "607",
     name: "Litwick",
     species: "Candle Pokémon",
     height: "1′0″ (0.30m)",

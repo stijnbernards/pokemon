@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 514,
+    nN: "514",
     name: "Simisear",
     species: "Ember Pokémon",
     height: "3′3″ (0.99m)",

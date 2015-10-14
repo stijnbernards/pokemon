@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 551,
+    nN: "551",
     name: "Sandile",
     species: "Desert Croc Pokémon",
     height: "2′4″ (0.71m)",

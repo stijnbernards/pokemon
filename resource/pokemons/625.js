@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 625,
+    nN: "625",
     name: "Bisharp",
     species: "Sword Blade Pokémon",
     height: "5′3″ (1.60m)",

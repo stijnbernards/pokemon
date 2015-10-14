@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 338,
+    nN: "338",
     name: "Solrock",
     species: "Meteorite Pokémon",
     height: "3′11″ (1.19m)",

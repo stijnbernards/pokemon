@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 586,
+    nN: "586",
     name: "Sawsbuck",
     species: "Season Pokémon",
     height: "6′3″ (1.91m)",

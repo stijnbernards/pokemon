@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 615,
+    nN: "615",
     name: "Cryogonal",
     species: "Crystallizing Pokémon",
     height: "3′7″ (1.09m)",

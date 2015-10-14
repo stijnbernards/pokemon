@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 470,
+    nN: "470",
     name: "Leafeon",
     species: "Verdant Pokémon",
     height: "3′3″ (0.99m)",

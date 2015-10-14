@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 704,
+    nN: "704",
     name: "Goomy",
     species: "Soft Tissue Pokémon",
     height: "1′0″ (0.30m)",

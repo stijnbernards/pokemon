@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 698,
+    nN: "698",
     name: "Amaura",
     species: "Tundra Pokémon",
     height: "4′3″ (1.30m)",

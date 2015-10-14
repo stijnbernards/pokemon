@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 372,
+    nN: "372",
     name: "Shelgon",
     species: "Endurance Pokémon",
     height: "3′7″ (1.09m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 232,
+    nN: "232",
     name: "Donphan",
     species: "Armor Pokémon",
     height: "3′7″ (1.09m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 643,
+    nN: "643",
     name: "Reshiram",
     species: "Vast White Pokémon",
     height: "10′6″ (3.20m)",

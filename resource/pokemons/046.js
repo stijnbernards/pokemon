@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 046,
+    nN: "046",
     name: "Paras",
     species: "Mushroom Pokémon",
     height: "1′0″ (0.30m)",

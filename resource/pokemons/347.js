@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 347,
+    nN: "347",
     name: "Anorith",
     species: "Old Shrimp Pokémon",
     height: "2′4″ (0.71m)",

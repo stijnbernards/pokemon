@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 279,
+    nN: "279",
     name: "Pelipper",
     species: "Water Bird Pokémon",
     height: "3′11″ (1.19m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 562,
+    nN: "562",
     name: "Yamask",
     species: "Spirit Pokémon",
     height: "1′8″ (0.51m)",

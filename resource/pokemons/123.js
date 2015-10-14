@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 123,
+    nN: "123",
     name: "Scyther",
     species: "Mantis Pokémon",
     height: "4′11″ (1.50m)",

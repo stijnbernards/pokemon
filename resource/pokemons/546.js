@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 546,
+    nN: "546",
     name: "Cottonee",
     species: "Cotton Puff Pokémon",
     height: "1′0″ (0.30m)",

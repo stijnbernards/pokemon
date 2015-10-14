@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 034,
+    nN: "034",
     name: "Nidoking",
     species: "Drill Pokémon",
     height: "4′7″ (1.40m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 127,
+    nN: "127",
     name: "Pinsir",
     species: "Stag Beetle Pokémon",
     height: "4′11″ (1.50m)",

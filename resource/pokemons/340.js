@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 340,
+    nN: "340",
     name: "Whiscash",
     species: "Whiskers Pokémon",
     height: "2′11″ (0.89m)",

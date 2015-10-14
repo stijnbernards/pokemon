@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 065,
+    nN: "065",
     name: "Alakazam",
     species: "Psi Pokémon",
     height: "4′11″ (1.50m)",

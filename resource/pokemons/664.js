@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 664,
+    nN: "664",
     name: "Scatterbug",
     species: "Scatterdust Pokémon",
     height: "1′0″ (0.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 005,
+    nN: "005",
     name: "Charmeleon",
     species: "Flame Pokémon",
     height: "3′7″ (1.09m)",

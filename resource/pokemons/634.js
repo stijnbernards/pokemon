@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 634,
+    nN: "634",
     name: "Zweilous",
     species: "Hostile Pokémon",
     height: "4′7″ (1.40m)",

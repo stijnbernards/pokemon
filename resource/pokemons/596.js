@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 596,
+    nN: "596",
     name: "Galvantula",
     species: "EleSpider Pokémon",
     height: "2′7″ (0.79m)",

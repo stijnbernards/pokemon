@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 494,
+    nN: "494",
     name: "Victini",
     species: "Victory Pokémon",
     height: "1′4″ (0.41m)",

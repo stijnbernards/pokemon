@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 110,
+    nN: "110",
     name: "Weezing",
     species: "Poison Gas Pokémon",
     height: "3′11″ (1.19m)",

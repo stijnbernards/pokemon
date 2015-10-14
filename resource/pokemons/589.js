@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 589,
+    nN: "589",
     name: "Escavalier",
     species: "Cavalry Pokémon",
     height: "3′3″ (0.99m)",

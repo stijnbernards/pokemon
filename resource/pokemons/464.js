@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 464,
+    nN: "464",
     name: "Rhyperior",
     species: "Drill Pokémon",
     height: "7′10″ (2.39m)",

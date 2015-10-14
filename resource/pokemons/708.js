@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 708,
+    nN: "708",
     name: "Phantump",
     species: "Stump Pokémon",
     height: "1′4″ (0.41m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 568,
+    nN: "568",
     name: "Trubbish",
     species: "Trash Bag Pokémon",
     height: "2′0″ (0.61m)",

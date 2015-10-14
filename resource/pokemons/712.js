@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 712,
+    nN: "712",
     name: "Bergmite",
     species: "Ice Chunk Pokémon",
     height: "3′3″ (0.99m)",

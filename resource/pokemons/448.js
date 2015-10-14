@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 448,
+    nN: "448",
     name: "Lucario",
     species: "Aura Pokémon",
     height: "3′11″ (1.19m)",

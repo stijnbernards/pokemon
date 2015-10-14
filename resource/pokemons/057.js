@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 057,
+    nN: "057",
     name: "Primeape",
     species: "Pig Monkey Pokémon",
     height: "3′3″ (0.99m)",

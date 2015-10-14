@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 688,
+    nN: "688",
     name: "Binacle",
     species: "Two-Handed Pokémon",
     height: "1′8″ (0.51m)",

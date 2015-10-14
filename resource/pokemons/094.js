@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 094,
+    nN: "094",
     name: "Gengar",
     species: "Shadow Pokémon",
     height: "4′11″ (1.50m)",

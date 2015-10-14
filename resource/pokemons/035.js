@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 035,
+    nN: "035",
     name: "Clefairy",
     species: "Fairy Pokémon",
     height: "2′0″ (0.61m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 581,
+    nN: "581",
     name: "Swanna",
     species: "White Bird Pokémon",
     height: "4′3″ (1.30m)",

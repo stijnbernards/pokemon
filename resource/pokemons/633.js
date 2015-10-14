@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 633,
+    nN: "633",
     name: "Deino",
     species: "Irate Pokémon",
     height: "2′7″ (0.79m)",

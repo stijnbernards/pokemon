@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 298,
+    nN: "298",
     name: "Azurill",
     species: "Polka Dot Pokémon",
     height: "0′8″ (0.20m)",

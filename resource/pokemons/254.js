@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 254,
+    nN: "254",
     name: "Sceptile",
     species: "Forest Pokémon",
     height: "5′7″ (1.70m)",

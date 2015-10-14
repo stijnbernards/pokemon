@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 031,
+    nN: "031",
     name: "Nidoqueen",
     species: "Drill Pokémon",
     height: "4′3″ (1.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 086,
+    nN: "086",
     name: "Seel",
     species: "Sea Lion Pokémon",
     height: "3′7″ (1.09m)",

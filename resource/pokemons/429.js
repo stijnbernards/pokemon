@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 429,
+    nN: "429",
     name: "Mismagius",
     species: "Magical Pokémon",
     height: "2′11″ (0.89m)",

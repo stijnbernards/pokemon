@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 693,
+    nN: "693",
     name: "Clawitzer",
     species: "Howitzer Pokémon",
     height: "4′3″ (1.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 403,
+    nN: "403",
     name: "Shinx",
     species: "Flash Pokémon",
     height: "1′8″ (0.51m)",

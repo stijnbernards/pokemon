@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 438,
+    nN: "438",
     name: "Bonsly",
     species: "Bonsai Pokémon",
     height: "1′8″ (0.51m)",

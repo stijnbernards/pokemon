@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 404,
+    nN: "404",
     name: "Luxio",
     species: "Spark Pokémon",
     height: "2′11″ (0.89m)",

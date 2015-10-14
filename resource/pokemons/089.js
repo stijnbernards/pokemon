@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 089,
+    nN: "089",
     name: "Muk",
     species: "Sludge Pokémon",
     height: "3′11″ (1.19m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 361,
+    nN: "361",
     name: "Snorunt",
     species: "Snow Hat Pokémon",
     height: "2′4″ (0.71m)",

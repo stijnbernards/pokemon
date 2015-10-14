@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 297,
+    nN: "297",
     name: "Hariyama",
     species: "Arm Thrust Pokémon",
     height: "7′7″ (2.31m)",

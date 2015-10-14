@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 407,
+    nN: "407",
     name: "Roserade",
     species: "Bouquet Pokémon",
     height: "2′11″ (0.89m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 678,
+    nN: "678",
     name: "Meowstic",
     species: "Constraint Pokémon",
     height: "2′0″ (0.61m)",

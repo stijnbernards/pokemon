@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 070,
+    nN: "070",
     name: "Weepinbell",
     species: "Flycatcher Pokémon",
     height: "3′3″ (0.99m)",

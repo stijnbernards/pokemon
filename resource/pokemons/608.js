@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 608,
+    nN: "608",
     name: "Lampent",
     species: "Lamp Pokémon",
     height: "2′0″ (0.61m)",

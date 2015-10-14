@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 614,
+    nN: "614",
     name: "Beartic",
     species: "Freezing Pokémon",
     height: "8′6″ (2.59m)",

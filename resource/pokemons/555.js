@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 555,
+    nN: "555",
     name: "Darmanitan",
     species: "Blazing Pokémon",
     height: "4′3″ (1.30m)",

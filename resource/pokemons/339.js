@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 339,
+    nN: "339",
     name: "Barboach",
     species: "Whiskers Pokémon",
     height: "1′4″ (0.41m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 457,
+    nN: "457",
     name: "Lumineon",
     species: "Neon Pokémon",
     height: "3′11″ (1.19m)",

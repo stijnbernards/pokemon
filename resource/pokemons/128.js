@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 128,
+    nN: "128",
     name: "Tauros",
     species: "Wild Bull Pokémon",
     height: "4′7″ (1.40m)",

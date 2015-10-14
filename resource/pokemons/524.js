@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 524,
+    nN: "524",
     name: "Roggenrola",
     species: "Mantle Pokémon",
     height: "1′4″ (0.41m)",

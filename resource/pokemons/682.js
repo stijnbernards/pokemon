@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 682,
+    nN: "682",
     name: "Spritzee",
     species: "Perfume Pokémon",
     height: "0′8″ (0.20m)",

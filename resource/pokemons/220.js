@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 220,
+    nN: "220",
     name: "Swinub",
     species: "Pig Pokémon",
     height: "1′4″ (0.41m)",

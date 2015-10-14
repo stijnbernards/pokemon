@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 042,
+    nN: "042",
     name: "Golbat",
     species: "Bat Pokémon",
     height: "5′3″ (1.60m)",

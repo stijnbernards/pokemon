@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 326,
+    nN: "326",
     name: "Grumpig",
     species: "Manipulate Pokémon",
     height: "2′11″ (0.89m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 257,
+    nN: "257",
     name: "Blaziken",
     species: "Blaze Pokémon",
     height: "6′3″ (1.91m)",

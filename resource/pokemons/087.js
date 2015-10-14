@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 087,
+    nN: "087",
     name: "Dewgong",
     species: "Sea Lion Pokémon",
     height: "5′7″ (1.70m)",

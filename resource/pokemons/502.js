@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 502,
+    nN: "502",
     name: "Dewott",
     species: "Discipline Pokémon",
     height: "2′7″ (0.79m)",

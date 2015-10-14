@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 308,
+    nN: "308",
     name: "Medicham",
     species: "Meditate Pokémon",
     height: "4′3″ (1.30m)",

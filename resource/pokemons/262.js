@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 262,
+    nN: "262",
     name: "Mightyena",
     species: "Bite Pokémon",
     height: "3′3″ (0.99m)",

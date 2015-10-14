@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 366,
+    nN: "366",
     name: "Clamperl",
     species: "Bivalve Pokémon",
     height: "1′4″ (0.41m)",

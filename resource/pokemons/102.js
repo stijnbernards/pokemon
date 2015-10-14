@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 102,
+    nN: "102",
     name: "Exeggcute",
     species: "Egg Pokémon",
     height: "1′4″ (0.41m)",

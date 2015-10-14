@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 045,
+    nN: "045",
     name: "Vileplume",
     species: "Flower Pokémon",
     height: "3′11″ (1.19m)",

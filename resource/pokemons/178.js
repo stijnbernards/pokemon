@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 178,
+    nN: "178",
     name: "Xatu",
     species: "Mystic Pokémon",
     height: "4′11″ (1.50m)",

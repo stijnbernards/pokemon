@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 657,
+    nN: "657",
     name: "Frogadier",
     species: "Bubble Frog Pokémon",
     height: "2′0″ (0.61m)",

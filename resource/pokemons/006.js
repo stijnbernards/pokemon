@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 006,
+    nN: "006",
     name: "Charizard",
     species: "Flame Pokémon",
     height: "5′7″ (1.70m)",

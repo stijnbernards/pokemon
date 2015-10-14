@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 276,
+    nN: "276",
     name: "Taillow",
     species: "TinySwallow Pokémon",
     height: "1′0″ (0.30m)",

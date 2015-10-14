@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 570,
+    nN: "570",
     name: "Zorua",
     species: "Tricky Fox Pokémon",
     height: "2′4″ (0.71m)",

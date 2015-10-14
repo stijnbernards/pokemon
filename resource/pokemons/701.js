@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 701,
+    nN: "701",
     name: "Hawlucha",
     species: "Wrestling Pokémon",
     height: "2′7″ (0.79m)",

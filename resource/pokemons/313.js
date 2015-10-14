@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 313,
+    nN: "313",
     name: "Volbeat",
     species: "Firefly Pokémon",
     height: "2′4″ (0.71m)",

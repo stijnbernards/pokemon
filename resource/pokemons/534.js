@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 534,
+    nN: "534",
     name: "Conkeldurr",
     species: "Muscular Pokémon",
     height: "4′7″ (1.40m)",

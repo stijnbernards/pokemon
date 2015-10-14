@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 380,
+    nN: "380",
     name: "Latias",
     species: "Eon Pokémon",
     height: "4′7″ (1.40m)",

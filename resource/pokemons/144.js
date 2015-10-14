@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 144,
+    nN: "144",
     name: "Articuno",
     species: "Freeze Pokémon",
     height: "5′7″ (1.70m)",

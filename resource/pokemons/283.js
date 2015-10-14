@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 283,
+    nN: "283",
     name: "Surskit",
     species: "Pond Skater Pokémon",
     height: "1′8″ (0.51m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 324,
+    nN: "324",
     name: "Torkoal",
     species: "Coal Pokémon",
     height: "1′8″ (0.51m)",

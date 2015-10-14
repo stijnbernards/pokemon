@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 270,
+    nN: "270",
     name: "Lotad",
     species: "Water Weed Pokémon",
     height: "1′8″ (0.51m)",

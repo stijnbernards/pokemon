@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 357,
+    nN: "357",
     name: "Tropius",
     species: "Fruit Pokémon",
     height: "6′7″ (2.01m)",

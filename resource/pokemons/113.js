@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 113,
+    nN: "113",
     name: "Chansey",
     species: "Egg Pokémon",
     height: "3′7″ (1.09m)",

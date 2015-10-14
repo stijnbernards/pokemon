@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 015,
+    nN: "015",
     name: "Beedrill",
     species: "Poison Bee Pokémon",
     height: "3′3″ (0.99m)",

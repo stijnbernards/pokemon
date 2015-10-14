@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 274,
+    nN: "274",
     name: "Nuzleaf",
     species: "Wily Pokémon",
     height: "3′3″ (0.99m)",

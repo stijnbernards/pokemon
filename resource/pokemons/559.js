@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 559,
+    nN: "559",
     name: "Scraggy",
     species: "Shedding Pokémon",
     height: "2′0″ (0.61m)",

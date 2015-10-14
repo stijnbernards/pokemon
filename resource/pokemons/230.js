@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 230,
+    nN: "230",
     name: "Kingdra",
     species: "Dragon Pokémon",
     height: "5′11″ (1.80m)",

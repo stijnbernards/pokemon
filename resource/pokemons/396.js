@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 396,
+    nN: "396",
     name: "Starly",
     species: "Starling Pokémon",
     height: "1′0″ (0.30m)",

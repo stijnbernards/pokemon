@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 164,
+    nN: "164",
     name: "Noctowl",
     species: "Owl Pokémon",
     height: "5′3″ (1.60m)",

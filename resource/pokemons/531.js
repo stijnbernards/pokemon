@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 531,
+    nN: "531",
     name: "Audino",
     species: "Hearing Pokémon",
     height: "3′7″ (1.09m)",

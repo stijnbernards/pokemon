@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 393,
+    nN: "393",
     name: "Piplup",
     species: "Penguin Pokémon",
     height: "1′4″ (0.41m)",

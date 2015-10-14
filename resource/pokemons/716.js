@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 716,
+    nN: "716",
     name: "Xerneas",
     species: "Life Pokémon",
     height: "9′10″ (3.00m)",

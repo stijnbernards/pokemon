@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 265,
+    nN: "265",
     name: "Wurmple",
     species: "Worm Pokémon",
     height: "1′0″ (0.30m)",

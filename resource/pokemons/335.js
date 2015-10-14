@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 335,
+    nN: "335",
     name: "Zangoose",
     species: "Cat Ferret Pokémon",
     height: "4′3″ (1.30m)",

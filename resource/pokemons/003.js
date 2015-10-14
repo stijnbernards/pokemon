@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 003,
+    nN: "003",
     name: "Venusaur",
     species: "Seed Pokémon",
     height: "6′7″ (2.01m)",

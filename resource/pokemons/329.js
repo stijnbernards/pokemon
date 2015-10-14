@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 329,
+    nN: "329",
     name: "Vibrava",
     species: "Vibration Pokémon",
     height: "3′7″ (1.09m)",

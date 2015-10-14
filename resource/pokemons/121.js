@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 121,
+    nN: "121",
     name: "Starmie",
     species: "Mysterious Pokémon",
     height: "3′7″ (1.09m)",

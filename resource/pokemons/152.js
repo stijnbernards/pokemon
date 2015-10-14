@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 152,
+    nN: "152",
     name: "Chikorita",
     species: "Leaf Pokémon",
     height: "2′11″ (0.89m)",

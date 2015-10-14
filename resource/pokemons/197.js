@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 197,
+    nN: "197",
     name: "Umbreon",
     species: "Moonlight Pokémon",
     height: "3′3″ (0.99m)",

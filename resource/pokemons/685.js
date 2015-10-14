@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 685,
+    nN: "685",
     name: "Slurpuff",
     species: "Meringue Pokémon",
     height: "2′7″ (0.79m)",

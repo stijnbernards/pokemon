@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 492,
+    nN: "492",
     name: "Shaymin",
     species: "Gratitude Pokémon",
     height: "0′8″ (0.20m)",

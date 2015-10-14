@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 459,
+    nN: "459",
     name: "Snover",
     species: "Frost Tree Pokémon",
     height: "3′3″ (0.99m)",

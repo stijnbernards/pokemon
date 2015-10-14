@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 095,
+    nN: "095",
     name: "Onix",
     species: "Rock Snake Pokémon",
     height: "28′10″ (8.79m)",

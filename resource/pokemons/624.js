@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 624,
+    nN: "624",
     name: "Pawniard",
     species: "Sharp Blade Pokémon",
     height: "1′8″ (0.51m)",

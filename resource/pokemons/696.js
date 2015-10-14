@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 696,
+    nN: "696",
     name: "Tyrunt",
     species: "Royal Heir Pokémon",
     height: "2′7″ (0.79m)",

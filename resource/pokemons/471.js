@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 471,
+    nN: "471",
     name: "Glaceon",
     species: "Fresh Snow Pokémon",
     height: "2′7″ (0.79m)",

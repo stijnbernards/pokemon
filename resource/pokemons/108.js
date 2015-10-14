@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 108,
+    nN: "108",
     name: "Lickitung",
     species: "Licking Pokémon",
     height: "3′11″ (1.19m)",

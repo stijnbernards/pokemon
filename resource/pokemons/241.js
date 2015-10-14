@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 241,
+    nN: "241",
     name: "Miltank",
     species: "Milk Cow Pokémon",
     height: "3′11″ (1.19m)",

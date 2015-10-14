@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 215,
+    nN: "215",
     name: "Sneasel",
     species: "Sharp Claw Pokémon",
     height: "2′11″ (0.89m)",

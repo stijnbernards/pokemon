@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 414,
+    nN: "414",
     name: "Mothim",
     species: "Moth Pokémon",
     height: "2′11″ (0.89m)",

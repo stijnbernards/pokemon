@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 553,
+    nN: "553",
     name: "Krookodile",
     species: "Intimidation Pokémon",
     height: "4′11″ (1.50m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 332,
+    nN: "332",
     name: "Cacturne",
     species: "Scarecrow Pokémon",
     height: "4′3″ (1.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 523,
+    nN: "523",
     name: "Zebstrika",
     species: "Thunderbolt Pokémon",
     height: "5′3″ (1.60m)",

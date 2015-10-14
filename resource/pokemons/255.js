@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 255,
+    nN: "255",
     name: "Torchic",
     species: "Chick Pokémon",
     height: "1′4″ (0.41m)",

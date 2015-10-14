@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 707,
+    nN: "707",
     name: "Klefki",
     species: "Key Ring Pokémon",
     height: "0′8″ (0.20m)",

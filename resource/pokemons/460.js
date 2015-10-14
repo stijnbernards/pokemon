@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 460,
+    nN: "460",
     name: "Abomasnow",
     species: "Frost Tree Pokémon",
     height: "7′3″ (2.21m)",

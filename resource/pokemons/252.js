@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 252,
+    nN: "252",
     name: "Treecko",
     species: "Wood Gecko Pokémon",
     height: "1′8″ (0.51m)",

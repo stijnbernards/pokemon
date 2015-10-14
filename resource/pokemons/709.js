@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 709,
+    nN: "709",
     name: "Trevenant",
     species: "Elder Tree Pokémon",
     height: "4′11″ (1.50m)",

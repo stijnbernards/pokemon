@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 053,
+    nN: "053",
     name: "Persian",
     species: "Classy Cat Pokémon",
     height: "3′3″ (0.99m)",

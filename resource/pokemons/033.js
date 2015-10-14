@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 033,
+    nN: "033",
     name: "Nidorino",
     species: "Poison Pin Pokémon",
     height: "2′11″ (0.89m)",

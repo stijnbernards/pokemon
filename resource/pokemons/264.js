@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 264,
+    nN: "264",
     name: "Linoone",
     species: "Rushing Pokémon",
     height: "1′8″ (0.51m)",

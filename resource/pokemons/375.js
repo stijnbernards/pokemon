@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 375,
+    nN: "375",
     name: "Metang",
     species: "Iron Claw Pokémon",
     height: "3′11″ (1.19m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 584,
+    nN: "584",
     name: "Vanilluxe",
     species: "Snowstorm Pokémon",
     height: "4′3″ (1.30m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 022,
+    nN: "022",
     name: "Fearow",
     species: "Beak Pokémon",
     height: "3′11″ (1.19m)",

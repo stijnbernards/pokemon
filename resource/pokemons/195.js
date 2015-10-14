@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 195,
+    nN: "195",
     name: "Quagsire",
     species: "Water Fish Pokémon",
     height: "4′7″ (1.40m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 258,
+    nN: "258",
     name: "Mudkip",
     species: "Mud Fish Pokémon",
     height: "1′4″ (0.41m)",

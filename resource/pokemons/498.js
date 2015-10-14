@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 498,
+    nN: "498",
     name: "Tepig",
     species: "Fire Pig Pokémon",
     height: "1′8″ (0.51m)",

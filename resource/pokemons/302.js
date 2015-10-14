@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 302,
+    nN: "302",
     name: "Sableye",
     species: "Darkness Pokémon",
     height: "1′8″ (0.51m)",

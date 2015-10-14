@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 692,
+    nN: "692",
     name: "Clauncher",
     species: "Water Gun Pokémon",
     height: "1′8″ (0.51m)",

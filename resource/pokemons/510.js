@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 510,
+    nN: "510",
     name: "Liepard",
     species: "Cruel Pokémon",
     height: "3′7″ (1.09m)",

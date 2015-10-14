@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 044,
+    nN: "044",
     name: "Gloom",
     species: "Weed Pokémon",
     height: "2′7″ (0.79m)",

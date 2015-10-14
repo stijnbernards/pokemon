@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 306,
+    nN: "306",
     name: "Aggron",
     species: "Iron Armor Pokémon",
     height: "6′11″ (2.11m)",

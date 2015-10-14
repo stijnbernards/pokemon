@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 695,
+    nN: "695",
     name: "Heliolisk",
     species: "Generator Pokémon",
     height: "3′3″ (0.99m)",

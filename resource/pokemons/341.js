@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 341,
+    nN: "341",
     name: "Corphish",
     species: "Ruffian Pokémon",
     height: "2′0″ (0.61m)",

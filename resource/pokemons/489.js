@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 489,
+    nN: "489",
     name: "Phione",
     species: "Sea Drifter Pokémon",
     height: "1′4″ (0.41m)",

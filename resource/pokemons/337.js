@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 337,
+    nN: "337",
     name: "Lunatone",
     species: "Meteorite Pokémon",
     height: "3′3″ (0.99m)",

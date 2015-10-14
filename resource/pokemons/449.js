@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 449,
+    nN: "449",
     name: "Hippopotas",
     species: "Hippo Pokémon",
     height: "2′7″ (0.79m)",

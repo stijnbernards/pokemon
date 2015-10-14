@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 645,
+    nN: "645",
     name: "Landorus",
     species: "Abundance Pokémon",
     height: "4′11″ (1.50m)",

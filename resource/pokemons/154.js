@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 154,
+    nN: "154",
     name: "Meganium",
     species: "Herb Pokémon",
     height: "5′11″ (1.80m)",

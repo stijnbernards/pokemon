@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 447,
+    nN: "447",
     name: "Riolu",
     species: "Emanation Pokémon",
     height: "2′4″ (0.71m)",

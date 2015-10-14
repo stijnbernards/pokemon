@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 248,
+    nN: "248",
     name: "Tyranitar",
     species: "Armor Pokémon",
     height: "6′7″ (2.01m)",

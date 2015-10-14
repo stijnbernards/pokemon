@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 388,
+    nN: "388",
     name: "Grotle",
     species: "Grove Pokémon",
     height: "3′7″ (1.09m)",

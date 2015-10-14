@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 509,
+    nN: "509",
     name: "Purrloin",
     species: "Devious Pokémon",
     height: "1′4″ (0.41m)",

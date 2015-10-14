@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 312,
+    nN: "312",
     name: "Minun",
     species: "Cheering Pokémon",
     height: "1′4″ (0.41m)",

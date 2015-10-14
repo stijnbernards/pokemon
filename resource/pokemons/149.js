@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 149,
+    nN: "149",
     name: "Dragonite",
     species: "Dragon Pokémon",
     height: "7′3″ (2.21m)",

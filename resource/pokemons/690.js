@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 690,
+    nN: "690",
     name: "Skrelp",
     species: "Mock Kelp Pokémon",
     height: "1′8″ (0.51m)",

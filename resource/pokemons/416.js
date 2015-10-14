@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 416,
+    nN: "416",
     name: "Vespiquen",
     species: "Beehive Pokémon",
     height: "3′11″ (1.19m)",

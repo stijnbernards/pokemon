@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 674,
+    nN: "674",
     name: "Pancham",
     species: "Playful Pokémon",
     height: "2′0″ (0.61m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 493,
+    nN: "493",
     name: "Arceus",
     species: "Alpha Pokémon",
     height: "10′6″ (3.20m)",

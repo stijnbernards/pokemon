@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 328,
+    nN: "328",
     name: "Trapinch",
     species: "Ant Pit Pokémon",
     height: "2′4″ (0.71m)",

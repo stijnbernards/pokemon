@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 081,
+    nN: "081",
     name: "Magnemite",
     species: "Magnet Pokémon",
     height: "1′0″ (0.30m)",

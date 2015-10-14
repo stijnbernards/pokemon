@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 362,
+    nN: "362",
     name: "Glalie",
     species: "Face Pokémon",
     height: "4′11″ (1.50m)",

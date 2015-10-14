@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 573,
+    nN: "573",
     name: "Cinccino",
     species: "Scarf Pokémon",
     height: "1′8″ (0.51m)",

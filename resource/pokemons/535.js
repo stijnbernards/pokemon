@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 535,
+    nN: "535",
     name: "Tympole",
     species: "Tadpole Pokémon",
     height: "1′8″ (0.51m)",

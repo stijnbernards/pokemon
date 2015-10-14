@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 717,
+    nN: "717",
     name: "Yveltal",
     species: "Destruction Pokémon",
     height: "19′0″ (5.79m)",

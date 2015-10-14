@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 427,
+    nN: "427",
     name: "Buneary",
     species: "Rabbit Pokémon",
     height: "1′4″ (0.41m)",

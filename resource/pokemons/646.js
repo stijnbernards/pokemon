@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 646,
+    nN: "646",
     name: "Kyurem",
     species: "Boundary Pokémon",
     height: "9′10″ (3.00m)",

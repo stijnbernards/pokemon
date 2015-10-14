@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 369,
+    nN: "369",
     name: "Relicanth",
     species: "Longevity Pokémon",
     height: "3′3″ (0.99m)",

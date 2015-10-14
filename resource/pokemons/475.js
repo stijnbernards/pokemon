@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 475,
+    nN: "475",
     name: "Gallade",
     species: "Blade Pokémon",
     height: "5′3″ (1.60m)",

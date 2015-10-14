@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 465,
+    nN: "465",
     name: "Tangrowth",
     species: "Vine Pokémon",
     height: "6′7″ (2.01m)",

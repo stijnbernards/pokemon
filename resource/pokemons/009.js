@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 009,
+    nN: "009",
     name: "Blastoise",
     species: "Shellfish Pokémon",
     height: "5′3″ (1.60m)",

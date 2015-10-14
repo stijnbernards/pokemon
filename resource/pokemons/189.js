@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 189,
+    nN: "189",
     name: "Jumpluff",
     species: "Cottonweed Pokémon",
     height: "2′7″ (0.79m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 700,
+    nN: "700",
     name: "Sylveon",
     species: "Intertwining Pokémon",
     height: "3′3″ (0.99m)",

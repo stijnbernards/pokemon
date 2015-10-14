@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 364,
+    nN: "364",
     name: "Sealeo",
     species: "Ball Roll Pokémon",
     height: "3′7″ (1.09m)",

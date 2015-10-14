@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 124,
+    nN: "124",
     name: "Jynx",
     species: "Human Shape Pokémon",
     height: "4′7″ (1.40m)",

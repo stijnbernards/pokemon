@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 284,
+    nN: "284",
     name: "Masquerain",
     species: "Eyeball Pokémon",
     height: "2′7″ (0.79m)",

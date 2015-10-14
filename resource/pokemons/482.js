@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 482,
+    nN: "482",
     name: "Azelf",
     species: "Willpower Pokémon",
     height: "1′0″ (0.30m)",

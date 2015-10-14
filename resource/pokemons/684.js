@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 684,
+    nN: "684",
     name: "Swirlix",
     species: "Cotton Candy Pokémon",
     height: "1′4″ (0.41m)",

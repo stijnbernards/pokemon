@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 623,
+    nN: "623",
     name: "Golurk",
     species: "Automaton Pokémon",
     height: "9′2″ (2.79m)",

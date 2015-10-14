@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 413,
+    nN: "413",
     name: "Wormadam",
     species: "Bagworm Pokémon",
     height: "1′8″ (0.51m)",

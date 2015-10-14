@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 038,
+    nN: "038",
     name: "Ninetales",
     species: "Fox Pokémon",
     height: "3′7″ (1.09m)",

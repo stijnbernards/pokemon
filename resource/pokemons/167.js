@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 167,
+    nN: "167",
     name: "Spinarak",
     species: "String Spit Pokémon",
     height: "1′8″ (0.51m)",

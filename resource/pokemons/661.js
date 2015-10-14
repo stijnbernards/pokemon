@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 661,
+    nN: "661",
     name: "Fletchling",
     species: "Tiny Robin Pokémon",
     height: "1′0″ (0.30m)",

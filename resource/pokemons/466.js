@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 466,
+    nN: "466",
     name: "Electivire",
     species: "Thunderbolt Pokémon",
     height: "5′11″ (1.80m)",

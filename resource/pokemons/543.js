@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 543,
+    nN: "543",
     name: "Venipede",
     species: "Centipede Pokémon",
     height: "1′4″ (0.41m)",

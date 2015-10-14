@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 488,
+    nN: "488",
     name: "Cresselia",
     species: "Lunar Pokémon",
     height: "4′11″ (1.50m)",

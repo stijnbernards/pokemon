@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 188,
+    nN: "188",
     name: "Skiploom",
     species: "Cottonweed Pokémon",
     height: "2′0″ (0.61m)",

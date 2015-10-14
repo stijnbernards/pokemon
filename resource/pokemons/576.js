@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 576,
+    nN: "576",
     name: "Gothitelle",
     species: "Astral Body Pokémon",
     height: "4′11″ (1.50m)",

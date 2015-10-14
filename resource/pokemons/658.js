@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 658,
+    nN: "658",
     name: "Greninja",
     species: "Ninja Pokémon",
     height: "4′11″ (1.50m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 620,
+    nN: "620",
     name: "Mienshao",
     species: "Martial Arts Pokémon",
     height: "4′7″ (1.40m)",

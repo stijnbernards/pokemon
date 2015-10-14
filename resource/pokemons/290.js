@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 290,
+    nN: "290",
     name: "Nincada",
     species: "Trainee Pokémon",
     height: "1′8″ (0.51m)",

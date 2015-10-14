@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 185,
+    nN: "185",
     name: "Sudowoodo",
     species: "Imitation Pokémon",
     height: "3′11″ (1.19m)",

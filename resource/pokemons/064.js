@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 064,
+    nN: "064",
     name: "Kadabra",
     species: "Psi Pokémon",
     height: "4′3″ (1.30m)",

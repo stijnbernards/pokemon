@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 713,
+    nN: "713",
     name: "Avalugg",
     species: "Iceberg Pokémon",
     height: "6′7″ (2.01m)",

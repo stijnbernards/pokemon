@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 686,
+    nN: "686",
     name: "Inkay",
     species: "Revolving Pokémon",
     height: "1′4″ (0.41m)",

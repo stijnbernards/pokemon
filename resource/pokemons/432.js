@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 432,
+    nN: "432",
     name: "Purugly",
     species: "Tiger Cat Pokémon",
     height: "3′3″ (0.99m)",

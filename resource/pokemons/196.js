@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 196,
+    nN: "196",
     name: "Espeon",
     species: "Sun Pokémon",
     height: "2′11″ (0.89m)",

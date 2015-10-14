@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 679,
+    nN: "679",
     name: "Honedge",
     species: "Sword Pokémon",
     height: "2′7″ (0.79m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 668,
+    nN: "668",
     name: "Pyroar",
     species: "Royal Pokémon",
     height: "4′11″ (1.50m)",

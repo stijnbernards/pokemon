@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 499,
+    nN: "499",
     name: "Pignite",
     species: "Fire Pig Pokémon",
     height: "3′3″ (0.99m)",

@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 184,
+    nN: "184",
     name: "Azumarill",
     species: "Aqua Rabbit Pokémon",
     height: "2′7″ (0.79m)",

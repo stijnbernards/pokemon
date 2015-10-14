@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 157,
+    nN: "157",
     name: "Typhlosion",
     species: "Volcano Pokémon",
     height: "5′7″ (1.70m)",

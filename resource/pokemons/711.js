@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 711,
+    nN: "711",
     name: "Gourgeist",
     species: "Pumpkin Pokémon",
     height: "5′7″ (1.70m)",

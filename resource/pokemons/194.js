@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 194,
+    nN: "194",
     name: "Wooper",
     species: "Water Fish Pokémon",
     height: "1′4″ (0.41m)",

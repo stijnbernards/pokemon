@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 442,
+    nN: "442",
     name: "Spiritomb",
     species: "Forbidden Pokémon",
     height: "3′3″ (0.99m)",

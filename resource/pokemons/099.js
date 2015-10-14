@@ -1,5 +1,5 @@
 var pokeInfo = {
-    nN: 099,
+    nN: "099",
     name: "Kingler",
     species: "Pincer Pokémon",
     height: "4′3″ (1.30m)",

@@ -18,7 +18,8 @@ var map = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0]
+        [0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1, [7, function() { pokemonCore.maps.mapLastCoord[25] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(22);}], [7, function() { pokemonCore.maps.mapLastCoord[25] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(22);}], 1, 1, 1, 1]
     ],
     "towns/rustboro_city/gym.png"
 ];
@@ -82,10 +83,40 @@ var npc = [
         ["I called you because I thought I could beat you..."],
         "right"
     ),
+    new pokemonCore.npc(
+        null,
+        "ROXANNE",
+        ["MY DICK IS ROCK HARD", "FAK YOU"],
+        null,
+        null,
+        null,
+        [6, 3],
+        {
+            pokemon:[
+                {
+                    pokemon: {
+                        pokemon: new pokemonCore.pokemon.instantiate("074"),
+                        level: 14,
+                    }
+                },
+                {
+                    pokemon: {
+                        pokemon: new pokemonCore.pokemon.instantiate("299"),
+                        level: 15,
+                    }
+                },
+            ]
+        },
+        false,
+        ["Challenged by GYM LEADER ROXANNE"],
+        ["... ... ... ... ..."],
+        "bottom",
+        true
+    ),
 ];
 
 var pokemon = [];
 
 var music = {
-    ambient: "rustborocity.mp3"
+    ambient: "gym.mp3"
 }

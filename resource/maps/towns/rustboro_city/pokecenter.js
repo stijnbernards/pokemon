@@ -18,7 +18,7 @@ var npc = [
     new pokemonCore.npc(
         null,
         "2",
-        ["The POK&eacuteMON WIRELESS CLUB on the second floor has not yet been build."],
+        ["The POK&eacute;MON WIRELESS CLUB on the second floor has not yet been build."],
         null,
         null,
         null,
@@ -29,7 +29,7 @@ var npc = [
     new pokemonCore.npc(
         null,
         "2",
-        ["POK&eacuteMON centers are great!", "You can restore your POK&eacuteMON there and it's all for free!"],
+        ["POK&eacute;MON centers are great!", "You can restore your POK&eacuteMON there and it's all for free!"],
         null,
         null,
         null,

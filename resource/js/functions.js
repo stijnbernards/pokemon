@@ -69,6 +69,7 @@ var pokemonCore = {
         addNumber: null,
         walk: false,
         ignore: 0,
+        npc: new Array(),
         dumpMap: function () {
             console.log(JSON.stringify(pokemonCore.maps.map));
         },
@@ -145,10 +146,17 @@ var pokemonCore = {
             });
         },
         getMap: function (mapId, x, y) {
+            var created = false;
+
             connections = null;
             onEnterFunc = null;
             music = null;
             npc = null;
+            for(var i = 0; i < pokemonCore.maps.npc.length; i++){
+                pokemonCore.maps.npc[i].setCanUpdate(false);
+            }
+            pokemonCore.maps.npc = null;
+            pokemonCore.maps.npc = new Array();
             setTimeout(function () {
                 //pokemonCore.items.instantiate("pokeball").buy();
                 //pokemonCore.battle.startBattleScreen(pokemon);
@@ -182,21 +190,24 @@ var pokemonCore = {
                 //music = null;
                 //npc = null;
                 //$.getScript("resource/" + maps[mapId], function () {
+                if (typeof x != 'undefined' && typeof y != 'undefined') {
+                    pokemonCore.player.createPlayerAt(x, y);
+                    created = true;
+                } else if (pokemonCore.maps.mapLastCoord[mapId] != null) {
+                    pokemonCore.player.createPlayerAt(pokemonCore.maps.mapLastCoord[mapId].X, pokemonCore.maps.mapLastCoord[mapId].Y);
+                    pokemonCore.maps.mapLastCoord[mapId] = null;
+                    created = true;
+                }
+
                 for (var X = 0; X < pokemonCore.maps.map.length; X++) {
                     for (var Y = 0; Y < pokemonCore.maps.map[X].length; Y++) {
                         var selectedTile = pokemonCore.maps.map[X][Y];
                         if (isFunction(pokemonCore.specialRender[selectedTile])) {
                             pokemonCore.specialRender[selectedTile](X, Y);
-                        } else if (selectedTile == 8 && pokemonCore.maps.mapLastCoord[mapId] == null) {
+                        } else if (selectedTile == 8 && pokemonCore.maps.mapLastCoord[mapId] == null && !created) {
                             pokemonCore.player.createPlayerAt(Y + 1, X + 1);
                         }
                     }
-                }
-                if (typeof x != 'undefined' && typeof y != 'undefined') {
-                    pokemonCore.player.createPlayerAt(x, y);
-                } else if (pokemonCore.maps.mapLastCoord[mapId] != null) {
-                    pokemonCore.player.createPlayerAt(pokemonCore.maps.mapLastCoord[mapId].X, pokemonCore.maps.mapLastCoord[mapId].Y);
-                    pokemonCore.maps.mapLastCoord[mapId] = null;
                 }
 
                 if (pokemonCore.displayGrid)
@@ -204,7 +215,7 @@ var pokemonCore = {
 
                 if (typeof npc != 'undefined' && npc != null) {
                     for (var i = 0; i < npc.length; i++) {
-                        npc[i].createNpc();
+                        pokemonCore.maps.npc.push(npc[i].createNpc());
                     }
                 }
                 if (typeof music != 'undefined' && music != null) {
@@ -663,7 +674,7 @@ var pokemonCore = {
                     35,
                     35
                 ];
-                pokemonCore.gameChar.pokemon.level = 4;
+                pokemonCore.gameChar.pokemon.level = 100;
                 pokemonCore.gameChar.pokemon.exp = 135;
                 pokemonCore.gameChar.seen.push(252);
                 pokemonCore.gameChar.seen.push(274);
@@ -899,7 +910,7 @@ var pokemonCore = {
     },
 
     //NPC class
-    npc: function (pA, nm, dia, aDC, bC, txt, start, battle, shouldTurn, beforeFight, afterFight, dir) {
+    npc: function (pA, nm, dia, aDC, bC, txt, start, battle, shouldTurn, beforeFight, afterFight, dir, leader) {
         var _this = this;
         var direction = dir;
         var beforeCreate = bC;
@@ -917,9 +928,14 @@ var pokemonCore = {
         this.shouldTurn = shouldTurn;
         this.beforeFight = beforeFight;
         this.afterFight = afterFight;
+        this.leader = leader;
 
         this.getCoords = function () {
             return jQuery.extend(true, {}, coords);
+        }
+
+        this.setCanUpdate = function(update){
+            canUpdate = update;
         }
 
         this.interact = function () {
@@ -954,6 +970,7 @@ var pokemonCore = {
             direction = dir;
             update();
             battleCheck();
+            return this;
         }
 
         this.pokemonAlive = function () {
@@ -1092,8 +1109,10 @@ var pokemonCore = {
                             y = 0;
                             break;
                     }
-                    if (_this.battle !== "false" && _this.battle != false) {
-                        checkPlayer(x, y);
+                    if(typeof leader === 'undefined') {
+                        if (_this.battle !== "false" && _this.battle != false) {
+                            checkPlayer(x, y);
+                        }
                     }
                     battleCheck();
                 }, 10);
@@ -1121,6 +1140,7 @@ var pokemonCore = {
                                 walkTo();
                             else {
                                 pokemonCore.utils.createDialog(_this.dialog[_this.curDialog], _this);
+                                console.log(_this);
                             }
                         }, 300)
                     })();
@@ -1149,7 +1169,7 @@ var pokemonCore = {
     audioHandler: {
         ambient: null,
         battle: null,
-        playAudio: false,
+        playAudio: true,
         startAmbientAudio: function (file) {
             if (pokemonCore.audioHandler.playAudio) {
                 if (pokemonCore.audioHandler.ambient) {
@@ -1305,7 +1325,11 @@ var pokemonCore = {
                                     npc.battle.pokemon[i].pokemon = pokemonCore.pokemon.getEncounterMoves(npc.battle.pokemon[i].pokemon);
                                 }
                                 pokemonCore.battle.trainerNpc = npc;
-                                pokemonCore.audioHandler.startBattleMusic("trainer.mp3");
+                                if(typeof npc.leader === 'undefined')
+                                    pokemonCore.audioHandler.startBattleMusic("trainer.mp3");
+                                else
+                                    pokemonCore.audioHandler.startBattleMusic("gymleader.mp3");
+
                                 setTimeout(function () {
                                     pokemonCore.battle.startBattleScreen(npc.battle.pokemon[0].pokemon);
                                 }, 800);
@@ -1349,6 +1373,7 @@ var pokemonCore = {
                     break;
                 }
             }
+            console.log("trainer kapoet");
         }
 
         ,
@@ -1591,6 +1616,7 @@ var pokemonCore = {
                     setTimeout(function () {
                         if (pokemonCore.battle.encounter.pokemon.stats.HP[1] <= 0) {
                             if (pokemonCore.battle.trainerNpc !== "null" && pokemonCore.battle.trainerNpc !== null) {
+                                $(".action-menu").text("");
                                 text = pokemonCore.battle.encounter.pokemon.name + " fainted!";
                                 pokemonCore.pokemon.awardEV(pokemonCore.battle.encounter.pokemon);
                                 var alivePokemon = pokemonCore.battle.trainerNpc.pokemonAlive();

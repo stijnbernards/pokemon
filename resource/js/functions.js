@@ -32,6 +32,9 @@ var maps = [
     "maps/towns/rustboro_city/pokemart.js",         //23
     "maps/towns/rustboro_city/pokecenter.js",       //24
     "maps/towns/rustboro_city/gym.js",              //25
+    "maps/routes/116/main.js",                      //26
+    "maps/towns/dewfort_town/main.js",              //27
+    "maps/routes/106/main.js",                      //28
 ];
 
 $(document).ready(function () {
@@ -57,7 +60,7 @@ var pokemonCore = {
 
     //Main init function
     init: function () {
-        pokemonCore.maps.getMap(25);
+        pokemonCore.maps.getMap(27);
         pokemonCore.player.bindMovement();
     },
 
@@ -528,6 +531,7 @@ var pokemonCore = {
                                         var selected = $('.bag-gui .use-item div[data-selected="true"]');
                                         switch (e.which) {
                                             case 32:
+                                                pokemonCore.audioHandler.soundEffect("choose.WAV");
                                                 switch (selected.text()) {
                                                     case "UseUse":
                                                         keys[key[curNr]][curItem].use();
@@ -543,6 +547,7 @@ var pokemonCore = {
                                                 }
                                                 break
                                             case 38:
+                                                pokemonCore.audioHandler.soundEffect("select.WAV");
                                                 if ($('.bag-gui .use-item div:last-of-type[data-selected="true"]').length > -1)
                                                     $('.bag-gui .use-item div:first-of-type').attr("data-selected", "true");
                                                 else
@@ -550,6 +555,7 @@ var pokemonCore = {
                                                 selected.attr("data-selected", "false");
                                                 break;
                                             case 40:
+                                                pokemonCore.audioHandler.soundEffect("select.WAV");
                                                 if ($('.bag-gui .use-item div:first-of-type[data-selected="true"]').length > -1)
                                                     $('.bag-gui .use-item div:last-of-type').attr("data-selected", "true");
                                                 else
@@ -568,7 +574,6 @@ var pokemonCore = {
                             }
                             break;
                     }
-
                     e.preventDefault();
 
                     function removeArrow() {
@@ -632,6 +637,7 @@ var pokemonCore = {
                 var selected = $('.game-menu div[data-selected="true"]');
                 switch (e.which) {
                     case 38:
+                        pokemonCore.audioHandler.soundEffect("select.WAV");
                         if (selected.prev().length > 0) {
                             selected.attr("data-selected", "false");
                             selected.prev().attr("data-selected", "true");
@@ -641,6 +647,7 @@ var pokemonCore = {
                         }
                         break;
                     case 40:
+                        pokemonCore.audioHandler.soundEffect("select.WAV");
                         if (selected.next().length > 0) {
                             selected.attr("data-selected", "false");
                             selected.next().attr("data-selected", "true");
@@ -651,6 +658,7 @@ var pokemonCore = {
                         }
                         break;
                     case  32:
+                        pokemonCore.audioHandler.soundEffect("choose.WAV");
                         //console.log(selected.attr("data-func"));
                         menuItems[selected.attr("data-func")]();
                         break;
@@ -1211,7 +1219,7 @@ var pokemonCore = {
         },
         soundEffect: function (file) {
             if (pokemonCore.audioHandler.playAudio) {
-                var effect = new Audio('resource/audio/' + file);
+                var effect = new Audio('resource/audio/soundeffect/' + file);
                 effect.play();
             }
         },
@@ -1462,30 +1470,35 @@ var pokemonCore = {
                 var action = $(itemclass + ' [data-selected="true"]');
                 switch (e.which) {
                     case 37: // left
+                        pokemonCore.audioHandler.soundEffect("select.WAV");
                         if (selected() == "bag" || selected() == "run" || selected() == "move-2" || selected() == "move-4") {
                             action.attr("data-selected", "false");
                             action.prev().attr("data-selected", "true");
                         }
                         break;
                     case 38: // up
+                        pokemonCore.audioHandler.soundEffect("select.WAV");
                         if (selected() == "pokemon" || selected() == "run" || selected() == "move-3" || selected() == "move-4") {
                             action.attr("data-selected", "false");
                             action.prev().prev().attr("data-selected", "true");
                         }
                         break;
                     case 39: // right
+                        pokemonCore.audioHandler.soundEffect("select.WAV");
                         if (selected() == "pokemon" || selected() == "fight" || selected() == "move-1" || selected() == "move-3") {
                             action.attr("data-selected", "false");
                             action.next().attr("data-selected", "true");
                         }
                         break;
                     case 40: // down
+                        pokemonCore.audioHandler.soundEffect("select.WAV");
                         if (selected() == "fight" || selected() == "bag" || selected() == "move-1" || selected() == "move-2") {
                             action.attr("data-selected", "false");
                             action.next().next().attr("data-selected", "true");
                         }
                         break;
                     case 32: //space
+                        pokemonCore.audioHandler.soundEffect("choose.WAV");
                         select();
                         break;
 
@@ -1518,6 +1531,7 @@ var pokemonCore = {
                                         $(document).unbind("keydown");
                                         pokemonCore.player.bindMovement();
                                     }, 900)
+                                    pokemonCore.audioHandler.soundEffect("flee.WAV");
                                 }, "Got away safely!");
                             } else {
                                 pokemonCore.utils.writer(0, function () {
@@ -1635,8 +1649,19 @@ var pokemonCore = {
                                                         $(document).unbind("keydown");
                                                         $(".battle-screen").children().remove();
                                                         $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
+                                                        $(".action-menu").text("");
+                                                        $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ".png)");
                                                         writer(0, false, function () {
                                                             pokemonCore.battle.initFight(pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon);
+                                                            $(".battle-screen").append('<div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
+                                                            setTimeout(function () {
+                                                                pokemonCore.audioHandler.soundEffect('cries/' + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.nN + '.ogg');
+                                                                $(".enemy-pokemon").css("background", "url(resource/images/animations/pokemon/" + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.nN + ".gif) 0px 0px");
+                                                                $(".enemy-pokemon").css("background-size", "100% 100%");
+                                                                setTimeout(function () {
+                                                                    $(".enemy-pokemon").css("background", "url(resource/images/pokemon/" + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.nN + ".png)");
+                                                                }, 1000);
+                                                            }, 300);
                                                         });
                                                     }, 1000);
                                                 });
@@ -2086,6 +2111,7 @@ var pokemonCore = {
                                 $(document).bind("keydown", function (e) {
                                     switch (e.which) {
                                         case 32:
+                                            pokemonCore.audioHandler.soundEffect("choose.WAV");
                                             for (var i = 0; i < number + 1; i++) {
                                                 items[selectedItem().attr("class")].buy();
                                                 $(".pokemart-gui .money").text('$' + pokemonCore.gameChar.getMoney());
@@ -2097,6 +2123,7 @@ var pokemonCore = {
                                             bindMartKey();
                                             break;
                                         case 38:
+                                            pokemonCore.audioHandler.soundEffect("select.WAV");
                                             number++;
                                             if (number * baseMoney <= pokemonCore.gameChar.getMoney()) {
                                                 updatePrice(number, baseMoney);
@@ -2106,6 +2133,7 @@ var pokemonCore = {
                                             }
                                             break;
                                         case 40:
+                                            pokemonCore.audioHandler.soundEffect("select.WAV");
                                             number--;
                                             if (number == 0) {
                                                 number = pokemonCore.gameChar.getMoney() / baseMoney;

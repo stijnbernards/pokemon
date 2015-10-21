@@ -60,3 +60,11 @@
   bottom: 0;
   z-index: 10;
 }
+
+div[class^="player-"]{
+  position: absolute;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background-image: url(../images/player.player_1.png);
+}

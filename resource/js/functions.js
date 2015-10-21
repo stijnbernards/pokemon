@@ -49,8 +49,10 @@ var pokemonCore = {
     timeouts: [],
     displayGrid: false,
     gameChar: null,
+    images: null,
     specialInteract: [12],
     specialItems: [4, 5],
+    fileSystem: null,
     specialRender: {
         6: function (x, y) {
             $gameWrapper.append('<div class="flower-1" style="top: ' + (x * 64 + pokemonCore.maps.ignore[0]) + 'px; left: ' + (y * 64 + pokemonCore.maps.ignore[1]) + 'px"></div>');
@@ -59,15 +61,135 @@ var pokemonCore = {
     passable: [0, 6, 2, 7, 8, 9],
 
     //Main init function
+    loadingScreen: function(){
+        var imagesLoaded = 0;
+        var imagesToLoad = 0;
+
+        window.webkitStorageInfo.requestQuota(PERSISTENT, 104857600, function(grantedBytes) {
+            window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFs, pokemonCore.fileStorage.errorHandler);
+        }, function(e) {
+            console.log('Error', e);
+        });
+
+        function onInitFs(fs){
+            pokemonCore.fileSystem = fs;
+            console.log("Created file storage saving files...");
+            setTimeout(function(){
+                $.get("resource/php/requesturls.php?dir=footprints", function(data){
+                    data = JSON.parse(data);
+                    imagesToLoad = data.length;
+                    imagesLoaded = 0;
+                    for(var i = 0; i < data.length; i++){
+                        $.ajax({
+                            url: "resource/php/getimage.php?uri=images/footprint/"+data[this.indexValue],
+                            type: "GET",
+                            indexValue: i,
+                        }).done(function( resp, textStatus, jqXHR ){
+                            saveToStorage("fp" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                            imagesLoaded++;
+                            console.log(imagesLoaded);
+                            if(imagesLoaded == imagesToLoad)
+                                loadPokemons();
+                        });
+                    }
+                });
+            }, 1);
+            function loadPokemons() {
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=pokemon", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/pokemon/"+data[this.indexValue],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                saveToStorage("pkmn" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                            });
+                        }
+                    });
+                }, 1);
+            }
+        }
+
+        function saveToStorage(file, data, type){
+            pokemonCore.fileSystem.root.getFile(file, {create: true}, function(fileEntry) {
+
+                // Create a FileWriter object for our FileEntry (log.txt).
+                fileEntry.createWriter(function(fileWriter) {
+
+                    fileWriter.onwriteend = function(e) {
+                        //console.log('Write completed.');
+                    };
+
+                    fileWriter.onerror = function(e) {
+                        console.log('Write failed: ' + e.toString());
+                    };
+
+                    // Create a new Blob and write it to log.txt.
+                    var blob = new Blob([data], {type: type});
+
+                    fileWriter.write(blob);
+
+                }, pokemonCore.fileStorage.errorHandler);
+
+            }, pokemonCore.fileStorage.errorHandler);
+        }
+    },
+
+    fileStorage: {
+        retrieveFile: function(fileName){
+            pokemonCore.fileSystem.root.getFile(fileName, {}, function(fileEntry) {
+                fileEntry.file(function(file) {
+                    var reader = new FileReader();
+                    reader.onloadend = function(event) {
+                        console.log(event.target.result);
+                        $("img.kek").attr("src", "data:image/png;base64,"+ event.target.result);
+                    };
+
+                    reader.readAsText(file);
+                }, pokemonCore.fileStorage.errorHandler);
+
+            }, pokemonCore.fileStorage.errorHandler);
+        },
+        errorHandler: function (e) {
+            var msg = '';
+
+            switch (e.code) {
+                case FileError.QUOTA_EXCEEDED_ERR:
+                    msg = 'QUOTA_EXCEEDED_ERR';
+                    break;
+                case FileError.NOT_FOUND_ERR:
+                    msg = 'NOT_FOUND_ERR';
+                    break;
+                case FileError.SECURITY_ERR:
+                    msg = 'SECURITY_ERR';
+                    break;
+                case FileError.INVALID_MODIFICATION_ERR:
+                    msg = 'INVALID_MODIFICATION_ERR';
+                    break;
+                case FileError.INVALID_STATE_ERR:
+                    msg = 'INVALID_STATE_ERR';
+                    break;
+                default:
+                    msg = 'Unknown Error';
+                    break;
+            };
+            console.log('Error: ' + msg);
+        }
+    },
+
     init: function () {
-        pokemonCore.maps.getMap(27);
-        pokemonCore.player.bindMovement();
+        pokemonCore.loadingScreen();
     },
 
     //Maps class
     maps: {
         mapLastCoord: new Array(),
         map: null,
+        mapId: null,
         collision: true,
         addNumber: null,
         walk: false,
@@ -150,11 +272,12 @@ var pokemonCore = {
         },
         getMap: function (mapId, x, y) {
             var created = false;
-
+            pokemonCore.maps.mapId = mapId;
             connections = null;
             onEnterFunc = null;
             music = null;
             npc = null;
+            //pokemonCore.server.sendMap();
             for(var i = 0; i < pokemonCore.maps.npc.length; i++){
                 pokemonCore.maps.npc[i].setCanUpdate(false);
             }
@@ -812,6 +935,7 @@ var pokemonCore = {
                 }
 
                 e.preventDefault();
+                pokemonCore.server.sendCoords();
             });
 
             $(document).bind("keyup", function (e) {
@@ -2289,8 +2413,43 @@ var pokemonCore = {
                 })();
             }
         }
-    }
-    ,
+    },
+    server: {
+        socket: null,
+        startServer: function(){
+            pokemonCore.server.socket = new WebSocket("ws://10.17.237.234:8080/service");
+            pokemonCore.server.socket.onopen = function(){
+                pokemonCore.server.socket.send("Client connected");
+                pokemonCore.server.sendMap();
+            };
+
+            pokemonCore.server.socket.onmessage = function(evt){
+                switch(evt.data.split("$")[0]){
+                    case "1":
+                        var data = evt.data.split("$")[1];
+                        console.log(data);
+                        for(var i = 0; i < data.split(".").length; i++) {
+                            var splt = data.split(".")[i];
+                            if ($(".player-"+ i).length <= 0) {
+                                $('#game .parent.wrapper').append('<div class="player-'+ i +'" style="top: ' + ((parseInt(splt.split(",")[1]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px; left: ' + ((parseInt(splt.split(",")[0]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px"></div>');
+                            } else {
+                                $(".player-"+ i).css("top", ((parseInt(splt.split(",")[1]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px');
+                                $(".player-"+ i).css("left", ((parseInt(splt.split(",")[0]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px');
+                            }
+                        }
+                        break;
+                }
+            };
+        },
+
+        sendCoords: function(){
+            pokemonCore.server.socket.send("1$"+ pokemonCore.gameChar.getCoords().X +","+ pokemonCore.gameChar.getCoords().Y);
+        },
+
+        sendMap: function(){
+            pokemonCore.server.socket.send("2$"+ pokemonCore.maps.mapId);
+        }
+    },
     natures: [
         {
             name: "Hardy",

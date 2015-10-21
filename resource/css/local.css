@@ -795,6 +795,15 @@
   z-index: 10;
 }
 
+/* line 64, ../scss/sass/custom/_main.scss */
+div[class^="player-"] {
+  position: absolute;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background-image: url(../images/player.player_1.png);
+}
+
 /* line 1, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen {
   position: absolute;

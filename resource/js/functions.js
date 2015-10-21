@@ -64,8 +64,10 @@ var pokemonCore = {
     loadingScreen: function(){
         var imagesLoaded = 0;
         var imagesToLoad = 0;
+        $("#game").css("background-image", "url(resource/images/gui/titlescreen.gif)");
+        $("#game").append('<div class="load-text">Loading Pok&eacute;mon footprints...</div><div class="loading-bar"><div class="fill-bar"></div><div class="text"></div></div>');
 
-        window.webkitStorageInfo.requestQuota(PERSISTENT, 104857600, function(grantedBytes) {
+        window.webkitStorageInfo.requestQuota(PERSISTENT, 10485760000, function(grantedBytes) {
             window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFs, pokemonCore.fileStorage.errorHandler);
         }, function(e) {
             console.log('Error', e);
@@ -81,13 +83,13 @@ var pokemonCore = {
                     imagesLoaded = 0;
                     for(var i = 0; i < data.length; i++){
                         $.ajax({
-                            url: "resource/php/getimage.php?uri=images/footprint/"+data[this.indexValue],
+                            url: "resource/php/getimage.php?uri=images/footprint/"+data[i],
                             type: "GET",
                             indexValue: i,
                         }).done(function( resp, textStatus, jqXHR ){
                             saveToStorage("fp" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
                             imagesLoaded++;
-                            console.log(imagesLoaded);
+                            updateBar();
                             if(imagesLoaded == imagesToLoad)
                                 loadPokemons();
                         });
@@ -95,6 +97,8 @@ var pokemonCore = {
                 });
             }, 1);
             function loadPokemons() {
+                $(".load-text").text("");
+                $(".load-text").append("Loading Pok&eacute;mon sprites...");
                 setTimeout(function () {
                     $.get("resource/php/requesturls.php?dir=pokemon", function (data) {
                         data = JSON.parse(data);
@@ -102,22 +106,138 @@ var pokemonCore = {
                         imagesLoaded = 0;
                         for (var i = 0; i < data.length; i++) {
                             $.ajax({
-                                url: "resource/php/getimage.php?uri=images/pokemon/"+data[this.indexValue],
+                                url: "resource/php/getimage.php?uri=images/pokemon/"+data[i],
                                 type: "GET",
                                 indexValue: i,
                             }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
                                 saveToStorage("pkmn" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                                updateBar();
+                                if(imagesLoaded == imagesToLoad)
+                                    loadItems();
                             });
                         }
                     });
                 }, 1);
+            }
+
+            function loadItems(){
+                $(".load-text").text("Loading item sprites...");
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=items", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/items/"+data[i],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
+                                saveToStorage("item" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                                updateBar();
+                                if(imagesLoaded == imagesToLoad)
+                                    loadPkmnAnimations();
+                            });
+                        }
+                    });
+                }, 1);
+            }
+
+            function loadPkmnAnimations(){
+                loadTowns();
+                //$(".load-text").text("");
+                //$(".load-text").append("Loading Pok&eacute;mon animations...");
+                //setTimeout(function () {
+                //    $.get("resource/php/requesturls.php?dir=pkanim", function (data) {
+                //        data = JSON.parse(data);
+                //        imagesToLoad = data.length;
+                //        imagesLoaded = 0;
+                //        for (var i = 0; i < data.length; i++) {
+                //            $.ajax({
+                //                url: "resource/php/getimage.php?uri=images/animations/pokemon/"+data[i],
+                //                type: "GET",
+                //                indexValue: i,
+                //            }).done(function (resp, textStatus, jqXHR) {
+                //                imagesLoaded++;
+                //                saveToStorage("pkanim" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                //                updateBar();
+                //                if(imagesLoaded == imagesToLoad)
+                //                    loadTowns();
+                //            });
+                //        }
+                //    });
+                //}, 1);
+            }
+
+            function loadTowns(){
+                $(".load-text").text("");
+                $(".load-text").append("Loading town maps...");
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=towns", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            console.log(data[i]);
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/towns/"+data[i],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
+                                saveToStorage("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
+                                //console.log("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"));
+                                updateBar();
+                                if(imagesLoaded == imagesToLoad)
+                                    loadRoutes();
+                            });
+                        }
+                    });
+                }, 1);
+            }
+
+            function loadRoutes(){
+                $(".load-text").text("");
+                $(".load-text").append("Loading route maps...");
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=routes", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/routes/"+data[i],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
+                                saveToStorage("routes" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
+                                updateBar();
+                                if(imagesLoaded == imagesToLoad) {
+                                    pokemonCore.maps.getMap(0);
+                                    pokemonCore.player.bindMovement();
+                                    $("#game").attr("style", "");
+                                    $(".load-text").remove();
+                                    $(".loading-bar").remove();
+                                }
+                            });
+                        }
+                    });
+                }, 1);
+            }
+
+            function updateBar(){
+                var loadingbar = $(".loading-bar");
+                $(".fill-bar").css("width", (loadingbar.width() / imagesToLoad * imagesLoaded) + "px");
+                $(".loading-bar .text").text(imagesLoaded + " / " + imagesToLoad);
             }
         }
 
         function saveToStorage(file, data, type){
             pokemonCore.fileSystem.root.getFile(file, {create: true}, function(fileEntry) {
 
-                // Create a FileWriter object for our FileEntry (log.txt).
                 fileEntry.createWriter(function(fileWriter) {
 
                     fileWriter.onwriteend = function(e) {
@@ -125,10 +245,10 @@ var pokemonCore = {
                     };
 
                     fileWriter.onerror = function(e) {
-                        console.log('Write failed: ' + e.toString());
+                        console.log('Write failed: ');
+                        console.log(e);
                     };
 
-                    // Create a new Blob and write it to log.txt.
                     var blob = new Blob([data], {type: type});
 
                     fileWriter.write(blob);
@@ -140,13 +260,25 @@ var pokemonCore = {
     },
 
     fileStorage: {
-        retrieveFile: function(fileName){
+        retrieveFile: function(fileName, elem){
             pokemonCore.fileSystem.root.getFile(fileName, {}, function(fileEntry) {
                 fileEntry.file(function(file) {
                     var reader = new FileReader();
                     reader.onloadend = function(event) {
-                        console.log(event.target.result);
-                        $("img.kek").attr("src", "data:image/png;base64,"+ event.target.result);
+                        $(elem).attr("src", "data:image/png;base64,"+ event.target.result);
+                    };
+
+                    reader.readAsText(file);
+                }, pokemonCore.fileStorage.errorHandler);
+
+            }, pokemonCore.fileStorage.errorHandler);
+        },
+        retrieveFileBg: function(fileName, elem){
+            pokemonCore.fileSystem.root.getFile(fileName, {}, function(fileEntry) {
+                fileEntry.file(function(file) {
+                    var reader = new FileReader();
+                    reader.onloadend = function(event) {
+                        $(elem).css("background-image", "url(data:image/png;base64,"+ event.target.result+")");
                     };
 
                     reader.readAsText(file);
@@ -302,7 +434,12 @@ var pokemonCore = {
                 $("#player").remove();
                 $(".speech").remove();
                 $gameWrapper.append('<img border="0" class="bg"/>');
-                $gameWrapper.find(".bg").attr("src", resFolder + map[1]);
+                if(pokemonCore.fileStorage){
+                    var img = map[1].split("/");
+                    pokemonCore.fileStorage.retrieveFile(img[0] + img[1] + "_" + img[2].replace(".png", ".txt"), $gameWrapper.find(".bg"));
+                } else {
+                    $gameWrapper.find(".bg").attr("src", resFolder + map[1]);
+                }
                 pokemonCore.maps.map = map[0];
                 //if(connections !== null) {
                 //    var connectionsBU = connections;
@@ -559,7 +696,11 @@ var pokemonCore = {
                     itemImg = item.name;
                 $(".bag-gui .item-desc").text("");
                 $(".bag-gui .item-desc").append(item.desc);
-                $(".bag-gui .item-display").css("background-image", "url(resource/images/items/" + itemImg + ".png)")
+                if(pokemonCore.fileSystem){
+                    pokemonCore.fileStorage.retrieveFileBg("items" + item.img.replace(".png", ".txt"), $(".bag-gui .item-display"));
+                }else {
+                    $(".bag-gui .item-display").css("background-image", "url(resource/images/items/" + itemImg + ".png)");
+                }
             }
 
             updateBag();

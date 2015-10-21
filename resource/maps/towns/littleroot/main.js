@@ -26,7 +26,7 @@ var map = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
   ],
-  "/towns/littleroot/main.jpg"
+  "towns/littleroot/main.jpg"
 ];
 var npc = [
     new pokemonCore.npc(

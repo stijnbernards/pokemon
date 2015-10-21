@@ -11,7 +11,7 @@ var map = [
         [0,0,0,0,0,0,0,0,8,0,0],
         [1,1,1,1,1,1,1,1,[7, function(){ pokemonCore.maps.mapLastCoord[1] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(0);}],[7, function(){ pokemonCore.maps.mapLastCoord[1] = pokemonCore.gameChar.getCoords(); pokemonCore.maps.getMap(0);}],1]
     ],
-    "/towns/littleroot/player_home_f1.png"
+    "towns/littleroot/player_home_f1.png"
 ];
 
 var npc = [

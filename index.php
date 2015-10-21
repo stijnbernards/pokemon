@@ -29,7 +29,6 @@
 <body>
     <div id="game">
         <div class="parent wrapper">
-            <img class="kek">
         </div>
     </div>
 </body>

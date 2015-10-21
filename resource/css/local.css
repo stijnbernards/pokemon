@@ -804,6 +804,45 @@ div[class^="player-"] {
   background-image: url(../images/player.player_1.png);
 }
 
+/* line 72, ../scss/sass/custom/_main.scss */
+.loading-bar {
+  position: absolute;
+  background-color: grey;
+  width: 372px;
+  height: 28px;
+  top: 416px;
+  left: 296px;
+}
+
+/* line 81, ../scss/sass/custom/_main.scss */
+.load-text {
+  color: white;
+  font-family: pokemon;
+  top: 380px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 23px;
+}
+
+/* line 91, ../scss/sass/custom/_main.scss */
+.fill-bar {
+  background-color: deepskyblue;
+  height: 28px;
+  float: left;
+}
+
+/* line 97, ../scss/sass/custom/_main.scss */
+.text {
+  color: white;
+  font-family: pokemon;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 23px;
+}
+
 /* line 1, ../scss/sass/custom/battle/_main.scss */
 div.battle-screen {
   position: absolute;

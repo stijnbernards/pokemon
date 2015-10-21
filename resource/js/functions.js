@@ -62,6 +62,7 @@ var pokemonCore = {
 
     //Main init function
     loadingScreen: function(){
+        pokemonCore.audioHandler.startAmbientAudio("titlescreen.mp3");
         var imagesLoaded = 0;
         var imagesToLoad = 0;
         $("#game").css("background-image", "url(resource/images/gui/titlescreen.gif)");
@@ -91,7 +92,9 @@ var pokemonCore = {
                             imagesLoaded++;
                             updateBar();
                             if(imagesLoaded == imagesToLoad)
-                                loadPokemons();
+                                setTimeout(function(){
+                                    loadPokemons();
+                                }, 800);
                         });
                     }
                 });
@@ -114,7 +117,9 @@ var pokemonCore = {
                                 saveToStorage("pkmn" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
                                 updateBar();
                                 if(imagesLoaded == imagesToLoad)
-                                    loadItems();
+                                    setTimeout(function() {
+                                        loadItems();
+                                    }, 800);
                             });
                         }
                     });
@@ -138,7 +143,9 @@ var pokemonCore = {
                                 saveToStorage("item" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
                                 updateBar();
                                 if(imagesLoaded == imagesToLoad)
-                                    loadPkmnAnimations();
+                                    setTimeout(function() {
+                                        loadPkmnAnimations();
+                                    }, 800);
                             });
                         }
                     });
@@ -191,7 +198,9 @@ var pokemonCore = {
                                 //console.log("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"));
                                 updateBar();
                                 if(imagesLoaded == imagesToLoad)
-                                    loadRoutes();
+                                    setTimeout(function() {
+                                        loadRoutes();
+                                    }, 800);
                             });
                         }
                     });
@@ -216,11 +225,13 @@ var pokemonCore = {
                                 saveToStorage("routes" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
                                 updateBar();
                                 if(imagesLoaded == imagesToLoad) {
-                                    pokemonCore.maps.getMap(0);
-                                    pokemonCore.player.bindMovement();
-                                    $("#game").attr("style", "");
-                                    $(".load-text").remove();
-                                    $(".loading-bar").remove();
+                                    setTimeout(function(){
+                                        pokemonCore.maps.getMap(0);
+                                        pokemonCore.player.bindMovement();
+                                        $("#game").attr("style", "");
+                                        $(".load-text").remove();
+                                        $(".loading-bar").remove();
+                                    }, 50000)
                                 }
                             });
                         }

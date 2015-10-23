@@ -65,8 +65,11 @@ div[class^="player-"]{
   position: absolute;
   z-index: 2;
   width: 64px;
-  height: 64px;
-  background-image: url(../images/player.player_1.png);
+  height: 84px;
+  margin-top: -20px !important;
+  background: url(../images/player/player_1.png);
+  @include transition(all 280ms linear);
+  @include transition-property(top, left, right, down);
 }
 
 .loading-bar{
@@ -102,4 +105,32 @@ div[class^="player-"]{
   height: 100%;
   text-align: center;
   font-size: 23px;
+}
+
+.message-box{
+  height: 160px;
+  width: 448px;
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(136,206,250,0.2);
+  z-index: 1;
+  input{
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  ul{
+    list-style-type: none;
+    font-family: pokemon;
+    width: 100%;
+    font-size: 24px;
+    padding: 0px;
+    margin: 5px 0px 5px 0px;
+    box-sizing: border-box;
+    font-weight: bold;
+    max-height: 132px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
 }

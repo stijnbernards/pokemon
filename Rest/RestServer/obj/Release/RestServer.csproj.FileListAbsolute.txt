@@ -1,0 +1,10 @@
+E:\Rest\RestServer\bin\Release\RestServer.exe.config
+E:\Rest\RestServer\bin\Release\RestServer.exe
+E:\Rest\RestServer\bin\Release\RestServer.pdb
+E:\Rest\RestServer\bin\Release\Rest.dll
+E:\Rest\RestServer\bin\Release\Rest.pdb
+E:\Rest\RestServer\obj\Release\RestServer.csprojResolveAssemblyReference.cache
+E:\Rest\RestServer\obj\Release\RestServer.Properties.Resources.resources
+E:\Rest\RestServer\obj\Release\RestServer.csproj.GenerateResource.Cache
+E:\Rest\RestServer\obj\Release\RestServer.exe
+E:\Rest\RestServer\obj\Release\RestServer.pdb

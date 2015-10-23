@@ -49,11 +49,8 @@ var pokemonCore = {
     timeouts: [],
     displayGrid: false,
     gameChar: null,
-    images: null,
     specialInteract: [12],
     specialItems: [4, 5],
-    fileSystem: null,
-    filesExist: false,
     specialRender: {
         6: function (x, y) {
             $gameWrapper.append('<div class="flower-1" style="top: ' + (x * 64 + pokemonCore.maps.ignore[0]) + 'px; left: ' + (y * 64 + pokemonCore.maps.ignore[1]) + 'px"></div>');
@@ -62,278 +59,15 @@ var pokemonCore = {
     passable: [0, 6, 2, 7, 8, 9],
 
     //Main init function
-    loadingScreen: function () {
-        pokemonCore.audioHandler.startAmbientAudio("titlescreen.mp3");
-        var imagesLoaded = 0;
-        var imagesToLoad = 0;
-        $("#game").css("background-image", "url(resource/images/gui/titlescreen.gif)");
-        $("#game").append('<div class="load-text">Loading Pok&eacute;mon footprints...</div><div class="loading-bar"><div class="fill-bar"></div><div class="text"></div></div>');
-
-        window.webkitStorageInfo.requestQuota(PERSISTENT, 10485760000, function (grantedBytes) {
-            window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFs, pokemonCore.fileStorage.errorHandler);
-        }, function (e) {
-            console.log('Error', e);
-        });
-        function onInitFs(fs) {
-            pokemonCore.fileSystem = fs;
-            console.log("Created file storage saving files...");
-            setTimeout(function () {
-                $.get("resource/php/requesturls.php?dir=footprints", function (data) {
-                    data = JSON.parse(data);
-                    imagesToLoad = data.length;
-                    imagesLoaded = 0;
-                    for (var i = 0; i < data.length; i++) {
-                        $.ajax({
-                            url: "resource/php/getimage.php?uri=images/footprint/" + data[i],
-                            type: "GET",
-                            indexValue: i,
-                        }).done(function (resp, textStatus, jqXHR) {
-                            saveToStorage("fp" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
-                            imagesLoaded++;
-                            updateBar();
-                            if (imagesLoaded == imagesToLoad)
-                                setTimeout(function () {
-                                    loadPokemons();
-                                }, 800);
-                        });
-                    }
-                });
-            }, 1);
-            function loadPokemons() {
-                $(".load-text").text("");
-                $(".load-text").append("Loading Pok&eacute;mon sprites...");
-                setTimeout(function () {
-                    $.get("resource/php/requesturls.php?dir=pokemon", function (data) {
-                        data = JSON.parse(data);
-                        imagesToLoad = data.length;
-                        imagesLoaded = 0;
-                        for (var i = 0; i < data.length; i++) {
-                            $.ajax({
-                                url: "resource/php/getimage.php?uri=images/pokemon/" + data[i],
-                                type: "GET",
-                                indexValue: i,
-                            }).done(function (resp, textStatus, jqXHR) {
-                                imagesLoaded++;
-                                saveToStorage("pkmn" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
-                                updateBar();
-                                if (imagesLoaded == imagesToLoad)
-                                    setTimeout(function () {
-                                        loadItems();
-                                    }, 800);
-                            });
-                        }
-                    });
-                }, 1);
-            }
-
-            function loadItems() {
-                $(".load-text").text("Loading item sprites...");
-                setTimeout(function () {
-                    $.get("resource/php/requesturls.php?dir=items", function (data) {
-                        data = JSON.parse(data);
-                        imagesToLoad = data.length;
-                        imagesLoaded = 0;
-                        for (var i = 0; i < data.length; i++) {
-                            $.ajax({
-                                url: "resource/php/getimage.php?uri=images/items/" + data[i],
-                                type: "GET",
-                                indexValue: i,
-                            }).done(function (resp, textStatus, jqXHR) {
-                                imagesLoaded++;
-                                saveToStorage("item" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
-                                updateBar();
-                                if (imagesLoaded == imagesToLoad)
-                                    setTimeout(function () {
-                                        //loadPkmnAnimations();
-                                        loadTowns();
-                                    }, 800);
-                            });
-                        }
-                    });
-                }, 1);
-            }
-
-            function loadPkmnAnimations() {
-                $(".load-text").text("");
-                $(".load-text").append("Loading Pok&eacute;mon animations...");
-                setTimeout(function () {
-                    $.get("resource/php/requesturls.php?dir=pkanim", function (data) {
-                        data = JSON.parse(data);
-                        imagesToLoad = data.length;
-                        imagesLoaded = 0;
-                        for (var i = 0; i < data.length; i++) {
-                            $.ajax({
-                                url: "resource/php/getimage.php?uri=images/animations/pokemon/" + data[i],
-                                type: "GET",
-                                indexValue: i,
-                            }).done(function (resp, textStatus, jqXHR) {
-                                imagesLoaded++;
-                                saveToStorage("pkanim" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
-                                updateBar();
-                                if (imagesLoaded == imagesToLoad)
-                                    loadTowns();
-                            });
-                        }
-                    });
-                }, 1);
-            }
-
-            function loadTowns() {
-                $(".load-text").text("");
-                $(".load-text").append("Loading town maps...");
-                setTimeout(function () {
-                    $.get("resource/php/requesturls.php?dir=towns", function (data) {
-                        data = JSON.parse(data);
-                        imagesToLoad = data.length;
-                        imagesLoaded = 0;
-                        for (var i = 0; i < data.length; i++) {
-                            $.ajax({
-                                url: "resource/php/getimage.php?uri=images/towns/" + data[i],
-                                type: "GET",
-                                indexValue: i,
-                            }).done(function (resp, textStatus, jqXHR) {
-                                imagesLoaded++;
-                                saveToStorage("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
-                                //console.log("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"));
-                                updateBar();
-                                if (imagesLoaded == imagesToLoad)
-                                    setTimeout(function () {
-                                        loadRoutes();
-                                    }, 800);
-                            });
-                        }
-                    });
-                }, 1);
-            }
-
-            function loadRoutes() {
-                $(".load-text").text("");
-                $(".load-text").append("Loading route maps...");
-                setTimeout(function () {
-                    $.get("resource/php/requesturls.php?dir=routes", function (data) {
-                        data = JSON.parse(data);
-                        imagesToLoad = data.length;
-                        imagesLoaded = 0;
-                        for (var i = 0; i < data.length; i++) {
-                            $.ajax({
-                                url: "resource/php/getimage.php?uri=images/routes/" + data[i],
-                                type: "GET",
-                                indexValue: i,
-                            }).done(function (resp, textStatus, jqXHR) {
-                                imagesLoaded++;
-                                saveToStorage("routes" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
-                                updateBar();
-                                if (imagesLoaded == imagesToLoad) {
-                                    setTimeout(function () {
-                                        pokemonCore.maps.getMap(0);
-                                        pokemonCore.player.bindMovement();
-                                        $("#game").attr("style", "");
-                                        $(".load-text").remove();
-                                        $(".loading-bar").remove();
-                                        pokemonCore.server.startServer();
-                                    }, 800)
-                                }
-                            });
-                        }
-                    });
-                }, 1);
-            }
-
-            function updateBar() {
-                var loadingbar = $(".loading-bar");
-                $(".fill-bar").css("width", (loadingbar.width() / imagesToLoad * imagesLoaded) + "px");
-                $(".loading-bar .text").text(imagesLoaded + " / " + imagesToLoad);
-            }
-        }
-
-        function saveToStorage(file, data, type) {
-            pokemonCore.fileSystem.root.getFile(file, {create: true}, function (fileEntry) {
-
-                fileEntry.createWriter(function (fileWriter) {
-
-                    fileWriter.onwriteend = function (e) {
-                        //console.log('Write completed.');
-                    };
-
-                    fileWriter.onerror = function (e) {
-                        console.log('Write failed: ');
-                        console.log(e);
-                    };
-
-                    var blob = new Blob([data], {type: type});
-
-                    fileWriter.write(blob);
-
-                }, pokemonCore.fileStorage.errorHandler);
-
-            }, pokemonCore.fileStorage.errorHandler);
-        }
-    },
-
-    fileStorage: {
-        retrieveFile: function (fileName, elem) {
-            pokemonCore.fileSystem.root.getFile(fileName, {}, function (fileEntry) {
-                fileEntry.file(function (file) {
-                    var reader = new FileReader();
-                    reader.onloadend = function (event) {
-                        $(elem).attr("src", "data:image/png;base64," + event.target.result);
-                    };
-
-                    reader.readAsText(file);
-                }, pokemonCore.fileStorage.errorHandler);
-
-            }, pokemonCore.fileStorage.errorHandler);
-        },
-        retrieveFileBg: function (fileName, elem) {
-            pokemonCore.fileSystem.root.getFile(fileName, {}, function (fileEntry) {
-                fileEntry.file(function (file) {
-                    var reader = new FileReader();
-                    reader.onloadend = function (event) {
-                        $(elem).css("background-image", "url(data:image/png;base64," + event.target.result + ")");
-                    };
-
-                    reader.readAsText(file);
-                }, pokemonCore.fileStorage.errorHandler);
-
-            }, pokemonCore.fileStorage.errorHandler);
-        },
-        errorHandler: function (e) {
-            var msg = '';
-
-            switch (e.code) {
-                case FileError.QUOTA_EXCEEDED_ERR:
-                    msg = 'QUOTA_EXCEEDED_ERR';
-                    break;
-                case FileError.NOT_FOUND_ERR:
-                    msg = 'NOT_FOUND_ERR';
-                    break;
-                case FileError.SECURITY_ERR:
-                    msg = 'SECURITY_ERR';
-                    break;
-                case FileError.INVALID_MODIFICATION_ERR:
-                    msg = 'INVALID_MODIFICATION_ERR';
-                    break;
-                case FileError.INVALID_STATE_ERR:
-                    msg = 'INVALID_STATE_ERR';
-                    break;
-                default:
-                    msg = 'Unknown Error';
-                    break;
-            }
-            ;
-            console.log('Error: ' + msg);
-        }
-    },
-
     init: function () {
-        pokemonCore.loadingScreen();
+        pokemonCore.maps.getMap(27);
+        pokemonCore.player.bindMovement();
     },
 
     //Maps class
     maps: {
         mapLastCoord: new Array(),
         map: null,
-        mapId: null,
         collision: true,
         addNumber: null,
         walk: false,
@@ -416,12 +150,12 @@ var pokemonCore = {
         },
         getMap: function (mapId, x, y) {
             var created = false;
-            pokemonCore.maps.mapId = mapId;
+
             connections = null;
             onEnterFunc = null;
             music = null;
             npc = null;
-            for (var i = 0; i < pokemonCore.maps.npc.length; i++) {
+            for(var i = 0; i < pokemonCore.maps.npc.length; i++){
                 pokemonCore.maps.npc[i].setCanUpdate(false);
             }
             pokemonCore.maps.npc = null;
@@ -433,11 +167,8 @@ var pokemonCore = {
             for (var i = 0; i < pokemonCore.timeouts.length; i++) {
                 clearTimeout(pokemonCore.timeouts[i]);
             }
-            if (pokemonCore.server.socket)
-                pokemonCore.server.sendMap();
             pokemonCore.timeouts = [];
             $.getScript("resource/" + maps[mapId], function () {
-                $('div[class^="player-"]').remove();
                 pokemonCore.maps.ignore = [0, 0];
                 pokemonCore.gameCharBackUp = pokemonCore.gameChar;
                 pokemonCore.gameChar = null;
@@ -448,12 +179,7 @@ var pokemonCore = {
                 $("#player").remove();
                 $(".speech").remove();
                 $gameWrapper.append('<img border="0" class="bg"/>');
-                if (pokemonCore.fileStorage) {
-                    var img = map[1].split("/");
-                    pokemonCore.fileStorage.retrieveFile(img[0] + img[1] + "_" + img[2].replace(".png", ".txt"), $gameWrapper.find(".bg"));
-                } else {
-                    $gameWrapper.find(".bg").attr("src", resFolder + map[1]);
-                }
+                $gameWrapper.find(".bg").attr("src", resFolder + map[1]);
                 pokemonCore.maps.map = map[0];
                 //if(connections !== null) {
                 //    var connectionsBU = connections;
@@ -523,12 +249,7 @@ var pokemonCore = {
                 var pokemon = pokemonCore.pokemon.instantiate(i);
                 if (seen.indexOf(pokemon.nN) > -1) {
                     $(".pokemon-names").append('<span><span>No' + pokemon.nN + "</span> " + pokemon.name + '</span>');
-                    if (pokemonCore.fileSystem) {
-                        $(".pokemon-images").append('<div class="pkdexpkmn"></div>');
-                        pokemonCore.fileStorage.retrieveFileBg("pkmn" + pokemon.nN + ".txt", $(".pokemon-images .pkdexpkmn"));
-                    } else {
-                        $(".pokemon-images").append('<div style="background-image: url(resource/images/pokemon/' + pokemon.nN + '.png);"></div>');
-                    }
+                    $(".pokemon-images").append('<div style="background-image: url(resource/images/pokemon/' + pokemon.nN + '.png);"></div>');
                 } else {
                     $(".pokemon-names").append('<span>-------------</span>');
                     $(".pokemon-images").append('<div data-seen="false"></div>');
@@ -643,11 +364,7 @@ var pokemonCore = {
                                                             $(".ally-health .health-bar").css("width", allyBarWidth);
                                                             $(".action-menu").append('<div class="action-box"><span class="fight" data-selected="true">FIGHT</span><span class="bag" data-selected="false">BAG</span><span class="pokemon" data-selected="false">POK&eacute;MON</span><span class="run" data-selected="false">RUN</span></div>');
                                                             pokemonCore.battle.setBattleKeybinds(".action-box");
-                                                            if (pokemonCore.fileSystem) {
-                                                                pokemonCore.fileStorage.retrieveFileBg("pkmn" + pokemonCore.gameChar.pokemon.nN + ".txt", $(".ally-pokemon"));
-                                                            } else {
-                                                                $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext);
-                                                            }
+                                                            $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext);
                                                             $(".ally-health .pokemon-name").text(pokemonCore.gameChar.pokemon.name);
                                                             $(".ally-health .pokemon-lvl").text("Lv:" + pokemonCore.gameChar.pokemon.level);
                                                             $(".ally-health .pokemon-health").text("");
@@ -719,11 +436,7 @@ var pokemonCore = {
                     itemImg = item.name;
                 $(".bag-gui .item-desc").text("");
                 $(".bag-gui .item-desc").append(item.desc);
-                if (pokemonCore.fileSystem) {
-                    pokemonCore.fileStorage.retrieveFileBg("items" + item.img.replace(".png", ".txt"), $(".bag-gui .item-display"));
-                } else {
-                    $(".bag-gui .item-display").css("background-image", "url(resource/images/items/" + itemImg + ".png)");
-                }
+                $(".bag-gui .item-display").css("background-image", "url(resource/images/items/" + itemImg + ".png)")
             }
 
             updateBag();
@@ -731,10 +444,6 @@ var pokemonCore = {
             bindKeys();
             function bindKeys() {
                 $(document).bind("keydown", function (e) {
-                    if (event.target.nodeName && event.target.nodeName != "BODY") {
-                        return;
-                    }
-                    e.preventDefault();
                     switch (e.which) {
                         case 39:
                             curNr++;
@@ -865,6 +574,7 @@ var pokemonCore = {
                             }
                             break;
                     }
+                    e.preventDefault();
 
                     function removeArrow() {
                         $(".arrow-left, .arrow-right").css("display", "none");
@@ -988,10 +698,6 @@ var pokemonCore = {
         },
         bindMovement: function () {
             $(document).keydown(function (e) {
-                if (event.target.nodeName && event.target.nodeName != "BODY") {
-                    return;
-                }
-                e.preventDefault();
                 //if(pokemonCore.canKeyPress) {
                 if (pokemonCore.player.walkInterval === 'null' || pokemonCore.player.walkInterval == null) {
                     playerSwitch();
@@ -1104,7 +810,8 @@ var pokemonCore = {
                         $("#player").attr("data-foot", "left");
                     }
                 }
-                pokemonCore.server.sendCoords();
+
+                e.preventDefault();
             });
 
             $(document).bind("keyup", function (e) {
@@ -1235,7 +942,7 @@ var pokemonCore = {
             return jQuery.extend(true, {}, coords);
         }
 
-        this.setCanUpdate = function (update) {
+        this.setCanUpdate = function(update){
             canUpdate = update;
         }
 
@@ -1410,7 +1117,7 @@ var pokemonCore = {
                             y = 0;
                             break;
                     }
-                    if (typeof leader === 'undefined') {
+                    if(typeof leader === 'undefined') {
                         if (_this.battle !== "false" && _this.battle != false) {
                             checkPlayer(x, y);
                         }
@@ -1450,7 +1157,7 @@ var pokemonCore = {
 
             function equalsArr() {
                 for (var i = 0; i < collisions.length; i++) {
-                    if (pokemonCore.maps.map[collisions[i][1]][collisions[i][0]] == 1)
+                    if(pokemonCore.maps.map[collisions[i][1]][collisions[i][0]] == 1)
                         break;
 
                     for (var i2 = 0; i2 < collisions[i].length; i2++) {
@@ -1626,7 +1333,7 @@ var pokemonCore = {
                                     npc.battle.pokemon[i].pokemon = pokemonCore.pokemon.getEncounterMoves(npc.battle.pokemon[i].pokemon);
                                 }
                                 pokemonCore.battle.trainerNpc = npc;
-                                if (typeof npc.leader === 'undefined')
+                                if(typeof npc.leader === 'undefined')
                                     pokemonCore.audioHandler.startBattleMusic("trainer.mp3");
                                 else
                                     pokemonCore.audioHandler.startBattleMusic("gymleader.mp3");
@@ -1694,20 +1401,11 @@ var pokemonCore = {
                     $(".enemy-pokemon").css("background", "url(resource/images/animations/pokemon/" + pokemon.pokemon.nN + ".gif) 0px 0px");
                     $(".enemy-pokemon").css("background-size", "100% 100%");
                     setTimeout(function () {
-                        if (pokemonCore.fileSystem) {
-                            pokemonCore.fileStorage.retrieveFileBg("pkmn" + pokemon.pokemon.nN + ".txt", $(".enemy-pokemon"));
-                            $(".enemy-pokemon").css("background-size", "auto auto");
-                        } else {
-                            $(".enemy-pokemon").css("background", "url(resource/images/pokemon/" + pokemon.pokemon.nN + ".png)");
-                        }
+                        $(".enemy-pokemon").css("background", "url(resource/images/pokemon/" + pokemon.pokemon.nN + ".png)");
                     }, 1000);
                     setTimeout(function () {
                         pokemonCore.audioHandler.soundEffect('cries/' + pokemonCore.gameChar.pokemon.nN + '.ogg');
-                        if (pokemonCore.fileSystem) {
-                            pokemonCore.fileStorage.retrieveFileBg("pkmn" + pokemonCore.gameChar.pokemon.nN + ".txt", $(".ally-pokemon"));
-                        } else {
-                            $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ")");
-                        }
+                        $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ext + ")");
                     }, 2000);
                 }, 800);
             }, cd);
@@ -1769,10 +1467,6 @@ var pokemonCore = {
 
         setBattleKeybinds: function (itemclass) {
             $(document).keydown(function (e) {
-                if (event.target.nodeName && event.target.nodeName != "BODY") {
-                    return;
-                }
-                e.preventDefault();
                 var action = $(itemclass + ' [data-selected="true"]');
                 switch (e.which) {
                     case 37: // left
@@ -1811,6 +1505,7 @@ var pokemonCore = {
                     default:
                         return;
                 }
+                e.preventDefault();
             });
 
             function selected() {
@@ -1955,11 +1650,7 @@ var pokemonCore = {
                                                         $(".battle-screen").children().remove();
                                                         $(".battle-screen").append('<div class="action-menu" data-bg="start"></div>');
                                                         $(".action-menu").text("");
-                                                        if (pokemonCore.fileSystem) {
-                                                            pokemonCore.fileStorage.retrieveFileBg("pkmn" + pokemonCore.gameChar.pokemon.nN + ".png", $(".ally-pokemon"));
-                                                        } else {
-                                                            $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ".png)");
-                                                        }
+                                                        $(".ally-pokemon").css("background-image", "url(resource/images/pokemon/" + pokemonCore.gameChar.pokemon.nN + ".png)");
                                                         writer(0, false, function () {
                                                             pokemonCore.battle.initFight(pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon);
                                                             $(".battle-screen").append('<div class="enemy-pokemon"></div><div class="ally-pokemon" data-selected="true"></div>');
@@ -1968,12 +1659,7 @@ var pokemonCore = {
                                                                 $(".enemy-pokemon").css("background", "url(resource/images/animations/pokemon/" + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.nN + ".gif) 0px 0px");
                                                                 $(".enemy-pokemon").css("background-size", "100% 100%");
                                                                 setTimeout(function () {
-                                                                    if (pokemonCore.fileSystem) {
-                                                                        pokemonCore.fileStorage.retrieveFileBg("pkmn" + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.nN + ".txt", $(".enemy-pokemon"));
-                                                                        $(".enemy-pokemon").css("background-size", "auto auto");
-                                                                    } else {
-                                                                        $(".enemy-pokemon").css("background", "url(resource/images/pokemon/" + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.nN + ".png)");
-                                                                    }
+                                                                    $(".enemy-pokemon").css("background", "url(resource/images/pokemon/" + pokemonCore.battle.trainerNpc.battle.pokemon[alivePokemon].pokemon.pokemon.nN + ".png)");
                                                                 }, 1000);
                                                             }, 300);
                                                         });
@@ -2603,65 +2289,8 @@ var pokemonCore = {
                 })();
             }
         }
-    },
-    server: {
-        socket: null,
-        startServer: function () {
-            pokemonCore.server.socket = new WebSocket("ws://10.17.236.57:8080/service");
-            pokemonCore.server.socket.onopen = function () {
-                pokemonCore.server.socket.send("Client connected");
-                pokemonCore.server.sendMap();
-                $("#game").append('<div class="message-box"><ul id="messages"></ul><input type="text"></div>"');
-                $(".message-box input").bind("keydown", function(e){
-                    if(e.which == 13){
-                        pokemonCore.server.sendMessage($(".message-box input").val());
-                        $(".message-box input").val("");
-                    }
-                });
-            };
-
-            pokemonCore.server.socket.onmessage = function (evt) {
-                switch (evt.data.split("$")[0]) {
-                    case "1":
-                        var data = evt.data.split("$")[1];
-                        //console.log(data);
-                        for (var i = 0; i < data.split(".").length; i++) {
-                            var splt = data.split(".")[i];
-                            if ($(".player-" + i).length <= 0) {
-                                $('#game .parent.wrapper').append('<div class="player-' + i + '" style="top: ' + ((parseInt(splt.split(",")[1]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px; left: ' + ((parseInt(splt.split(",")[0]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px"></div>');
-                            } else {
-                                $(".player-" + i).css("top", ((parseInt(splt.split(",")[1]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px');
-                                $(".player-" + i).css("left", ((parseInt(splt.split(",")[0]) - 1) * 64 - pokemonCore.maps.ignore[0]) + 'px');
-                            }
-                        }
-                        break;
-                    case "3":
-                        var data = evt.data.split("$")[1];
-                        if(data != "") {
-                            for (var i = 0; i < data.split('.').length; i++) {
-                                $(".message-box ul").append('<li>' + data.split('.')[i] + '</li>');
-                            }
-                            var elem = document.getElementById('messages');
-                            elem.scrollTop = elem.scrollHeight;
-                        }
-                        break;
-
-                }
-            };
-        },
-
-        sendCoords: function () {
-            pokemonCore.server.socket.send("1$" + pokemonCore.gameChar.getCoords().X + "," + pokemonCore.gameChar.getCoords().Y);
-        },
-
-        sendMap: function () {
-            pokemonCore.server.socket.send("2$" + pokemonCore.maps.mapId);
-        },
-
-        sendMessage: function (message) {
-            pokemonCore.server.socket.send("3$" + message);
-        }
-    },
+    }
+    ,
     natures: [
         {
             name: "Hardy",

@@ -2,7 +2,7 @@ var map = [
     [
 
     ],
-    "storyspecial/intro.png"
+    "towns/storyspecial/intro.png"
 ];
 
 var onEnterFunc = function(){

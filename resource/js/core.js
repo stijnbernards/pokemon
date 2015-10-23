@@ -1,6 +1,6 @@
 //Core file
 $(document).ready(function(){
-    pokemonCore.displayGrid = true;
+    //pokemonCore.displayGrid = true;
     pokemonCore.init();
     var pokemon =
         {

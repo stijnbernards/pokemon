@@ -22,7 +22,9 @@ namespace RestServer.Server
             {
                 { 1, SaveCoords },
                 { 2, SaveMap },
-                { 3, Message }
+                { 3, Message },
+                { 4, Pokemons },
+                { 5, CharName }
             };
 
             this.client = client;
@@ -30,8 +32,6 @@ namespace RestServer.Server
             {
                 Coords = new Coords()
             };
-
-            this.character.Name = "Peter-" + (Data.clients.Count() + 1);
 
             new Thread(() =>
             {
@@ -130,6 +130,16 @@ namespace RestServer.Server
         private void Message(object message)
         {
             Data.messages.Add(new Tuple<DateTime, string>(DateTime.Now, this.character.Name + ": " + (string)message));
+        }
+
+        private void Pokemons(object message)
+        {
+            this.character.pokemons = message.ToString();
+        }
+
+        private void CharName(object message)
+        {
+            this.character.Name = message.ToString();
         }
     }
 }

@@ -2607,7 +2607,7 @@ var pokemonCore = {
     server: {
         socket: null,
         startServer: function () {
-            pokemonCore.server.socket = new WebSocket("ws://10.17.236.57:8080/service");
+            pokemonCore.server.socket = new WebSocket("ws://localhost:8080/service");
             pokemonCore.server.socket.onopen = function () {
                 pokemonCore.server.socket.send("Client connected");
                 pokemonCore.server.sendMap();

@@ -5,3 +5,10 @@ E:\Rest\Rest\obj\Release\Rest.Properties.Resources.resources
 E:\Rest\Rest\obj\Release\Rest.csproj.GenerateResource.Cache
 E:\Rest\Rest\obj\Release\Rest.dll
 E:\Rest\Rest\obj\Release\Rest.pdb
+C:\xampp\htdocs\pokemon\Rest\Rest\bin\Release\Rest.dll
+C:\xampp\htdocs\pokemon\Rest\Rest\bin\Release\Rest.pdb
+C:\xampp\htdocs\pokemon\Rest\Rest\obj\Release\Rest.csprojResolveAssemblyReference.cache
+C:\xampp\htdocs\pokemon\Rest\Rest\obj\Release\Rest.Properties.Resources.resources
+C:\xampp\htdocs\pokemon\Rest\Rest\obj\Release\Rest.csproj.GenerateResource.Cache
+C:\xampp\htdocs\pokemon\Rest\Rest\obj\Release\Rest.dll
+C:\xampp\htdocs\pokemon\Rest\Rest\obj\Release\Rest.pdb

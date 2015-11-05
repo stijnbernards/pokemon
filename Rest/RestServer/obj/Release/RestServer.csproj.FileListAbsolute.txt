@@ -8,3 +8,13 @@ E:\Rest\RestServer\obj\Release\RestServer.Properties.Resources.resources
 E:\Rest\RestServer\obj\Release\RestServer.csproj.GenerateResource.Cache
 E:\Rest\RestServer\obj\Release\RestServer.exe
 E:\Rest\RestServer\obj\Release\RestServer.pdb
+C:\xampp\htdocs\pokemon\Rest\RestServer\bin\Release\RestServer.exe.config
+C:\xampp\htdocs\pokemon\Rest\RestServer\obj\Release\RestServer.exe
+C:\xampp\htdocs\pokemon\Rest\RestServer\obj\Release\RestServer.pdb
+C:\xampp\htdocs\pokemon\Rest\RestServer\bin\Release\RestServer.exe
+C:\xampp\htdocs\pokemon\Rest\RestServer\bin\Release\RestServer.pdb
+C:\xampp\htdocs\pokemon\Rest\RestServer\bin\Release\Rest.dll
+C:\xampp\htdocs\pokemon\Rest\RestServer\bin\Release\Rest.pdb
+C:\xampp\htdocs\pokemon\Rest\RestServer\obj\Release\RestServer.csprojResolveAssemblyReference.cache
+C:\xampp\htdocs\pokemon\Rest\RestServer\obj\Release\RestServer.Properties.Resources.resources
+C:\xampp\htdocs\pokemon\Rest\RestServer\obj\Release\RestServer.csproj.GenerateResource.Cache

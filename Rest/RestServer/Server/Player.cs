@@ -11,6 +11,8 @@ namespace RestServer.Server
         public Coords Coords { get; set; }
         public int Map { get; set; }
         public string Name { get; set; }
+        public string pokemons { get; set; }
+        public string bag { get; set; }
     }
 
     class Coords

@@ -1156,6 +1156,185 @@ div.battle-screen .level-up div[class^="level-"]:first-of-type {
   margin-top: 28px;
 }
 
+/* line 213, ../scss/sass/custom/battle/_main.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 234, ../scss/sass/custom/battle/_main.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 238, ../scss/sass/custom/battle/_main.scss */
+body {
+  line-height: 1;
+}
+
+/* line 241, ../scss/sass/custom/battle/_main.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 244, ../scss/sass/custom/battle/_main.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 247, ../scss/sass/custom/battle/_main.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 252, ../scss/sass/custom/battle/_main.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 257, ../scss/sass/custom/battle/_main.scss */
+.controlls-right {
+  position: absolute;
+  right: 0px;
+  bottom: 0px !important;
+  width: 250px;
+  background-color: grey;
+  height: 250px !important;
+}
+
+/* line 266, ../scss/sass/custom/battle/_main.scss */
+.controlls-left {
+  position: absolute;
+  left: 0px;
+  bottom: 0px !important;
+  width: 250px;
+  background-color: grey;
+  height: 250px !important;
+}
+
+/* line 274, ../scss/sass/custom/battle/_main.scss */
+.up {
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  left: 100px;
+  top: 25px;
+  height: 50px;
+  text-align: center;
+}
+/* line 282, ../scss/sass/custom/battle/_main.scss */
+.up:after {
+  content: "\2191";
+  font-size: 44px !important;
+  display: block;
+}
+
+/* line 289, ../scss/sass/custom/battle/_main.scss */
+.down {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  left: 100px;
+  bottom: 25px;
+  text-align: center;
+}
+/* line 297, ../scss/sass/custom/battle/_main.scss */
+.down:after {
+  content: "\2193";
+  font-size: 44px !important;
+  display: block;
+}
+
+/* line 304, ../scss/sass/custom/battle/_main.scss */
+.left {
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  left: 25px;
+  top: 100px;
+  height: 50px;
+  text-align: center;
+}
+/* line 312, ../scss/sass/custom/battle/_main.scss */
+.left:after {
+  content: "\2190";
+  font-size: 44px !important;
+  display: block;
+}
+
+/* line 319, ../scss/sass/custom/battle/_main.scss */
+.right {
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  right: 25px;
+  top: 100px;
+  height: 50px;
+  text-align: center;
+}
+/* line 327, ../scss/sass/custom/battle/_main.scss */
+.right:after {
+  content: "\2192";
+  font-size: 44px !important;
+  display: block;
+}
+
+/* line 334, ../scss/sass/custom/battle/_main.scss */
+.A {
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  right: 150px;
+  top: 55px;
+  height: 50px;
+  text-align: center;
+}
+/* line 342, ../scss/sass/custom/battle/_main.scss */
+.A:after {
+  content: "A";
+  font-size: 44px !important;
+  display: block;
+}
+
+/* line 349, ../scss/sass/custom/battle/_main.scss */
+.B {
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  right: 45px;
+  top: 150px;
+  height: 50px;
+  text-align: center;
+}
+/* line 357, ../scss/sass/custom/battle/_main.scss */
+.B:after {
+  content: "B";
+  font-size: 44px !important;
+  display: block;
+}
+
 /* line 1, ../scss/sass/animations/_misc.scss */
 .exclamation-mark {
   position: absolute;

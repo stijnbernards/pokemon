@@ -207,3 +207,156 @@ div.battle-screen{
     }
   }
 }
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.controlls-right{
+  position: absolute;
+  right: 0px;
+  bottom: 0px !important;
+  width: 250px;
+  background-color: grey;
+  height: 250px !important;
+}
+
+.controlls-left{
+  position: absolute;
+  left: 0px;
+  bottom: 0px !important;
+  width: 250px;
+  background-color: grey;
+  height: 250px !important;
+}
+.up{
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  left: 100px;
+  top: 25px;
+  height: 50px;
+  text-align: center;
+  &:after{
+    content: "\2191";
+    font-size: 44px !important;
+    display: block;
+  }
+}
+
+.down{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  left: 100px;
+  bottom: 25px;
+  text-align: center;
+  &:after{
+    content: "\2193";
+    font-size: 44px !important;
+    display: block;
+  }
+}
+
+.left{
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  left: 25px;
+  top: 100px;
+  height: 50px;
+  text-align: center;
+  &:after{
+    content: "\2190";
+    font-size: 44px !important;
+    display: block;
+  }
+}
+
+.right{
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  right: 25px;
+  top: 100px;
+  height: 50px;
+  text-align: center;
+  &:after{
+    content: "\2192";
+    font-size: 44px !important;
+    display: block;
+  }
+}
+
+.A{
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  right: 150px;
+  top: 55px;
+  height: 50px;
+  text-align: center;
+  &:after{
+    content: "A";
+    font-size: 44px !important;
+    display: block;
+  }
+}
+
+.B{
+  position: absolute;
+  width: 50px;
+  background-color: white;
+  right: 45px;
+  top: 150px;
+  height: 50px;
+  text-align: center;
+  &:after{
+    content: "B";
+    font-size: 44px !important;
+    display: block;
+  }
+}

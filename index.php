@@ -26,20 +26,10 @@
     <script type="application/javascript" src="resource/js/functions.js"></script>
     <script type="text/javascript" src="resource/js/core.js"></script>
 </head>
-<body style="margin: 0 !important;">
+<body>
     <div id="game">
         <div class="parent wrapper">
         </div>
-    </div>
-    <div class="controlls-left">
-        <div class="up"></div>
-        <div class="right"></div>
-        <div class="left"></div>
-        <div class="down"></div>
-    </div>
-    <div class="controlls-right">
-        <div class="A"></div>
-        <div class="B"></div>
     </div>
 </body>
 </html>

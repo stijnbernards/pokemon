@@ -63,222 +63,210 @@ var pokemonCore = {
 
     //Main init function
     loadingScreen: function () {
-        pokemonCore.fileStorage = false;
-        pokemonCore.fileSystem = false;
-        setTimeout(function () {
-            pokemonCore.maps.getMap(0);
-            pokemonCore.player.bindMovement();
-            $("#game").attr("style", "");
-            $(".load-text").remove();
-            $(".loading-bar").remove();
-            pokemonCore.server.startServer();
-        }, 800);
-        if(false) {
-            pokemonCore.audioHandler.startAmbientAudio("titlescreen.mp3");
-            var imagesLoaded = 0;
-            var imagesToLoad = 0;
-            $("#game").css("background-image", "url(resource/images/gui/titlescreen.gif)");
-            $("#game").append('<div class="load-text">Loading Pok&eacute;mon footprints...</div><div class="loading-bar"><div class="fill-bar"></div><div class="text"></div></div>');
+        pokemonCore.audioHandler.startAmbientAudio("titlescreen.mp3");
+        var imagesLoaded = 0;
+        var imagesToLoad = 0;
+        $("#game").css("background-image", "url(resource/images/gui/titlescreen.gif)");
+        $("#game").append('<div class="load-text">Loading Pok&eacute;mon footprints...</div><div class="loading-bar"><div class="fill-bar"></div><div class="text"></div></div>');
 
-            window.webkitStorageInfo.requestQuota(PERSISTENT, 10485760000, function (grantedBytes) {
-                window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFs, pokemonCore.fileStorage.errorHandler);
-            }, function (e) {
-                console.log('Error', e);
-            });
-            function onInitFs(fs) {
-                pokemonCore.fileSystem = fs;
-                console.log("Created file storage saving files...");
+        window.webkitStorageInfo.requestQuota(PERSISTENT, 10485760000, function (grantedBytes) {
+            window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFs, pokemonCore.fileStorage.errorHandler);
+        }, function (e) {
+            console.log('Error', e);
+        });
+        function onInitFs(fs) {
+            pokemonCore.fileSystem = fs;
+            console.log("Created file storage saving files...");
+            setTimeout(function () {
+                $.get("resource/php/requesturls.php?dir=footprints", function (data) {
+                    data = JSON.parse(data);
+                    imagesToLoad = data.length;
+                    imagesLoaded = 0;
+                    for (var i = 0; i < data.length; i++) {
+                        $.ajax({
+                            url: "resource/php/getimage.php?uri=images/footprint/" + data[i],
+                            type: "GET",
+                            indexValue: i,
+                        }).done(function (resp, textStatus, jqXHR) {
+                            saveToStorage("fp" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                            imagesLoaded++;
+                            updateBar();
+                            if (imagesLoaded == imagesToLoad)
+                                setTimeout(function () {
+                                    loadPokemons();
+                                }, 800);
+                        });
+                    }
+                });
+            }, 1);
+            function loadPokemons() {
+                $(".load-text").text("");
+                $(".load-text").append("Loading Pok&eacute;mon sprites...");
                 setTimeout(function () {
-                    $.get("resource/php/requesturls.php?dir=footprints", function (data) {
+                    $.get("resource/php/requesturls.php?dir=pokemon", function (data) {
                         data = JSON.parse(data);
                         imagesToLoad = data.length;
                         imagesLoaded = 0;
                         for (var i = 0; i < data.length; i++) {
                             $.ajax({
-                                url: "resource/php/getimage.php?uri=images/footprint/" + data[i],
+                                url: "resource/php/getimage.php?uri=images/pokemon/" + data[i],
                                 type: "GET",
                                 indexValue: i,
                             }).done(function (resp, textStatus, jqXHR) {
-                                saveToStorage("fp" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
                                 imagesLoaded++;
+                                saveToStorage("pkmn" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
                                 updateBar();
                                 if (imagesLoaded == imagesToLoad)
                                     setTimeout(function () {
-                                        loadPokemons();
+                                        loadItems();
                                     }, 800);
                             });
                         }
                     });
                 }, 1);
-                function loadPokemons() {
-                    $(".load-text").text("");
-                    $(".load-text").append("Loading Pok&eacute;mon sprites...");
-                    setTimeout(function () {
-                        $.get("resource/php/requesturls.php?dir=pokemon", function (data) {
-                            data = JSON.parse(data);
-                            imagesToLoad = data.length;
-                            imagesLoaded = 0;
-                            for (var i = 0; i < data.length; i++) {
-                                $.ajax({
-                                    url: "resource/php/getimage.php?uri=images/pokemon/" + data[i],
-                                    type: "GET",
-                                    indexValue: i,
-                                }).done(function (resp, textStatus, jqXHR) {
-                                    imagesLoaded++;
-                                    saveToStorage("pkmn" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
-                                    updateBar();
-                                    if (imagesLoaded == imagesToLoad)
-                                        setTimeout(function () {
-                                            loadItems();
-                                        }, 800);
-                                });
-                            }
-                        });
-                    }, 1);
-                }
-
-                function loadItems() {
-                    $(".load-text").text("Loading item sprites...");
-                    setTimeout(function () {
-                        $.get("resource/php/requesturls.php?dir=items", function (data) {
-                            data = JSON.parse(data);
-                            imagesToLoad = data.length;
-                            imagesLoaded = 0;
-                            for (var i = 0; i < data.length; i++) {
-                                $.ajax({
-                                    url: "resource/php/getimage.php?uri=images/items/" + data[i],
-                                    type: "GET",
-                                    indexValue: i,
-                                }).done(function (resp, textStatus, jqXHR) {
-                                    imagesLoaded++;
-                                    saveToStorage("item" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
-                                    updateBar();
-                                    if (imagesLoaded == imagesToLoad)
-                                        setTimeout(function () {
-                                            //loadPkmnAnimations();
-                                            loadTowns();
-                                        }, 800);
-                                });
-                            }
-                        });
-                    }, 1);
-                }
-
-                function loadPkmnAnimations() {
-                    $(".load-text").text("");
-                    $(".load-text").append("Loading Pok&eacute;mon animations...");
-                    setTimeout(function () {
-                        $.get("resource/php/requesturls.php?dir=pkanim", function (data) {
-                            data = JSON.parse(data);
-                            imagesToLoad = data.length;
-                            imagesLoaded = 0;
-                            for (var i = 0; i < data.length; i++) {
-                                $.ajax({
-                                    url: "resource/php/getimage.php?uri=images/animations/pokemon/" + data[i],
-                                    type: "GET",
-                                    indexValue: i,
-                                }).done(function (resp, textStatus, jqXHR) {
-                                    imagesLoaded++;
-                                    saveToStorage("pkanim" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
-                                    updateBar();
-                                    if (imagesLoaded == imagesToLoad)
-                                        loadTowns();
-                                });
-                            }
-                        });
-                    }, 1);
-                }
-
-                function loadTowns() {
-                    $(".load-text").text("");
-                    $(".load-text").append("Loading town maps...");
-                    setTimeout(function () {
-                        $.get("resource/php/requesturls.php?dir=towns", function (data) {
-                            data = JSON.parse(data);
-                            imagesToLoad = data.length;
-                            imagesLoaded = 0;
-                            for (var i = 0; i < data.length; i++) {
-                                $.ajax({
-                                    url: "resource/php/getimage.php?uri=images/towns/" + data[i],
-                                    type: "GET",
-                                    indexValue: i,
-                                }).done(function (resp, textStatus, jqXHR) {
-                                    imagesLoaded++;
-                                    saveToStorage("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
-                                    //console.log("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"));
-                                    updateBar();
-                                    if (imagesLoaded == imagesToLoad)
-                                        setTimeout(function () {
-                                            loadRoutes();
-                                        }, 800);
-                                });
-                            }
-                        });
-                    }, 1);
-                }
-
-                function loadRoutes() {
-                    $(".load-text").text("");
-                    $(".load-text").append("Loading route maps...");
-                    setTimeout(function () {
-                        $.get("resource/php/requesturls.php?dir=routes", function (data) {
-                            data = JSON.parse(data);
-                            imagesToLoad = data.length;
-                            imagesLoaded = 0;
-                            for (var i = 0; i < data.length; i++) {
-                                $.ajax({
-                                    url: "resource/php/getimage.php?uri=images/routes/" + data[i],
-                                    type: "GET",
-                                    indexValue: i,
-                                }).done(function (resp, textStatus, jqXHR) {
-                                    imagesLoaded++;
-                                    saveToStorage("routes" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
-                                    updateBar();
-                                    if (imagesLoaded == imagesToLoad) {
-                                        setTimeout(function () {
-                                            pokemonCore.maps.getMap(0);
-                                            pokemonCore.player.bindMovement();
-                                            $("#game").attr("style", "");
-                                            $(".load-text").remove();
-                                            $(".loading-bar").remove();
-                                            pokemonCore.server.startServer();
-                                        }, 800)
-                                    }
-                                });
-                            }
-                        });
-                    }, 1);
-                }
-
-                function updateBar() {
-                    var loadingbar = $(".loading-bar");
-                    $(".fill-bar").css("width", (loadingbar.width() / imagesToLoad * imagesLoaded) + "px");
-                    $(".loading-bar .text").text(imagesLoaded + " / " + imagesToLoad);
-                }
             }
 
-            function saveToStorage(file, data, type) {
-                pokemonCore.fileSystem.root.getFile(file, {create: true}, function (fileEntry) {
+            function loadItems() {
+                $(".load-text").text("Loading item sprites...");
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=items", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/items/" + data[i],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
+                                saveToStorage("item" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                                updateBar();
+                                if (imagesLoaded == imagesToLoad)
+                                    setTimeout(function () {
+                                        //loadPkmnAnimations();
+                                        loadTowns();
+                                    }, 800);
+                            });
+                        }
+                    });
+                }, 1);
+            }
 
-                    fileEntry.createWriter(function (fileWriter) {
+            function loadPkmnAnimations() {
+                $(".load-text").text("");
+                $(".load-text").append("Loading Pok&eacute;mon animations...");
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=pkanim", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/animations/pokemon/" + data[i],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
+                                saveToStorage("pkanim" + data[this.indexValue].replace(".png", ".txt"), resp, "text/plain;");
+                                updateBar();
+                                if (imagesLoaded == imagesToLoad)
+                                    loadTowns();
+                            });
+                        }
+                    });
+                }, 1);
+            }
 
-                        fileWriter.onwriteend = function (e) {
-                            //console.log('Write completed.');
-                        };
+            function loadTowns() {
+                $(".load-text").text("");
+                $(".load-text").append("Loading town maps...");
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=towns", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/towns/" + data[i],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
+                                saveToStorage("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
+                                //console.log("towns" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"));
+                                updateBar();
+                                if (imagesLoaded == imagesToLoad)
+                                    setTimeout(function () {
+                                        loadRoutes();
+                                    }, 800);
+                            });
+                        }
+                    });
+                }, 1);
+            }
 
-                        fileWriter.onerror = function (e) {
-                            console.log('Write failed: ');
-                            console.log(e);
-                        };
+            function loadRoutes() {
+                $(".load-text").text("");
+                $(".load-text").append("Loading route maps...");
+                setTimeout(function () {
+                    $.get("resource/php/requesturls.php?dir=routes", function (data) {
+                        data = JSON.parse(data);
+                        imagesToLoad = data.length;
+                        imagesLoaded = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                url: "resource/php/getimage.php?uri=images/routes/" + data[i],
+                                type: "GET",
+                                indexValue: i,
+                            }).done(function (resp, textStatus, jqXHR) {
+                                imagesLoaded++;
+                                saveToStorage("routes" + data[this.indexValue].replace(".png", ".txt").replace("\\", "_"), resp, "text/plain;");
+                                updateBar();
+                                if (imagesLoaded == imagesToLoad) {
+                                    setTimeout(function () {
+                                        pokemonCore.maps.getMap(0);
+                                        pokemonCore.player.bindMovement();
+                                        $("#game").attr("style", "");
+                                        $(".load-text").remove();
+                                        $(".loading-bar").remove();
+                                        pokemonCore.server.startServer();
+                                    }, 800)
+                                }
+                            });
+                        }
+                    });
+                }, 1);
+            }
 
-                        var blob = new Blob([data], {type: type});
+            function updateBar() {
+                var loadingbar = $(".loading-bar");
+                $(".fill-bar").css("width", (loadingbar.width() / imagesToLoad * imagesLoaded) + "px");
+                $(".loading-bar .text").text(imagesLoaded + " / " + imagesToLoad);
+            }
+        }
 
-                        fileWriter.write(blob);
+        function saveToStorage(file, data, type) {
+            pokemonCore.fileSystem.root.getFile(file, {create: true}, function (fileEntry) {
 
-                    }, pokemonCore.fileStorage.errorHandler);
+                fileEntry.createWriter(function (fileWriter) {
+
+                    fileWriter.onwriteend = function (e) {
+                        //console.log('Write completed.');
+                    };
+
+                    fileWriter.onerror = function (e) {
+                        console.log('Write failed: ');
+                        console.log(e);
+                    };
+
+                    var blob = new Blob([data], {type: type});
+
+                    fileWriter.write(blob);
 
                 }, pokemonCore.fileStorage.errorHandler);
-            }
+
+            }, pokemonCore.fileStorage.errorHandler);
         }
     },
 
@@ -1000,8 +988,7 @@ var pokemonCore = {
         },
         bindMovement: function () {
             $(document).keydown(function (e) {
-                console.log(event);
-                if (event.target.nodeName && event.target.nodeName != "BODY" && !event.clientX ) {
+                if (event.target.nodeName && event.target.nodeName != "BODY") {
                     return;
                 }
                 e.preventDefault();
@@ -1019,18 +1006,18 @@ var pokemonCore = {
                     (function walk() {
                         if (e.which != 32) {
                             pokemonCore.player.lastKeyPress = e.which
-                            //pokemonCore.player.walkInterval = setTimeout(function () {
-                               // playerSwitch();
-                                //if (pokemonCore.canKeyPress == false) {
+                            pokemonCore.player.walkInterval = setTimeout(function () {
+                                playerSwitch();
+                                if (pokemonCore.canKeyPress == false) {
                                     setTimeout(function () {
                                         setTimeout(function () {
                                             $("#player").attr("data-animate", "false");
                                             pokemonCore.canKeyPress = true;
                                         }, 100);
                                     }, 150);
-                                //}
-                                //walk();
-                            //}, 280);
+                                }
+                                walk();
+                            }, 280);
                         }
                     })();
                 }

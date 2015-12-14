@@ -6,6 +6,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace RestServer.Server
@@ -14,14 +15,35 @@ namespace RestServer.Server
     {
         private static Socket socketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
         private static string guid = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
+        private static string baseDir = Directory.GetCurrentDirectory();
+        public static string DataDir;
+        public static string PlayerDir;
         
         public static void Start()
         {
             Console.WriteLine("Started server!");
 
+            CreateDirs();
+
             socketServer.Bind(new IPEndPoint(IPAddress.Any, 8080));
             socketServer.Listen(128);
             socketServer.BeginAccept(null, 0, OnAccept, null);
+        }
+
+        private static void CreateDirs()
+        {
+            if (!Directory.Exists(baseDir + "/Data"))
+            {
+                Directory.CreateDirectory(baseDir + "/Data");
+                DataDir = baseDir + "/Data";
+                Directory.CreateDirectory(DataDir + "/Players");
+                PlayerDir = DataDir + "/Players";
+            }
+            else
+            {
+                DataDir = baseDir + "/Data";
+                PlayerDir = DataDir + "/Players";
+            }
         }
 
         private static void OnAccept(IAsyncResult result)
@@ -104,22 +126,16 @@ namespace RestServer.Server
         {
             byte[] bytes = new byte[1024];
             int bytesRec = client.Receive(bytes);
-
-
             int second = bytes[1] & 127;
             int maskIndex = 2;
+
             if (second < 126)
-            {
                 maskIndex = 2;
-            }
             else if (second == 126)
-            {
                 maskIndex = 4;
-            }
             else if (second == 127)
-            {
                 maskIndex = 10;
-            }
+            
             byte[] mask = { bytes[maskIndex], 
                                   bytes[maskIndex+1], 
                                   bytes[maskIndex+2], 
@@ -127,10 +143,40 @@ namespace RestServer.Server
             int contentIndex = maskIndex + 4;
             byte[] decoded = new byte[bytesRec - contentIndex];
             for (int i = contentIndex, k = 0; i < bytesRec; i++, k++)
-            {
                 decoded[k] = (byte)(bytes[i] ^ mask[k % 4]);
-            }
+            
             return Encoding.UTF8.GetString(decoded, 0, decoded.Length);
+        }
+
+        public static bool Save(Player p)
+        {
+            string pData = "";
+
+            pData += p.Bag + "|" + p.Coords.X + "." + p.Coords.Y + "|" + p.Map + "|" + p.Name + "|" + p.Pokemon;
+
+            File.WriteAllText(PlayerDir + "/" + p.Name + ".pdt", pData, Encoding.UTF8);
+
+            return true;
+        }
+
+        public static bool Load(ref Player player)
+        {
+            string fl = PlayerDir + "/" + player.Name + ".pdt";
+            
+            if (File.Exists(fl))
+            {
+                string[] result = File.ReadAllText(fl, Encoding.UTF8).Split('|');
+                player.Bag = result[0];
+                player.Coords.X = Convert.ToInt16(result[1].Split('.')[0]);
+                player.Coords.Y = Convert.ToInt16(result[1].Split('.')[1]);
+                player.Map = Convert.ToInt16(result[2]);
+                player.Name = result[3];
+                player.Pokemon = result[4];
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

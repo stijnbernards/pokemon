@@ -231,6 +231,7 @@ var pokemonCore = {
                                         $(".load-text").remove();
                                         $(".loading-bar").remove();
                                         pokemonCore.server.startServer();
+
                                     }, 800)
                                 }
                             });
@@ -2606,11 +2607,21 @@ var pokemonCore = {
     },
     server: {
         socket: null,
+
+        startTicks: function(){
+            setInterval(function(){
+                pokemonCore.server.sendPokemon();
+                pokemonCore.server.sendBagPokemon();
+                pokemonCore.server.sendBag();
+            }, 1000);
+        },
+
         startServer: function () {
             pokemonCore.server.socket = new WebSocket("ws://localhost:8080/service");
             pokemonCore.server.socket.onopen = function () {
                 pokemonCore.server.socket.send("Client connected");
                 pokemonCore.server.sendMap();
+                pokemonCore.server.chooseCharName();
                 $("#game").append('<div class="message-box"><ul id="messages"></ul><input type="text"></div>"');
                 $(".message-box input").bind("keydown", function(e){
                     if(e.which == 13){
@@ -2645,7 +2656,30 @@ var pokemonCore = {
                             elem.scrollTop = elem.scrollHeight;
                         }
                         break;
-
+                    case "4":
+                        var data = evt.data.split("$")[1];
+                        if(data != "") {
+                            console.log(data);
+                            pokemonCore.gameChar.pokemon = JSON.parse(data);
+                        }
+                        break;
+                    case "6":
+                        var data = evt.data.split("$")[1];
+                        if(data != ""){
+                            var coords = data.split(".")[0].split(",");
+                            pokemonCore.maps.getMap(data.split(".")[1], parseInt(coords[0]), parseInt(coords[1]));
+                        }
+                        break;
+                    case "7":
+                        var data = evt.data.split("$")[1];
+                        if(data != "")
+                            pokemonCore.gameChar.bagPkmn = JSON.parse(data);
+                        break;
+                    case "8":
+                        var data = evt.data.split("$")[1]
+                        if(data != "")
+                            pokemonCore.gameChar.bag = JSON.parse(data);
+                        break;
                 }
             };
         },
@@ -2660,6 +2694,32 @@ var pokemonCore = {
 
         sendMessage: function (message) {
             pokemonCore.server.socket.send("3$" + message);
+        },
+
+        charName: function(name){
+            pokemonCore.server.socket.send("5$" + name);
+        },
+
+        sendPokemon: function(){
+            pokemonCore.server.socket.send("4$" + JSON.stringify(pokemonCore.gameChar.pokemon));
+        },
+
+        sendBagPokemon: function(){
+            pokemonCore.server.socket.send("7$" + JSON.stringify(pokemonCore.gameChar.pokemon));
+        },
+
+        sendBag: function(){
+            pokemonCore.server.socket.send("6$" + JSON.stringify(pokemonCore.gameChar.bag));
+        },
+
+        chooseCharName: function(){
+            $("#game").append('<div class="character-name" style="position: absolute;"><label class="char-name">Choose a character name:</label><input type="text" class="char-name-input" /><button class="char-name-btn" title="OK" name="OK">OK</button></div>');
+            $(".char-name-btn").bind("click", function(){
+                pokemonCore.server.charName($(".char-name-input").val());
+                pokemonCore.server.sendMap();
+                pokemonCore.server.startTicks();
+                $(".character.name").remove();
+            });
         }
     },
     natures: [

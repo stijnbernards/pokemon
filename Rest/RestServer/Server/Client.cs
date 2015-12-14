@@ -24,7 +24,9 @@ namespace RestServer.Server
                 { 2, SaveMap },
                 { 3, Message },
                 { 4, Pokemons },
-                { 5, CharName }
+                { 5, CharName },
+                { 6, Bag },
+                { 7, BagPokemons }
             };
 
             this.client = client;
@@ -40,19 +42,20 @@ namespace RestServer.Server
 
             new Thread(() =>
             {
-                while (true)
+                while (client.Connected)
                 {
                     SendPlayerCoords();
                     SendMessages();
                     lastUpdate = DateTime.Now;
                     Thread.Sleep(100);
+                    Console.WriteLine(this.character.Name);
                 };
             }).Start();
         }
 
         private void Receive()
         {
-            while (true)
+            while (client.Connected)
             {
                 try
                 {
@@ -62,9 +65,13 @@ namespace RestServer.Server
                     received = Main.ReadFromSocket(client);
                     receivedsplt = received.Split('$');
                     processor[Convert.ToInt16(receivedsplt[0])](receivedsplt[1]);
+                    Main.Save(this.character);
                 }
                 catch (Exception e) { }
             }
+            Console.WriteLine(Data.clients.Count);
+            Data.clients.Remove(this);
+            Console.WriteLine(Data.clients.Count);
         }
 
         private void SendPlayerCoords()
@@ -134,12 +141,33 @@ namespace RestServer.Server
 
         private void Pokemons(object message)
         {
-            this.character.pokemons = message.ToString();
+            this.character.Pokemon = message.ToString();
+        }
+
+        private void Bag(object message)
+        {
+            this.character.Bag = message.ToString();
+        }
+
+        private void BagPokemons(object message)
+        {
+            this.character.Bag = message.ToString();
         }
 
         private void CharName(object message)
         {
             this.character.Name = message.ToString();
+            if (Main.Load(ref this.character))
+            {
+                string sendstr = "6$" + this.character.Coords.X + "," + this.character.Coords.Y + "." + this.character.Map;
+                Send(sendstr);
+                sendstr = "4$" + this.character.Pokemon;
+                Send(sendstr);
+                sendstr = "7$" + this.character.BagPokemon;
+                Send(sendstr);
+                sendstr = "8$" + this.character.Bag;
+                Send(sendstr);
+            }
         }
     }
 }

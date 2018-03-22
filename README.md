@@ -1,2 +1,2 @@
 # pokemon
-[play](stijnbernards.nl)
+[play](http://stijnbernards.nl)
